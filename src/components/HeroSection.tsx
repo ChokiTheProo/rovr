@@ -31,8 +31,8 @@ const HeroSection = () => {
 
           {/* Main Heading */}
           <h1 className="font-display text-6xl md:text-8xl font-bold mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            <span className="text-foreground">REV</span>
-            <span className="text-gradient">YRA</span>
+            <span className="text-foreground">Ro</span>
+            <span className="text-gradient">VR</span>
           </h1>
 
           {/* Subheading */}
@@ -62,7 +62,7 @@ const HeroSection = () => {
               onClick={() => scrollToSection('sobre')}
               className="border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
             >
-              Conhecer a Revyra
+              Conhecer a RoVR
             </Button>
             <Button 
               size="lg"

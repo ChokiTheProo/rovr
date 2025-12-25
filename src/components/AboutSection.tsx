@@ -31,17 +31,17 @@ const AboutSection = () => {
         <div className="text-center mb-16">
           <span className="text-primary text-sm font-medium tracking-wider uppercase">Sobre Nós</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-            Somos a <span className="text-gradient">Revyra</span>
+            Somos a <span className="text-gradient">RoVR</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
-            A Revyra é um estúdio de desenvolvimento de jogos com DNA de startup. 
-            Combinamos a paixão por games com estratégias de negócios digitais para 
+            A RoVR é um estúdio de desenvolvimento de soluções digitais com DNA de startup. 
+            Combinamos inovação tecnológica com estratégias de negócios digitais para 
             criar produtos que encantam e geram receita recorrente.
           </p>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed mt-4">
             Nosso diferencial está na abordagem <span className="text-foreground font-semibold">Micro SaaS</span>: 
-            cada jogo é um produto independente, automatizado e escalável. Da concepção à 
-            monetização, pensamos em cada detalhe para maximizar o valor entregue aos jogadores 
+            cada projeto é um produto independente, automatizado e escalável. Da concepção à 
+            monetização, pensamos em cada detalhe para maximizar o valor entregue aos clientes 
             e aos nossos parceiros.
           </p>
         </div>
