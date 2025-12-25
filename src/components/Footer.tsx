@@ -13,16 +13,33 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <div className="md:col-span-2">
-            <a href="#" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-primary/80 to-accent border border-primary/50 flex items-center justify-center shadow-lg shadow-primary/20">
-                <span className="font-display text-lg font-black text-primary-foreground tracking-tighter">R</span>
+            <a href="#" className="flex items-center gap-3 mb-4 group perspective-1000">
+              <div className="relative w-12 h-12 transform-style-3d transition-all duration-500 group-hover:rotate-y-12 group-hover:rotate-x-6 group-hover:scale-110">
+                {/* Glow effect behind */}
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary via-accent to-primary blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 animate-pulse" />
+                
+                {/* Main logo container */}
+                <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-primary via-primary/80 to-accent border border-primary/50 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:shadow-xl group-hover:shadow-primary/50 transition-all duration-500 group-hover:border-primary">
+                  {/* Inner shine effect */}
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Letter R with animation */}
+                  <span className="font-display text-xl font-black text-primary-foreground tracking-tighter relative z-10 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
+                    R
+                  </span>
+                </div>
+                
+                {/* Floating particles effect */}
+                <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-accent opacity-0 group-hover:opacity-100 group-hover:animate-float transition-opacity duration-300" />
+                <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 group-hover:animate-float transition-opacity duration-500 delay-100" />
               </div>
-              <div className="flex flex-col">
+              
+              <div className="flex flex-col transition-transform duration-300 group-hover:translate-x-1">
                 <span className="font-display text-xl font-bold tracking-tight">
-                  <span className="text-foreground">Ro</span>
-                  <span className="text-gradient">VR</span>
+                  <span className="text-foreground transition-colors duration-300 group-hover:text-primary">Ro</span>
+                  <span className="text-gradient group-hover:animate-glow-pulse">VR</span>
                 </span>
-                <span className="text-[10px] text-muted-foreground -mt-1">Criamos SaaS e MicroSaaS</span>
+                <span className="text-[10px] text-muted-foreground -mt-1 transition-colors duration-300 group-hover:text-muted-foreground/80">Criamos SaaS e MicroSaaS</span>
               </div>
             </a>
             <p className="text-muted-foreground text-sm max-w-md">

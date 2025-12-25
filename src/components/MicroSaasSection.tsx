@@ -44,7 +44,7 @@ const MicroSaasSection = () => {
             Visão <span className="text-gradient">Micro SaaS</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Cada produto da Revyra é tratado como um negócio digital independente. 
+            Cada produto da RoVR é tratado como um negócio digital independente. 
             Criamos aplicativos similares aos nossos projetos existentes, aplicando metodologias SaaS 
             para gerar valor mensurável. Integrações TEF e notas fiscais em andamento.
           </p>
@@ -85,10 +85,10 @@ const MicroSaasSection = () => {
         {/* Quote */}
         <div className="max-w-3xl mx-auto text-center p-8 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm">
           <blockquote className="text-xl md:text-2xl font-light text-foreground italic mb-4">
-            "Não criamos apenas jogos. Criamos produtos digitais que crescem, 
+            "Não criamos apenas soluções. Criamos produtos digitais que crescem, 
             evoluem e geram valor continuamente."
           </blockquote>
-          <cite className="text-primary font-semibold not-italic">— EQUIPE REVYRA</cite>
+          <cite className="text-primary font-semibold not-italic">— EQUIPE ROVR</cite>
         </div>
       </div>
     </section>
