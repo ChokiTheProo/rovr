@@ -1,7 +1,18 @@
-import { Gamepad2, Sparkles } from "lucide-react";
+import { Sparkles, MessageCircle } from "lucide-react";
 import { Button } from "./ui/button";
 
 const HeroSection = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent("Olá! Gostaria de mais informações sobre a Revyra.");
+    window.open(`https://wa.me/5554991710543?text=${message}`, '_blank');
+  };
   const stats = [
     { value: "10+", label: "Projetos" },
     { value: "50K+", label: "Pessoas" },
@@ -45,6 +56,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <Button 
               size="lg"
+              onClick={() => scrollToSection('projetos')}
               className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl px-8 py-6 text-lg glow-primary transition-all duration-300"
             >
               Ver Projetos
@@ -52,9 +64,18 @@ const HeroSection = () => {
             <Button 
               size="lg"
               variant="outline"
+              onClick={() => scrollToSection('sobre')}
               className="border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
             >
               Conhecer a Revyra
+            </Button>
+            <Button 
+              size="lg"
+              onClick={handleWhatsApp}
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
+              Fale Conosco
             </Button>
           </div>
 

@@ -44,9 +44,9 @@ const MicroSaasSection = () => {
             Visão <span className="text-gradient">Micro SaaS</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Cada jogo da Revyra é tratado como um produto digital independente. 
-            Aplicamos metodologias de SaaS para criar games que não apenas entretêm, 
-            mas também geram valor de negócio mensurável e escalável.
+            Cada produto da Revyra é tratado como um negócio digital independente. 
+            Criamos aplicativos similares aos nossos projetos existentes, aplicando metodologias SaaS 
+            para gerar valor mensurável. Integrações TEF e notas fiscais em andamento.
           </p>
         </div>
 

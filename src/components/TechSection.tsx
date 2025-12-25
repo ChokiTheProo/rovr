@@ -36,8 +36,8 @@ const TechSection = () => {
             Tecnologia de <span className="text-gradient">Ponta</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Utilizamos as melhores ferramentas e metodologias do mercado para entregar 
-            soluções de alta qualidade.
+            Atualmente desenvolvemos aplicativos web similares à nossa página inicial e projetos existentes. 
+            Integrações TEF e sistemas de notas fiscais estão em desenvolvimento.
           </p>
         </div>
 

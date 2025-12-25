@@ -65,6 +65,16 @@ const Footer = () => {
           <div>
             <h4 className="text-foreground font-semibold mb-4">Links</h4>
             <div className="space-y-3">
+              <a 
+                href="#trabalhe-conosco" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('trabalhe-conosco')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="block text-muted-foreground text-sm hover:text-primary transition-colors"
+              >
+                Trabalhe Conosco
+              </a>
               <Link to="/termos" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
                 Termos de Uso
               </Link>
@@ -81,7 +91,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2024 Revyra. Todos os direitos reservados.
+            © 2025 Revyra. Todos os direitos reservados.
           </p>
           <p className="text-muted-foreground text-xs">
             Feito com ❤️ no Brasil
