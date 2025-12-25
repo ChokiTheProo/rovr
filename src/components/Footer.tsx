@@ -1,4 +1,5 @@
-import { Gamepad2 } from "lucide-react";
+import { Layers } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -8,12 +9,15 @@ const Footer = () => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/50 flex items-center justify-center">
-              <Gamepad2 className="w-4 h-4 text-primary" />
+              <Layers className="w-4 h-4 text-primary" />
             </div>
-            <span className="font-display text-lg font-bold">
-              <span className="text-foreground">REV</span>
-              <span className="text-gradient">YRA</span>
-            </span>
+            <div className="flex flex-col">
+              <span className="font-display text-lg font-bold">
+                <span className="text-foreground">REV</span>
+                <span className="text-gradient">YRA</span>
+              </span>
+              <span className="text-[9px] text-muted-foreground -mt-1">Criamos SaaS e MicroSaaS</span>
+            </div>
           </a>
 
           {/* Copyright */}
@@ -23,12 +27,12 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex items-center gap-6">
-            <a href="#" className="text-muted-foreground text-sm hover:text-foreground transition-colors">
+            <Link to="/termos" className="text-muted-foreground text-sm hover:text-foreground transition-colors">
               Termos
-            </a>
-            <a href="#" className="text-muted-foreground text-sm hover:text-foreground transition-colors">
+            </Link>
+            <Link to="/privacidade" className="text-muted-foreground text-sm hover:text-foreground transition-colors">
               Privacidade
-            </a>
+            </Link>
           </div>
         </div>
       </div>
