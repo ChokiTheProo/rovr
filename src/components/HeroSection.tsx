@@ -11,7 +11,6 @@ const HeroSection = () => {
 
   const stats = [
     { value: "10+", label: "Projetos" },
-    { value: "50K+", label: "Pessoas" },
     { value: "99%", label: "Uptime" },
   ];
 
