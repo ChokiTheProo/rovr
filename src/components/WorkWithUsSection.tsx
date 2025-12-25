@@ -1,5 +1,4 @@
-import { Users, Rocket, Heart, Send } from "lucide-react";
-import { Button } from "./ui/button";
+import { Users, Rocket, Heart } from "lucide-react";
 
 const WorkWithUsSection = () => {
   const benefits = [
@@ -7,11 +6,6 @@ const WorkWithUsSection = () => {
     { icon: Users, title: "Equipe Colaborativa", description: "Ambiente de trabalho flexível e remoto" },
     { icon: Heart, title: "Crescimento", description: "Oportunidade de desenvolvimento contínuo" },
   ];
-
-  const handleApply = () => {
-    const message = encodeURIComponent("Olá! Tenho interesse em trabalhar na Revyra. Gostaria de saber mais sobre as oportunidades.");
-    window.open(`https://wa.me/5554991710543?text=${message}`, '_blank');
-  };
 
   return (
     <section id="trabalhe-conosco" className="py-24 relative">
@@ -26,7 +20,7 @@ const WorkWithUsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
             <div
               key={index}
@@ -39,17 +33,6 @@ const WorkWithUsSection = () => {
               <p className="text-muted-foreground text-sm">{benefit.description}</p>
             </div>
           ))}
-        </div>
-
-        <div className="text-center">
-          <Button 
-            size="lg"
-            onClick={handleApply}
-            className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
-          >
-            <Send className="w-5 h-5 mr-2" />
-            Enviar Candidatura
-          </Button>
         </div>
       </div>
     </section>
