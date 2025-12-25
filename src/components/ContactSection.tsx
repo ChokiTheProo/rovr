@@ -1,5 +1,6 @@
 import { Clock, MessageCircle, FileText } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 const ContactSection = () => {
   const benefits = [
@@ -29,12 +30,14 @@ const ContactSection = () => {
           </p>
 
           {/* CTA Button */}
-          <Button 
-            size="lg"
-            className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl px-10 py-6 text-lg glow-primary transition-all duration-300 mb-10"
-          >
-            Fale Conosco
-          </Button>
+          <Link to="/contato">
+            <Button 
+              size="lg"
+              className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl px-10 py-6 text-lg glow-primary transition-all duration-300 mb-10"
+            >
+              Fale Conosco
+            </Button>
+          </Link>
 
           {/* Benefits */}
           <div className="flex flex-wrap justify-center gap-8">
