@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contato = () => {
   const [formData, setFormData] = useState({
@@ -15,11 +16,27 @@ const Contato = () => {
     empresa: "",
     mensagem: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Mensagem enviada com sucesso! Entraremos em contato em breve.");
-    setFormData({ nome: "", email: "", telefone: "", empresa: "", mensagem: "" });
+    setIsLoading(true);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+
+      if (error) throw error;
+
+      toast.success("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+      setFormData({ nome: "", email: "", telefone: "", empresa: "", mensagem: "" });
+    } catch (error: any) {
+      console.error("Error sending message:", error);
+      toast.error("Erro ao enviar mensagem. Tente novamente.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const benefits = [
@@ -193,9 +210,10 @@ const Contato = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl py-6 text-lg glow-primary transition-all duration-300 group"
+                  disabled={isLoading}
+                  className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl py-6 text-lg glow-primary transition-all duration-300 group disabled:opacity-50"
                 >
-                  <span>Enviar Mensagem</span>
+                  <span>{isLoading ? "Enviando..." : "Enviar Mensagem"}</span>
                   <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </form>
