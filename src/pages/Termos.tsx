@@ -19,11 +19,11 @@ const Termos = () => {
   const sections = [
     {
       title: "1. Aceitação dos Termos",
-      content: "Ao acessar e utilizar os serviços da Revyra, você concorda com estes Termos de Uso. Se você não concordar com qualquer parte destes termos, não deve usar nossos serviços."
+      content: "Ao acessar e utilizar os serviços da Revyera, você concorda com estes Termos de Uso. Se você não concordar com qualquer parte destes termos, não deve usar nossos serviços."
     },
     {
       title: "2. Descrição dos Serviços",
-      content: "A Revyra oferece serviços de desenvolvimento de software, SaaS e MicroSaaS personalizados. Nossos produtos incluem sistemas de gestão financeira (Fluxen) e gestão de saúde (Klyexa), entre outros."
+      content: "A Revyera oferece serviços de desenvolvimento de software, SaaS e MicroSaaS personalizados. Nossos produtos incluem sistemas de gestão financeira (Fluxen) e gestão de saúde (Klyexa), entre outros."
     },
     {
       title: "3. Uso Aceitável",
@@ -31,7 +31,7 @@ const Termos = () => {
     },
     {
       title: "4. Propriedade Intelectual",
-      content: "Todo o conteúdo, código-fonte, designs e marcas registradas são de propriedade exclusiva da Revyra. É proibida a reprodução, distribuição ou modificação sem autorização prévia por escrito."
+      content: "Todo o conteúdo, código-fonte, designs e marcas registradas são de propriedade exclusiva da Revyera. É proibida a reprodução, distribuição ou modificação sem autorização prévia por escrito."
     },
     {
       title: "5. Privacidade e Dados",
@@ -43,7 +43,7 @@ const Termos = () => {
     },
     {
       title: "7. Limitação de Responsabilidade",
-      content: "A Revyra não se responsabiliza por danos indiretos, incidentais ou consequenciais decorrentes do uso de nossos serviços. Nossa responsabilidade está limitada ao valor pago pelos serviços."
+      content: "A Revyera não se responsabiliza por danos indiretos, incidentais ou consequenciais decorrentes do uso de nossos serviços. Nossa responsabilidade está limitada ao valor pago pelos serviços."
     },
     {
       title: "8. Modificações",
@@ -126,7 +126,7 @@ const Termos = () => {
               to="/contato"
               className="text-primary hover:underline mt-2 inline-block"
             >
-              contato@revyra.com
+              contato@revyera.com
             </Link>
           </motion.div>
         </motion.div>

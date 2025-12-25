@@ -35,7 +35,7 @@ const Privacidade = () => {
     {
       icon: UserCheck,
       title: "Seus Direitos",
-      content: "Você tem direito de acessar, corrigir, excluir seus dados pessoais, além de solicitar a portabilidade dos dados. Para exercer esses direitos, entre em contato pelo email: privacidade@revyra.com"
+      content: "Você tem direito de acessar, corrigir, excluir seus dados pessoais, além de solicitar a portabilidade dos dados. Para exercer esses direitos, entre em contato pelo email: privacidade@revyera.com"
     },
     {
       icon: Shield,
@@ -90,7 +90,7 @@ const Privacidade = () => {
             className="p-6 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm mb-8"
           >
             <p className="text-muted-foreground leading-relaxed">
-              A Revyra está comprometida em proteger sua privacidade. Esta política descreve como coletamos, 
+              A Revyera está comprometida em proteger sua privacidade. Esta política descreve como coletamos, 
               usamos e protegemos suas informações pessoais em conformidade com a Lei Geral de Proteção de Dados (LGPD).
             </p>
           </motion.div>
@@ -146,10 +146,10 @@ const Privacidade = () => {
               Dúvidas sobre privacidade?
             </p>
             <a
-              href="mailto:privacidade@revyra.com"
+              href="mailto:privacidade@revyera.com"
               className="text-accent hover:underline mt-2 inline-block"
             >
-              privacidade@revyra.com
+              privacidade@revyera.com
             </a>
           </motion.div>
         </motion.div>
