@@ -1,9 +1,9 @@
-import { Layers, Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const handleWhatsApp = () => {
-    const message = encodeURIComponent("Olá! Gostaria de mais informações sobre a Revyera.");
+    const message = encodeURIComponent("Olá! Gostaria de mais informações sobre a RoVR.");
     window.open(`https://wa.me/5554991710543?text=${message}`, '_blank');
   };
 
@@ -14,13 +14,13 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="md:col-span-2">
             <a href="#" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary/20 border border-primary/50 flex items-center justify-center">
-                <Layers className="w-5 h-5 text-primary" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-primary/80 to-accent border border-primary/50 flex items-center justify-center shadow-lg shadow-primary/20">
+                <span className="font-display text-lg font-black text-primary-foreground tracking-tighter">R</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-display text-xl font-bold">
-                  <span className="text-foreground">REV</span>
-                  <span className="text-gradient">YERA</span>
+                <span className="font-display text-xl font-bold tracking-tight">
+                  <span className="text-foreground">Ro</span>
+                  <span className="text-gradient">VR</span>
                 </span>
                 <span className="text-[10px] text-muted-foreground -mt-1">Criamos SaaS e MicroSaaS</span>
               </div>
@@ -84,6 +84,9 @@ const Footer = () => {
               <Link to="/contato" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
                 Contato
               </Link>
+              <Link to="/faq" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
+                FAQ
+              </Link>
             </div>
           </div>
         </div>
@@ -91,7 +94,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2025 Revyera. Todos os direitos reservados.
+            © 2025 RoVR. Todos os direitos reservados.
           </p>
           <p className="text-muted-foreground text-xs">
             Feito com ❤️ no Brasil
