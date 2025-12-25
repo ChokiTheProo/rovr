@@ -1,11 +1,33 @@
-import { Star, Heart, DollarSign, TrendingUp, Users, CheckCircle, Globe, Stethoscope, Calendar, FileCheck, MessageCircle, Shield, Zap, Clock } from "lucide-react";
+import { Star, Heart, DollarSign, TrendingUp, Users, CheckCircle, Globe, Stethoscope, Calendar, FileCheck, Shield, Zap, Clock, Loader2 } from "lucide-react";
 import { Button } from "./ui/button";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const ProjectsSection = () => {
-  const handleSubscribe = (product: string) => {
-    const whatsappNumber = "5554991710543";
-    const message = encodeURIComponent(`Olá! Tenho interesse em assinar o ${product}. Gostaria de mais informações.`);
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+  const [loading, setLoading] = useState<string | null>(null);
+
+  const handleSubscribe = async (product: string) => {
+    setLoading(product);
+    try {
+      const { data, error } = await supabase.functions.invoke('create-checkout', {
+        body: { product: product.toLowerCase() }
+      });
+
+      if (error) throw error;
+      if (data?.url) {
+        window.open(data.url, '_blank');
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      toast.error('Erro ao iniciar checkout. Tente novamente.');
+    } finally {
+      setLoading(null);
+    }
+  };
+
+  const scrollToContact = () => {
+    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const projects = [
@@ -185,22 +207,15 @@ const ProjectsSection = () => {
                   <div className="flex gap-2">
                     <Button 
                       onClick={() => handleSubscribe(project.title)}
+                      disabled={loading === project.title}
                       className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl px-6 glow-primary"
                     >
-                      {project.cta}
+                      {loading === project.title ? (
+                        <><Loader2 className="w-4 h-4 mr-2 animate-spin" />Processando...</>
+                      ) : project.cta}
                     </Button>
                   </div>
                 </div>
-
-                {/* Contact Now Button */}
-                <Button 
-                  onClick={() => handleSubscribe(project.title)}
-                  variant="outline"
-                  className="w-full mt-4 border-accent/50 text-accent hover:bg-accent/10"
-                >
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  Contate Agora
-                </Button>
               </div>
             </div>
           ))}
@@ -265,12 +280,11 @@ const ProjectsSection = () => {
                       </Button>
                     </a>
                     <Button 
-                      onClick={() => handleSubscribe(project.title)}
+                      onClick={scrollToContact}
                       variant="outline"
                       className="border-accent/50 text-accent hover:bg-accent/10"
                     >
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      Contate Agora
+                      Fale Conosco
                     </Button>
                   </div>
                 </div>
