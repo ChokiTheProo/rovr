@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Layers } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
@@ -21,13 +20,13 @@ const Header = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href="#" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-lg bg-primary/20 border border-primary/50 flex items-center justify-center group-hover:glow-primary transition-all duration-300">
-                <Layers className="w-5 h-5 text-primary" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-primary/80 to-accent border border-primary/50 flex items-center justify-center group-hover:glow-primary transition-all duration-300 shadow-lg shadow-primary/20">
+                <span className="font-display text-lg font-black text-primary-foreground tracking-tighter">R</span>
               </div>
-            <div className="flex flex-col">
-                <span className="font-display text-xl font-bold">
-                  <span className="text-foreground">REV</span>
-                  <span className="text-gradient">YERA</span>
+              <div className="flex flex-col">
+                <span className="font-display text-xl font-bold tracking-tight">
+                  <span className="text-foreground">Ro</span>
+                  <span className="text-gradient">VR</span>
                 </span>
                 <span className="text-[10px] text-muted-foreground -mt-1">Criamos SaaS e MicroSaaS</span>
               </div>
