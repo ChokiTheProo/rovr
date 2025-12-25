@@ -1,12 +1,7 @@
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const handleWhatsApp = () => {
-    const message = encodeURIComponent("Olá! Gostaria de mais informações sobre a RoVR.");
-    window.open(`https://wa.me/5554991710543?text=${message}`, '_blank');
-  };
-
   return (
     <footer className="py-12 border-t border-border/50 bg-card/30">
       <div className="container mx-auto px-6">
@@ -68,13 +63,6 @@ const Footer = () => {
                 <Phone className="w-4 h-4" />
                 (54) 99506-4090
               </a>
-              <button 
-                onClick={handleWhatsApp}
-                className="flex items-center gap-2 text-accent text-sm hover:text-accent/80 transition-colors"
-              >
-                <MessageCircle className="w-4 h-4" />
-                WhatsApp
-              </button>
             </div>
           </div>
 
