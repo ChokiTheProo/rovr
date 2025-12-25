@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 const HeroSection = () => {
   const stats = [
     { value: "10+", label: "Projetos" },
-    { value: "50K+", label: "Jogadores" },
+    { value: "50K+", label: "Pessoas" },
     { value: "99%", label: "Uptime" },
   ];
 
@@ -18,8 +18,8 @@ const HeroSection = () => {
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           {/* Badge */}
           <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-8 animate-fade-in">
-            <Gamepad2 className="w-4 h-4 text-primary" />
-            <span className="text-sm text-muted-foreground">Game Studio • Micro SaaS</span>
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm text-muted-foreground">SaaS Studio • MicroSaaS</span>
             <Sparkles className="w-4 h-4 text-accent" />
           </div>
 
@@ -31,13 +31,13 @@ const HeroSection = () => {
 
           {/* Subheading */}
           <h2 className="text-2xl md:text-3xl font-light mb-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <span className="text-foreground">Criamos jogos inteligentes que </span>
+            <span className="text-foreground">Criamos SaaS e MicroSaaS que </span>
             <span className="text-gradient-accent font-medium">escalam como negócios.</span>
           </h2>
 
           {/* Description */}
           <p className="text-muted-foreground text-lg max-w-2xl mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            Desenvolvemos games como produtos digitais escaláveis. Inovação, 
+            Desenvolvemos soluções digitais escaláveis. Inovação, 
             automação e monetização inteligente em cada projeto.
           </p>
 
