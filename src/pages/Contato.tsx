@@ -29,9 +29,11 @@ const Contato = () => {
   ];
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "contato@revyra.com" },
-    { icon: Phone, label: "WhatsApp", value: "+55 (11) 99999-9999" },
-    { icon: MapPin, label: "Localização", value: "São Paulo, Brasil" },
+    { icon: Mail, label: "Email", value: "eurhok@gmail.com" },
+    { icon: Mail, label: "Email", value: "robsonvarela23@gmail.com" },
+    { icon: Phone, label: "WhatsApp", value: "(54) 99171-0543" },
+    { icon: Phone, label: "Telefone", value: "(54) 99506-4090" },
+    { icon: MapPin, label: "Localização", value: "Brasil" },
   ];
 
   const containerVariants = {
