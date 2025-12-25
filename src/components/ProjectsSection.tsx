@@ -1,4 +1,4 @@
-import { Star, Heart, DollarSign, TrendingUp, Users, CheckCircle, Globe, Stethoscope, Calendar, FileCheck, Shield, Zap, Clock, Loader2 } from "lucide-react";
+import { Star, Heart, DollarSign, TrendingUp, Users, CheckCircle, Globe, Stethoscope, Calendar, FileCheck, Shield, Zap, Clock, Loader2, Pill, Scale } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
@@ -111,6 +111,42 @@ const ProjectsSection = () => {
         "💊 Controle de medicamentos",
         "📱 Fácil de usar",
         "👨‍👩‍👧 Comunicação com familiares",
+      ],
+    },
+    {
+      title: "Tratamento Diário",
+      category: "Saúde Digestiva",
+      description: "Aplicativo especializado para tratamento de gastrite e H. pylori. Acompanhe seu tratamento, medicamentos, sintomas e evolução diária. Ideal para quem busca controle e recuperação.",
+      status: "Disponível",
+      statusColor: "bg-orange-500",
+      rating: "4.9",
+      cta: "Acessar Agora",
+      icon: Pill,
+      gradient: "from-orange-500/20 to-amber-500/20",
+      link: "https://tratamentodiario.lovable.app/tasks",
+      differentials: [
+        "💊 Controle de medicamentos",
+        "📋 Acompanhamento de sintomas",
+        "📈 Evolução do tratamento",
+        "🩺 Foco em gastrite e H. pylori",
+      ],
+    },
+    {
+      title: "Emagrio",
+      category: "Saúde & Emagrecimento",
+      description: "Aplicativo completo para sua jornada de emagrecimento. Controle de peso, alimentação, exercícios e metas. Acompanhe sua evolução e conquiste seus objetivos de forma saudável.",
+      status: "Disponível",
+      statusColor: "bg-green-500",
+      rating: "4.8",
+      cta: "Acessar Agora",
+      icon: Scale,
+      gradient: "from-green-500/20 to-lime-500/20",
+      link: "https://emagrio-journey-unlocked.lovable.app/",
+      differentials: [
+        "⚖️ Controle de peso",
+        "🍎 Acompanhamento alimentar",
+        "🏃 Registro de exercícios",
+        "🎯 Metas personalizadas",
       ],
     },
   ];
