@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const handleWhatsApp = () => {
-    const message = encodeURIComponent("Olá! Gostaria de mais informações sobre a Revyra.");
+    const message = encodeURIComponent("Olá! Gostaria de mais informações sobre a Revyera.");
     window.open(`https://wa.me/5554991710543?text=${message}`, '_blank');
   };
 
@@ -20,7 +20,7 @@ const Footer = () => {
               <div className="flex flex-col">
                 <span className="font-display text-xl font-bold">
                   <span className="text-foreground">REV</span>
-                  <span className="text-gradient">YRA</span>
+                  <span className="text-gradient">YERA</span>
                 </span>
                 <span className="text-[10px] text-muted-foreground -mt-1">Criamos SaaS e MicroSaaS</span>
               </div>
@@ -91,7 +91,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2025 Revyra. Todos os direitos reservados.
+            © 2025 Revyera. Todos os direitos reservados.
           </p>
           <p className="text-muted-foreground text-xs">
             Feito com ❤️ no Brasil
