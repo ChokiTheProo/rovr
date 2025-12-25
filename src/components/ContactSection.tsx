@@ -16,13 +16,8 @@ const ContactSection = () => {
     { icon: Phone, label: "(54) 99506-4090" },
   ];
 
-  const handleWhatsApp = () => {
-    const message = encodeURIComponent("Olá! Tenho interesse em conhecer mais sobre os projetos da Revyra.");
-    window.open(`https://wa.me/5554991710543?text=${message}`, '_blank');
-  };
-
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section id="contato" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-radial opacity-50" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-primary/10 rounded-full blur-3xl" />
       
@@ -51,8 +46,8 @@ const ContactSection = () => {
             ))}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+          {/* CTA Button */}
+          <div className="flex justify-center mb-10">
             <Link to="/contato">
               <Button 
                 size="lg"
@@ -61,15 +56,6 @@ const ContactSection = () => {
                 Fale Conosco
               </Button>
             </Link>
-            <Button 
-              size="lg"
-              onClick={handleWhatsApp}
-              variant="outline"
-              className="border-accent/50 text-accent hover:bg-accent/10 font-semibold rounded-xl px-10 py-6 text-lg"
-            >
-              <MessageCircle className="w-5 h-5 mr-2" />
-              WhatsApp
-            </Button>
           </div>
 
           {/* Benefits */}

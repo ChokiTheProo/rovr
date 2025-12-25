@@ -9,10 +9,6 @@ const HeroSection = () => {
     }
   };
 
-  const handleWhatsApp = () => {
-    const message = encodeURIComponent("Olá! Gostaria de mais informações sobre a Revyra.");
-    window.open(`https://wa.me/5554991710543?text=${message}`, '_blank');
-  };
   const stats = [
     { value: "10+", label: "Projetos" },
     { value: "50K+", label: "Pessoas" },
@@ -71,7 +67,7 @@ const HeroSection = () => {
             </Button>
             <Button 
               size="lg"
-              onClick={handleWhatsApp}
+              onClick={() => scrollToSection('contato')}
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
             >
               <MessageCircle className="w-5 h-5 mr-2" />
