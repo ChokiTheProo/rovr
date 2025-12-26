@@ -47,7 +47,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="text-foreground font-semibold mb-4">{t("footer.contact")}</h4>
             <div className="space-y-3">
@@ -62,10 +61,6 @@ const Footer = () => {
               <a href="tel:+5554991710543" className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
                 (54) 99171-0543
-              </a>
-              <a href="tel:+5554995064090" className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors">
-                <Phone className="w-4 h-4" />
-                (54) 99506-4090
               </a>
             </div>
           </div>
