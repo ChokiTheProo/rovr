@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -12,6 +12,8 @@ interface MobileMenuProps {
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const { t } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isOpen) {
@@ -31,11 +33,22 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   };
 
   const navItems = [
-    { label: t("nav.about"), href: "#sobre" },
-    { label: t("nav.projects"), href: "#projetos" },
-    { label: t("nav.technology"), href: "#tecnologia" },
-    { label: t("nav.microsaas"), href: "#microsaas" },
+    { label: t("nav.about"), href: "sobre" },
+    { label: t("nav.projects"), href: "projetos" },
+    { label: t("nav.technology"), href: "tecnologia" },
+    { label: t("nav.microsaas"), href: "microsaas" },
   ];
+
+  const handleNavClick = (sectionId: string) => {
+    handleClose();
+    if (location.pathname === "/") {
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      }, 350);
+    } else {
+      navigate("/", { state: { scrollTo: sectionId } });
+    }
+  };
 
   if (!isOpen && !isAnimating) return null;
 
@@ -86,10 +99,9 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         {/* Navigation Links */}
         <nav className="flex flex-col items-center gap-6">
           {navItems.map((item, index) => (
-            <a
+            <button
               key={item.label}
-              href={item.href}
-              onClick={handleClose}
+              onClick={() => handleNavClick(item.href)}
               className={`text-2xl font-semibold text-foreground hover:text-primary transition-all duration-300 transform ${
                 isAnimating && isOpen
                   ? "translate-y-0 opacity-100"
@@ -98,7 +110,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               style={{ transitionDelay: `${(index + 1) * 100}ms` }}
             >
               {item.label}
-            </a>
+            </button>
           ))}
         </nav>
 
