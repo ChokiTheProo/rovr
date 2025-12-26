@@ -1,12 +1,15 @@
 import { Clock, MessageCircle, FileText, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
+  const { t } = useLanguage();
+
   const benefits = [
-    { icon: Clock, text: "Resposta em 24h" },
-    { icon: MessageCircle, text: "Consultoria gratuita" },
-    { icon: FileText, text: "NDA disponível" },
+    { icon: Clock, text: t("contactsection.benefit1") },
+    { icon: MessageCircle, text: t("contactsection.benefit2") },
+    { icon: FileText, text: t("contactsection.benefit3") },
   ];
 
   const contacts = [
@@ -23,15 +26,14 @@ const ContactSection = () => {
         <div className="max-w-3xl mx-auto text-center">
           {/* Header */}
           <span className="text-accent text-sm font-medium tracking-wider">
-            Vamos criar algo incrível juntos
+            {t("contactsection.tag")}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-            Pronto para transformar{" "}
-            <span className="text-gradient">sua ideia em realidade?</span>
+            {t("contactsection.title1")}{" "}
+            <span className="text-gradient">{t("contactsection.title2")}</span>
           </h2>
           <p className="text-muted-foreground text-lg mb-8">
-            Seja você um empreendedor com uma visão inovadora ou uma empresa buscando 
-            expandir no mercado digital, a Revyra está pronta para tornar seu projeto realidade.
+            {t("contactsection.description")}
           </p>
 
           {/* Contact Info */}
@@ -55,7 +57,7 @@ const ContactSection = () => {
                 size="lg"
                 className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl px-10 py-6 text-lg glow-primary transition-all duration-300"
               >
-                Fale Conosco
+                {t("contactsection.cta")}
               </Button>
             </Link>
           </div>

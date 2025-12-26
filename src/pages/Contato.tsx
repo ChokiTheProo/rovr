@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Clock, MessageCircle, FileText, Send, Mail, Phone, MapPin, ArrowLeft, Sparkles } from "lucide-react";
+import { Clock, MessageCircle, FileText, Send, Mail, MapPin, ArrowLeft, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,7 +11,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Contato = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
@@ -42,20 +42,16 @@ const Contato = () => {
     }
   };
 
-  const benefits = language === "pt" ? [
-    { icon: Clock, text: "Resposta em 24h", description: "Retornamos rapidamente todas as solicitações" },
-    { icon: MessageCircle, text: "Consultoria gratuita", description: "Análise inicial sem compromisso" },
-    { icon: FileText, text: "NDA disponível", description: "Protegemos suas ideias com confidencialidade" },
-  ] : [
-    { icon: Clock, text: "24h Response", description: "We quickly return all requests" },
-    { icon: MessageCircle, text: "Free consultation", description: "Initial analysis with no obligation" },
-    { icon: FileText, text: "NDA available", description: "We protect your ideas with confidentiality" },
+  const benefits = [
+    { icon: Clock, text: t("contact.why.benefit1"), description: t("contact.why.benefit1Desc") },
+    { icon: MessageCircle, text: t("contact.why.benefit2"), description: t("contact.why.benefit2Desc") },
+    { icon: FileText, text: t("contact.why.benefit3"), description: t("contact.why.benefit3Desc") },
   ];
 
   const contactInfo = [
     { icon: Mail, label: "Email", value: "eurhok@gmail.com" },
     { icon: Mail, label: "Email", value: "robsonvarela23@gmail.com" },
-    { icon: MapPin, label: language === "pt" ? "Localização" : "Location", value: language === "pt" ? "Brasil" : "Brazil" },
+    { icon: MapPin, label: t("contact.info.location"), value: t("contact.info.locationValue") },
   ];
 
   const containerVariants = {
@@ -115,7 +111,7 @@ const Contato = () => {
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            {language === "pt" ? "Voltar ao início" : "Back to home"}
+            {t("contact.back")}
           </Link>
           <LanguageSwitcher />
         </motion.div>
@@ -136,20 +132,18 @@ const Contato = () => {
             >
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-primary text-sm font-medium">
-                {language === "pt" ? "Vamos criar algo incrível juntos" : "Let's create something amazing together"}
+                {t("contact.header.tag")}
               </span>
             </motion.div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              {language === "pt" ? "Pronto para transformar " : "Ready to transform "}
+              {t("contact.header.title1")}{" "}
               <span className="text-gradient">
-                {language === "pt" ? "sua ideia em realidade?" : "your idea into reality?"}
+                {t("contact.header.title2")}
               </span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              {language === "pt" 
-                ? "Seja você um empreendedor com uma visão inovadora ou uma empresa buscando expandir no mercado digital, a RoVR está pronta para tornar seu projeto realidade."
-                : "Whether you're an entrepreneur with an innovative vision or a company looking to expand in the digital market, RoVR is ready to make your project a reality."}
+              {t("contact.header.description")}
             </p>
           </motion.div>
 
@@ -160,7 +154,7 @@ const Contato = () => {
               className="p-8 rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm"
             >
               <h2 className="text-2xl font-bold mb-6">
-                {language === "pt" ? "Envie sua mensagem" : "Send your message"}
+                {t("contact.form.title")}
               </h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -172,7 +166,7 @@ const Contato = () => {
                     <Input
                       value={formData.nome}
                       onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                      placeholder={language === "pt" ? "Seu nome" : "Your name"}
+                      placeholder={t("contact.form.namePlaceholder")}
                       required
                       className="bg-background/50 border-border/50 focus:border-primary"
                     />
@@ -185,7 +179,7 @@ const Contato = () => {
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder={language === "pt" ? "seu@email.com" : "your@email.com"}
+                      placeholder={t("contact.form.emailPlaceholder")}
                       required
                       className="bg-background/50 border-border/50 focus:border-primary"
                     />
@@ -195,23 +189,23 @@ const Contato = () => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm text-muted-foreground mb-2 block">
-                      {language === "pt" ? "Telefone" : "Phone"}
+                      {t("contact.phone")}
                     </label>
                     <Input
                       value={formData.telefone}
                       onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
-                      placeholder="(11) 99999-9999"
+                      placeholder={t("contact.form.phonePlaceholder")}
                       className="bg-background/50 border-border/50 focus:border-primary"
                     />
                   </div>
                   <div>
                     <label className="text-sm text-muted-foreground mb-2 block">
-                      {language === "pt" ? "Empresa" : "Company"}
+                      {t("contact.company")}
                     </label>
                     <Input
                       value={formData.empresa}
                       onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
-                      placeholder={language === "pt" ? "Nome da empresa" : "Company name"}
+                      placeholder={t("contact.form.companyPlaceholder")}
                       className="bg-background/50 border-border/50 focus:border-primary"
                     />
                   </div>
@@ -224,7 +218,7 @@ const Contato = () => {
                   <Textarea
                     value={formData.mensagem}
                     onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
-                    placeholder={language === "pt" ? "Descreva seu projeto ou ideia..." : "Describe your project or idea..."}
+                    placeholder={t("contact.form.messagePlaceholder")}
                     required
                     rows={5}
                     className="bg-background/50 border-border/50 focus:border-primary resize-none"
@@ -248,7 +242,7 @@ const Contato = () => {
               {/* Benefits */}
               <div className="p-8 rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm">
                 <h3 className="text-xl font-bold mb-6">
-                  {language === "pt" ? "Por que escolher a RoVR?" : "Why choose RoVR?"}
+                  {t("contact.why.title")}
                 </h3>
                 <div className="space-y-6">
                   {benefits.map((benefit, index) => (
@@ -274,7 +268,7 @@ const Contato = () => {
               {/* Contact Info */}
               <div className="p-8 rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm">
                 <h3 className="text-xl font-bold mb-6">
-                  {language === "pt" ? "Informações de contato" : "Contact information"}
+                  {t("contact.info.title")}
                 </h3>
                 <div className="space-y-4">
                   {contactInfo.map((info, index) => (
