@@ -2,24 +2,7 @@ import { motion } from "framer-motion";
 import { Check, Zap, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
-
-const plan = {
-  name: "Starter",
-  description: "Ideal para validar sua ideia de MicroSaaS",
-  price: "1.500",
-  period: "único",
-  icon: Zap,
-  features: [
-    "Landing page otimizada",
-    "Sistema de autenticação",
-    "Dashboard básico",
-    "Integração de pagamentos",
-    "Banco de dados configurado",
-    "Deploy em produção",
-    "30 dias de suporte",
-  ],
-  highlight: "Entrega em 2-3 semanas",
-};
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const easeOut: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
@@ -36,6 +19,26 @@ const itemVariants = {
 };
 
 const PricingSection = () => {
+  const { t, language } = useLanguage();
+
+  const plan = {
+    name: t("pricing.plan"),
+    description: language === "pt" ? "Ideal para validar sua ideia de MicroSaaS" : "Ideal to validate your MicroSaaS idea",
+    price: "1.500",
+    period: language === "pt" ? "único" : "one-time",
+    icon: Zap,
+    features: [
+      t("pricing.feature1"),
+      t("pricing.feature2"),
+      t("pricing.feature3"),
+      t("pricing.feature4"),
+      t("pricing.feature5"),
+      t("pricing.feature6"),
+      language === "pt" ? "30 dias de suporte" : "30 days of support",
+    ],
+    highlight: language === "pt" ? "Entrega em 2-3 semanas" : "Delivery in 2-3 weeks",
+  };
+
   return (
     <section id="precos" className="py-24 relative overflow-hidden">
       {/* Background Effects */}
@@ -53,16 +56,16 @@ const PricingSection = () => {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            Investimento
+            {t("pricing.tag")}
           </span>
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-            <span className="text-foreground">Comece Seu </span>
+            <span className="text-foreground">{t("pricing.title1")} </span>
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               MicroSaaS
             </span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Transforme sua ideia em um produto real e lucrativo
+            {t("pricing.description")}
           </p>
         </motion.div>
 
@@ -119,7 +122,7 @@ const PricingSection = () => {
                   className="w-full group/btn transition-all duration-300 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground shadow-lg shadow-primary/25"
                   size="lg"
                 >
-                  <span>Começar Agora</span>
+                  <span>{t("pricing.cta")}</span>
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
                 </Button>
               </Link>
@@ -136,13 +139,15 @@ const PricingSection = () => {
           className="text-center mt-16"
         >
           <p className="text-muted-foreground mb-4">
-            Precisa de algo diferente? Temos soluções flexíveis para cada projeto.
+            {language === "pt" 
+              ? "Precisa de algo diferente? Temos soluções flexíveis para cada projeto."
+              : "Need something different? We have flexible solutions for every project."}
           </p>
           <Link
             to="/contato"
             className="text-primary hover:text-accent transition-colors font-medium inline-flex items-center gap-2"
           >
-            Fale com nossa equipe
+            {language === "pt" ? "Fale com nossa equipe" : "Talk to our team"}
             <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>

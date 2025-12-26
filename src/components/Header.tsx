@@ -2,15 +2,18 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navItems = [
-    { label: "Sobre", href: "#sobre" },
-    { label: "Projetos", href: "#projetos" },
-    { label: "Tecnologia", href: "#tecnologia" },
-    { label: "Micro SaaS", href: "#microsaas" },
+    { label: t("nav.about"), href: "#sobre" },
+    { label: t("nav.projects"), href: "#projetos" },
+    { label: t("nav.technology"), href: "#tecnologia" },
+    { label: t("nav.microsaas"), href: "#microsaas" },
   ];
 
   return (
@@ -45,7 +48,7 @@ const Header = () => {
                   <span className="text-foreground transition-colors duration-300 group-hover:text-primary">Ro</span>
                   <span className="text-gradient group-hover:animate-glow-pulse">VR</span>
                 </span>
-                <span className="text-[10px] text-muted-foreground -mt-1 transition-colors duration-300 group-hover:text-muted-foreground/80">Criamos SaaS e MicroSaaS</span>
+                <span className="text-[10px] text-muted-foreground -mt-1 transition-colors duration-300 group-hover:text-muted-foreground/80">{t("logo.tagline")}</span>
               </div>
             </a>
 
@@ -62,12 +65,15 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* CTA Button */}
-            <Link to="/contato" className="hidden md:block">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg px-6 glow-primary">
-                Fale Conosco
-              </Button>
-            </Link>
+            {/* Language Switcher & CTA */}
+            <div className="hidden md:flex items-center gap-4">
+              <LanguageSwitcher />
+              <Link to="/contato">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg px-6 glow-primary">
+                  {t("nav.contact")}
+                </Button>
+              </Link>
+            </div>
 
             {/* Mobile Menu Button */}
             <button

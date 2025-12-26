@@ -1,7 +1,10 @@
 import { Sparkles, MessageCircle } from "lucide-react";
 import { Button } from "./ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t, language } = useLanguage();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -10,7 +13,7 @@ const HeroSection = () => {
   };
 
   const stats = [
-    { value: "10+", label: "Projetos" },
+    { value: "10+", label: language === "pt" ? "Projetos" : "Projects" },
     { value: "99%", label: "Uptime" },
   ];
 
@@ -37,14 +40,19 @@ const HeroSection = () => {
 
           {/* Subheading */}
           <h2 className="text-2xl md:text-3xl font-light mb-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <span className="text-foreground">Criamos SaaS e MicroSaaS que </span>
-            <span className="text-gradient-accent font-medium">escalam como negócios.</span>
+            <span className="text-foreground">
+              {language === "pt" ? "Criamos SaaS e MicroSaaS que " : "We build SaaS and MicroSaaS that "}
+            </span>
+            <span className="text-gradient-accent font-medium">
+              {language === "pt" ? "escalam como negócios." : "scale as businesses."}
+            </span>
           </h2>
 
           {/* Description */}
           <p className="text-muted-foreground text-lg max-w-2xl mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            Desenvolvemos soluções digitais escaláveis. Inovação, 
-            automação e monetização inteligente em cada projeto.
+            {language === "pt" 
+              ? "Desenvolvemos soluções digitais escaláveis. Inovação, automação e monetização inteligente em cada projeto."
+              : "We develop scalable digital solutions. Innovation, automation and smart monetization in every project."}
           </p>
 
           {/* CTA Buttons */}
@@ -54,7 +62,7 @@ const HeroSection = () => {
               onClick={() => scrollToSection('projetos')}
               className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl px-8 py-6 text-lg glow-primary transition-all duration-300"
             >
-              Ver Projetos
+              {language === "pt" ? "Ver Projetos" : "View Projects"}
             </Button>
             <Button 
               size="lg"
@@ -62,7 +70,7 @@ const HeroSection = () => {
               onClick={() => scrollToSection('sobre')}
               className="border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
             >
-              Conhecer a RoVR
+              {language === "pt" ? "Conhecer a RoVR" : "About RoVR"}
             </Button>
             <Button 
               size="lg"
@@ -70,7 +78,7 @@ const HeroSection = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
             >
               <MessageCircle className="w-5 h-5 mr-2" />
-              Fale Conosco
+              {t("nav.contact")}
             </Button>
           </div>
 
