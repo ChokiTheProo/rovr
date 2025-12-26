@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, Shield, FileText, Scale } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Termos = () => {
+  const { language } = useLanguage();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -16,40 +19,92 @@ const Termos = () => {
     visible: { opacity: 1, y: 0 }
   };
 
-  const sections = [
-    {
-      title: "1. Aceitação dos Termos",
-      content: "Ao acessar e utilizar os serviços da RoVR, você concorda com estes Termos de Uso. Se você não concordar com qualquer parte destes termos, não deve usar nossos serviços."
+  const content = {
+    pt: {
+      backLink: "Voltar ao início",
+      title: "Termos de",
+      titleHighlight: "Uso",
+      lastUpdate: "Última atualização: Dezembro 2024",
+      footerText: "Em caso de dúvidas, entre em contato conosco",
+      sections: [
+        {
+          title: "1. Aceitação dos Termos",
+          content: "Ao acessar e utilizar os serviços da RoVR, você concorda com estes Termos de Uso. Se você não concordar com qualquer parte destes termos, não deve usar nossos serviços."
+        },
+        {
+          title: "2. Descrição dos Serviços",
+          content: "A RoVR oferece serviços de desenvolvimento de software, SaaS e MicroSaaS personalizados. Nossos produtos incluem sistemas de gestão financeira (Fluxen) e gestão de saúde (Klyexa), entre outros."
+        },
+        {
+          title: "3. Uso Aceitável",
+          content: "Você concorda em usar nossos serviços apenas para fins legais e de acordo com estes termos. É proibido usar nossos serviços para qualquer atividade ilegal, fraudulenta ou que viole direitos de terceiros."
+        },
+        {
+          title: "4. Propriedade Intelectual",
+          content: "Todo o conteúdo, código-fonte, designs e marcas registradas são de propriedade exclusiva da RoVR. É proibida a reprodução, distribuição ou modificação sem autorização prévia por escrito."
+        },
+        {
+          title: "5. Privacidade e Dados",
+          content: "Respeitamos sua privacidade e protegemos seus dados conforme nossa Política de Privacidade. Ao usar nossos serviços, você concorda com a coleta e uso de informações conforme descrito."
+        },
+        {
+          title: "6. Pagamentos e Assinaturas",
+          content: "Os planos de assinatura são cobrados mensalmente. Fluxen: R$ 45,90/mês | Klyexa: R$ 35,00/mês. Cancelamentos devem ser solicitados com antecedência de 5 dias úteis."
+        },
+        {
+          title: "7. Limitação de Responsabilidade",
+          content: "A RoVR não se responsabiliza por danos indiretos, incidentais ou consequenciais decorrentes do uso de nossos serviços. Nossa responsabilidade está limitada ao valor pago pelos serviços."
+        },
+        {
+          title: "8. Modificações",
+          content: "Reservamo-nos o direito de modificar estes termos a qualquer momento. Alterações significativas serão comunicadas por email ou através de aviso em nosso site."
+        }
+      ]
     },
-    {
-      title: "2. Descrição dos Serviços",
-      content: "A RoVR oferece serviços de desenvolvimento de software, SaaS e MicroSaaS personalizados. Nossos produtos incluem sistemas de gestão financeira (Fluxen) e gestão de saúde (Klyexa), entre outros."
-    },
-    {
-      title: "3. Uso Aceitável",
-      content: "Você concorda em usar nossos serviços apenas para fins legais e de acordo com estes termos. É proibido usar nossos serviços para qualquer atividade ilegal, fraudulenta ou que viole direitos de terceiros."
-    },
-    {
-      title: "4. Propriedade Intelectual",
-      content: "Todo o conteúdo, código-fonte, designs e marcas registradas são de propriedade exclusiva da RoVR. É proibida a reprodução, distribuição ou modificação sem autorização prévia por escrito."
-    },
-    {
-      title: "5. Privacidade e Dados",
-      content: "Respeitamos sua privacidade e protegemos seus dados conforme nossa Política de Privacidade. Ao usar nossos serviços, você concorda com a coleta e uso de informações conforme descrito."
-    },
-    {
-      title: "6. Pagamentos e Assinaturas",
-      content: "Os planos de assinatura são cobrados mensalmente. Fluxen: R$ 45,90/mês | Klyexa: R$ 35,00/mês. Cancelamentos devem ser solicitados com antecedência de 5 dias úteis."
-    },
-    {
-      title: "7. Limitação de Responsabilidade",
-      content: "A RoVR não se responsabiliza por danos indiretos, incidentais ou consequenciais decorrentes do uso de nossos serviços. Nossa responsabilidade está limitada ao valor pago pelos serviços."
-    },
-    {
-      title: "8. Modificações",
-      content: "Reservamo-nos o direito de modificar estes termos a qualquer momento. Alterações significativas serão comunicadas por email ou através de aviso em nosso site."
+    en: {
+      backLink: "Back to home",
+      title: "Terms of",
+      titleHighlight: "Use",
+      lastUpdate: "Last updated: December 2024",
+      footerText: "If you have any questions, please contact us",
+      sections: [
+        {
+          title: "1. Acceptance of Terms",
+          content: "By accessing and using RoVR's services, you agree to these Terms of Use. If you do not agree with any part of these terms, you should not use our services."
+        },
+        {
+          title: "2. Description of Services",
+          content: "RoVR offers custom software development, SaaS and MicroSaaS services. Our products include financial management systems (Fluxen) and health management platforms (Klyexa), among others."
+        },
+        {
+          title: "3. Acceptable Use",
+          content: "You agree to use our services only for lawful purposes and in accordance with these terms. It is prohibited to use our services for any illegal, fraudulent activity or that violates third-party rights."
+        },
+        {
+          title: "4. Intellectual Property",
+          content: "All content, source code, designs and trademarks are the exclusive property of RoVR. Reproduction, distribution or modification without prior written authorization is prohibited."
+        },
+        {
+          title: "5. Privacy and Data",
+          content: "We respect your privacy and protect your data in accordance with our Privacy Policy. By using our services, you agree to the collection and use of information as described."
+        },
+        {
+          title: "6. Payments and Subscriptions",
+          content: "Subscription plans are billed monthly. Fluxen: R$ 45.90/month | Klyexa: R$ 35.00/month. Cancellations must be requested 5 business days in advance."
+        },
+        {
+          title: "7. Limitation of Liability",
+          content: "RoVR is not responsible for indirect, incidental or consequential damages arising from the use of our services. Our liability is limited to the amount paid for the services."
+        },
+        {
+          title: "8. Modifications",
+          content: "We reserve the right to modify these terms at any time. Significant changes will be communicated by email or through notice on our website."
+        }
+      ]
     }
-  ];
+  };
+
+  const t = content[language];
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -68,7 +123,7 @@ const Termos = () => {
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
-            Voltar ao início
+            {t.backLink}
           </Link>
         </motion.div>
 
@@ -84,10 +139,10 @@ const Termos = () => {
               <Scale className="w-8 h-8 text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Termos de <span className="text-gradient">Uso</span>
+              {t.title} <span className="text-gradient">{t.titleHighlight}</span>
             </h1>
             <p className="text-muted-foreground">
-              Última atualização: Dezembro 2024
+              {t.lastUpdate}
             </p>
           </motion.div>
 
@@ -96,7 +151,7 @@ const Termos = () => {
             variants={containerVariants}
             className="space-y-6"
           >
-            {sections.map((section, index) => (
+            {t.sections.map((section, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
@@ -120,7 +175,7 @@ const Termos = () => {
           >
             <Shield className="w-8 h-8 text-primary mx-auto mb-3" />
             <p className="text-foreground font-medium">
-              Em caso de dúvidas, entre em contato conosco
+              {t.footerText}
             </p>
             <Link
               to="/contato"
