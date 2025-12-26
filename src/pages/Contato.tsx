@@ -55,7 +55,6 @@ const Contato = () => {
   const contactInfo = [
     { icon: Mail, label: "Email", value: "eurhok@gmail.com" },
     { icon: Mail, label: "Email", value: "robsonvarela23@gmail.com" },
-    { icon: Phone, label: "WhatsApp", value: "(54) 99171-0543" },
     { icon: MapPin, label: language === "pt" ? "Localização" : "Location", value: language === "pt" ? "Brasil" : "Brazil" },
   ];
 
