@@ -3,9 +3,11 @@ import { Button } from "./ui/button";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProjectsSection = () => {
   const [loading, setLoading] = useState<string | null>(null);
+  const { language } = useLanguage();
 
   const handleSubscribe = async (product: string) => {
     setLoading(product);
@@ -20,7 +22,7 @@ const ProjectsSection = () => {
       }
     } catch (error) {
       console.error('Checkout error:', error);
-      toast.error('Erro ao iniciar checkout. Tente novamente.');
+      toast.error(language === "pt" ? 'Erro ao iniciar checkout. Tente novamente.' : 'Error starting checkout. Please try again.');
     } finally {
       setLoading(null);
     }
@@ -30,7 +32,7 @@ const ProjectsSection = () => {
     document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const projects = [
+  const projects = language === "pt" ? [
     {
       title: "Fluxen",
       category: "Gestão Financeira Completa",
@@ -149,6 +151,125 @@ const ProjectsSection = () => {
         "🎯 Metas personalizadas",
       ],
     },
+  ] : [
+    {
+      title: "Fluxen",
+      category: "Complete Financial Management",
+      description: "Complete system for loan, account and finance control. Intuitive dashboard with reports, customer management, installment control and delinquency. Ideal for individuals and companies dealing with daily financial management.",
+      status: "Available",
+      statusColor: "bg-emerald-500",
+      rating: "4.9",
+      price: "R$ 45,90",
+      priceLabel: "/month",
+      cta: "Subscribe Now",
+      featured: true,
+      icon: DollarSign,
+      gradient: "from-emerald-500/20 to-teal-500/20",
+      differentials: [
+        "✨ Intuitive and modern interface",
+        "🌍 Available in Portuguese and English",
+        "📊 Detailed PDF reports",
+        "🔔 Automatic delinquency alerts",
+      ],
+      features: [
+        { icon: Users, text: "Customer Management" },
+        { icon: TrendingUp, text: "Complete Dashboard" },
+        { icon: Calendar, text: "Due Date Control" },
+        { icon: Globe, text: "Available in English" },
+      ],
+      highlights: [
+        "Full loan control",
+        "Detailed PDF reports",
+        "Delinquency alerts",
+        "Multi-currency support"
+      ]
+    },
+    {
+      title: "Klyexa",
+      category: "Integrated Health Management",
+      description: "Complete platform for hospitals, private clinics and offices. Manage patients, exams, schedules, professionals and cash in an integrated way. Complete nursing and electronic medical record system.",
+      status: "Available",
+      statusColor: "bg-teal-500",
+      rating: "4.8",
+      price: "R$ 35,00",
+      priceLabel: "/month",
+      cta: "Subscribe Now",
+      featured: true,
+      icon: Stethoscope,
+      gradient: "from-teal-500/20 to-cyan-500/20",
+      differentials: [
+        "🏥 Ideal for hospitals and clinics",
+        "📋 Complete electronic medical record",
+        "💰 Integrated financial control",
+        "👨‍⚕️ Multi-professionals",
+      ],
+      features: [
+        { icon: Users, text: "Patient Registration" },
+        { icon: FileCheck, text: "Exam Management" },
+        { icon: Calendar, text: "Integrated Schedule" },
+        { icon: DollarSign, text: "Cash Control" },
+      ],
+      highlights: [
+        "Electronic medical record",
+        "Procedure control",
+        "Clinical reports",
+        "Multi-professionals"
+      ]
+    },
+    {
+      title: "CuidaBem",
+      category: "Health & Care",
+      description: "Complete app for elderly caregivers. Routine management, medications, reports and communication with family members. Complete solution for those who care with love.",
+      status: "Available",
+      statusColor: "bg-primary",
+      rating: "5.0",
+      cta: "Access Now",
+      icon: Heart,
+      gradient: "from-primary/20 to-accent/20",
+      link: "https://cuidadem-facil.lovable.app",
+      differentials: [
+        "❤️ Made for caregivers",
+        "💊 Medication control",
+        "📱 Easy to use",
+        "👨‍👩‍👧 Family communication",
+      ],
+    },
+    {
+      title: "Daily Treatment",
+      category: "Digestive Health",
+      description: "Specialized app for gastritis and H. pylori treatment. Track your treatment, medications, symptoms and daily progress. Ideal for those seeking control and recovery.",
+      status: "Available",
+      statusColor: "bg-orange-500",
+      rating: "4.9",
+      cta: "Access Now",
+      icon: Pill,
+      gradient: "from-orange-500/20 to-amber-500/20",
+      link: "https://tratamentodiario.lovable.app/tasks",
+      differentials: [
+        "💊 Medication control",
+        "📋 Symptom tracking",
+        "📈 Treatment progress",
+        "🩺 Focus on gastritis and H. pylori",
+      ],
+    },
+    {
+      title: "Emagrio",
+      category: "Health & Weight Loss",
+      description: "Complete app for your weight loss journey. Weight, diet, exercise and goal control. Track your progress and achieve your goals in a healthy way.",
+      status: "Available",
+      statusColor: "bg-green-500",
+      rating: "4.8",
+      cta: "Access Now",
+      icon: Scale,
+      gradient: "from-green-500/20 to-lime-500/20",
+      link: "https://emagrio-journey-unlocked.lovable.app/",
+      differentials: [
+        "⚖️ Weight control",
+        "🍎 Diet tracking",
+        "🏃 Exercise log",
+        "🎯 Personalized goals",
+      ],
+    },
   ];
 
   return (
@@ -158,13 +279,17 @@ const ProjectsSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Portfólio</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">
+            {language === "pt" ? "Portfólio" : "Portfolio"}
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-            Nossos <span className="text-gradient">Projetos</span>
+            {language === "pt" ? "Nossos " : "Our "}
+            <span className="text-gradient">{language === "pt" ? "Projetos" : "Projects"}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Soluções SaaS prontas para uso. Tecnologia de ponta para transformar 
-            a gestão do seu negócio.
+            {language === "pt" 
+              ? "Soluções SaaS prontas para uso. Tecnologia de ponta para transformar a gestão do seu negócio."
+              : "Ready-to-use SaaS solutions. Cutting-edge technology to transform your business management."}
           </p>
         </div>
 
@@ -218,7 +343,9 @@ const ProjectsSection = () => {
 
                 {/* Differentials */}
                 <div className="grid grid-cols-1 gap-2 mb-4 p-4 rounded-xl bg-primary/5 border border-primary/20">
-                  <h4 className="text-sm font-semibold text-primary mb-2">🚀 Diferenciais</h4>
+                  <h4 className="text-sm font-semibold text-primary mb-2">
+                    🚀 {language === "pt" ? "Diferenciais" : "Differentials"}
+                  </h4>
                   {project.differentials?.map((diff, idx) => (
                     <div key={idx} className="text-xs text-muted-foreground">{diff}</div>
                   ))}
@@ -247,7 +374,7 @@ const ProjectsSection = () => {
                       className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl px-6 glow-primary"
                     >
                       {loading === project.title ? (
-                        <><Loader2 className="w-4 h-4 mr-2 animate-spin" />Processando...</>
+                        <><Loader2 className="w-4 h-4 mr-2 animate-spin" />{language === "pt" ? "Processando..." : "Processing..."}</>
                       ) : project.cta}
                     </Button>
                   </div>
@@ -257,7 +384,7 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        {/* CuidaBem Project */}
+        {/* Other Projects */}
         <div className="grid grid-cols-1 gap-8">
           {projects.filter(p => !p.featured).map((project, index) => (
             <div
@@ -298,7 +425,9 @@ const ProjectsSection = () => {
 
                   {/* Differentials */}
                   <div className="grid grid-cols-2 gap-2 mb-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
-                    <h4 className="col-span-2 text-sm font-semibold text-primary mb-2">🚀 Diferenciais</h4>
+                    <h4 className="col-span-2 text-sm font-semibold text-primary mb-2">
+                      🚀 {language === "pt" ? "Diferenciais" : "Differentials"}
+                    </h4>
                     {project.differentials?.map((diff, idx) => (
                       <div key={idx} className="text-xs text-muted-foreground">{diff}</div>
                     ))}
@@ -320,7 +449,7 @@ const ProjectsSection = () => {
                       variant="outline"
                       className="border-accent/50 text-accent hover:bg-accent/10"
                     >
-                      Fale Conosco
+                      {language === "pt" ? "Fale Conosco" : "Contact Us"}
                     </Button>
                   </div>
                 </div>
@@ -332,7 +461,9 @@ const ProjectsSection = () => {
         {/* Coming Soon */}
         <div className="mt-8 rounded-2xl border border-dashed border-border/50 bg-card/30 p-8 flex items-center justify-center">
           <p className="text-muted-foreground text-center">
-            Mais projetos em breve. Estamos trabalhando em novas soluções incríveis!
+            {language === "pt" 
+              ? "Mais projetos em breve. Estamos trabalhando em novas soluções incríveis!"
+              : "More projects coming soon. We're working on amazing new solutions!"}
           </p>
         </div>
       </div>

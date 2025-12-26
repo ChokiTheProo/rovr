@@ -1,8 +1,11 @@
 import { motion, type Easing } from "framer-motion";
 import { Star, Zap, Shield, Rocket, Users, TrendingUp, CheckCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TestimonialsSection = () => {
-  const testimonials = [
+  const { language } = useLanguage();
+
+  const testimonials = language === "pt" ? [
     {
       quote: "A RoVR transformou completamente nossa operação. O sistema que desenvolveram reduziu nosso tempo de processamento em 70%.",
       author: "Carlos Silva",
@@ -21,9 +24,28 @@ const TestimonialsSection = () => {
       role: "CTO, FastPay",
       rating: 5,
     },
+  ] : [
+    {
+      quote: "RoVR completely transformed our operation. The system they developed reduced our processing time by 70%.",
+      author: "Carlos Silva",
+      role: "CEO, TechStore",
+      rating: 5,
+    },
+    {
+      quote: "Professionalism and innovation define the RoVR team. Our MicroSaaS generated positive ROI in the second month.",
+      author: "Ana Martins",
+      role: "Founder, DataFlow",
+      rating: 5,
+    },
+    {
+      quote: "Fast delivery, clean code and exceptional support. I recommend it for any company that wants to scale.",
+      author: "Pedro Costa",
+      role: "CTO, FastPay",
+      rating: 5,
+    },
   ];
 
-  const qualities = [
+  const qualities = language === "pt" ? [
     {
       icon: Rocket,
       title: "Entrega Rápida",
@@ -59,6 +81,43 @@ const TestimonialsSection = () => {
       title: "Escalabilidade",
       description: "Arquitetura preparada para crescer com você",
       highlight: "∞ usuários",
+    },
+  ] : [
+    {
+      icon: Rocket,
+      title: "Fast Delivery",
+      description: "From concept to deploy in weeks, not months",
+      highlight: "2-4 weeks",
+    },
+    {
+      icon: TrendingUp,
+      title: "Guaranteed ROI",
+      description: "Projects focused on measurable results",
+      highlight: "3x return",
+    },
+    {
+      icon: Shield,
+      title: "Secure Code",
+      description: "Enterprise security practices from day 1",
+      highlight: "99.9% uptime",
+    },
+    {
+      icon: Users,
+      title: "Dedicated Support",
+      description: "Team available for adjustments and evolutions",
+      highlight: "24/7 support",
+    },
+    {
+      icon: Zap,
+      title: "High Performance",
+      description: "Systems optimized for thousands of users",
+      highlight: "<100ms latency",
+    },
+    {
+      icon: CheckCircle,
+      title: "Scalability",
+      description: "Architecture ready to grow with you",
+      highlight: "∞ users",
     },
   ];
 
@@ -102,13 +161,21 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Por que escolher a RoVR?</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">
+            {language === "pt" ? "Por que escolher a RoVR?" : "Why choose RoVR?"}
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-            <span className="text-foreground">Resultados que </span>
-            <span className="text-gradient">falam por si</span>
+            <span className="text-foreground">
+              {language === "pt" ? "Resultados que " : "Results that "}
+            </span>
+            <span className="text-gradient">
+              {language === "pt" ? "falam por si" : "speak for themselves"}
+            </span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Clientes satisfeitos e projetos de sucesso. Veja o que nos diferencia no mercado de MicroSaaS.
+            {language === "pt" 
+              ? "Clientes satisfeitos e projetos de sucesso. Veja o que nos diferencia no mercado de MicroSaaS."
+              : "Satisfied clients and successful projects. See what sets us apart in the MicroSaaS market."}
           </p>
         </motion.div>
 
@@ -228,10 +295,21 @@ const TestimonialsSection = () => {
             
             <blockquote className="relative z-10">
               <p className="text-2xl md:text-3xl font-light text-foreground italic mb-6">
-                "Não criamos apenas soluções. Criamos <span className="text-gradient font-semibold">produtos digitais</span> que crescem, 
-                evoluem e geram <span className="text-gradient font-semibold">valor continuamente</span>."
+                {language === "pt" ? (
+                  <>
+                    "Não criamos apenas soluções. Criamos <span className="text-gradient font-semibold">produtos digitais</span> que crescem, 
+                    evoluem e geram <span className="text-gradient font-semibold">valor continuamente</span>."
+                  </>
+                ) : (
+                  <>
+                    "We don't just create solutions. We create <span className="text-gradient font-semibold">digital products</span> that grow, 
+                    evolve and generate <span className="text-gradient font-semibold">continuous value</span>."
+                  </>
+                )}
               </p>
-              <cite className="text-primary font-display font-bold text-lg not-italic">— EQUIPE ROVR</cite>
+              <cite className="text-primary font-display font-bold text-lg not-italic">
+                — {language === "pt" ? "EQUIPE ROVR" : "ROVR TEAM"}
+              </cite>
             </blockquote>
 
             {/* Floating particles */}
