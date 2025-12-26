@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Shield, Lock, Eye, Database, UserCheck } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Shield, Lock, Eye, Database, UserCheck } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const Privacidade = () => {
   const { language } = useLanguage();
@@ -21,7 +22,6 @@ const Privacidade = () => {
 
   const content = {
     pt: {
-      backLink: "Voltar ao início",
       title: "Política de",
       titleHighlight: "Privacidade",
       lastUpdate: "Última atualização: Dezembro 2024",
@@ -59,7 +59,6 @@ const Privacidade = () => {
       ]
     },
     en: {
-      backLink: "Back to home",
       title: "Privacy",
       titleHighlight: "Policy",
       lastUpdate: "Last updated: December 2024",
@@ -101,26 +100,14 @@ const Privacidade = () => {
   const t = content[language];
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-hidden flex flex-col">
+      <Header />
+      
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-radial opacity-30" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[400px] bg-accent/10 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-6 py-12 relative z-10">
-        {/* Back Button */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-        >
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            {t.backLink}
-          </Link>
-        </motion.div>
-
+      <main className="container mx-auto px-6 py-12 pt-28 relative z-10 flex-1">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -207,7 +194,9 @@ const Privacidade = () => {
             </a>
           </motion.div>
         </motion.div>
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 };

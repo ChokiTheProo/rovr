@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <div className="md:col-span-2">
-            <a href="#" className="flex items-center gap-3 mb-4 group perspective-1000">
+            <Link to="/" className="flex items-center gap-3 mb-4 group perspective-1000">
               <div className="relative w-12 h-12 transform-style-3d transition-all duration-500 group-hover:rotate-y-12 group-hover:rotate-x-6 group-hover:scale-110">
                 {/* Glow effect behind */}
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary via-accent to-primary blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 animate-pulse" />
@@ -39,7 +39,7 @@ const Footer = () => {
                 </span>
                 <span className="text-[10px] text-muted-foreground -mt-1 transition-colors duration-300 group-hover:text-muted-foreground/80">{t("logo.tagline")}</span>
               </div>
-            </a>
+            </Link>
             <p className="text-muted-foreground text-sm max-w-md">
               {language === "pt" 
                 ? "Transformamos ideias em soluções digitais escaláveis. Nossos produtos SaaS são desenvolvidos com tecnologia de ponta para ajudar seu negócio a crescer."

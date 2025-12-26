@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, HelpCircle } from "lucide-react";
+import { HelpCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   Accordion,
@@ -8,6 +8,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const FAQ = () => {
   const { language } = useLanguage();
@@ -27,7 +29,6 @@ const FAQ = () => {
 
   const content = {
     pt: {
-      backLink: "Voltar ao início",
       title: "Perguntas",
       titleHighlight: "Frequentes",
       description: "Encontre respostas para as dúvidas mais comuns sobre nossos serviços, processos e como podemos ajudar seu negócio.",
@@ -78,7 +79,6 @@ const FAQ = () => {
       ]
     },
     en: {
-      backLink: "Back to home",
       title: "Frequently Asked",
       titleHighlight: "Questions",
       description: "Find answers to the most common questions about our services, processes and how we can help your business.",
@@ -133,27 +133,15 @@ const FAQ = () => {
   const t = content[language];
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-hidden flex flex-col">
+      <Header />
+      
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-radial opacity-30" />
       <div className="absolute top-1/2 left-0 w-[600px] h-[400px] bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-accent/10 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-6 py-12 relative z-10">
-        {/* Back Button */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-        >
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            {t.backLink}
-          </Link>
-        </motion.div>
-
+      <main className="container mx-auto px-6 py-12 pt-28 relative z-10 flex-1">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -214,7 +202,9 @@ const FAQ = () => {
             </Link>
           </motion.div>
         </motion.div>
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 };
