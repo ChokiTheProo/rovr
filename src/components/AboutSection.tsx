@@ -1,7 +1,10 @@
 import { Lightbulb, Target, TrendingUp, Users } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutSection = () => {
-  const features = [
+  const { language } = useLanguage();
+
+  const features = language === "pt" ? [
     {
       icon: Lightbulb,
       title: "Inovação Contínua",
@@ -10,7 +13,7 @@ const AboutSection = () => {
     {
       icon: Target,
       title: "Foco em Resultados",
-      description: "Cada jogo é projetado com métricas claras de engajamento e monetização.",
+      description: "Cada projeto é desenvolvido com métricas claras de engajamento e monetização.",
     },
     {
       icon: TrendingUp,
@@ -20,7 +23,28 @@ const AboutSection = () => {
     {
       icon: Users,
       title: "Experiência do Usuário",
-      description: "Design centrado no jogador para máxima retenção e satisfação.",
+      description: "Design centrado no usuário para máxima retenção e satisfação.",
+    },
+  ] : [
+    {
+      icon: Lightbulb,
+      title: "Continuous Innovation",
+      description: "We explore new mechanics and technologies to create unique experiences.",
+    },
+    {
+      icon: Target,
+      title: "Results Focused",
+      description: "Each project is developed with clear engagement and monetization metrics.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Scalable Growth",
+      description: "Architecture designed to support millions of simultaneous users.",
+    },
+    {
+      icon: Users,
+      title: "User Experience",
+      description: "User-centered design for maximum retention and satisfaction.",
     },
   ];
 
@@ -29,20 +53,22 @@ const AboutSection = () => {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Sobre Nós</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">
+            {language === "pt" ? "Sobre Nós" : "About Us"}
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-            Somos a <span className="text-gradient">RoVR</span>
+            {language === "pt" ? "Somos a " : "We are "}
+            <span className="text-gradient">RoVR</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
-            A RoVR é um estúdio de desenvolvimento de soluções digitais com DNA de startup. 
-            Combinamos inovação tecnológica com estratégias de negócios digitais para 
-            criar produtos que encantam e geram receita recorrente.
+            {language === "pt" 
+              ? "A RoVR é um estúdio de desenvolvimento de soluções digitais com DNA de startup. Combinamos inovação tecnológica com estratégias de negócios digitais para criar produtos que encantam e geram receita recorrente."
+              : "RoVR is a digital solutions development studio with startup DNA. We combine technological innovation with digital business strategies to create products that delight and generate recurring revenue."}
           </p>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed mt-4">
-            Nosso diferencial está na abordagem <span className="text-foreground font-semibold">Micro SaaS</span>: 
-            cada projeto é um produto independente, automatizado e escalável. Da concepção à 
-            monetização, pensamos em cada detalhe para maximizar o valor entregue aos clientes 
-            e aos nossos parceiros.
+            {language === "pt" 
+              ? <>Nosso diferencial está na abordagem <span className="text-foreground font-semibold">Micro SaaS</span>: cada projeto é um produto independente, automatizado e escalável. Da concepção à monetização, pensamos em cada detalhe para maximizar o valor entregue aos clientes e aos nossos parceiros.</>
+              : <>Our differentiator is the <span className="text-foreground font-semibold">Micro SaaS</span> approach: each project is an independent, automated and scalable product. From conception to monetization, we think about every detail to maximize the value delivered to clients and our partners.</>}
           </p>
         </div>
 

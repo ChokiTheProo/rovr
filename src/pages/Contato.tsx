@@ -7,8 +7,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Contato = () => {
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
@@ -29,28 +32,32 @@ const Contato = () => {
 
       if (error) throw error;
 
-      toast.success("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+      toast.success(t("contact.success"));
       setFormData({ nome: "", email: "", telefone: "", empresa: "", mensagem: "" });
     } catch (error: any) {
       console.error("Error sending message:", error);
-      toast.error("Erro ao enviar mensagem. Tente novamente.");
+      toast.error(t("contact.error"));
     } finally {
       setIsLoading(false);
     }
   };
 
-  const benefits = [
+  const benefits = language === "pt" ? [
     { icon: Clock, text: "Resposta em 24h", description: "Retornamos rapidamente todas as solicitações" },
     { icon: MessageCircle, text: "Consultoria gratuita", description: "Análise inicial sem compromisso" },
     { icon: FileText, text: "NDA disponível", description: "Protegemos suas ideias com confidencialidade" },
+  ] : [
+    { icon: Clock, text: "24h Response", description: "We quickly return all requests" },
+    { icon: MessageCircle, text: "Free consultation", description: "Initial analysis with no obligation" },
+    { icon: FileText, text: "NDA available", description: "We protect your ideas with confidentiality" },
   ];
 
   const contactInfo = [
     { icon: Mail, label: "Email", value: "eurhok@gmail.com" },
     { icon: Mail, label: "Email", value: "robsonvarela23@gmail.com" },
     { icon: Phone, label: "WhatsApp", value: "(54) 99171-0543" },
-    { icon: Phone, label: "Telefone", value: "(54) 99506-4090" },
-    { icon: MapPin, label: "Localização", value: "Brasil" },
+    { icon: Phone, label: language === "pt" ? "Telefone" : "Phone", value: "(54) 99506-4090" },
+    { icon: MapPin, label: language === "pt" ? "Localização" : "Location", value: language === "pt" ? "Brasil" : "Brazil" },
   ];
 
   const containerVariants = {
@@ -80,8 +87,8 @@ const Contato = () => {
             key={i}
             className="absolute w-1 h-1 bg-primary/30 rounded-full"
             initial={{ 
-              x: Math.random() * window.innerWidth, 
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000), 
+              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
               opacity: 0 
             }}
             animate={{ 
@@ -98,19 +105,21 @@ const Contato = () => {
       </div>
 
       <div className="container mx-auto px-6 py-12 relative z-10">
-        {/* Back Button */}
+        {/* Top Bar with Back Button and Language Switcher */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          className="flex items-center justify-between mb-8"
         >
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Voltar ao início
+            {language === "pt" ? "Voltar ao início" : "Back to home"}
           </Link>
+          <LanguageSwitcher />
         </motion.div>
 
         <motion.div
@@ -128,16 +137,21 @@ const Contato = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/50 mb-6"
             >
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-primary text-sm font-medium">Vamos criar algo incrível juntos</span>
+              <span className="text-primary text-sm font-medium">
+                {language === "pt" ? "Vamos criar algo incrível juntos" : "Let's create something amazing together"}
+              </span>
             </motion.div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Pronto para transformar{" "}
-              <span className="text-gradient">sua ideia em realidade?</span>
+              {language === "pt" ? "Pronto para transformar " : "Ready to transform "}
+              <span className="text-gradient">
+                {language === "pt" ? "sua ideia em realidade?" : "your idea into reality?"}
+              </span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Seja você um empreendedor com uma visão inovadora ou uma empresa buscando 
-              expandir no mercado digital, a Revyra está pronta para tornar seu projeto realidade.
+              {language === "pt" 
+                ? "Seja você um empreendedor com uma visão inovadora ou uma empresa buscando expandir no mercado digital, a RoVR está pronta para tornar seu projeto realidade."
+                : "Whether you're an entrepreneur with an innovative vision or a company looking to expand in the digital market, RoVR is ready to make your project a reality."}
             </p>
           </motion.div>
 
@@ -147,27 +161,33 @@ const Contato = () => {
               variants={itemVariants}
               className="p-8 rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm"
             >
-              <h2 className="text-2xl font-bold mb-6">Envie sua mensagem</h2>
+              <h2 className="text-2xl font-bold mb-6">
+                {language === "pt" ? "Envie sua mensagem" : "Send your message"}
+              </h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Nome completo *</label>
+                    <label className="text-sm text-muted-foreground mb-2 block">
+                      {t("contact.name")} *
+                    </label>
                     <Input
                       value={formData.nome}
                       onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                      placeholder="Seu nome"
+                      placeholder={language === "pt" ? "Seu nome" : "Your name"}
                       required
                       className="bg-background/50 border-border/50 focus:border-primary"
                     />
                   </div>
                   <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Email *</label>
+                    <label className="text-sm text-muted-foreground mb-2 block">
+                      {t("contact.email")} *
+                    </label>
                     <Input
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="seu@email.com"
+                      placeholder={language === "pt" ? "seu@email.com" : "your@email.com"}
                       required
                       className="bg-background/50 border-border/50 focus:border-primary"
                     />
@@ -176,7 +196,9 @@ const Contato = () => {
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Telefone</label>
+                    <label className="text-sm text-muted-foreground mb-2 block">
+                      {language === "pt" ? "Telefone" : "Phone"}
+                    </label>
                     <Input
                       value={formData.telefone}
                       onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
@@ -185,22 +207,26 @@ const Contato = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Empresa</label>
+                    <label className="text-sm text-muted-foreground mb-2 block">
+                      {language === "pt" ? "Empresa" : "Company"}
+                    </label>
                     <Input
                       value={formData.empresa}
                       onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
-                      placeholder="Nome da empresa"
+                      placeholder={language === "pt" ? "Nome da empresa" : "Company name"}
                       className="bg-background/50 border-border/50 focus:border-primary"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-sm text-muted-foreground mb-2 block">Mensagem *</label>
+                  <label className="text-sm text-muted-foreground mb-2 block">
+                    {t("contact.message")} *
+                  </label>
                   <Textarea
                     value={formData.mensagem}
                     onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
-                    placeholder="Descreva seu projeto ou ideia..."
+                    placeholder={language === "pt" ? "Descreva seu projeto ou ideia..." : "Describe your project or idea..."}
                     required
                     rows={5}
                     className="bg-background/50 border-border/50 focus:border-primary resize-none"
@@ -213,7 +239,7 @@ const Contato = () => {
                   disabled={isLoading}
                   className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl py-6 text-lg glow-primary transition-all duration-300 group disabled:opacity-50"
                 >
-                  <span>{isLoading ? "Enviando..." : "Enviar Mensagem"}</span>
+                  <span>{isLoading ? t("contact.sending") : t("contact.submit")}</span>
                   <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </form>
@@ -223,7 +249,9 @@ const Contato = () => {
             <motion.div variants={itemVariants} className="space-y-8">
               {/* Benefits */}
               <div className="p-8 rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm">
-                <h3 className="text-xl font-bold mb-6">Por que escolher a Revyra?</h3>
+                <h3 className="text-xl font-bold mb-6">
+                  {language === "pt" ? "Por que escolher a RoVR?" : "Why choose RoVR?"}
+                </h3>
                 <div className="space-y-6">
                   {benefits.map((benefit, index) => (
                     <motion.div
@@ -247,7 +275,9 @@ const Contato = () => {
 
               {/* Contact Info */}
               <div className="p-8 rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm">
-                <h3 className="text-xl font-bold mb-6">Informações de contato</h3>
+                <h3 className="text-xl font-bold mb-6">
+                  {language === "pt" ? "Informações de contato" : "Contact information"}
+                </h3>
                 <div className="space-y-4">
                   {contactInfo.map((info, index) => (
                     <motion.div

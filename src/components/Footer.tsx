@@ -1,7 +1,10 @@
 import { Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t, language } = useLanguage();
+
   return (
     <footer className="py-12 border-t border-border/50 bg-card/30">
       <div className="container mx-auto px-6">
@@ -34,18 +37,19 @@ const Footer = () => {
                   <span className="text-foreground transition-colors duration-300 group-hover:text-primary">Ro</span>
                   <span className="text-gradient group-hover:animate-glow-pulse">VR</span>
                 </span>
-                <span className="text-[10px] text-muted-foreground -mt-1 transition-colors duration-300 group-hover:text-muted-foreground/80">Criamos SaaS e MicroSaaS</span>
+                <span className="text-[10px] text-muted-foreground -mt-1 transition-colors duration-300 group-hover:text-muted-foreground/80">{t("logo.tagline")}</span>
               </div>
             </a>
             <p className="text-muted-foreground text-sm max-w-md">
-              Transformamos ideias em soluções digitais escaláveis. Nossos produtos SaaS são desenvolvidos 
-              com tecnologia de ponta para ajudar seu negócio a crescer.
+              {language === "pt" 
+                ? "Transformamos ideias em soluções digitais escaláveis. Nossos produtos SaaS são desenvolvidos com tecnologia de ponta para ajudar seu negócio a crescer."
+                : "We transform ideas into scalable digital solutions. Our SaaS products are developed with cutting-edge technology to help your business grow."}
             </p>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-foreground font-semibold mb-4">Contato</h4>
+            <h4 className="text-foreground font-semibold mb-4">{t("footer.contact")}</h4>
             <div className="space-y-3">
               <a href="mailto:eurhok@gmail.com" className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" />
@@ -78,19 +82,19 @@ const Footer = () => {
                 }}
                 className="block text-muted-foreground text-sm hover:text-primary transition-colors"
               >
-                Trabalhe Conosco
+                {language === "pt" ? "Trabalhe Conosco" : "Work With Us"}
               </a>
               <Link to="/termos" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
-                Termos de Uso
+                {t("footer.terms")}
               </Link>
               <Link to="/privacidade" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
-                Política de Privacidade
+                {t("footer.privacy")}
               </Link>
               <Link to="/contato" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
-                Contato
+                {t("footer.contact")}
               </Link>
               <Link to="/faq" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
-                FAQ
+                {t("footer.faq")}
               </Link>
             </div>
           </div>
@@ -99,10 +103,10 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2025 RoVR. Todos os direitos reservados.
+            © 2025 RoVR. {t("footer.rights")}
           </p>
           <p className="text-muted-foreground text-xs">
-            Feito com ❤️ no Brasil
+            {language === "pt" ? "Feito com ❤️ no Brasil" : "Made with ❤️ in Brazil"}
           </p>
         </div>
       </div>

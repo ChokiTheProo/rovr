@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -9,6 +11,7 @@ interface MobileMenuProps {
 
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const [isAnimating, setIsAnimating] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (isOpen) {
@@ -28,10 +31,10 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   };
 
   const navItems = [
-    { label: "Sobre", href: "#sobre" },
-    { label: "Projetos", href: "#projetos" },
-    { label: "Tecnologia", href: "#tecnologia" },
-    { label: "Micro SaaS", href: "#microsaas" },
+    { label: t("nav.about"), href: "#sobre" },
+    { label: t("nav.projects"), href: "#projetos" },
+    { label: t("nav.technology"), href: "#tecnologia" },
+    { label: t("nav.microsaas"), href: "#microsaas" },
   ];
 
   if (!isOpen && !isAnimating) return null;
@@ -65,14 +68,19 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         </button>
 
         {/* Logo */}
-        <div className="mb-12">
+        <div className="mb-8">
           <span className="font-display text-3xl font-bold">
-            <span className="text-foreground">REV</span>
-            <span className="text-gradient">YRA</span>
+            <span className="text-foreground">Ro</span>
+            <span className="text-gradient">VR</span>
           </span>
           <p className="text-muted-foreground text-sm text-center mt-2">
-            Criamos SaaS e MicroSaaS
+            {t("logo.tagline")}
           </p>
+        </div>
+
+        {/* Language Switcher */}
+        <div className="mb-8">
+          <LanguageSwitcher />
         </div>
 
         {/* Navigation Links */}
@@ -105,7 +113,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           }`}
           style={{ transitionDelay: "500ms" }}
         >
-          Fale Conosco
+          {t("nav.contact")}
         </Link>
       </div>
     </div>
