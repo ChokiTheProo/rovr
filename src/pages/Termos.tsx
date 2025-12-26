@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Shield, FileText, Scale } from "lucide-react";
+import { Shield, FileText, Scale } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const Termos = () => {
   const { language } = useLanguage();
@@ -21,7 +23,6 @@ const Termos = () => {
 
   const content = {
     pt: {
-      backLink: "Voltar ao início",
       title: "Termos de",
       titleHighlight: "Uso",
       lastUpdate: "Última atualização: Dezembro 2024",
@@ -62,7 +63,6 @@ const Termos = () => {
       ]
     },
     en: {
-      backLink: "Back to home",
       title: "Terms of",
       titleHighlight: "Use",
       lastUpdate: "Last updated: December 2024",
@@ -107,26 +107,14 @@ const Termos = () => {
   const t = content[language];
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-hidden flex flex-col">
+      <Header />
+      
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-radial opacity-30" />
       <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-primary/10 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-6 py-12 relative z-10">
-        {/* Back Button */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-        >
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            {t.backLink}
-          </Link>
-        </motion.div>
-
+      <main className="container mx-auto px-6 py-12 pt-28 relative z-10 flex-1">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -185,7 +173,9 @@ const Termos = () => {
             </Link>
           </motion.div>
         </motion.div>
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 };
