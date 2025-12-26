@@ -1,7 +1,10 @@
 import { TrendingUp, DollarSign, BarChart3, Settings } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const MicroSaasSection = () => {
-  const features = [
+  const { language } = useLanguage();
+
+  const features = language === "pt" ? [
     {
       icon: TrendingUp,
       title: "Crescimento Exponencial",
@@ -30,6 +33,35 @@ const MicroSaasSection = () => {
       metric: "90%",
       metricLabel: "Processos automáticos",
     },
+  ] : [
+    {
+      icon: TrendingUp,
+      title: "Exponential Growth",
+      description: "Architecture designed to scale from hundreds to millions of users without refactoring.",
+      metric: "10x",
+      metricLabel: "Average growth",
+    },
+    {
+      icon: DollarSign,
+      title: "Recurring Revenue",
+      description: "Monetization models that generate predictable and sustainable revenue month after month.",
+      metric: "MRR",
+      metricLabel: "Monthly Revenue",
+    },
+    {
+      icon: BarChart3,
+      title: "Real-Time Metrics",
+      description: "Complete dashboard with engagement, retention and monetization KPIs.",
+      metric: "24/7",
+      metricLabel: "Monitoring",
+    },
+    {
+      icon: Settings,
+      title: "Full Automation",
+      description: "From content updates to marketing campaigns, everything automated.",
+      metric: "90%",
+      metricLabel: "Automated processes",
+    },
   ];
 
   return (
@@ -39,14 +71,18 @@ const MicroSaasSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Nossa Filosofia</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">
+            {language === "pt" ? "Nossa Filosofia" : "Our Philosophy"}
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-            Visão <span className="text-gradient">Micro SaaS</span>
+            {language === "pt" ? "Visão " : ""}
+            <span className="text-gradient">Micro SaaS</span>
+            {language === "en" ? " Vision" : ""}
           </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Cada produto da RoVR é tratado como um negócio digital independente. 
-            Criamos aplicativos similares aos nossos projetos existentes, aplicando metodologias SaaS 
-            para gerar valor mensurável. Integrações TEF e notas fiscais em andamento.
+            {language === "pt" 
+              ? "Cada produto da RoVR é tratado como um negócio digital independente. Criamos aplicativos similares aos nossos projetos existentes, aplicando metodologias SaaS para gerar valor mensurável. Integrações TEF e notas fiscais em andamento."
+              : "Every RoVR product is treated as an independent digital business. We create applications similar to our existing projects, applying SaaS methodologies to generate measurable value. TEF integrations and invoices in progress."}
           </p>
         </div>
 
@@ -85,10 +121,11 @@ const MicroSaasSection = () => {
         {/* Quote */}
         <div className="max-w-3xl mx-auto text-center p-8 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm">
           <blockquote className="text-xl md:text-2xl font-light text-foreground italic mb-4">
-            "Não criamos apenas soluções. Criamos produtos digitais que crescem, 
-            evoluem e geram valor continuamente."
+            {language === "pt" 
+              ? "\"Não criamos apenas soluções. Criamos produtos digitais que crescem, evoluem e geram valor continuamente.\""
+              : "\"We don't just create solutions. We create digital products that grow, evolve and continuously generate value.\""}
           </blockquote>
-          <cite className="text-primary font-semibold not-italic">— EQUIPE ROVR</cite>
+          <cite className="text-primary font-semibold not-italic">— {language === "pt" ? "EQUIPE ROVR" : "ROVR TEAM"}</cite>
         </div>
       </div>
     </section>

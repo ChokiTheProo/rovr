@@ -1,22 +1,34 @@
 import { Users, Rocket, Heart } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WorkWithUsSection = () => {
-  const benefits = [
+  const { language } = useLanguage();
+
+  const benefits = language === "pt" ? [
     { icon: Rocket, title: "Projetos Inovadores", description: "Trabalhe em SaaS e MicroSaaS de ponta" },
     { icon: Users, title: "Equipe Colaborativa", description: "Ambiente de trabalho flexível e remoto" },
     { icon: Heart, title: "Crescimento", description: "Oportunidade de desenvolvimento contínuo" },
+  ] : [
+    { icon: Rocket, title: "Innovative Projects", description: "Work on cutting-edge SaaS and MicroSaaS" },
+    { icon: Users, title: "Collaborative Team", description: "Flexible and remote work environment" },
+    { icon: Heart, title: "Growth", description: "Continuous development opportunity" },
   ];
 
   return (
     <section id="trabalhe-conosco" className="py-24 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="text-accent text-sm font-medium tracking-wider uppercase">Carreiras</span>
+          <span className="text-accent text-sm font-medium tracking-wider uppercase">
+            {language === "pt" ? "Carreiras" : "Careers"}
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-            Trabalhe <span className="text-gradient">Conosco</span>
+            {language === "pt" ? "Trabalhe " : "Work "}
+            <span className="text-gradient">{language === "pt" ? "Conosco" : "With Us"}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Junte-se à nossa equipe e ajude a construir o futuro dos produtos digitais no Brasil.
+            {language === "pt" 
+              ? "Junte-se à nossa equipe e ajude a construir o futuro dos produtos digitais no Brasil."
+              : "Join our team and help build the future of digital products in Brazil."}
           </p>
         </div>
 
