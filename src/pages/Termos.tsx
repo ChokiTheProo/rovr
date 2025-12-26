@@ -165,12 +165,12 @@ const Termos = () => {
             <p className="text-foreground font-medium">
               {t.footerText}
             </p>
-            <Link
-              to="/contato"
+            <a
+              href="mailto:eurhok@gmail.com"
               className="text-primary hover:underline mt-2 inline-block"
             >
-              contato@rovr.com.br
-            </Link>
+              eurhok@gmail.com
+            </a>
           </motion.div>
         </motion.div>
       </main>
