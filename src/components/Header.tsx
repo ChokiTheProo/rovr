@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -8,13 +8,25 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
-    { label: t("nav.about"), href: "#sobre" },
-    { label: t("nav.projects"), href: "#projetos" },
-    { label: t("nav.technology"), href: "#tecnologia" },
-    { label: t("nav.microsaas"), href: "#microsaas" },
+    { label: t("nav.about"), href: "sobre" },
+    { label: t("nav.projects"), href: "projetos" },
+    { label: t("nav.technology"), href: "tecnologia" },
+    { label: t("nav.microsaas"), href: "microsaas" },
   ];
+
+  const handleNavClick = (sectionId: string) => {
+    if (location.pathname === "/") {
+      // Already on home, just scroll
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Navigate to home then scroll
+      navigate("/", { state: { scrollTo: sectionId } });
+    }
+  };
 
   return (
     <>
@@ -55,13 +67,13 @@ const Header = () => {
             {/* Navigation */}
             <nav className="hidden md:flex items-center gap-2">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.label}
-                  href={item.href}
+                  onClick={() => handleNavClick(item.href)}
                   className="px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-300"
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
             </nav>
 
