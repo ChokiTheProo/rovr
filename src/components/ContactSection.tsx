@@ -1,4 +1,4 @@
-import { Clock, MessageCircle, FileText, Mail, Phone } from "lucide-react";
+import { Clock, MessageCircle, FileText, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 
@@ -10,10 +10,8 @@ const ContactSection = () => {
   ];
 
   const contacts = [
-    { icon: Mail, label: "eurhok@gmail.com" },
-    { icon: Mail, label: "robsonvarela23@gmail.com" },
-    { icon: Phone, label: "(54) 99171-0543" },
-    { icon: Phone, label: "(54) 99506-4090" },
+    { icon: Mail, label: "eurhok@gmail.com", href: "mailto:eurhok@gmail.com" },
+    { icon: Mail, label: "robsonvarela23@gmail.com", href: "mailto:robsonvarela23@gmail.com" },
   ];
 
   return (
@@ -37,12 +35,16 @@ const ContactSection = () => {
           </p>
 
           {/* Contact Info */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
             {contacts.map((contact, index) => (
-              <div key={index} className="flex items-center justify-center gap-2 p-3 rounded-xl bg-card/50 border border-border/50">
+              <a 
+                key={index} 
+                href={contact.href}
+                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-card/50 border border-border/50 hover:border-primary/50 transition-colors"
+              >
                 <contact.icon className="w-4 h-4 text-primary" />
-                <span className="text-xs text-muted-foreground">{contact.label}</span>
-              </div>
+                <span className="text-sm text-muted-foreground">{contact.label}</span>
+              </a>
             ))}
           </div>
 
