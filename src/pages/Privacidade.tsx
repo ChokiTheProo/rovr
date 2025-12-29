@@ -186,12 +186,6 @@ const Privacidade = () => {
             <p className="text-foreground font-medium">
               {t.footerText}
             </p>
-            <a
-              href="mailto:privacidade@rovr.com.br"
-              className="text-accent hover:underline mt-2 inline-block"
-            >
-              privacidade@rovr.com.br
-            </a>
           </motion.div>
         </motion.div>
       </main>
