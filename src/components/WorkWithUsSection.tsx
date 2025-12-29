@@ -1,8 +1,11 @@
 import { Users, Rocket, Heart } from "lucide-react";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import useScrollAnimation, { staggerContainer, staggerItem } from "@/hooks/useScrollAnimation";
 
 const WorkWithUsSection = () => {
   const { language } = useLanguage();
+  const { ref, isInView } = useScrollAnimation();
 
   const benefits = language === "pt" ? [
     { icon: Rocket, title: "Projetos Inovadores", description: "Trabalhe em SaaS e MicroSaaS de ponta" },
@@ -15,37 +18,72 @@ const WorkWithUsSection = () => {
   ];
 
   return (
-    <section id="trabalhe-conosco" className="py-24 relative">
+    <section id="trabalhe-conosco" className="py-24 relative" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-accent text-sm font-medium tracking-wider uppercase">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <motion.span 
+            className="text-accent text-sm font-medium tracking-wider uppercase"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.1 }}
+          >
             {language === "pt" ? "Carreiras" : "Careers"}
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+          </motion.span>
+          <motion.h2 
+            className="text-4xl md:text-5xl font-bold mt-4 mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
             {language === "pt" ? "Trabalhe " : "Work "}
             <span className="text-gradient">{language === "pt" ? "Conosco" : "With Us"}</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-muted-foreground text-lg max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
             {language === "pt" 
               ? "Junte-se à nossa equipe e ajude a construir o futuro dos produtos digitais no Brasil."
               : "Join our team and help build the future of digital products in Brazil."}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {benefits.map((benefit, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={staggerItem}
+              whileHover={{ 
+                y: -10,
+                scale: 1.05,
+                transition: { duration: 0.3 }
+              }}
               className="p-6 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm text-center hover:border-accent/50 transition-all duration-300"
             >
-              <div className="w-14 h-14 mx-auto rounded-xl bg-accent/20 flex items-center justify-center mb-4">
+              <motion.div 
+                className="w-14 h-14 mx-auto rounded-xl bg-accent/20 flex items-center justify-center mb-4"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
                 <benefit.icon className="w-7 h-7 text-accent" />
-              </div>
+              </motion.div>
               <h3 className="text-lg font-semibold text-foreground mb-2">{benefit.title}</h3>
               <p className="text-muted-foreground text-sm">{benefit.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
