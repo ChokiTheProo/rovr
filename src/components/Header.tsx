@@ -38,13 +38,13 @@ const Header = () => {
             <Link to="/" className="flex items-center gap-3 group perspective-1000">
               <div className="relative w-12 h-12 transform-style-3d transition-all duration-500 group-hover:rotate-y-12 group-hover:rotate-x-6 group-hover:scale-110">
                 {/* Glow effect behind */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary via-accent to-primary blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500 animate-pulse" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary via-accent to-primary blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500" />
                 
                 {/* Main logo image */}
                 <img 
                   src={logoIcon} 
                   alt="RoVR Logo" 
-                  className="relative w-full h-full rounded-2xl shadow-lg shadow-primary/30 group-hover:shadow-xl group-hover:shadow-primary/50 transition-all duration-500 animate-float"
+                  className="relative w-full h-full rounded-2xl shadow-lg shadow-primary/30 group-hover:shadow-xl group-hover:shadow-primary/50 transition-all duration-500"
                 />
                 
                 {/* Shine overlay on hover */}
@@ -66,11 +66,12 @@ const Header = () => {
 
             {/* Navigation */}
             <nav className="hidden md:flex items-center gap-2">
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item.href)}
-                  className="px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-300"
+                  className="px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-300 animate-fade-in"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {item.label}
                 </button>
