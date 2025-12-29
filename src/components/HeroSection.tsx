@@ -36,8 +36,7 @@ const HeroSection = () => {
       y: 0, 
       scale: 1,
       transition: { 
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.8
       }
     }
   };
@@ -47,8 +46,7 @@ const HeroSection = () => {
       y: [-15, 15, -15],
       transition: {
         duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut"
+        repeat: Infinity
       }
     }
   };

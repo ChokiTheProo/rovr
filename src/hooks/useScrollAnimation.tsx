@@ -1,9 +1,6 @@
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-// Custom easing as tuple type
-const customEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
 // Animation variants for different effects
 export const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -11,8 +8,7 @@ export const fadeInUp = {
     opacity: 1, 
     y: 0,
     transition: { 
-      duration: 0.6,
-      ease: customEase
+      duration: 0.6
     }
   }
 };
@@ -34,8 +30,7 @@ export const staggerItem = {
     opacity: 1, 
     y: 0,
     transition: { 
-      duration: 0.5,
-      ease: customEase
+      duration: 0.5
     }
   }
 };
