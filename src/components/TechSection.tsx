@@ -1,8 +1,11 @@
 import { Code, Database, Shield, Zap, GitBranch, Palette, Server, Smartphone, Mail, CreditCard, Cloud, Lock } from "lucide-react";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import useScrollAnimation, { staggerContainer, staggerItem } from "@/hooks/useScrollAnimation";
 
 const TechSection = () => {
   const { language } = useLanguage();
+  const { ref, isInView } = useScrollAnimation();
 
   const technologies = language === "pt" ? [
     { icon: Code, title: "React + Vite", subtitle: "Frontend moderno" },
@@ -48,85 +51,169 @@ const TechSection = () => {
     { step: "04", title: "Launch", description: "Strategic go-to-market" },
   ];
 
+  const headerVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+    }
+  };
+
   return (
-    <section id="tecnologia" className="py-24 relative">
+    <section id="tecnologia" className="py-24 relative" ref={ref}>
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">
+        <motion.div 
+          className="text-center mb-16"
+          variants={headerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.span 
+            className="text-primary text-sm font-medium tracking-wider uppercase"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.1 }}
+          >
             {language === "pt" ? "Stack & Processo" : "Stack & Process"}
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+          </motion.span>
+          <motion.h2 
+            className="text-4xl md:text-5xl font-bold mt-4 mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
             {language === "pt" ? "Tecnologia de " : "Cutting-Edge "}
             <span className="text-gradient">{language === "pt" ? "Ponta" : "Technology"}</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-muted-foreground text-lg max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
             {language === "pt" 
               ? "Atualmente desenvolvemos aplicativos web similares à nossa página inicial e projetos existentes. Integrações TEF e sistemas de notas fiscais estão em desenvolvimento."
               : "We currently develop web applications similar to our homepage and existing projects. TEF integrations and invoice systems are under development."}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Technologies Grid */}
         <div className="mb-12">
-          <h3 className="text-center text-lg font-semibold text-muted-foreground mb-6">
+          <motion.h3 
+            className="text-center text-lg font-semibold text-muted-foreground mb-6"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.4 }}
+          >
             {language === "pt" ? "Tecnologias" : "Technologies"}
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          </motion.h3>
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
             {technologies.map((tech, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={staggerItem}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
+                }}
                 className="group p-6 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm text-center hover:border-primary/50 hover:bg-card transition-all duration-300"
               >
-                <div className="w-12 h-12 mx-auto rounded-xl bg-primary/20 flex items-center justify-center mb-4 group-hover:glow-primary transition-all duration-300">
+                <motion.div 
+                  className="w-12 h-12 mx-auto rounded-xl bg-primary/20 flex items-center justify-center mb-4 group-hover:glow-primary transition-all duration-300"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <tech.icon className="w-6 h-6 text-primary" />
-                </div>
+                </motion.div>
                 <h3 className="text-foreground font-semibold text-sm mb-1">
                   {tech.title}
                 </h3>
                 <p className="text-muted-foreground text-xs">
                   {tech.subtitle}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Integrations Grid */}
         <div className="mb-20">
-          <h3 className="text-center text-lg font-semibold text-muted-foreground mb-6">
+          <motion.h3 
+            className="text-center text-lg font-semibold text-muted-foreground mb-6"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.5 }}
+          >
             {language === "pt" ? "Integrações" : "Integrations"}
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          </motion.h3>
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
             {integrations.map((tech, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={staggerItem}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
+                }}
                 className="group p-6 rounded-2xl border border-accent/30 bg-accent/5 backdrop-blur-sm text-center hover:border-accent/50 hover:bg-accent/10 transition-all duration-300"
               >
-                <div className="w-12 h-12 mx-auto rounded-xl bg-accent/20 flex items-center justify-center mb-4 transition-all duration-300">
+                <motion.div 
+                  className="w-12 h-12 mx-auto rounded-xl bg-accent/20 flex items-center justify-center mb-4 transition-all duration-300"
+                  whileHover={{ scale: 1.2 }}
+                >
                   <tech.icon className="w-6 h-6 text-accent" />
-                </div>
+                </motion.div>
                 <h3 className="text-foreground font-semibold text-sm mb-1">
                   {tech.title}
                 </h3>
                 <p className="text-muted-foreground text-xs">
                   {tech.subtitle}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Process Timeline */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {process.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={staggerItem}
+              whileHover={{ 
+                y: -10,
+                scale: 1.02,
+                transition: { duration: 0.3 }
+              }}
               className="relative p-6 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300"
             >
-              <div className="text-5xl font-display font-bold text-gradient opacity-50 mb-4">
+              <motion.div 
+                className="text-5xl font-display font-bold text-gradient opacity-50 mb-4"
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={isInView ? { scale: 1, opacity: 0.5 } : { scale: 0.5, opacity: 0 }}
+                transition={{ delay: 0.6 + index * 0.1 }}
+              >
                 {item.step}
-              </div>
+              </motion.div>
               <h3 className="text-xl font-semibold text-foreground mb-2">
                 {item.title}
               </h3>
@@ -136,11 +223,16 @@ const TechSection = () => {
               
               {/* Connector Line */}
               {index < process.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-primary/50 to-transparent" />
+                <motion.div 
+                  className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-primary/50 to-transparent"
+                  initial={{ scaleX: 0 }}
+                  animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+                  transition={{ delay: 0.8 + index * 0.1 }}
+                />
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

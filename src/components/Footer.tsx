@@ -1,18 +1,47 @@
-import { Mail, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import useScrollAnimation, { staggerContainer, staggerItem } from "@/hooks/useScrollAnimation";
 
 const Footer = () => {
   const { t, language } = useLanguage();
+  const { ref, isInView } = useScrollAnimation();
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1
+      }
+    }
+  };
 
   return (
-    <footer className="py-12 border-t border-border/50 bg-card/30">
+    <motion.footer 
+      className="py-12 border-t border-border/50 bg-card/30"
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {/* Logo & Description */}
-          <div className="md:col-span-2">
+          <motion.div className="md:col-span-2" variants={staggerItem}>
             <Link to="/" className="flex items-center gap-3 mb-4 group perspective-1000">
-              <div className="relative w-12 h-12 transform-style-3d transition-all duration-500 group-hover:rotate-y-12 group-hover:rotate-x-6 group-hover:scale-110">
+              <motion.div 
+                className="relative w-12 h-12 transform-style-3d transition-all duration-500 group-hover:rotate-y-12 group-hover:rotate-x-6 group-hover:scale-110"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+              >
                 {/* Glow effect behind */}
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary via-accent to-primary blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 animate-pulse" />
                 
@@ -28,9 +57,17 @@ const Footer = () => {
                 </div>
                 
                 {/* Floating particles effect */}
-                <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-accent opacity-0 group-hover:opacity-100 group-hover:animate-float transition-opacity duration-300" />
-                <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 group-hover:animate-float transition-opacity duration-500 delay-100" />
-              </div>
+                <motion.div 
+                  className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  animate={{ y: [-2, 2, -2] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+                <motion.div 
+                  className="absolute -bottom-1 -left-1 w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  animate={{ y: [2, -2, 2] }}
+                  transition={{ duration: 2.5, repeat: Infinity }}
+                />
+              </motion.div>
               
               <div className="flex flex-col transition-transform duration-300 group-hover:translate-x-1">
                 <span className="font-display text-xl font-bold tracking-tight">
@@ -45,63 +82,89 @@ const Footer = () => {
                 ? "Transformamos ideias em soluções digitais escaláveis. Nossos produtos SaaS são desenvolvidos com tecnologia de ponta para ajudar seu negócio a crescer."
                 : "We transform ideas into scalable digital solutions. Our SaaS products are developed with cutting-edge technology to help your business grow."}
             </p>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div variants={staggerItem}>
             <h4 className="text-foreground font-semibold mb-4">{t("footer.contact")}</h4>
             <div className="space-y-3">
-              <a href="mailto:eurhok@gmail.com" className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors">
+              <motion.a 
+                href="mailto:eurhok@gmail.com" 
+                className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
+                whileHover={{ x: 4 }}
+              >
                 <Mail className="w-4 h-4" />
                 eurhok@gmail.com
-              </a>
-              <a href="mailto:robsonvarela23@gmail.com" className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors">
+              </motion.a>
+              <motion.a 
+                href="mailto:robsonvarela23@gmail.com" 
+                className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
+                whileHover={{ x: 4 }}
+              >
                 <Mail className="w-4 h-4" />
                 robsonvarela23@gmail.com
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Links */}
-          <div>
+          <motion.div variants={staggerItem}>
             <h4 className="text-foreground font-semibold mb-4">Links</h4>
             <div className="space-y-3">
-              <a 
+              <motion.a 
                 href="#trabalhe-conosco" 
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('trabalhe-conosco')?.scrollIntoView({ behavior: 'smooth' });
                 }}
                 className="block text-muted-foreground text-sm hover:text-primary transition-colors"
+                whileHover={{ x: 4 }}
               >
                 {language === "pt" ? "Trabalhe Conosco" : "Work With Us"}
-              </a>
-              <Link to="/termos" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
-                {t("footer.terms")}
-              </Link>
-              <Link to="/privacidade" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
-                {t("footer.privacy")}
-              </Link>
-              <Link to="/contato" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
-                {t("footer.contact")}
-              </Link>
-              <Link to="/faq" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
-                {t("footer.faq")}
-              </Link>
+              </motion.a>
+              <motion.div whileHover={{ x: 4 }}>
+                <Link to="/termos" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
+                  {t("footer.terms")}
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ x: 4 }}>
+                <Link to="/privacidade" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
+                  {t("footer.privacy")}
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ x: 4 }}>
+                <Link to="/contato" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
+                  {t("footer.contact")}
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ x: 4 }}>
+                <Link to="/faq" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
+                  {t("footer.faq")}
+                </Link>
+              </motion.div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
+        <motion.div 
+          className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ delay: 0.5 }}
+        >
           <p className="text-muted-foreground text-sm">
             © 2025 RoVR. {t("footer.rights")}
           </p>
-          <p className="text-muted-foreground text-xs">
+          <motion.p 
+            className="text-muted-foreground text-xs"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
             {language === "pt" ? "Feito com ❤️ no Brasil" : "Made with ❤️ in Brazil"}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 
