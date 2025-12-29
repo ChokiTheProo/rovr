@@ -9,38 +9,38 @@ const TestimonialsSection = () => {
     {
       quote: "A RoVR transformou completamente nossa operação. O sistema que desenvolveram reduziu nosso tempo de processamento em 70%.",
       author: "Carlos Silva",
-      role: "CEO, TechStore",
+      role: "CEO",
       rating: 5,
     },
     {
       quote: "Profissionalismo e inovação definem a equipe RoVR. Nosso MicroSaaS gerou ROI positivo já no segundo mês.",
       author: "Ana Martins",
-      role: "Fundadora, DataFlow",
+      role: "Fundadora",
       rating: 5,
     },
     {
       quote: "Entrega rápida, código limpo e suporte excepcional. Recomendo para qualquer empresa que queira escalar.",
       author: "Pedro Costa",
-      role: "CTO, FastPay",
+      role: "CTO",
       rating: 5,
     },
   ] : [
     {
       quote: "RoVR completely transformed our operation. The system they developed reduced our processing time by 70%.",
       author: "Carlos Silva",
-      role: "CEO, TechStore",
+      role: "CEO",
       rating: 5,
     },
     {
       quote: "Professionalism and innovation define the RoVR team. Our MicroSaaS generated positive ROI in the second month.",
       author: "Ana Martins",
-      role: "Founder, DataFlow",
+      role: "Founder",
       rating: 5,
     },
     {
       quote: "Fast delivery, clean code and exceptional support. I recommend it for any company that wants to scale.",
       author: "Pedro Costa",
-      role: "CTO, FastPay",
+      role: "CTO",
       rating: 5,
     },
   ];
