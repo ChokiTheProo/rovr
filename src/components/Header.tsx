@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logoIcon from "@/assets/logo-icon.png";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,18 +38,17 @@ const Header = () => {
             <Link to="/" className="flex items-center gap-3 group perspective-1000">
               <div className="relative w-12 h-12 transform-style-3d transition-all duration-500 group-hover:rotate-y-12 group-hover:rotate-x-6 group-hover:scale-110">
                 {/* Glow effect behind */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary via-accent to-primary blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 animate-pulse" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary via-accent to-primary blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500 animate-pulse" />
                 
-                {/* Main logo container */}
-                <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-primary via-primary/80 to-accent border border-primary/50 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:shadow-xl group-hover:shadow-primary/50 transition-all duration-500 group-hover:border-primary">
-                  {/* Inner shine effect */}
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  {/* Letter R with animation */}
-                  <span className="font-display text-xl font-black text-primary-foreground tracking-tighter relative z-10 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
-                    R
-                  </span>
-                </div>
+                {/* Main logo image */}
+                <img 
+                  src={logoIcon} 
+                  alt="RoVR Logo" 
+                  className="relative w-full h-full rounded-2xl shadow-lg shadow-primary/30 group-hover:shadow-xl group-hover:shadow-primary/50 transition-all duration-500 animate-float"
+                />
+                
+                {/* Shine overlay on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 
                 {/* Floating particles effect */}
                 <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-accent opacity-0 group-hover:opacity-100 group-hover:animate-float transition-opacity duration-300" />
