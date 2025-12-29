@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
@@ -27,6 +28,31 @@ const Header = () => {
       // Navigate to home then scroll
       navigate("/", { state: { scrollTo: sectionId } });
     }
+  };
+
+  const navContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const navItemVariants = {
+    hidden: { opacity: 0, y: -20, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring" as const,
+        stiffness: 300,
+        damping: 20,
+      },
+    },
   };
 
   return (
@@ -65,18 +91,31 @@ const Header = () => {
             </Link>
 
             {/* Navigation */}
-            <nav className="hidden md:flex items-center gap-2">
-              {navItems.map((item, index) => (
-                <button
+            <motion.nav 
+              className="hidden md:flex items-center gap-2"
+              variants={navContainerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {navItems.map((item) => (
+                <motion.button
                   key={item.label}
+                  variants={navItemVariants}
                   onClick={() => handleNavClick(item.href)}
-                  className="px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-300 animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className="relative px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 overflow-hidden group"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {item.label}
-                </button>
+                  <span className="relative z-10">{item.label}</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.button>
               ))}
-            </nav>
+            </motion.nav>
 
             {/* Language Switcher & CTA */}
             <div className="hidden md:flex items-center gap-4">
