@@ -110,17 +110,14 @@ const Footer = () => {
           <motion.div variants={staggerItem}>
             <h4 className="text-foreground font-semibold mb-4">Links</h4>
             <div className="space-y-3">
-              <motion.a 
-                href="#trabalhe-conosco" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('trabalhe-conosco')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="block text-muted-foreground text-sm hover:text-primary transition-colors"
-                whileHover={{ x: 4 }}
-              >
-                {language === "pt" ? "Trabalhe Conosco" : "Work With Us"}
-              </motion.a>
+              <motion.div whileHover={{ x: 4 }}>
+                <Link 
+                  to="/#trabalhe-conosco" 
+                  className="block text-muted-foreground text-sm hover:text-primary transition-colors"
+                >
+                  {language === "pt" ? "Trabalhe Conosco" : "Work With Us"}
+                </Link>
+              </motion.div>
               <motion.div whileHover={{ x: 4 }}>
                 <Link to="/termos" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
                   {t("footer.terms")}
