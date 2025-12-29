@@ -22,7 +22,7 @@ const Footer = () => {
 
   return (
     <motion.footer 
-      className="py-12 border-t border-border/50 bg-card/30"
+      className="relative z-10 py-12 border-t border-border/50 bg-card/30"
       ref={ref}
       variants={containerVariants}
       initial="hidden"

@@ -133,13 +133,13 @@ const FAQ = () => {
   const t = content[language];
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden flex flex-col">
+    <div className="min-h-screen bg-background relative overflow-x-hidden flex flex-col">
       <Header />
       
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-radial opacity-30" />
-      <div className="absolute top-1/2 left-0 w-[600px] h-[400px] bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-radial opacity-30 pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/2 left-0 w-[600px] h-[400px] bg-primary/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-accent/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
       <main className="container mx-auto px-6 py-12 pt-28 relative z-10 flex-1">
         <motion.div
