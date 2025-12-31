@@ -30,29 +30,6 @@ const Header = () => {
     }
   };
 
-  const navContainerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const navItemVariants = {
-    hidden: { opacity: 0, x: -10 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.4,
-        ease: "easeOut" as const,
-      },
-    },
-  };
-
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
@@ -89,31 +66,17 @@ const Header = () => {
             </Link>
 
             {/* Navigation */}
-            <motion.nav 
-              className="hidden md:flex items-center gap-2"
-              variants={navContainerVariants}
-              initial="hidden"
-              animate="visible"
-            >
+            <nav className="hidden md:flex items-center gap-2">
               {navItems.map((item) => (
-                <motion.button
+                <button
                   key={item.label}
-                  variants={navItemVariants}
                   onClick={() => handleNavClick(item.href)}
-                  className="relative px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 overflow-hidden group"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="relative px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
                 >
-                  <span className="relative z-10">{item.label}</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full"
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileHover={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.button>
+                  {item.label}
+                </button>
               ))}
-            </motion.nav>
+            </nav>
 
             {/* Language Switcher & CTA */}
             <div className="hidden md:flex items-center gap-4">
