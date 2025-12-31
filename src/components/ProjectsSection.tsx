@@ -42,10 +42,11 @@ const ProjectsSection = () => {
       rating: "4.9",
       price: "R$ 45,90",
       priceLabel: "/mês",
-      cta: "Assinar Agora",
+      cta: "Acessar Agora",
       featured: true,
       icon: DollarSign,
       gradient: "from-emerald-500/20 to-teal-500/20",
+      link: "https://fluxenbr.lovable.app",
       differentials: [
         "✨ Interface intuitiva e moderna",
         "🌍 Disponível em Português e Inglês",
@@ -74,10 +75,11 @@ const ProjectsSection = () => {
       rating: "4.8",
       price: "R$ 35,00",
       priceLabel: "/mês",
-      cta: "Assinar Agora",
+      cta: "Acessar Agora",
       featured: true,
       icon: Stethoscope,
       gradient: "from-teal-500/20 to-cyan-500/20",
+      link: "https://klyexa.lovable.app",
       differentials: [
         "🏥 Ideal para hospitais e clínicas",
         "📋 Prontuário eletrônico completo",
@@ -161,10 +163,11 @@ const ProjectsSection = () => {
       rating: "4.9",
       price: "R$ 45,90",
       priceLabel: "/month",
-      cta: "Subscribe Now",
+      cta: "Access Now",
       featured: true,
       icon: DollarSign,
       gradient: "from-emerald-500/20 to-teal-500/20",
+      link: "https://fluxenbr.lovable.app",
       differentials: [
         "✨ Intuitive and modern interface",
         "🌍 Available in Portuguese and English",
@@ -193,10 +196,11 @@ const ProjectsSection = () => {
       rating: "4.8",
       price: "R$ 35,00",
       priceLabel: "/month",
-      cta: "Subscribe Now",
+      cta: "Access Now",
       featured: true,
       icon: Stethoscope,
       gradient: "from-teal-500/20 to-cyan-500/20",
+      link: "https://klyexa.lovable.app",
       differentials: [
         "🏥 Ideal for hospitals and clinics",
         "📋 Complete electronic medical record",
@@ -369,7 +373,7 @@ const ProjectsSection = () => {
                   </div>
                   <div className="flex gap-2">
                     <Button 
-                      onClick={() => handleSubscribe(project.title)}
+                      onClick={() => project.link ? window.open(project.link, '_blank') : handleSubscribe(project.title)}
                       disabled={loading === project.title}
                       className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl px-6 glow-primary"
                     >
