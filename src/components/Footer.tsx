@@ -1,12 +1,41 @@
 import { Mail } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import useScrollAnimation, { staggerContainer, staggerItem } from "@/hooks/useScrollAnimation";
+import { useEffect } from "react";
 
 const Footer = () => {
   const { t, language } = useLanguage();
   const { ref, isInView } = useScrollAnimation();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Handle hash scroll after navigation
+  useEffect(() => {
+    if (location.hash === "#trabalhe-conosco") {
+      setTimeout(() => {
+        const element = document.getElementById("trabalhe-conosco");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [location]);
+
+  const handleWorkWithUsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      // Already on home, just scroll
+      const element = document.getElementById("trabalhe-conosco");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Navigate to home with hash
+      navigate("/#trabalhe-conosco");
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0, y: 40 },
@@ -111,12 +140,13 @@ const Footer = () => {
             <h4 className="text-foreground font-semibold mb-4">Links</h4>
             <div className="space-y-3">
               <motion.div whileHover={{ x: 4 }}>
-                <Link 
-                  to="/#trabalhe-conosco" 
-                  className="block text-muted-foreground text-sm hover:text-primary transition-colors"
+                <a 
+                  href="/#trabalhe-conosco" 
+                  onClick={handleWorkWithUsClick}
+                  className="block text-muted-foreground text-sm hover:text-primary transition-colors cursor-pointer"
                 >
                   {language === "pt" ? "Trabalhe Conosco" : "Work With Us"}
-                </Link>
+                </a>
               </motion.div>
               <motion.div whileHover={{ x: 4 }}>
                 <Link to="/termos" className="block text-muted-foreground text-sm hover:text-primary transition-colors">
