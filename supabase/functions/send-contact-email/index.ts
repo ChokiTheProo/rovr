@@ -1,6 +1,9 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
+const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -126,6 +129,27 @@ const handler = async (req: Request): Promise<Response> => {
     const { nome, email, telefone, empresa, mensagem } = requestData;
 
     console.log("Processing contact email request");
+
+    // Initialize Supabase client with service role key
+    const supabase = createClient(SUPABASE_URL!, SUPABASE_SERVICE_ROLE_KEY!);
+
+    // Save lead to database
+    const { error: dbError } = await supabase
+      .from("contact_leads")
+      .insert({
+        nome: nome.trim(),
+        email: email.trim(),
+        telefone: telefone?.trim() || null,
+        empresa: empresa?.trim() || null,
+        mensagem: mensagem.trim(),
+      });
+
+    if (dbError) {
+      console.error("Database error:", dbError.message);
+      // Continue with email sending even if DB fails
+    } else {
+      console.log("Lead saved to database");
+    }
 
     // Escape all user inputs to prevent XSS
     const safeNome = escapeHtml(nome.trim());
