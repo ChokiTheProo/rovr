@@ -22,6 +22,24 @@ const TrabalheConosco = () => {
     message: ""
   });
 
+  // Anti-bot: honeypot field (should remain empty)
+  const [honeypot, setHoneypot] = useState("");
+  
+  // Anti-bot: simple math captcha
+  const [captcha, setCaptcha] = useState(() => {
+    const a = Math.floor(Math.random() * 10) + 1;
+    const b = Math.floor(Math.random() * 10) + 1;
+    return { a, b, answer: a + b };
+  });
+  const [captchaInput, setCaptchaInput] = useState("");
+
+  const regenerateCaptcha = () => {
+    const a = Math.floor(Math.random() * 10) + 1;
+    const b = Math.floor(Math.random() * 10) + 1;
+    setCaptcha({ a, b, answer: a + b });
+    setCaptchaInput("");
+  };
+
   const benefits = language === "pt" ? [
     { icon: Rocket, title: "Projetos Inovadores", description: "Trabalhe em SaaS e MicroSaaS de ponta" },
     { icon: Users, title: "Equipe Colaborativa", description: "Ambiente de trabalho flexível e remoto" },
@@ -44,6 +62,26 @@ const TrabalheConosco = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Anti-bot: check honeypot
+    if (honeypot) {
+      console.log("Bot detected via honeypot");
+      return;
+    }
+
+    // Anti-bot: validate captcha
+    if (parseInt(captchaInput) !== captcha.answer) {
+      toast({
+        title: language === "pt" ? "Captcha incorreto" : "Incorrect captcha",
+        description: language === "pt" 
+          ? "Por favor, resolva a conta matemática corretamente."
+          : "Please solve the math problem correctly.",
+        variant: "destructive",
+      });
+      regenerateCaptcha();
+      return;
+    }
+
     setIsSubmitting(true);
 
     // Simulate form submission
@@ -57,6 +95,8 @@ const TrabalheConosco = () => {
     });
 
     setFormData({ name: "", email: "", phone: "", linkedin: "", area: "", message: "" });
+    setCaptchaInput("");
+    regenerateCaptcha();
     setIsSubmitting(false);
   };
 
@@ -261,6 +301,35 @@ const TrabalheConosco = () => {
                     placeholder={language === "pt" 
                       ? "Sua experiência, habilidades e por que quer trabalhar conosco..."
                       : "Your experience, skills and why you want to work with us..."}
+                  />
+                </div>
+
+                {/* Honeypot field - hidden from users, bots will fill it */}
+                <div className="absolute -left-[9999px]" aria-hidden="true">
+                  <input
+                    type="text"
+                    name="website"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
+                {/* Math CAPTCHA */}
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    {language === "pt" 
+                      ? `Verificação: Quanto é ${captcha.a} + ${captcha.b}?` 
+                      : `Verification: What is ${captcha.a} + ${captcha.b}?`}
+                  </label>
+                  <Input
+                    type="number"
+                    value={captchaInput}
+                    onChange={(e) => setCaptchaInput(e.target.value)}
+                    required
+                    className="bg-background/50 max-w-32"
+                    placeholder={language === "pt" ? "Resposta" : "Answer"}
                   />
                 </div>
 
