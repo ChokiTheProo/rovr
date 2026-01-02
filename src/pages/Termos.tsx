@@ -101,6 +101,46 @@ const Termos = () => {
           content: "We reserve the right to modify these terms at any time. Significant changes will be communicated by email or through notice on our website."
         }
       ]
+    },
+    es: {
+      title: "Términos de",
+      titleHighlight: "Uso",
+      lastUpdate: "Última actualización: Diciembre 2024",
+      footerText: "Si tienes dudas, contáctanos",
+      sections: [
+        {
+          title: "1. Aceptación de los Términos",
+          content: "Al acceder y utilizar los servicios de RoVR, aceptas estos Términos de Uso. Si no estás de acuerdo con alguna parte de estos términos, no debes usar nuestros servicios."
+        },
+        {
+          title: "2. Descripción de los Servicios",
+          content: "RoVR ofrece servicios de desarrollo de software, SaaS y MicroSaaS personalizados. Nuestros productos incluyen sistemas de gestión financiera (Fluxen) y gestión de salud (Klyexa), entre otros."
+        },
+        {
+          title: "3. Uso Aceptable",
+          content: "Aceptas usar nuestros servicios solo para fines legales y de acuerdo con estos términos. Está prohibido usar nuestros servicios para cualquier actividad ilegal, fraudulenta o que viole derechos de terceros."
+        },
+        {
+          title: "4. Propiedad Intelectual",
+          content: "Todo el contenido, código fuente, diseños y marcas registradas son propiedad exclusiva de RoVR. Está prohibida la reproducción, distribución o modificación sin autorización previa por escrito."
+        },
+        {
+          title: "5. Privacidad y Datos",
+          content: "Respetamos tu privacidad y protegemos tus datos conforme a nuestra Política de Privacidad. Al usar nuestros servicios, aceptas la recopilación y uso de información según lo descrito."
+        },
+        {
+          title: "6. Pagos y Suscripciones",
+          content: "Los planes de suscripción se cobran mensualmente. Fluxen: R$ 45,90/mes | Klyexa: R$ 35,00/mes. Las cancelaciones deben solicitarse con 5 días hábiles de anticipación."
+        },
+        {
+          title: "7. Limitación de Responsabilidad",
+          content: "RoVR no se responsabiliza por daños indirectos, incidentales o consecuentes derivados del uso de nuestros servicios. Nuestra responsabilidad está limitada al valor pagado por los servicios."
+        },
+        {
+          title: "8. Modificaciones",
+          content: "Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios significativos serán comunicados por email o mediante aviso en nuestro sitio."
+        }
+      ]
     }
   };
 
