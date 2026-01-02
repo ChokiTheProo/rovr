@@ -40,25 +40,115 @@ const TrabalheConosco = () => {
     setCaptchaInput("");
   };
 
-  const benefits = language === "pt" ? [
-    { icon: Rocket, title: "Projetos Inovadores", description: "Trabalhe em SaaS e MicroSaaS de ponta" },
-    { icon: Users, title: "Equipe Colaborativa", description: "Ambiente de trabalho flexível e remoto" },
-    { icon: Heart, title: "Crescimento", description: "Oportunidade de desenvolvimento contínuo" },
-  ] : [
-    { icon: Rocket, title: "Innovative Projects", description: "Work on cutting-edge SaaS and MicroSaaS" },
-    { icon: Users, title: "Collaborative Team", description: "Flexible and remote work environment" },
-    { icon: Heart, title: "Growth", description: "Continuous development opportunity" },
-  ];
+  const content = {
+    pt: {
+      careers: "Carreiras",
+      workWith: "Trabalhe ",
+      us: "Conosco",
+      subtitle: "Junte-se à nossa equipe e ajude a construir o futuro dos produtos digitais no Brasil.",
+      areasTitle: "Áreas de Atuação",
+      formTitle: "Envie sua Candidatura",
+      formSubtitle: "Preencha o formulário abaixo e entraremos em contato.",
+      fullName: "Nome completo",
+      phone: "Telefone",
+      areaOfInterest: "Área de interesse",
+      selectArea: "Selecione uma área",
+      development: "Desenvolvimento",
+      business: "Negócios",
+      other: "Outro",
+      tellUs: "Conte-nos sobre você",
+      placeholder: "Sua experiência, habilidades e por que quer trabalhar conosco...",
+      verification: `Verificação: Quanto é`,
+      answer: "Resposta",
+      submit: "Enviar Candidatura",
+      captchaError: "Captcha incorreto",
+      captchaErrorDesc: "Por favor, resolva a conta matemática corretamente.",
+      successTitle: "Candidatura enviada!",
+      successDesc: "Obrigado pelo interesse. Entraremos em contato em breve.",
+      benefits: [
+        { icon: Rocket, title: "Projetos Inovadores", description: "Trabalhe em SaaS e MicroSaaS de ponta" },
+        { icon: Users, title: "Equipe Colaborativa", description: "Ambiente de trabalho flexível e remoto" },
+        { icon: Heart, title: "Crescimento", description: "Oportunidade de desenvolvimento contínuo" },
+      ],
+      areas: [
+        { icon: Code, title: "Desenvolvimento", description: "Frontend, Backend, Full Stack" },
+        { icon: Palette, title: "Design", description: "UI/UX, Product Design" },
+        { icon: Briefcase, title: "Negócios", description: "Marketing, Vendas, Gestão" },
+      ],
+    },
+    en: {
+      careers: "Careers",
+      workWith: "Work ",
+      us: "With Us",
+      subtitle: "Join our team and help build the future of digital products in Brazil.",
+      areasTitle: "Areas of Work",
+      formTitle: "Submit Your Application",
+      formSubtitle: "Fill out the form below and we'll get in touch.",
+      fullName: "Full name",
+      phone: "Phone",
+      areaOfInterest: "Area of interest",
+      selectArea: "Select an area",
+      development: "Development",
+      business: "Business",
+      other: "Other",
+      tellUs: "Tell us about yourself",
+      placeholder: "Your experience, skills and why you want to work with us...",
+      verification: "Verification: What is",
+      answer: "Answer",
+      submit: "Submit Application",
+      captchaError: "Incorrect captcha",
+      captchaErrorDesc: "Please solve the math problem correctly.",
+      successTitle: "Application sent!",
+      successDesc: "Thank you for your interest. We'll be in touch soon.",
+      benefits: [
+        { icon: Rocket, title: "Innovative Projects", description: "Work on cutting-edge SaaS and MicroSaaS" },
+        { icon: Users, title: "Collaborative Team", description: "Flexible and remote work environment" },
+        { icon: Heart, title: "Growth", description: "Continuous development opportunity" },
+      ],
+      areas: [
+        { icon: Code, title: "Development", description: "Frontend, Backend, Full Stack" },
+        { icon: Palette, title: "Design", description: "UI/UX, Product Design" },
+        { icon: Briefcase, title: "Business", description: "Marketing, Sales, Management" },
+      ],
+    },
+    es: {
+      careers: "Carreras",
+      workWith: "Trabaja ",
+      us: "Con Nosotros",
+      subtitle: "Únete a nuestro equipo y ayuda a construir el futuro de los productos digitales en Brasil.",
+      areasTitle: "Áreas de Trabajo",
+      formTitle: "Envía tu Candidatura",
+      formSubtitle: "Completa el formulario a continuación y nos pondremos en contacto.",
+      fullName: "Nombre completo",
+      phone: "Teléfono",
+      areaOfInterest: "Área de interés",
+      selectArea: "Selecciona un área",
+      development: "Desarrollo",
+      business: "Negocios",
+      other: "Otro",
+      tellUs: "Cuéntanos sobre ti",
+      placeholder: "Tu experiencia, habilidades y por qué quieres trabajar con nosotros...",
+      verification: "Verificación: ¿Cuánto es",
+      answer: "Respuesta",
+      submit: "Enviar Candidatura",
+      captchaError: "Captcha incorrecto",
+      captchaErrorDesc: "Por favor, resuelve el problema matemático correctamente.",
+      successTitle: "¡Candidatura enviada!",
+      successDesc: "Gracias por tu interés. Nos pondremos en contacto pronto.",
+      benefits: [
+        { icon: Rocket, title: "Proyectos Innovadores", description: "Trabaja en SaaS y MicroSaaS de vanguardia" },
+        { icon: Users, title: "Equipo Colaborativo", description: "Ambiente de trabajo flexible y remoto" },
+        { icon: Heart, title: "Crecimiento", description: "Oportunidad de desarrollo continuo" },
+      ],
+      areas: [
+        { icon: Code, title: "Desarrollo", description: "Frontend, Backend, Full Stack" },
+        { icon: Palette, title: "Diseño", description: "UI/UX, Product Design" },
+        { icon: Briefcase, title: "Negocios", description: "Marketing, Ventas, Gestión" },
+      ],
+    },
+  };
 
-  const areas = language === "pt" ? [
-    { icon: Code, title: "Desenvolvimento", description: "Frontend, Backend, Full Stack" },
-    { icon: Palette, title: "Design", description: "UI/UX, Product Design" },
-    { icon: Briefcase, title: "Negócios", description: "Marketing, Vendas, Gestão" },
-  ] : [
-    { icon: Code, title: "Development", description: "Frontend, Backend, Full Stack" },
-    { icon: Palette, title: "Design", description: "UI/UX, Product Design" },
-    { icon: Briefcase, title: "Business", description: "Marketing, Sales, Management" },
-  ];
+  const t = content[language];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,10 +162,8 @@ const TrabalheConosco = () => {
     // Anti-bot: validate captcha
     if (parseInt(captchaInput) !== captcha.answer) {
       toast({
-        title: language === "pt" ? "Captcha incorreto" : "Incorrect captcha",
-        description: language === "pt" 
-          ? "Por favor, resolva a conta matemática corretamente."
-          : "Please solve the math problem correctly.",
+        title: content[language].captchaError,
+        description: content[language].captchaErrorDesc,
         variant: "destructive",
       });
       regenerateCaptcha();
@@ -88,10 +176,8 @@ const TrabalheConosco = () => {
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     toast({
-      title: language === "pt" ? "Candidatura enviada!" : "Application sent!",
-      description: language === "pt" 
-        ? "Obrigado pelo interesse. Entraremos em contato em breve."
-        : "Thank you for your interest. We'll be in touch soon.",
+      title: content[language].successTitle,
+      description: content[language].successDesc,
     });
 
     setFormData({ name: "", email: "", phone: "", linkedin: "", area: "", message: "" });
@@ -125,7 +211,7 @@ const TrabalheConosco = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.1 }}
             >
-              {language === "pt" ? "Carreiras" : "Careers"}
+              {t.careers}
             </motion.span>
             <motion.h1 
               className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6"
@@ -133,8 +219,8 @@ const TrabalheConosco = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              {language === "pt" ? "Trabalhe " : "Work "}
-              <span className="text-gradient">{language === "pt" ? "Conosco" : "With Us"}</span>
+              {t.workWith}
+              <span className="text-gradient">{t.us}</span>
             </motion.h1>
             <motion.p 
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
@@ -142,9 +228,7 @@ const TrabalheConosco = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              {language === "pt" 
-                ? "Junte-se à nossa equipe e ajude a construir o futuro dos produtos digitais no Brasil."
-                : "Join our team and help build the future of digital products in Brazil."}
+              {t.subtitle}
             </motion.p>
           </motion.div>
 
@@ -155,7 +239,7 @@ const TrabalheConosco = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            {benefits.map((benefit, index) => (
+            {t.benefits.map((benefit, index) => (
               <motion.div
                 key={index}
                 whileHover={{ y: -10, scale: 1.02 }}
@@ -182,10 +266,10 @@ const TrabalheConosco = () => {
             transition={{ delay: 0.5, duration: 0.6 }}
           >
             <h2 className="text-3xl font-bold text-center mb-10">
-              {language === "pt" ? "Áreas de Atuação" : "Areas of Work"}
+              {t.areasTitle}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {areas.map((area, index) => (
+              {t.areas.map((area, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ y: -5 }}
@@ -208,19 +292,17 @@ const TrabalheConosco = () => {
           >
             <div className="p-8 rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm">
               <h2 className="text-2xl font-bold text-center mb-2">
-                {language === "pt" ? "Envie sua Candidatura" : "Submit Your Application"}
+                {t.formTitle}
               </h2>
               <p className="text-muted-foreground text-center mb-8">
-                {language === "pt" 
-                  ? "Preencha o formulário abaixo e entraremos em contato."
-                  : "Fill out the form below and we'll get in touch."}
+                {t.formSubtitle}
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      {language === "pt" ? "Nome completo" : "Full name"}
+                      {t.fullName}
                     </label>
                     <Input
                       type="text"
@@ -247,7 +329,7 @@ const TrabalheConosco = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      {language === "pt" ? "Telefone" : "Phone"}
+                      {t.phone}
                     </label>
                     <Input
                       type="tel"
@@ -272,7 +354,7 @@ const TrabalheConosco = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    {language === "pt" ? "Área de interesse" : "Area of interest"}
+                    {t.areaOfInterest}
                   </label>
                   <select
                     value={formData.area}
@@ -280,17 +362,17 @@ const TrabalheConosco = () => {
                     required
                     className="w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
-                    <option value="">{language === "pt" ? "Selecione uma área" : "Select an area"}</option>
-                    <option value="development">{language === "pt" ? "Desenvolvimento" : "Development"}</option>
+                    <option value="">{t.selectArea}</option>
+                    <option value="development">{t.development}</option>
                     <option value="design">Design</option>
-                    <option value="business">{language === "pt" ? "Negócios" : "Business"}</option>
-                    <option value="other">{language === "pt" ? "Outro" : "Other"}</option>
+                    <option value="business">{t.business}</option>
+                    <option value="other">{t.other}</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    {language === "pt" ? "Conte-nos sobre você" : "Tell us about yourself"}
+                    {t.tellUs}
                   </label>
                   <Textarea
                     value={formData.message}
@@ -298,9 +380,7 @@ const TrabalheConosco = () => {
                     rows={4}
                     required
                     className="bg-background/50"
-                    placeholder={language === "pt" 
-                      ? "Sua experiência, habilidades e por que quer trabalhar conosco..."
-                      : "Your experience, skills and why you want to work with us..."}
+                    placeholder={t.placeholder}
                   />
                 </div>
 
@@ -319,9 +399,7 @@ const TrabalheConosco = () => {
                 {/* Math CAPTCHA */}
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    {language === "pt" 
-                      ? `Verificação: Quanto é ${captcha.a} + ${captcha.b}?` 
-                      : `Verification: What is ${captcha.a} + ${captcha.b}?`}
+                    {t.verification} {captcha.a} + {captcha.b}?
                   </label>
                   <Input
                     type="number"
@@ -329,7 +407,7 @@ const TrabalheConosco = () => {
                     onChange={(e) => setCaptchaInput(e.target.value)}
                     required
                     className="bg-background/50 max-w-32"
-                    placeholder={language === "pt" ? "Resposta" : "Answer"}
+                    placeholder={t.answer}
                   />
                 </div>
 
@@ -348,7 +426,7 @@ const TrabalheConosco = () => {
                   ) : (
                     <>
                       <Send className="w-4 h-4 mr-2" />
-                      {language === "pt" ? "Enviar Candidatura" : "Submit Application"}
+                      {t.submit}
                     </>
                   )}
                 </Button>
