@@ -57,10 +57,23 @@ const PricingSection = () => {
     es: "Habla con nuestro equipo",
   };
 
+  const prices = {
+    pt: "1.500",
+    en: "280",
+    es: "280",
+  };
+
+  const currencies = {
+    pt: "R$",
+    en: "$",
+    es: "$",
+  };
+
   const plan = {
     name: t("pricing.plan"),
     description: descriptions[language],
-    price: "1.500",
+    price: prices[language],
+    currency: currencies[language],
     period: periods[language],
     icon: Zap,
     features: [
@@ -133,7 +146,7 @@ const PricingSection = () => {
               {/* Price */}
               <div className="mb-6 pb-6 border-b border-border/50">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-lg text-muted-foreground">R$</span>
+                  <span className="text-lg text-muted-foreground">{plan.currency}</span>
                   <span className="text-5xl font-bold text-foreground">{plan.price}</span>
                   <span className="text-muted-foreground ml-1">/{plan.period}</span>
                 </div>
