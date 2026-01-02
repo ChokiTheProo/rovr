@@ -94,6 +94,43 @@ const Privacidade = () => {
           content: "We do not sell your personal data. We only share information with essential service providers (payment processors, hosting services) under confidentiality agreements."
         }
       ]
+    },
+    es: {
+      title: "Política de",
+      titleHighlight: "Privacidad",
+      lastUpdate: "Última actualización: Diciembre 2024",
+      intro: "RoVR está comprometida con proteger tu privacidad. Esta política describe cómo recopilamos, usamos y protegemos tu información personal en conformidad con la Ley General de Protección de Datos (LGPD).",
+      cookiesTitle: "Cookies",
+      cookiesText: "Utilizamos cookies esenciales para el funcionamiento del sitio y cookies analíticas para entender cómo usas nuestros servicios. Puedes gestionar tus preferencias de cookies en la configuración del navegador.",
+      cookieTypes: ["Cookies Esenciales", "Cookies Analíticas", "Cookies de Marketing"],
+      footerText: "¿Dudas sobre privacidad?",
+      sections: [
+        {
+          icon: Database,
+          title: "Datos que Recopilamos",
+          content: "Recopilamos información personal como nombre, email, teléfono y datos de uso de nuestros sistemas. También recopilamos datos técnicos como dirección IP, tipo de navegador e información del dispositivo."
+        },
+        {
+          icon: Eye,
+          title: "Cómo Usamos tus Datos",
+          content: "Utilizamos tus datos para: proporcionar y mejorar nuestros servicios, procesar pagos, enviar comunicaciones importantes, personalizar tu experiencia y garantizar la seguridad de la plataforma."
+        },
+        {
+          icon: Lock,
+          title: "Protección de Datos",
+          content: "Implementamos medidas de seguridad técnicas y organizacionales para proteger tus datos, incluyendo encriptación SSL, acceso restringido a datos personales y monitoreo continuo de seguridad."
+        },
+        {
+          icon: UserCheck,
+          title: "Tus Derechos",
+          content: "Tienes derecho a acceder, corregir, eliminar tus datos personales, además de solicitar la portabilidad de los datos. Para ejercer estos derechos, contacta por email: privacidade@rovr.com.br"
+        },
+        {
+          icon: Shield,
+          title: "Compartir Datos",
+          content: "No vendemos tus datos personales. Compartimos información solo con proveedores de servicios esenciales (procesadores de pago, servicios de hosting) bajo acuerdos de confidencialidad."
+        }
+      ]
     }
   };
 

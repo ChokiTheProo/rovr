@@ -127,6 +127,56 @@ const FAQ = () => {
           answer: "We are always looking for talent! If you are a developer, designer or technology professional, check out our 'Work With Us' section on the homepage or send your resume to our email."
         }
       ]
+    },
+    es: {
+      title: "Preguntas",
+      titleHighlight: "Frecuentes",
+      description: "Encuentra respuestas a las preguntas más comunes sobre nuestros servicios, procesos y cómo podemos ayudar a tu negocio.",
+      ctaTitle: "¿No encontraste lo que buscabas?",
+      ctaText: "Contáctanos y estaremos encantados de ayudarte.",
+      ctaButton: "Contáctenos",
+      faqs: [
+        {
+          question: "¿Qué es RoVR?",
+          answer: "RoVR es una empresa especializada en el desarrollo de soluciones digitales escalables, enfocada en crear SaaS y MicroSaaS personalizados que ayudan a los negocios a crecer y modernizarse."
+        },
+        {
+          question: "¿Qué tipos de productos desarrollan?",
+          answer: "Desarrollamos sistemas SaaS (Software as a Service) y MicroSaaS personalizados, incluyendo sistemas de gestión financiera como Fluxen y plataformas de salud como Klyexa. También creamos soluciones a medida según las necesidades del cliente."
+        },
+        {
+          question: "¿Cuánto tiempo toma desarrollar un proyecto?",
+          answer: "El tiempo de desarrollo varía según la complejidad del proyecto. Proyectos más simples pueden entregarse en 2-4 semanas, mientras que sistemas más robustos pueden tomar de 2-6 meses. Hacemos un análisis detallado antes de comenzar para definir plazos realistas."
+        },
+        {
+          question: "¿Cómo funciona el proceso de desarrollo?",
+          answer: "Nuestro proceso incluye: 1) Reunión inicial para entender tus necesidades, 2) Propuesta comercial y técnica, 3) Desarrollo en sprints con entregas incrementales, 4) Pruebas y ajustes, 5) Deploy y capacitación, 6) Soporte continuo después de la entrega."
+        },
+        {
+          question: "¿Ofrecen soporte después de la entrega?",
+          answer: "¡Sí! Ofrecemos soporte técnico continuo para todos nuestros productos. Nuestros planes de suscripción incluyen soporte por email y WhatsApp, además de actualizaciones y mejoras regulares."
+        },
+        {
+          question: "¿Cuál es el costo para desarrollar un SaaS?",
+          answer: "La inversión varía según la complejidad y funcionalidades deseadas. Trabajamos con presupuestos personalizados después de entender tus necesidades. Contáctanos para una evaluación gratuita de tu proyecto."
+        },
+        {
+          question: "¿Trabajan con startups?",
+          answer: "¡Sí! Nos encanta trabajar con startups y tenemos experiencia ayudando a nuevos negocios a validar sus ideas y construir MVPs (Minimum Viable Products) de forma rápida y eficiente."
+        },
+        {
+          question: "¿Es posible integrar con sistemas existentes?",
+          answer: "¡Absolutamente! Desarrollamos integraciones con diversos sistemas, APIs y plataformas. Podemos conectar tu nueva solución con herramientas que ya utilizas, como ERPs, CRMs, pasarelas de pago y mucho más."
+        },
+        {
+          question: "¿Cómo puedo seguir el progreso de mi proyecto?",
+          answer: "Mantenemos comunicación constante durante todo el desarrollo. Tendrás acceso a un ambiente de pruebas para probar las funcionalidades conforme se desarrollan, además de reuniones regulares de seguimiento."
+        },
+        {
+          question: "¿Están contratando?",
+          answer: "¡Siempre estamos en busca de talentos! Si eres desarrollador, diseñador o profesional de tecnología, consulta nuestra sección 'Trabaja con Nosotros' en la página principal o envía tu currículum a nuestro email."
+        }
+      ]
     }
   };
 
