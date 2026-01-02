@@ -7,65 +7,52 @@ const MicroSaasSection = () => {
   const { language } = useLanguage();
   const { ref, isInView } = useScrollAnimation();
 
-  const features = language === "pt" ? [
-    {
-      icon: TrendingUp,
-      title: "Crescimento Exponencial",
-      description: "Arquitetura projetada para escalar de centenas a milhões de usuários sem refatoração.",
-      metric: "10x",
-      metricLabel: "Crescimento médio",
+  const content = {
+    pt: {
+      philosophy: "Nossa Filosofia",
+      vision: "Visão ",
+      microSaas: "Micro SaaS",
+      description: "Cada produto da RoVR é tratado como um negócio digital independente. Criamos aplicativos similares aos nossos projetos existentes, aplicando metodologias SaaS para gerar valor mensurável. Integrações TEF e notas fiscais em andamento.",
+      quote: "\"Não criamos apenas soluções. Criamos produtos digitais que crescem, evoluem e geram valor continuamente.\"",
+      team: "EQUIPE ROVR",
+      features: [
+        { icon: TrendingUp, title: "Crescimento Exponencial", description: "Arquitetura projetada para escalar de centenas a milhões de usuários sem refatoração.", metric: "10x", metricLabel: "Crescimento médio" },
+        { icon: DollarSign, title: "Receita Recorrente", description: "Modelos de monetização que geram receita previsível e sustentável mês após mês.", metric: "MRR", metricLabel: "Monthly Revenue" },
+        { icon: BarChart3, title: "Métricas em Tempo Real", description: "Dashboard completo com KPIs de engajamento, retenção e monetização.", metric: "24/7", metricLabel: "Monitoramento" },
+        { icon: Settings, title: "Automação Total", description: "Desde atualizações de conteúdo até campanhas de marketing, tudo automatizado.", metric: "90%", metricLabel: "Processos automáticos" },
+      ],
     },
-    {
-      icon: DollarSign,
-      title: "Receita Recorrente",
-      description: "Modelos de monetização que geram receita previsível e sustentável mês após mês.",
-      metric: "MRR",
-      metricLabel: "Monthly Revenue",
+    en: {
+      philosophy: "Our Philosophy",
+      vision: "",
+      microSaas: "Micro SaaS Vision",
+      description: "Every RoVR product is treated as an independent digital business. We create applications similar to our existing projects, applying SaaS methodologies to generate measurable value. TEF integrations and invoices in progress.",
+      quote: "\"We don't just create solutions. We create digital products that grow, evolve and continuously generate value.\"",
+      team: "ROVR TEAM",
+      features: [
+        { icon: TrendingUp, title: "Exponential Growth", description: "Architecture designed to scale from hundreds to millions of users without refactoring.", metric: "10x", metricLabel: "Average growth" },
+        { icon: DollarSign, title: "Recurring Revenue", description: "Monetization models that generate predictable and sustainable revenue month after month.", metric: "MRR", metricLabel: "Monthly Revenue" },
+        { icon: BarChart3, title: "Real-Time Metrics", description: "Complete dashboard with engagement, retention and monetization KPIs.", metric: "24/7", metricLabel: "Monitoring" },
+        { icon: Settings, title: "Full Automation", description: "From content updates to marketing campaigns, everything automated.", metric: "90%", metricLabel: "Automated processes" },
+      ],
     },
-    {
-      icon: BarChart3,
-      title: "Métricas em Tempo Real",
-      description: "Dashboard completo com KPIs de engajamento, retenção e monetização.",
-      metric: "24/7",
-      metricLabel: "Monitoramento",
+    es: {
+      philosophy: "Nuestra Filosofía",
+      vision: "Visión ",
+      microSaas: "Micro SaaS",
+      description: "Cada producto de RoVR se trata como un negocio digital independiente. Creamos aplicaciones similares a nuestros proyectos existentes, aplicando metodologías SaaS para generar valor medible. Integraciones TEF y facturación en desarrollo.",
+      quote: "\"No solo creamos soluciones. Creamos productos digitales que crecen, evolucionan y generan valor continuamente.\"",
+      team: "EQUIPO ROVR",
+      features: [
+        { icon: TrendingUp, title: "Crecimiento Exponencial", description: "Arquitectura diseñada para escalar de cientos a millones de usuarios sin refactorización.", metric: "10x", metricLabel: "Crecimiento promedio" },
+        { icon: DollarSign, title: "Ingresos Recurrentes", description: "Modelos de monetización que generan ingresos predecibles y sostenibles mes tras mes.", metric: "MRR", metricLabel: "Monthly Revenue" },
+        { icon: BarChart3, title: "Métricas en Tiempo Real", description: "Dashboard completo con KPIs de engagement, retención y monetización.", metric: "24/7", metricLabel: "Monitoreo" },
+        { icon: Settings, title: "Automatización Total", description: "Desde actualizaciones de contenido hasta campañas de marketing, todo automatizado.", metric: "90%", metricLabel: "Procesos automáticos" },
+      ],
     },
-    {
-      icon: Settings,
-      title: "Automação Total",
-      description: "Desde atualizações de conteúdo até campanhas de marketing, tudo automatizado.",
-      metric: "90%",
-      metricLabel: "Processos automáticos",
-    },
-  ] : [
-    {
-      icon: TrendingUp,
-      title: "Exponential Growth",
-      description: "Architecture designed to scale from hundreds to millions of users without refactoring.",
-      metric: "10x",
-      metricLabel: "Average growth",
-    },
-    {
-      icon: DollarSign,
-      title: "Recurring Revenue",
-      description: "Monetization models that generate predictable and sustainable revenue month after month.",
-      metric: "MRR",
-      metricLabel: "Monthly Revenue",
-    },
-    {
-      icon: BarChart3,
-      title: "Real-Time Metrics",
-      description: "Complete dashboard with engagement, retention and monetization KPIs.",
-      metric: "24/7",
-      metricLabel: "Monitoring",
-    },
-    {
-      icon: Settings,
-      title: "Full Automation",
-      description: "From content updates to marketing campaigns, everything automated.",
-      metric: "90%",
-      metricLabel: "Automated processes",
-    },
-  ];
+  };
+
+  const t = content[language];
 
   return (
     <section id="microsaas" className="py-24 relative overflow-hidden" ref={ref}>
@@ -85,7 +72,7 @@ const MicroSaasSection = () => {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ delay: 0.1 }}
           >
-            {language === "pt" ? "Nossa Filosofia" : "Our Philosophy"}
+            {t.philosophy}
           </motion.span>
           <motion.h2 
             className="text-4xl md:text-5xl font-bold mt-4 mb-6"
@@ -93,9 +80,8 @@ const MicroSaasSection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            {language === "pt" ? "Visão " : ""}
-            <span className="text-gradient">Micro SaaS</span>
-            {language === "en" ? " Vision" : ""}
+            {t.vision}
+            <span className="text-gradient">{t.microSaas}</span>
           </motion.h2>
           <motion.p 
             className="text-muted-foreground text-lg max-w-3xl mx-auto"
@@ -103,9 +89,7 @@ const MicroSaasSection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            {language === "pt" 
-              ? "Cada produto da RoVR é tratado como um negócio digital independente. Criamos aplicativos similares aos nossos projetos existentes, aplicando metodologias SaaS para gerar valor mensurável. Integrações TEF e notas fiscais em andamento."
-              : "Every RoVR product is treated as an independent digital business. We create applications similar to our existing projects, applying SaaS methodologies to generate measurable value. TEF integrations and invoices in progress."}
+            {t.description}
           </motion.p>
         </motion.div>
 
@@ -116,7 +100,7 @@ const MicroSaasSection = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {features.map((feature, index) => (
+          {t.features.map((feature, index) => (
             <motion.div
               key={index}
               variants={staggerItem}
@@ -175,9 +159,7 @@ const MicroSaasSection = () => {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ delay: 0.7 }}
           >
-            {language === "pt" 
-              ? "\"Não criamos apenas soluções. Criamos produtos digitais que crescem, evoluem e geram valor continuamente.\""
-              : "\"We don't just create solutions. We create digital products that grow, evolve and continuously generate value.\""}
+            {t.quote}
           </motion.blockquote>
           <motion.cite 
             className="text-primary font-semibold not-italic"
@@ -185,7 +167,7 @@ const MicroSaasSection = () => {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ delay: 0.8 }}
           >
-            — {language === "pt" ? "EQUIPE ROVR" : "ROVR TEAM"}
+            — {t.team}
           </motion.cite>
         </motion.div>
       </div>

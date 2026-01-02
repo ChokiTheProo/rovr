@@ -5,121 +5,82 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const TestimonialsSection = () => {
   const { language } = useLanguage();
 
-  const testimonials = language === "pt" ? [
-    {
-      quote: "A RoVR transformou completamente nossa operação. O sistema que desenvolveram reduziu nosso tempo de processamento em 70%.",
-      author: "Carlos Silva",
-      role: "CEO",
-      rating: 5,
+  const content = {
+    pt: {
+      whyChoose: "Por que escolher a RoVR?",
+      resultsTitle1: "Resultados que ",
+      resultsTitle2: "falam por si",
+      description: "Clientes satisfeitos e projetos de sucesso. Veja o que nos diferencia no mercado de MicroSaaS.",
+      quote: <>
+        "Não criamos apenas soluções. Criamos <span className="text-gradient font-semibold">produtos digitais</span> que crescem, 
+        evoluem e geram <span className="text-gradient font-semibold">valor continuamente</span>."
+      </>,
+      team: "EQUIPE ROVR",
+      testimonials: [
+        { quote: "A RoVR transformou completamente nossa operação. O sistema que desenvolveram reduziu nosso tempo de processamento em 70%.", author: "Carlos Silva", role: "CEO", rating: 5 },
+        { quote: "Profissionalismo e inovação definem a equipe RoVR. Nosso MicroSaaS gerou ROI positivo já no segundo mês.", author: "Ana Martins", role: "Fundadora", rating: 5 },
+        { quote: "Entrega rápida, código limpo e suporte excepcional. Recomendo para qualquer empresa que queira escalar.", author: "Pedro Costa", role: "CTO", rating: 5 },
+      ],
+      qualities: [
+        { icon: Rocket, title: "Entrega Rápida", description: "Do conceito ao deploy em semanas, não meses", highlight: "2-4 semanas" },
+        { icon: TrendingUp, title: "ROI Garantido", description: "Projetos focados em resultados mensuráveis", highlight: "3x retorno" },
+        { icon: Shield, title: "Código Seguro", description: "Práticas de segurança enterprise desde o dia 1", highlight: "99.9% uptime" },
+        { icon: Users, title: "Suporte Dedicado", description: "Time disponível para ajustes e evoluções", highlight: "24/7 suporte" },
+        { icon: Zap, title: "Alta Performance", description: "Sistemas otimizados para milhares de usuários", highlight: "<100ms latência" },
+        { icon: CheckCircle, title: "Escalabilidade", description: "Arquitetura preparada para crescer com você", highlight: "∞ usuários" },
+      ],
     },
-    {
-      quote: "Profissionalismo e inovação definem a equipe RoVR. Nosso MicroSaaS gerou ROI positivo já no segundo mês.",
-      author: "Ana Martins",
-      role: "Fundadora",
-      rating: 5,
+    en: {
+      whyChoose: "Why choose RoVR?",
+      resultsTitle1: "Results that ",
+      resultsTitle2: "speak for themselves",
+      description: "Satisfied clients and successful projects. See what sets us apart in the MicroSaaS market.",
+      quote: <>
+        "We don't just create solutions. We create <span className="text-gradient font-semibold">digital products</span> that grow, 
+        evolve and generate <span className="text-gradient font-semibold">continuous value</span>."
+      </>,
+      team: "ROVR TEAM",
+      testimonials: [
+        { quote: "RoVR completely transformed our operation. The system they developed reduced our processing time by 70%.", author: "Carlos Silva", role: "CEO", rating: 5 },
+        { quote: "Professionalism and innovation define the RoVR team. Our MicroSaaS generated positive ROI in the second month.", author: "Ana Martins", role: "Founder", rating: 5 },
+        { quote: "Fast delivery, clean code and exceptional support. I recommend it for any company that wants to scale.", author: "Pedro Costa", role: "CTO", rating: 5 },
+      ],
+      qualities: [
+        { icon: Rocket, title: "Fast Delivery", description: "From concept to deploy in weeks, not months", highlight: "2-4 weeks" },
+        { icon: TrendingUp, title: "Guaranteed ROI", description: "Projects focused on measurable results", highlight: "3x return" },
+        { icon: Shield, title: "Secure Code", description: "Enterprise security practices from day 1", highlight: "99.9% uptime" },
+        { icon: Users, title: "Dedicated Support", description: "Team available for adjustments and evolutions", highlight: "24/7 support" },
+        { icon: Zap, title: "High Performance", description: "Systems optimized for thousands of users", highlight: "<100ms latency" },
+        { icon: CheckCircle, title: "Scalability", description: "Architecture ready to grow with you", highlight: "∞ users" },
+      ],
     },
-    {
-      quote: "Entrega rápida, código limpo e suporte excepcional. Recomendo para qualquer empresa que queira escalar.",
-      author: "Pedro Costa",
-      role: "CTO",
-      rating: 5,
+    es: {
+      whyChoose: "¿Por qué elegir RoVR?",
+      resultsTitle1: "Resultados que ",
+      resultsTitle2: "hablan por sí solos",
+      description: "Clientes satisfechos y proyectos exitosos. Vea lo que nos diferencia en el mercado de MicroSaaS.",
+      quote: <>
+        "No solo creamos soluciones. Creamos <span className="text-gradient font-semibold">productos digitales</span> que crecen, 
+        evolucionan y generan <span className="text-gradient font-semibold">valor continuamente</span>."
+      </>,
+      team: "EQUIPO ROVR",
+      testimonials: [
+        { quote: "RoVR transformó completamente nuestra operación. El sistema que desarrollaron redujo nuestro tiempo de procesamiento en un 70%.", author: "Carlos Silva", role: "CEO", rating: 5 },
+        { quote: "Profesionalismo e innovación definen al equipo RoVR. Nuestro MicroSaaS generó ROI positivo en el segundo mes.", author: "Ana Martins", role: "Fundadora", rating: 5 },
+        { quote: "Entrega rápida, código limpio y soporte excepcional. Lo recomiendo para cualquier empresa que quiera escalar.", author: "Pedro Costa", role: "CTO", rating: 5 },
+      ],
+      qualities: [
+        { icon: Rocket, title: "Entrega Rápida", description: "Del concepto al deploy en semanas, no meses", highlight: "2-4 semanas" },
+        { icon: TrendingUp, title: "ROI Garantizado", description: "Proyectos enfocados en resultados medibles", highlight: "3x retorno" },
+        { icon: Shield, title: "Código Seguro", description: "Prácticas de seguridad enterprise desde el día 1", highlight: "99.9% uptime" },
+        { icon: Users, title: "Soporte Dedicado", description: "Equipo disponible para ajustes y evoluciones", highlight: "24/7 soporte" },
+        { icon: Zap, title: "Alto Rendimiento", description: "Sistemas optimizados para miles de usuarios", highlight: "<100ms latencia" },
+        { icon: CheckCircle, title: "Escalabilidad", description: "Arquitectura preparada para crecer contigo", highlight: "∞ usuarios" },
+      ],
     },
-  ] : [
-    {
-      quote: "RoVR completely transformed our operation. The system they developed reduced our processing time by 70%.",
-      author: "Carlos Silva",
-      role: "CEO",
-      rating: 5,
-    },
-    {
-      quote: "Professionalism and innovation define the RoVR team. Our MicroSaaS generated positive ROI in the second month.",
-      author: "Ana Martins",
-      role: "Founder",
-      rating: 5,
-    },
-    {
-      quote: "Fast delivery, clean code and exceptional support. I recommend it for any company that wants to scale.",
-      author: "Pedro Costa",
-      role: "CTO",
-      rating: 5,
-    },
-  ];
+  };
 
-  const qualities = language === "pt" ? [
-    {
-      icon: Rocket,
-      title: "Entrega Rápida",
-      description: "Do conceito ao deploy em semanas, não meses",
-      highlight: "2-4 semanas",
-    },
-    {
-      icon: TrendingUp,
-      title: "ROI Garantido",
-      description: "Projetos focados em resultados mensuráveis",
-      highlight: "3x retorno",
-    },
-    {
-      icon: Shield,
-      title: "Código Seguro",
-      description: "Práticas de segurança enterprise desde o dia 1",
-      highlight: "99.9% uptime",
-    },
-    {
-      icon: Users,
-      title: "Suporte Dedicado",
-      description: "Time disponível para ajustes e evoluções",
-      highlight: "24/7 suporte",
-    },
-    {
-      icon: Zap,
-      title: "Alta Performance",
-      description: "Sistemas otimizados para milhares de usuários",
-      highlight: "<100ms latência",
-    },
-    {
-      icon: CheckCircle,
-      title: "Escalabilidade",
-      description: "Arquitetura preparada para crescer com você",
-      highlight: "∞ usuários",
-    },
-  ] : [
-    {
-      icon: Rocket,
-      title: "Fast Delivery",
-      description: "From concept to deploy in weeks, not months",
-      highlight: "2-4 weeks",
-    },
-    {
-      icon: TrendingUp,
-      title: "Guaranteed ROI",
-      description: "Projects focused on measurable results",
-      highlight: "3x return",
-    },
-    {
-      icon: Shield,
-      title: "Secure Code",
-      description: "Enterprise security practices from day 1",
-      highlight: "99.9% uptime",
-    },
-    {
-      icon: Users,
-      title: "Dedicated Support",
-      description: "Team available for adjustments and evolutions",
-      highlight: "24/7 support",
-    },
-    {
-      icon: Zap,
-      title: "High Performance",
-      description: "Systems optimized for thousands of users",
-      highlight: "<100ms latency",
-    },
-    {
-      icon: CheckCircle,
-      title: "Scalability",
-      description: "Architecture ready to grow with you",
-      highlight: "∞ users",
-    },
-  ];
+  const t = content[language];
 
   const easeOut: Easing = [0, 0, 0.2, 1];
 
@@ -162,20 +123,18 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="text-primary text-sm font-medium tracking-wider uppercase">
-            {language === "pt" ? "Por que escolher a RoVR?" : "Why choose RoVR?"}
+            {t.whyChoose}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
             <span className="text-foreground">
-              {language === "pt" ? "Resultados que " : "Results that "}
+              {t.resultsTitle1}
             </span>
             <span className="text-gradient">
-              {language === "pt" ? "falam por si" : "speak for themselves"}
+              {t.resultsTitle2}
             </span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            {language === "pt" 
-              ? "Clientes satisfeitos e projetos de sucesso. Veja o que nos diferencia no mercado de MicroSaaS."
-              : "Satisfied clients and successful projects. See what sets us apart in the MicroSaaS market."}
+            {t.description}
           </p>
         </motion.div>
 
@@ -187,7 +146,7 @@ const TestimonialsSection = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {qualities.map((quality, index) => (
+          {t.qualities.map((quality, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
@@ -232,7 +191,7 @@ const TestimonialsSection = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {testimonials.map((testimonial, index) => (
+          {t.testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
@@ -295,20 +254,10 @@ const TestimonialsSection = () => {
             
             <blockquote className="relative z-10">
               <p className="text-2xl md:text-3xl font-light text-foreground italic mb-6">
-                {language === "pt" ? (
-                  <>
-                    "Não criamos apenas soluções. Criamos <span className="text-gradient font-semibold">produtos digitais</span> que crescem, 
-                    evoluem e geram <span className="text-gradient font-semibold">valor continuamente</span>."
-                  </>
-                ) : (
-                  <>
-                    "We don't just create solutions. We create <span className="text-gradient font-semibold">digital products</span> that grow, 
-                    evolve and generate <span className="text-gradient font-semibold">continuous value</span>."
-                  </>
-                )}
+                {t.quote}
               </p>
               <cite className="text-primary font-display font-bold text-lg not-italic">
-                — {language === "pt" ? "EQUIPE ROVR" : "ROVR TEAM"}
+                — {t.team}
               </cite>
             </blockquote>
 
