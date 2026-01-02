@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
-type Language = "pt" | "en";
+type Language = "pt" | "en" | "es";
 
 interface LanguageContextType {
   language: Language;
@@ -261,6 +261,133 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Use",
     "footer.contact": "Contact",
+    "footer.faq": "FAQ",
+  },
+  es: {
+    // Header
+    "nav.about": "Nosotros",
+    "nav.projects": "Proyectos",
+    "nav.technology": "Tecnología",
+    "nav.microsaas": "Micro SaaS",
+    "nav.contact": "Contáctenos",
+    "logo.tagline": "Creamos SaaS y MicroSaaS",
+    
+    // Hero
+    "hero.tag": "Desarrollo SaaS & Micro SaaS",
+    "hero.title1": "Transformamos",
+    "hero.title2": "ideas",
+    "hero.title3": "en",
+    "hero.title4": "productos digitales",
+    "hero.description": "Somos especialistas en desarrollar SaaS y Micro SaaS que generan ingresos recurrentes. Del concepto al lanzamiento, creamos soluciones escalables y listas para el mercado.",
+    "hero.cta": "Iniciar Proyecto",
+    "hero.portfolio": "Ver Portafolio",
+    
+    // About
+    "about.tag": "Quiénes Somos",
+    "about.title1": "Expertos en",
+    "about.title2": "SaaS & Micro SaaS",
+    "about.description": "Somos un equipo apasionado por crear productos digitales que resuelven problemas reales. Con años de experiencia en desarrollo de software, ayudamos a emprendedores y empresas a transformar sus ideas en negocios rentables.",
+    "about.stat1.value": "50+",
+    "about.stat1.label": "Proyectos Entregados",
+    "about.stat2.value": "98%",
+    "about.stat2.label": "Clientes Satisfechos",
+    "about.stat3.value": "5+",
+    "about.stat3.label": "Años de Experiencia",
+    
+    // Projects
+    "projects.tag": "Nuestros Proyectos",
+    "projects.title1": "Portafolio de",
+    "projects.title2": "Éxito",
+    "projects.description": "Conozca algunos de los proyectos que hemos desarrollado y que están generando resultados reales para nuestros clientes.",
+    
+    // Tech
+    "tech.tag": "Stack Tecnológico",
+    "tech.title1": "Tecnologías",
+    "tech.title2": "de Vanguardia",
+    "tech.description": "Utilizamos las tecnologías más modernas y eficientes del mercado para construir productos escalables, seguros y de alto rendimiento.",
+    
+    // Micro SaaS
+    "microsaas.tag": "Micro SaaS",
+    "microsaas.title1": "Soluciones",
+    "microsaas.title2": "Ágiles y Rentables",
+    "microsaas.description": "Micro SaaS son productos digitales enfocados en resolver un problema específico, con bajo costo operacional y alto potencial de ingresos recurrentes.",
+    
+    // Pricing
+    "pricing.tag": "Inversión",
+    "pricing.title1": "Comienza tu",
+    "pricing.title2": "Proyecto",
+    "pricing.description": "Inversión inicial para transformar tu idea en un producto digital funcional y listo para el mercado.",
+    "pricing.plan": "Starter",
+    "pricing.from": "Desde",
+    "pricing.feature1": "MVP completo y funcional",
+    "pricing.feature2": "Diseño responsivo moderno",
+    "pricing.feature3": "Integración con pagos",
+    "pricing.feature4": "Panel administrativo",
+    "pricing.feature5": "Deploy y configuración",
+    "pricing.feature6": "Soporte post-lanzamiento",
+    "pricing.cta": "Comenzar Ahora",
+    
+    // Testimonials
+    "testimonials.tag": "Testimonios",
+    "testimonials.title1": "Lo que dicen",
+    "testimonials.title2": "nuestros clientes",
+    
+    // Work With Us
+    "workwithus.tag": "Trabaja con Nosotros",
+    "workwithus.title1": "¿Listo para",
+    "workwithus.title2": "comenzar?",
+    "workwithus.description": "Vamos a transformar tu idea en un producto digital exitoso. Contáctanos y comienza tu viaje hoy.",
+    "workwithus.cta": "Agendar Reunión",
+    
+    // Contact Section
+    "contactsection.tag": "Creemos algo increíble juntos",
+    "contactsection.title1": "¿Listo para transformar",
+    "contactsection.title2": "tu idea en realidad?",
+    "contactsection.description": "Ya seas un emprendedor con una visión innovadora o una empresa buscando expandirse en el mercado digital, Revyra está lista para hacer tu proyecto realidad.",
+    "contactsection.cta": "Contáctenos",
+    "contactsection.benefit1": "Respuesta en 24h",
+    "contactsection.benefit2": "Consultoría gratuita",
+    "contactsection.benefit3": "NDA disponible",
+    
+    // Contact Page
+    "contact.title": "Contáctenos",
+    "contact.description": "¿Tienes un proyecto en mente? Queremos escuchar tu idea y ayudarte a hacerla realidad.",
+    "contact.name": "Nombre",
+    "contact.email": "Correo electrónico",
+    "contact.phone": "Teléfono",
+    "contact.company": "Empresa",
+    "contact.message": "Mensaje",
+    "contact.submit": "Enviar Mensaje",
+    "contact.sending": "Enviando...",
+    "contact.success": "¡Mensaje enviado con éxito!",
+    "contact.error": "Error al enviar mensaje. Inténtalo de nuevo.",
+    "contact.back": "Volver al inicio",
+    "contact.header.tag": "Creemos algo increíble juntos",
+    "contact.header.title1": "¿Listo para transformar",
+    "contact.header.title2": "tu idea en realidad?",
+    "contact.header.description": "Ya seas un emprendedor con una visión innovadora o una empresa buscando expandirse en el mercado digital, RoVR está lista para hacer tu proyecto realidad.",
+    "contact.form.title": "Envía tu mensaje",
+    "contact.form.namePlaceholder": "Tu nombre",
+    "contact.form.emailPlaceholder": "tu@email.com",
+    "contact.form.phonePlaceholder": "(11) 99999-9999",
+    "contact.form.companyPlaceholder": "Nombre de la empresa",
+    "contact.form.messagePlaceholder": "Describe tu proyecto o idea...",
+    "contact.why.title": "¿Por qué elegir RoVR?",
+    "contact.why.benefit1": "Respuesta en 24h",
+    "contact.why.benefit1Desc": "Respondemos rápidamente todas las solicitudes",
+    "contact.why.benefit2": "Consultoría gratuita",
+    "contact.why.benefit2Desc": "Análisis inicial sin compromiso",
+    "contact.why.benefit3": "NDA disponible",
+    "contact.why.benefit3Desc": "Protegemos tus ideas con confidencialidad",
+    "contact.info.title": "Información de contacto",
+    "contact.info.location": "Ubicación",
+    "contact.info.locationValue": "Brasil",
+    
+    // Footer
+    "footer.rights": "Todos los derechos reservados.",
+    "footer.privacy": "Política de Privacidad",
+    "footer.terms": "Términos de Uso",
+    "footer.contact": "Contacto",
     "footer.faq": "FAQ",
   },
 };
