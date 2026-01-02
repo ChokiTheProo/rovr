@@ -13,8 +13,37 @@ const HeroSection = () => {
     }
   };
 
+  const content = {
+    pt: {
+      projects: "Projetos",
+      subheading1: "Criamos SaaS e MicroSaaS que ",
+      subheading2: "escalam como negócios.",
+      description: "Desenvolvemos soluções digitais escaláveis. Inovação, automação e monetização inteligente em cada projeto.",
+      viewProjects: "Ver Projetos",
+      aboutRoVR: "Conhecer a RoVR",
+    },
+    en: {
+      projects: "Projects",
+      subheading1: "We build SaaS and MicroSaaS that ",
+      subheading2: "scale as businesses.",
+      description: "We develop scalable digital solutions. Innovation, automation and smart monetization in every project.",
+      viewProjects: "View Projects",
+      aboutRoVR: "About RoVR",
+    },
+    es: {
+      projects: "Proyectos",
+      subheading1: "Creamos SaaS y MicroSaaS que ",
+      subheading2: "escalan como negocios.",
+      description: "Desarrollamos soluciones digitales escalables. Innovación, automatización y monetización inteligente en cada proyecto.",
+      viewProjects: "Ver Proyectos",
+      aboutRoVR: "Conocer RoVR",
+    },
+  };
+
+  const c = content[language];
+
   const stats = [
-    { value: "10+", label: language === "pt" ? "Projetos" : "Projects" },
+    { value: "10+", label: c.projects },
     { value: "99%", label: "Uptime" },
   ];
 
@@ -148,7 +177,7 @@ const HeroSection = () => {
             className="text-2xl md:text-3xl font-light mb-6"
           >
             <span className="text-foreground">
-              {language === "pt" ? "Criamos SaaS e MicroSaaS que " : "We build SaaS and MicroSaaS that "}
+              {c.subheading1}
             </span>
             <motion.span 
               className="text-gradient-accent font-medium inline-block"
@@ -157,7 +186,7 @@ const HeroSection = () => {
               }}
               transition={{ duration: 5, repeat: Infinity }}
             >
-              {language === "pt" ? "escalam como negócios." : "scale as businesses."}
+              {c.subheading2}
             </motion.span>
           </motion.h2>
 
@@ -166,9 +195,7 @@ const HeroSection = () => {
             variants={itemVariants}
             className="text-muted-foreground text-lg max-w-2xl mb-10"
           >
-            {language === "pt" 
-              ? "Desenvolvemos soluções digitais escaláveis. Inovação, automação e monetização inteligente em cada projeto."
-              : "We develop scalable digital solutions. Innovation, automation and smart monetization in every project."}
+            {c.description}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -182,7 +209,7 @@ const HeroSection = () => {
                 onClick={() => scrollToSection('projetos')}
                 className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl px-8 py-6 text-lg glow-primary transition-all duration-300"
               >
-                {language === "pt" ? "Ver Projetos" : "View Projects"}
+                {c.viewProjects}
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
@@ -192,7 +219,7 @@ const HeroSection = () => {
                 onClick={() => scrollToSection('sobre')}
                 className="border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
               >
-                {language === "pt" ? "Conhecer a RoVR" : "About RoVR"}
+                {c.aboutRoVR}
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>

@@ -21,11 +21,47 @@ const itemVariants = {
 const PricingSection = () => {
   const { t, language } = useLanguage();
 
+  const descriptions = {
+    pt: "Ideal para validar sua ideia de MicroSaaS",
+    en: "Ideal to validate your MicroSaaS idea",
+    es: "Ideal para validar tu idea de MicroSaaS",
+  };
+
+  const periods = {
+    pt: "único",
+    en: "one-time",
+    es: "único",
+  };
+
+  const highlights = {
+    pt: "Entrega em 2-3 semanas",
+    en: "Delivery in 2-3 weeks",
+    es: "Entrega en 2-3 semanas",
+  };
+
+  const supportDays = {
+    pt: "30 dias de suporte",
+    en: "30 days of support",
+    es: "30 días de soporte",
+  };
+
+  const differentMessages = {
+    pt: "Precisa de algo diferente? Temos soluções flexíveis para cada projeto.",
+    en: "Need something different? We have flexible solutions for every project.",
+    es: "¿Necesitas algo diferente? Tenemos soluciones flexibles para cada proyecto.",
+  };
+
+  const talkTeam = {
+    pt: "Fale com nossa equipe",
+    en: "Talk to our team",
+    es: "Habla con nuestro equipo",
+  };
+
   const plan = {
     name: t("pricing.plan"),
-    description: language === "pt" ? "Ideal para validar sua ideia de MicroSaaS" : "Ideal to validate your MicroSaaS idea",
+    description: descriptions[language],
     price: "1.500",
-    period: language === "pt" ? "único" : "one-time",
+    period: periods[language],
     icon: Zap,
     features: [
       t("pricing.feature1"),
@@ -34,9 +70,9 @@ const PricingSection = () => {
       t("pricing.feature4"),
       t("pricing.feature5"),
       t("pricing.feature6"),
-      language === "pt" ? "30 dias de suporte" : "30 days of support",
+      supportDays[language],
     ],
-    highlight: language === "pt" ? "Entrega em 2-3 semanas" : "Delivery in 2-3 weeks",
+    highlight: highlights[language],
   };
 
   return (
@@ -139,15 +175,13 @@ const PricingSection = () => {
           className="text-center mt-16"
         >
           <p className="text-muted-foreground mb-4">
-            {language === "pt" 
-              ? "Precisa de algo diferente? Temos soluções flexíveis para cada projeto."
-              : "Need something different? We have flexible solutions for every project."}
+            {differentMessages[language]}
           </p>
           <Link
             to="/contato"
             className="text-primary hover:text-accent transition-colors font-medium inline-flex items-center gap-2"
           >
-            {language === "pt" ? "Fale com nossa equipe" : "Talk to our team"}
+            {talkTeam[language]}
             <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
