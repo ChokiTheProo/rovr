@@ -1,5 +1,11 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const BrazilFlag = () => (
   <svg width="16" height="12" viewBox="0 0 640 480" className="rounded-sm">
@@ -32,42 +38,50 @@ const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
 
   const buttons = [
-    { lang: "pt" as const, Flag: BrazilFlag, label: "PT" },
-    { lang: "en" as const, Flag: USAFlag, label: "EN" },
-    { lang: "es" as const, Flag: SpainFlag, label: "ES" },
+    { lang: "pt" as const, Flag: BrazilFlag, label: "PT", fullName: "Português" },
+    { lang: "en" as const, Flag: USAFlag, label: "EN", fullName: "English" },
+    { lang: "es" as const, Flag: SpainFlag, label: "ES", fullName: "Español" },
   ];
 
   return (
-    <div className="flex items-center gap-1 bg-secondary/50 rounded-full p-1 border border-border/50 relative">
-      {buttons.map(({ lang, Flag, label }) => (
-        <button
-          key={lang}
-          onClick={() => setLanguage(lang)}
-          className={`px-2.5 py-1 text-xs font-medium rounded-full transition-colors duration-300 flex items-center gap-1.5 relative z-10 ${
-            language === lang
-              ? "text-primary-foreground"
-              : "text-muted-foreground hover:text-foreground"
-          }`}
-        >
-          {language === lang && (
-            <motion.div
-              layoutId="active-language"
-              className="absolute inset-0 bg-primary rounded-full"
-              initial={false}
-              transition={{
-                type: "spring",
-                stiffness: 500,
-                damping: 30,
-              }}
-            />
-          )}
-          <span className="relative z-10">
-            <Flag />
-          </span>
-          <span className="relative z-10">{label}</span>
-        </button>
-      ))}
-    </div>
+    <TooltipProvider delayDuration={200}>
+      <div className="flex items-center gap-1 bg-secondary/50 rounded-full p-1 border border-border/50 relative">
+        {buttons.map(({ lang, Flag, label, fullName }) => (
+          <Tooltip key={lang}>
+            <TooltipTrigger asChild>
+              <button
+                onClick={() => setLanguage(lang)}
+                className={`px-2.5 py-1 text-xs font-medium rounded-full transition-colors duration-300 flex items-center gap-1.5 relative z-10 ${
+                  language === lang
+                    ? "text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {language === lang && (
+                  <motion.div
+                    layoutId="active-language"
+                    className="absolute inset-0 bg-primary rounded-full"
+                    initial={false}
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 30,
+                    }}
+                  />
+                )}
+                <span className="relative z-10">
+                  <Flag />
+                </span>
+                <span className="relative z-10">{label}</span>
+              </button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{fullName}</p>
+            </TooltipContent>
+          </Tooltip>
+        ))}
+      </div>
+    </TooltipProvider>
   );
 };
 
