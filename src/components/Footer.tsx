@@ -78,9 +78,7 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-muted-foreground text-sm max-w-md">
-              {language === "pt" 
-                ? "Transformamos ideias em soluções digitais escaláveis. Nossos produtos SaaS são desenvolvidos com tecnologia de ponta para ajudar seu negócio a crescer."
-                : "We transform ideas into scalable digital solutions. Our SaaS products are developed with cutting-edge technology to help your business grow."}
+              {t("footer.description")}
             </p>
           </motion.div>
 
@@ -115,7 +113,7 @@ const Footer = () => {
                   to="/trabalhe-conosco" 
                   className="block text-muted-foreground text-sm hover:text-primary transition-colors"
                 >
-                  {language === "pt" ? "Trabalhe Conosco" : "Work With Us"}
+                  {t("footer.workWithUs")}
                 </Link>
               </motion.div>
               <motion.div whileHover={{ x: 4 }}>
@@ -157,7 +155,7 @@ const Footer = () => {
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            {language === "pt" ? "Feito com ❤️ no Brasil" : "Made with ❤️ in Brazil"}
+            {t("footer.madeWith")}
           </motion.p>
         </motion.div>
       </div>
