@@ -59,8 +59,8 @@ const PricingSection = () => {
 
   const prices = {
     pt: "1.500",
-    en: "280",
-    es: "280",
+    en: "9.99",
+    es: "9.99",
   };
 
   const currencies = {
