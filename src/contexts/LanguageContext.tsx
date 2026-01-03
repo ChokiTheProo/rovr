@@ -154,6 +154,9 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.terms": "Termos de Uso",
     "footer.contact": "Contato",
     "footer.faq": "FAQ",
+    "footer.workWithUs": "Trabalhe Conosco",
+    "footer.description": "Transformamos ideias em soluções digitais escaláveis. Nossos produtos SaaS são desenvolvidos com tecnologia de ponta para ajudar seu negócio a crescer.",
+    "footer.madeWith": "Feito com ❤️ no Brasil",
   },
   en: {
     // Header
@@ -281,6 +284,9 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.terms": "Terms of Use",
     "footer.contact": "Contact",
     "footer.faq": "FAQ",
+    "footer.workWithUs": "Work With Us",
+    "footer.description": "We transform ideas into scalable digital solutions. Our SaaS products are developed with cutting-edge technology to help your business grow.",
+    "footer.madeWith": "Made with ❤️ in Brazil",
   },
   es: {
     // Header
@@ -408,6 +414,9 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.terms": "Términos de Uso",
     "footer.contact": "Contacto",
     "footer.faq": "FAQ",
+    "footer.workWithUs": "Trabaja con Nosotros",
+    "footer.description": "Transformamos ideas en soluciones digitales escalables. Nuestros productos SaaS están desarrollados con tecnología de punta para ayudar a tu negocio a crecer.",
+    "footer.madeWith": "Hecho con ❤️ en Brasil",
   },
 };
 
