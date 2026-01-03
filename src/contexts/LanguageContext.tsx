@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode, useEffect } from "react";
 
 type Language = "pt" | "en" | "es";
 
@@ -7,6 +7,25 @@ interface LanguageContextType {
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
 }
+
+const detectBrowserLanguage = (): Language => {
+  const browserLang = navigator.language.toLowerCase();
+  
+  if (browserLang.startsWith("pt")) return "pt";
+  if (browserLang.startsWith("es")) return "es";
+  if (browserLang.startsWith("en")) return "en";
+  
+  // Default to Portuguese if no match
+  return "pt";
+};
+
+const getInitialLanguage = (): Language => {
+  const stored = localStorage.getItem("language") as Language | null;
+  if (stored && ["pt", "en", "es"].includes(stored)) {
+    return stored;
+  }
+  return detectBrowserLanguage();
+};
 
 const translations: Record<Language, Record<string, string>> = {
   pt: {
@@ -395,10 +414,7 @@ const translations: Record<Language, Record<string, string>> = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem("language");
-    return (saved as Language) || "pt";
-  });
+  const [language, setLanguage] = useState<Language>(getInitialLanguage);
 
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang);
