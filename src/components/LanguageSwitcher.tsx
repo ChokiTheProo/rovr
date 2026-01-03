@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { motion } from "framer-motion";
 
 const BrazilFlag = () => (
   <svg width="16" height="12" viewBox="0 0 640 480" className="rounded-sm">
@@ -30,41 +31,42 @@ const SpainFlag = () => (
 const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
 
+  const buttons = [
+    { lang: "pt" as const, Flag: BrazilFlag, label: "PT" },
+    { lang: "en" as const, Flag: USAFlag, label: "EN" },
+    { lang: "es" as const, Flag: SpainFlag, label: "ES" },
+  ];
+
   return (
-    <div className="flex items-center gap-1 bg-secondary/50 rounded-full p-1 border border-border/50">
-      <button
-        onClick={() => setLanguage("pt")}
-        className={`px-2.5 py-1 text-xs font-medium rounded-full transition-all duration-300 flex items-center gap-1.5 ${
-          language === "pt"
-            ? "bg-primary text-primary-foreground"
-            : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        <BrazilFlag />
-        <span>PT</span>
-      </button>
-      <button
-        onClick={() => setLanguage("en")}
-        className={`px-2.5 py-1 text-xs font-medium rounded-full transition-all duration-300 flex items-center gap-1.5 ${
-          language === "en"
-            ? "bg-primary text-primary-foreground"
-            : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        <USAFlag />
-        <span>EN</span>
-      </button>
-      <button
-        onClick={() => setLanguage("es")}
-        className={`px-2.5 py-1 text-xs font-medium rounded-full transition-all duration-300 flex items-center gap-1.5 ${
-          language === "es"
-            ? "bg-primary text-primary-foreground"
-            : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        <SpainFlag />
-        <span>ES</span>
-      </button>
+    <div className="flex items-center gap-1 bg-secondary/50 rounded-full p-1 border border-border/50 relative">
+      {buttons.map(({ lang, Flag, label }) => (
+        <button
+          key={lang}
+          onClick={() => setLanguage(lang)}
+          className={`px-2.5 py-1 text-xs font-medium rounded-full transition-colors duration-300 flex items-center gap-1.5 relative z-10 ${
+            language === lang
+              ? "text-primary-foreground"
+              : "text-muted-foreground hover:text-foreground"
+          }`}
+        >
+          {language === lang && (
+            <motion.div
+              layoutId="active-language"
+              className="absolute inset-0 bg-primary rounded-full"
+              initial={false}
+              transition={{
+                type: "spring",
+                stiffness: 500,
+                damping: 30,
+              }}
+            />
+          )}
+          <span className="relative z-10">
+            <Flag />
+          </span>
+          <span className="relative z-10">{label}</span>
+        </button>
+      ))}
     </div>
   );
 };
