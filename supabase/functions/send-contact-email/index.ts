@@ -158,38 +158,44 @@ const handler = async (req: Request): Promise<Response> => {
     const safeEmpresa = empresa ? escapeHtml(empresa.trim()) : null;
     const safeMensagem = escapeHtml(mensagem.trim()).replace(/\n/g, "<br>");
 
-    // Send email using Resend API
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: "Revyra Contact <onboarding@resend.dev>",
-        to: ["eurhok@gmail.com", "robsonvarela23@gmail.com"],
-        subject: `Nova mensagem de contato - ${safeNome}`,
-        html: `
-          <h1>Nova mensagem de contato</h1>
-          <p><strong>Nome:</strong> ${safeNome}</p>
-          <p><strong>Email:</strong> ${safeEmail}</p>
-          ${safeTelefone ? `<p><strong>Telefone:</strong> ${safeTelefone}</p>` : ""}
-          ${safeEmpresa ? `<p><strong>Empresa:</strong> ${safeEmpresa}</p>` : ""}
-          <h2>Mensagem:</h2>
-          <p>${safeMensagem}</p>
-        `,
-      }),
-    });
+    // Send email using Resend API (optional - don't fail if it doesn't work)
+    let emailSent = false;
+    try {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: "Revyra Contact <onboarding@resend.dev>",
+          to: ["eurhok@gmail.com", "robsonvarela23@gmail.com"],
+          subject: `Nova mensagem de contato - ${safeNome}`,
+          html: `
+            <h1>Nova mensagem de contato</h1>
+            <p><strong>Nome:</strong> ${safeNome}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
+            ${safeTelefone ? `<p><strong>Telefone:</strong> ${safeTelefone}</p>` : ""}
+            ${safeEmpresa ? `<p><strong>Empresa:</strong> ${safeEmpresa}</p>` : ""}
+            <h2>Mensagem:</h2>
+            <p>${safeMensagem}</p>
+          `,
+        }),
+      });
 
-    if (!res.ok) {
-      const errorText = await res.text();
-      console.error("Resend API error:", errorText);
-      throw new Error("Falha ao enviar email");
+      if (res.ok) {
+        emailSent = true;
+        console.log("Email sent successfully");
+      } else {
+        const errorText = await res.text();
+        console.warn("Resend API warning (email not sent but lead saved):", errorText);
+      }
+    } catch (emailError: any) {
+      console.warn("Email sending failed (lead still saved):", emailError.message);
     }
 
-    console.log("Email sent successfully");
-
-    return new Response(JSON.stringify({ success: true }), {
+    // Return success as long as lead was saved to database
+    return new Response(JSON.stringify({ success: true, emailSent }), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
