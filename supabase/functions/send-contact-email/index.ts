@@ -168,7 +168,7 @@ const handler = async (req: Request): Promise<Response> => {
           Authorization: `Bearer ${RESEND_API_KEY}`,
         },
         body: JSON.stringify({
-          from: "Revyra Contact <onboarding@resend.dev>",
+          from: "Revyra Contact <contato@rovr.site>",
           to: ["eurhok@gmail.com", "robsonvarela23@gmail.com"],
           subject: `Nova mensagem de contato - ${safeNome}`,
           html: `
