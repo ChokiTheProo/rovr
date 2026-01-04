@@ -128,7 +128,7 @@ const ProjectsSection = () => {
         cta: "Acessar Agora",
         icon: Pill,
         gradient: "from-orange-500/20 to-amber-500/20",
-        link: "https://tratamentodiario.lovable.app/tasks",
+        link: "https://tramentodiario.lovable.app",
         differentials: [
           "💊 Controle de medicamentos",
           "📋 Acompanhamento de sintomas",
@@ -250,7 +250,7 @@ const ProjectsSection = () => {
         cta: "Access Now",
         icon: Pill,
         gradient: "from-orange-500/20 to-amber-500/20",
-        link: "https://tratamentodiario.lovable.app/tasks",
+        link: "https://tramentodiario.lovable.app",
         differentials: [
           "💊 Medication control",
           "📋 Symptom tracking",
@@ -372,7 +372,7 @@ const ProjectsSection = () => {
         cta: "Acceder Ahora",
         icon: Pill,
         gradient: "from-orange-500/20 to-amber-500/20",
-        link: "https://tratamentodiario.lovable.app/tasks",
+        link: "https://tramentodiario.lovable.app",
         differentials: [
           "💊 Control de medicamentos",
           "📋 Seguimiento de síntomas",
