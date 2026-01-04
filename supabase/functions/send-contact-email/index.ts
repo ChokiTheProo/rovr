@@ -169,7 +169,7 @@ const handler = async (req: Request): Promise<Response> => {
         },
         body: JSON.stringify({
           from: "Revyra Contact <contato@rovr.site>",
-          to: ["eurhok@gmail.com", "robsonvarela23@gmail.com"],
+          to: ["roger1robson2@gmail.com"],
           subject: `Nova mensagem de contato - ${safeNome}`,
           html: `
             <h1>Nova mensagem de contato</h1>
