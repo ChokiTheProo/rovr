@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Sun, Moon, Eye } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,13 +8,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 
-type Theme = "light" | "dark" | "contrast";
+type Theme = "light" | "dark";
 
 const ThemeSwitcher = () => {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme") as Theme;
-      if (saved) return saved;
+      if (saved === "light" || saved === "dark") return saved;
     }
     return "dark";
   });
@@ -23,7 +23,7 @@ const ThemeSwitcher = () => {
     const root = document.documentElement;
     
     // Remove all theme classes
-    root.classList.remove("light", "dark", "contrast");
+    root.classList.remove("light", "dark");
     
     // Add current theme class
     root.classList.add(theme);
@@ -33,14 +33,7 @@ const ThemeSwitcher = () => {
   }, [theme]);
 
   const getIcon = () => {
-    switch (theme) {
-      case "light":
-        return <Sun className="h-4 w-4" />;
-      case "dark":
-        return <Moon className="h-4 w-4" />;
-      case "contrast":
-        return <Eye className="h-4 w-4" />;
-    }
+    return theme === "light" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />;
   };
 
   return (
@@ -69,13 +62,6 @@ const ThemeSwitcher = () => {
         >
           <Moon className="h-4 w-4" />
           <span>Escuro</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => setTheme("contrast")}
-          className="flex items-center gap-2 cursor-pointer"
-        >
-          <Eye className="h-4 w-4" />
-          <span>Alto Contraste</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
