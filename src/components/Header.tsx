@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeSwitcher from "./ThemeSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 import logoIcon from "@/assets/logo-icon.png";
 
@@ -78,8 +79,9 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Language Switcher & CTA */}
-            <div className="hidden md:flex items-center gap-4">
+            {/* Theme, Language Switcher & CTA */}
+            <div className="hidden md:flex items-center gap-3">
+              <ThemeSwitcher />
               <LanguageSwitcher />
               <Link to="/contato">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg px-6 glow-primary">
