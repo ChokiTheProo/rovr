@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeSwitcher from "./ThemeSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface MobileMenuProps {
@@ -91,8 +92,9 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           </p>
         </div>
 
-        {/* Language Switcher */}
-        <div className="mb-8">
+        {/* Theme & Language Switcher */}
+        <div className="mb-8 flex items-center gap-4">
+          <ThemeSwitcher />
           <LanguageSwitcher />
         </div>
 
