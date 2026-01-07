@@ -229,7 +229,7 @@ const HeroSection = () => {
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
               >
                 <a
-                  href="https://wa.me/5554991710543"
+                  href="https://web.whatsapp.com/send?phone=5554991710543"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
