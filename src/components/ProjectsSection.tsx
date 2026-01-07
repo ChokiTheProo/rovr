@@ -47,7 +47,7 @@ const ProjectsSection = () => {
         featured: true,
         icon: DollarSign,
         gradient: "from-emerald-500/20 to-teal-500/20",
-        link: "https://fluxenbr.lovable.app",
+        link: "https://fluxenvenda.lovable.app",
         differentials: [
           "✨ Interface intuitiva e moderna",
           "🌍 Disponível em Português e Inglês",
@@ -169,7 +169,7 @@ const ProjectsSection = () => {
         featured: true,
         icon: DollarSign,
         gradient: "from-emerald-500/20 to-teal-500/20",
-        link: "https://fluxenbr.lovable.app",
+        link: "https://fluxenvenda.lovable.app",
         differentials: [
           "✨ Intuitive and modern interface",
           "🌍 Available in Portuguese and English",
@@ -291,7 +291,7 @@ const ProjectsSection = () => {
         featured: true,
         icon: DollarSign,
         gradient: "from-emerald-500/20 to-teal-500/20",
-        link: "https://fluxenbr.lovable.app",
+        link: "https://fluxenvenda.lovable.app",
         differentials: [
           "✨ Interfaz intuitiva y moderna",
           "🌍 Disponible en Portugués e Inglés",
