@@ -5,6 +5,13 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+// Import project images
+import fluxenImg from "@/assets/project-fluxen.png";
+import klyexaImg from "@/assets/project-klyexa.png";
+import cuidabemImg from "@/assets/project-cuidabem.png";
+import tratamentoImg from "@/assets/project-tratamento.png";
+import emagrioImg from "@/assets/project-emagrio.png";
+
 const ProjectsSection = () => {
   const [loading, setLoading] = useState<string | null>(null);
   const { language } = useLanguage();
@@ -48,6 +55,7 @@ const ProjectsSection = () => {
         icon: DollarSign,
         gradient: "from-emerald-500/20 to-teal-500/20",
         link: "https://fluxenvenda.lovable.app",
+        image: fluxenImg,
         differentials: [
           "✨ Interface intuitiva e moderna",
           "🌍 Disponível em Português e Inglês",
@@ -81,6 +89,7 @@ const ProjectsSection = () => {
         icon: Stethoscope,
         gradient: "from-teal-500/20 to-cyan-500/20",
         link: "https://klyexa.lovable.app",
+        image: klyexaImg,
         differentials: [
           "🏥 Ideal para hospitais e clínicas",
           "📋 Prontuário eletrônico completo",
@@ -111,6 +120,7 @@ const ProjectsSection = () => {
         icon: Heart,
         gradient: "from-primary/20 to-accent/20",
         link: "https://cuidadem-facil.lovable.app",
+        image: cuidabemImg,
         differentials: [
           "❤️ Feito para cuidadoras",
           "💊 Controle de medicamentos",
@@ -129,6 +139,7 @@ const ProjectsSection = () => {
         icon: Pill,
         gradient: "from-orange-500/20 to-amber-500/20",
         link: "https://tramentodiario.lovable.app",
+        image: tratamentoImg,
         differentials: [
           "💊 Controle de medicamentos",
           "📋 Acompanhamento de sintomas",
@@ -147,6 +158,7 @@ const ProjectsSection = () => {
         icon: Scale,
         gradient: "from-green-500/20 to-lime-500/20",
         link: "https://emagrio-journey-unlocked.lovable.app/",
+        image: emagrioImg,
         differentials: [
           "⚖️ Controle de peso",
           "🍎 Acompanhamento alimentar",
@@ -170,6 +182,7 @@ const ProjectsSection = () => {
         icon: DollarSign,
         gradient: "from-emerald-500/20 to-teal-500/20",
         link: "https://fluxenvenda.lovable.app",
+        image: fluxenImg,
         differentials: [
           "✨ Intuitive and modern interface",
           "🌍 Available in Portuguese and English",
@@ -203,6 +216,7 @@ const ProjectsSection = () => {
         icon: Stethoscope,
         gradient: "from-teal-500/20 to-cyan-500/20",
         link: "https://klyexa.lovable.app",
+        image: klyexaImg,
         differentials: [
           "🏥 Ideal for hospitals and clinics",
           "📋 Complete electronic medical record",
@@ -233,6 +247,7 @@ const ProjectsSection = () => {
         icon: Heart,
         gradient: "from-primary/20 to-accent/20",
         link: "https://cuidadem-facil.lovable.app",
+        image: cuidabemImg,
         differentials: [
           "❤️ Made for caregivers",
           "💊 Medication control",
@@ -251,6 +266,7 @@ const ProjectsSection = () => {
         icon: Pill,
         gradient: "from-orange-500/20 to-amber-500/20",
         link: "https://tramentodiario.lovable.app",
+        image: tratamentoImg,
         differentials: [
           "💊 Medication control",
           "📋 Symptom tracking",
@@ -269,6 +285,7 @@ const ProjectsSection = () => {
         icon: Scale,
         gradient: "from-green-500/20 to-lime-500/20",
         link: "https://emagrio-journey-unlocked.lovable.app/",
+        image: emagrioImg,
         differentials: [
           "⚖️ Weight control",
           "🍎 Diet tracking",
@@ -292,6 +309,7 @@ const ProjectsSection = () => {
         icon: DollarSign,
         gradient: "from-emerald-500/20 to-teal-500/20",
         link: "https://fluxenvenda.lovable.app",
+        image: fluxenImg,
         differentials: [
           "✨ Interfaz intuitiva y moderna",
           "🌍 Disponible en Portugués e Inglés",
@@ -325,6 +343,7 @@ const ProjectsSection = () => {
         icon: Stethoscope,
         gradient: "from-teal-500/20 to-cyan-500/20",
         link: "https://klyexa.lovable.app",
+        image: klyexaImg,
         differentials: [
           "🏥 Ideal para hospitales y clínicas",
           "📋 Historial clínico electrónico completo",
@@ -355,6 +374,7 @@ const ProjectsSection = () => {
         icon: Heart,
         gradient: "from-primary/20 to-accent/20",
         link: "https://cuidadem-facil.lovable.app",
+        image: cuidabemImg,
         differentials: [
           "❤️ Hecho para cuidadoras",
           "💊 Control de medicamentos",
@@ -373,6 +393,7 @@ const ProjectsSection = () => {
         icon: Pill,
         gradient: "from-orange-500/20 to-amber-500/20",
         link: "https://tramentodiario.lovable.app",
+        image: tratamentoImg,
         differentials: [
           "💊 Control de medicamentos",
           "📋 Seguimiento de síntomas",
@@ -391,6 +412,7 @@ const ProjectsSection = () => {
         icon: Scale,
         gradient: "from-green-500/20 to-lime-500/20",
         link: "https://emagrio-journey-unlocked.lovable.app/",
+        image: emagrioImg,
         differentials: [
           "⚖️ Control de peso",
           "🍎 Seguimiento alimentario",
@@ -433,38 +455,46 @@ const ProjectsSection = () => {
               key={index}
               className="group relative rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10"
             >
-              {/* Header with gradient */}
-              <div className={`aspect-[16/10] bg-gradient-to-br ${project.gradient} relative p-6`}>
-                <div className="flex items-start justify-between">
-                  <div>
+              {/* Header with image */}
+              <div className={`aspect-[16/10] bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
+                {project.image && (
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent" />
+                <div className="relative p-6 h-full flex flex-col justify-between">
+                  <div className="flex items-start justify-between">
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${project.statusColor} text-white`}>
                       {project.status}
                     </span>
-                    <div className="mt-4">
-                      <div className="w-16 h-16 rounded-2xl bg-background/90 border border-border/50 flex items-center justify-center mb-4">
-                        <project.icon className="w-8 h-8 text-primary" />
-                      </div>
-                      <h3 className="text-3xl font-bold text-foreground">{project.title}</h3>
-                      <span className="text-muted-foreground text-sm">{project.category}</span>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="flex items-center gap-1 mb-2">
+                    <div className="flex items-center gap-1">
                       <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
                       <span className="text-sm text-foreground font-medium">{project.rating}</span>
                     </div>
-                    <Heart className="w-6 h-6 text-muted-foreground hover:text-primary cursor-pointer transition-colors ml-auto" />
                   </div>
-                </div>
-
-                {/* Features Grid */}
-                <div className="grid grid-cols-2 gap-2 mt-6">
-                  {project.features?.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-background/60 backdrop-blur-sm">
-                      <feature.icon className="w-4 h-4 text-primary" />
-                      <span className="text-xs text-foreground">{feature.text}</span>
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-12 h-12 rounded-xl bg-background/90 border border-border/50 flex items-center justify-center">
+                        <project.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-foreground">{project.title}</h3>
+                        <span className="text-muted-foreground text-xs">{project.category}</span>
+                      </div>
                     </div>
-                  ))}
+                    {/* Features Grid */}
+                    <div className="grid grid-cols-2 gap-2 mt-4">
+                      {project.features?.map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-background/60 backdrop-blur-sm">
+                          <feature.icon className="w-4 h-4 text-primary" />
+                          <span className="text-xs text-foreground">{feature.text}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -526,13 +556,23 @@ const ProjectsSection = () => {
             >
               <div className="flex flex-col md:flex-row">
                 {/* Project Image */}
-                <div className={`md:w-1/3 aspect-video md:aspect-auto bg-gradient-to-br ${project.gradient} relative p-6 flex items-center justify-center`}>
+                <div className={`md:w-1/3 aspect-video md:aspect-auto bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
+                  {project.image && (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/60" />
                   <div className="absolute top-4 left-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${project.statusColor} text-primary-foreground`}>
                       {project.status}
                     </span>
                   </div>
-                  <project.icon className="w-20 h-20 text-primary/60" />
+                  <div className="absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-background/90 border border-border/50 flex items-center justify-center">
+                    <project.icon className="w-6 h-6 text-primary" />
+                  </div>
                 </div>
 
                 {/* Project Info */}
