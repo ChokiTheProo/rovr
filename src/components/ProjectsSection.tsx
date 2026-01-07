@@ -88,7 +88,7 @@ const ProjectsSection = () => {
         featured: true,
         icon: Stethoscope,
         gradient: "from-teal-500/20 to-cyan-500/20",
-        link: "https://klyexa.lovable.app",
+        link: "https://klyexavenda.lovable.app",
         image: klyexaImg,
         differentials: [
           "🏥 Ideal para hospitais e clínicas",
@@ -215,7 +215,7 @@ const ProjectsSection = () => {
         featured: true,
         icon: Stethoscope,
         gradient: "from-teal-500/20 to-cyan-500/20",
-        link: "https://klyexa.lovable.app",
+        link: "https://klyexavenda.lovable.app",
         image: klyexaImg,
         differentials: [
           "🏥 Ideal for hospitals and clinics",
@@ -342,7 +342,7 @@ const ProjectsSection = () => {
         featured: true,
         icon: Stethoscope,
         gradient: "from-teal-500/20 to-cyan-500/20",
-        link: "https://klyexa.lovable.app",
+        link: "https://klyexavenda.lovable.app",
         image: klyexaImg,
         differentials: [
           "🏥 Ideal para hospitales y clínicas",
