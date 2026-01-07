@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import Index from "./pages/Index";
+import FluxenIndex from "./pages/FluxenIndex";
 import Contato from "./pages/Contato";
 import Termos from "./pages/Termos";
 import Privacidade from "./pages/Privacidade";
@@ -24,7 +24,7 @@ const App = () => (
         <BrowserRouter>
           <WhatsAppButton />
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<FluxenIndex />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/termos" element={<Termos />} />
             <Route path="/privacidade" element={<Privacidade />} />
