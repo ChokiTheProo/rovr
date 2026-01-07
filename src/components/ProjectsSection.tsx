@@ -157,7 +157,7 @@ const ProjectsSection = () => {
         cta: "Acessar Agora",
         icon: Scale,
         gradient: "from-green-500/20 to-lime-500/20",
-        link: "https://emagrio-journey-unlocked.lovable.app/",
+        link: "https://emagrio-venda.lovable.app",
         image: emagrioImg,
         differentials: [
           "⚖️ Controle de peso",
@@ -284,7 +284,7 @@ const ProjectsSection = () => {
         cta: "Access Now",
         icon: Scale,
         gradient: "from-green-500/20 to-lime-500/20",
-        link: "https://emagrio-journey-unlocked.lovable.app/",
+        link: "https://emagrio-venda.lovable.app",
         image: emagrioImg,
         differentials: [
           "⚖️ Weight control",
@@ -411,7 +411,7 @@ const ProjectsSection = () => {
         cta: "Acceder Ahora",
         icon: Scale,
         gradient: "from-green-500/20 to-lime-500/20",
-        link: "https://emagrio-journey-unlocked.lovable.app/",
+        link: "https://emagrio-venda.lovable.app",
         image: emagrioImg,
         differentials: [
           "⚖️ Control de peso",
