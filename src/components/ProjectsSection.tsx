@@ -1,4 +1,4 @@
-import { Star, Heart, DollarSign, TrendingUp, Users, CheckCircle, Globe, Stethoscope, Calendar, FileCheck, Shield, Zap, Clock, Loader2, Pill, Scale } from "lucide-react";
+import { Star, Heart, DollarSign, TrendingUp, Users, CheckCircle, Globe, Stethoscope, Calendar, FileCheck, Shield, Zap, Clock, Loader2, Pill, Scale, FileText } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
@@ -166,6 +166,24 @@ const ProjectsSection = () => {
           "🎯 Metas personalizadas",
         ],
       },
+      {
+        title: "Blogs",
+        category: "Conteúdo & Marketing",
+        description: "Criamos blogs profissionais e otimizados para SEO. Conteúdo estratégico para atrair clientes, aumentar sua autoridade no mercado e gerar leads qualificados para seu negócio.",
+        status: "Sob Consulta",
+        statusColor: "bg-blue-500",
+        rating: "5.0",
+        cta: "Fale Conosco",
+        icon: FileText,
+        gradient: "from-blue-500/20 to-indigo-500/20",
+        isContact: true,
+        differentials: [
+          "✍️ Conteúdo estratégico",
+          "🔍 SEO otimizado",
+          "📈 Aumento de tráfego",
+          "🎯 Leads qualificados",
+        ],
+      },
     ],
     en: [
       {
@@ -293,6 +311,24 @@ const ProjectsSection = () => {
           "🎯 Personalized goals",
         ],
       },
+      {
+        title: "Blogs",
+        category: "Content & Marketing",
+        description: "We create professional and SEO-optimized blogs. Strategic content to attract customers, increase your market authority and generate qualified leads for your business.",
+        status: "On Request",
+        statusColor: "bg-blue-500",
+        rating: "5.0",
+        cta: "Contact Us",
+        icon: FileText,
+        gradient: "from-blue-500/20 to-indigo-500/20",
+        isContact: true,
+        differentials: [
+          "✍️ Strategic content",
+          "🔍 SEO optimized",
+          "📈 Traffic boost",
+          "🎯 Qualified leads",
+        ],
+      },
     ],
     es: [
       {
@@ -418,6 +454,24 @@ const ProjectsSection = () => {
           "🍎 Seguimiento alimentario",
           "🏃 Registro de ejercicios",
           "🎯 Metas personalizadas",
+        ],
+      },
+      {
+        title: "Blogs",
+        category: "Contenido & Marketing",
+        description: "Creamos blogs profesionales y optimizados para SEO. Contenido estratégico para atraer clientes, aumentar su autoridad en el mercado y generar leads calificados para su negocio.",
+        status: "Bajo Consulta",
+        statusColor: "bg-blue-500",
+        rating: "5.0",
+        cta: "Contáctenos",
+        icon: FileText,
+        gradient: "from-blue-500/20 to-indigo-500/20",
+        isContact: true,
+        differentials: [
+          "✍️ Contenido estratégico",
+          "🔍 SEO optimizado",
+          "📈 Aumento de tráfico",
+          "🎯 Leads calificados",
         ],
       },
     ],
@@ -607,23 +661,34 @@ const ProjectsSection = () => {
                   </div>
                   
                   <div className="flex items-center gap-4">
-                    <a 
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex"
-                    >
-                      <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl px-6 glow-primary">
+                    {project.isContact ? (
+                      <Button 
+                        onClick={scrollToContact}
+                        className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl px-6 glow-primary"
+                      >
                         {project.cta}
                       </Button>
-                    </a>
-                    <Button 
-                      onClick={scrollToContact}
-                      variant="outline"
-                      className="border-accent/50 text-accent hover:bg-accent/10"
-                    >
-                      {language === "pt" ? "Fale Conosco" : language === "es" ? "Contáctenos" : "Contact Us"}
-                    </Button>
+                    ) : (
+                      <>
+                        <a 
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex"
+                        >
+                          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl px-6 glow-primary">
+                            {project.cta}
+                          </Button>
+                        </a>
+                        <Button 
+                          onClick={scrollToContact}
+                          variant="outline"
+                          className="border-accent/50 text-accent hover:bg-accent/10"
+                        >
+                          {language === "pt" ? "Fale Conosco" : language === "es" ? "Contáctenos" : "Contact Us"}
+                        </Button>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
