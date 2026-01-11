@@ -4,7 +4,7 @@ import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
-
+import { motion } from "framer-motion";
 // Import project images
 import fluxenImg from "@/assets/project-fluxen.png";
 import klyexaImg from "@/assets/project-klyexa.png";
@@ -509,9 +509,18 @@ const ProjectsSection = () => {
         {/* Featured Projects */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {projects.filter(p => p.featured).map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ 
+                y: -8, 
+                scale: 1.02,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+              className="group relative rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden hover:border-primary/50 transition-colors duration-300 hover:shadow-2xl hover:shadow-primary/20"
             >
               {/* Header with image */}
               <div className={`aspect-[16/10] bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
@@ -601,16 +610,25 @@ const ProjectsSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Other Projects */}
         <div className="grid grid-cols-1 gap-8">
           {projects.filter(p => !p.featured).map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden hover:border-primary/50 transition-all duration-300"
+              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ 
+                scale: 1.02,
+                x: 10,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+              className="group relative rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden hover:border-primary/50 transition-colors duration-300 hover:shadow-xl hover:shadow-primary/15"
             >
               <div className="flex flex-col md:flex-row">
                 {/* Project Image */}
@@ -696,7 +714,7 @@ const ProjectsSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
