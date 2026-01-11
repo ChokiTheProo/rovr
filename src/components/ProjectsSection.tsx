@@ -11,6 +11,7 @@ import klyexaImg from "@/assets/project-klyexa.png";
 import cuidabemImg from "@/assets/project-cuidabem.png";
 import tratamentoImg from "@/assets/project-tratamento.png";
 import emagrioImg from "@/assets/project-emagrio.png";
+import blogsImg from "@/assets/project-blogs.png";
 
 const ProjectsSection = () => {
   const [loading, setLoading] = useState<string | null>(null);
@@ -177,6 +178,7 @@ const ProjectsSection = () => {
         icon: FileText,
         gradient: "from-blue-500/20 to-indigo-500/20",
         isContact: true,
+        image: blogsImg,
         differentials: [
           "✍️ Conteúdo estratégico",
           "🔍 SEO otimizado",
@@ -322,6 +324,7 @@ const ProjectsSection = () => {
         icon: FileText,
         gradient: "from-blue-500/20 to-indigo-500/20",
         isContact: true,
+        image: blogsImg,
         differentials: [
           "✍️ Strategic content",
           "🔍 SEO optimized",
@@ -467,6 +470,7 @@ const ProjectsSection = () => {
         icon: FileText,
         gradient: "from-blue-500/20 to-indigo-500/20",
         isContact: true,
+        image: blogsImg,
         differentials: [
           "✍️ Contenido estratégico",
           "🔍 SEO optimizado",
