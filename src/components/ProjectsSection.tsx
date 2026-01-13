@@ -171,13 +171,13 @@ const ProjectsSection = () => {
         title: "Blogs",
         category: "Conteúdo & Marketing",
         description: "Criamos blogs profissionais e otimizados para SEO. Conteúdo estratégico para atrair clientes, aumentar sua autoridade no mercado e gerar leads qualificados para seu negócio.",
-        status: "Sob Consulta",
+        status: "Disponível",
         statusColor: "bg-blue-500",
         rating: "5.0",
-        cta: "Fale Conosco",
+        cta: "Acessar Agora",
         icon: FileText,
         gradient: "from-blue-500/20 to-indigo-500/20",
-        isContact: true,
+        link: "https://sitesrovr.lovable.app",
         image: blogsImg,
         differentials: [
           "✍️ Conteúdo estratégico",
@@ -317,13 +317,13 @@ const ProjectsSection = () => {
         title: "Blogs",
         category: "Content & Marketing",
         description: "We create professional and SEO-optimized blogs. Strategic content to attract customers, increase your market authority and generate qualified leads for your business.",
-        status: "On Request",
+        status: "Available",
         statusColor: "bg-blue-500",
         rating: "5.0",
-        cta: "Contact Us",
+        cta: "Access Now",
         icon: FileText,
         gradient: "from-blue-500/20 to-indigo-500/20",
-        isContact: true,
+        link: "https://sitesrovr.lovable.app",
         image: blogsImg,
         differentials: [
           "✍️ Strategic content",
@@ -463,13 +463,13 @@ const ProjectsSection = () => {
         title: "Blogs",
         category: "Contenido & Marketing",
         description: "Creamos blogs profesionales y optimizados para SEO. Contenido estratégico para atraer clientes, aumentar su autoridad en el mercado y generar leads calificados para su negocio.",
-        status: "Bajo Consulta",
+        status: "Disponible",
         statusColor: "bg-blue-500",
         rating: "5.0",
-        cta: "Contáctenos",
+        cta: "Acceder Ahora",
         icon: FileText,
         gradient: "from-blue-500/20 to-indigo-500/20",
-        isContact: true,
+        link: "https://sitesrovr.lovable.app",
         image: blogsImg,
         differentials: [
           "✍️ Contenido estratégico",
@@ -683,34 +683,23 @@ const ProjectsSection = () => {
                   </div>
                   
                   <div className="flex items-center gap-4">
-                    {project.isContact ? (
-                      <Button 
-                        onClick={scrollToContact}
-                        className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl px-6 glow-primary"
-                      >
+                    <a 
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex"
+                    >
+                      <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl px-6 glow-primary">
                         {project.cta}
                       </Button>
-                    ) : (
-                      <>
-                        <a 
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex"
-                        >
-                          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl px-6 glow-primary">
-                            {project.cta}
-                          </Button>
-                        </a>
-                        <Button 
-                          onClick={scrollToContact}
-                          variant="outline"
-                          className="border-accent/50 text-accent hover:bg-accent/10"
-                        >
-                          {language === "pt" ? "Fale Conosco" : language === "es" ? "Contáctenos" : "Contact Us"}
-                        </Button>
-                      </>
-                    )}
+                    </a>
+                    <Button 
+                      onClick={scrollToContact}
+                      variant="outline"
+                      className="border-accent/50 text-accent hover:bg-accent/10"
+                    >
+                      {language === "pt" ? "Fale Conosco" : language === "es" ? "Contáctenos" : "Contact Us"}
+                    </Button>
                   </div>
                 </div>
               </div>
