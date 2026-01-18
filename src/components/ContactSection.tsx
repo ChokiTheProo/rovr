@@ -17,7 +17,6 @@ const ContactSection = () => {
 
   const contacts = [
     { icon: Mail, label: "eurhok@gmail.com", href: "mailto:eurhok@gmail.com" },
-    { icon: Mail, label: "robsonvarela23@gmail.com", href: "mailto:robsonvarela23@gmail.com" },
   ];
 
   return (
