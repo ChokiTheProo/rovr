@@ -34,6 +34,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.projects": "Projetos",
     "nav.technology": "Tecnologia",
     "nav.microsaas": "Micro SaaS",
+    "nav.aiAgents": "Agentes de IA",
     "nav.contact": "Fale Conosco",
     "logo.tagline": "Criamos SaaS e MicroSaaS",
     
@@ -155,6 +156,7 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.contact": "Contato",
     "footer.faq": "FAQ",
     "footer.workWithUs": "Trabalhe Conosco",
+    "footer.aiAgents": "Agentes de IA",
     "footer.description": "Transformamos ideias em soluções digitais escaláveis. Nossos produtos SaaS são desenvolvidos com tecnologia de ponta para ajudar seu negócio a crescer.",
     "footer.madeWith": "Feito com ❤️ no Brasil",
   },
@@ -164,6 +166,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.projects": "Projects",
     "nav.technology": "Technology",
     "nav.microsaas": "Micro SaaS",
+    "nav.aiAgents": "AI Agents",
     "nav.contact": "Contact Us",
     "logo.tagline": "We build SaaS & MicroSaaS",
     
@@ -285,6 +288,7 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.contact": "Contact",
     "footer.faq": "FAQ",
     "footer.workWithUs": "Work With Us",
+    "footer.aiAgents": "AI Agents",
     "footer.description": "We transform ideas into scalable digital solutions. Our SaaS products are developed with cutting-edge technology to help your business grow.",
     "footer.madeWith": "Made with ❤️ in Brazil",
   },
@@ -294,6 +298,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.projects": "Proyectos",
     "nav.technology": "Tecnología",
     "nav.microsaas": "Micro SaaS",
+    "nav.aiAgents": "Agentes de IA",
     "nav.contact": "Contáctenos",
     "logo.tagline": "Creamos SaaS y MicroSaaS",
     
@@ -415,6 +420,7 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.contact": "Contacto",
     "footer.faq": "FAQ",
     "footer.workWithUs": "Trabaja con Nosotros",
+    "footer.aiAgents": "Agentes de IA",
     "footer.description": "Transformamos ideas en soluciones digitales escalables. Nuestros productos SaaS están desarrollados con tecnología de punta para ayudar a tu negocio a crecer.",
     "footer.madeWith": "Hecho con ❤️ en Brasil",
   },

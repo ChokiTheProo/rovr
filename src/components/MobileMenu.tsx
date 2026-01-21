@@ -38,6 +38,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     { label: t("nav.projects"), href: "projetos" },
     { label: t("nav.technology"), href: "tecnologia" },
     { label: t("nav.microsaas"), href: "microsaas" },
+    { label: t("nav.aiAgents"), href: "/agentes-ia", isPage: true },
   ];
 
   const handleNavClick = (sectionId: string) => {
@@ -101,18 +102,34 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         {/* Navigation Links */}
         <nav className="flex flex-col items-center gap-6">
           {navItems.map((item, index) => (
-            <button
-              key={item.label}
-              onClick={() => handleNavClick(item.href)}
-              className={`text-2xl font-semibold text-foreground hover:text-primary transition-all duration-300 transform ${
-                isAnimating && isOpen
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-4 opacity-0"
-              }`}
-              style={{ transitionDelay: `${(index + 1) * 100}ms` }}
-            >
-              {item.label}
-            </button>
+            item.isPage ? (
+              <Link
+                key={item.label}
+                to={item.href}
+                onClick={handleClose}
+                className={`text-2xl font-semibold text-foreground hover:text-primary transition-all duration-300 transform ${
+                  isAnimating && isOpen
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                }`}
+                style={{ transitionDelay: `${(index + 1) * 100}ms` }}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <button
+                key={item.label}
+                onClick={() => handleNavClick(item.href)}
+                className={`text-2xl font-semibold text-foreground hover:text-primary transition-all duration-300 transform ${
+                  isAnimating && isOpen
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                }`}
+                style={{ transitionDelay: `${(index + 1) * 100}ms` }}
+              >
+                {item.label}
+              </button>
+            )
           ))}
         </nav>
 

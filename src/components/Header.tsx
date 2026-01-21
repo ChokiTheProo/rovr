@@ -19,6 +19,7 @@ const Header = () => {
     { label: t("nav.projects"), href: "projetos" },
     { label: t("nav.technology"), href: "tecnologia" },
     { label: t("nav.microsaas"), href: "microsaas" },
+    { label: t("nav.aiAgents"), href: "/agentes-ia", isPage: true },
   ];
 
   const handleNavClick = (sectionId: string) => {
@@ -69,13 +70,23 @@ const Header = () => {
             {/* Navigation */}
             <nav className="hidden md:flex items-center gap-2">
               {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => handleNavClick(item.href)}
-                  className="relative px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
-                >
-                  {item.label}
-                </button>
+                item.isPage ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="relative px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.label}
+                    onClick={() => handleNavClick(item.href)}
+                    className="relative px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                  >
+                    {item.label}
+                  </button>
+                )
               ))}
             </nav>
 
