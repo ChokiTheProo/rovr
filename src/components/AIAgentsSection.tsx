@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Bot, MessageSquare, Zap, Brain, Clock, TrendingUp, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -45,6 +46,7 @@ const AIAgentsSection = () => {
         }
       ],
       cta: "Quero Automatizar",
+      ctaSecondary: "Saiba Mais",
       stats: [
         { value: "80%", label: "Redução no tempo de resposta" },
         { value: "24/7", label: "Disponibilidade" },
@@ -89,6 +91,7 @@ const AIAgentsSection = () => {
         }
       ],
       cta: "I Want to Automate",
+      ctaSecondary: "Learn More",
       stats: [
         { value: "80%", label: "Response time reduction" },
         { value: "24/7", label: "Availability" },
@@ -133,6 +136,7 @@ const AIAgentsSection = () => {
         }
       ],
       cta: "Quiero Automatizar",
+      ctaSecondary: "Saber Más",
       stats: [
         { value: "80%", label: "Reducción en tiempo de respuesta" },
         { value: "24/7", label: "Disponibilidad" },
@@ -227,7 +231,7 @@ const AIAgentsSection = () => {
 
         {/* CTA */}
         <motion.div 
-          className="text-center"
+          className="text-center flex flex-col sm:flex-row items-center justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -241,6 +245,16 @@ const AIAgentsSection = () => {
             {currentContent.cta}
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
+          
+          <Link to="/agentes-ia">
+            <Button 
+              variant="outline"
+              size="lg" 
+              className="rounded-xl px-8 py-6 text-lg border-primary/50 hover:bg-primary/10"
+            >
+              {currentContent.ctaSecondary}
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
