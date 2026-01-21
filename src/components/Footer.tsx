@@ -110,6 +110,14 @@ const Footer = () => {
             <div className="space-y-3">
               <motion.div whileHover={{ x: 4 }}>
                 <Link 
+                  to="/agentes-ia" 
+                  className="block text-muted-foreground text-sm hover:text-primary transition-colors"
+                >
+                  {t("footer.aiAgents")}
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ x: 4 }}>
+                <Link 
                   to="/trabalhe-conosco" 
                   className="block text-muted-foreground text-sm hover:text-primary transition-colors"
                 >
