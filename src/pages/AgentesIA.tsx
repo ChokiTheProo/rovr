@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Bot, MessageSquare, Zap, Brain, Clock, TrendingUp, Sparkles, ArrowRight, Check, Star, Send, Phone, Building2, User, Mail, MessageCircle } from "lucide-react";
+import { Bot, MessageSquare, Zap, Brain, Clock, TrendingUp, Sparkles, ArrowRight, Check, Star, Send, Phone, Building2, User, Mail, MessageCircle, Construction } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,6 +9,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import aiAgentsHero from "@/assets/ai-agents-hero.jpg";
+import aiAutomation from "@/assets/ai-automation.jpg";
 
 const AgentesIA = () => {
   const { language } = useLanguage();
@@ -25,7 +27,7 @@ const AgentesIA = () => {
   const content = {
     pt: {
       hero: {
-        badge: "Inteligência Artificial",
+        badge: "Em Desenvolvimento",
         title: "Agentes de IA &",
         titleHighlight: "Automação WhatsApp",
         description: "Transforme seu atendimento com agentes inteligentes que trabalham 24/7. Automatize conversas, qualifique leads e aumente suas vendas com tecnologia de ponta."
@@ -171,7 +173,7 @@ const AgentesIA = () => {
     },
     en: {
       hero: {
-        badge: "Artificial Intelligence",
+        badge: "In Development",
         title: "AI Agents &",
         titleHighlight: "WhatsApp Automation",
         description: "Transform your customer service with intelligent agents that work 24/7. Automate conversations, qualify leads and increase your sales with cutting-edge technology."
@@ -317,7 +319,7 @@ const AgentesIA = () => {
     },
     es: {
       hero: {
-        badge: "Inteligencia Artificial",
+        badge: "En Desarrollo",
         title: "Agentes de IA y",
         titleHighlight: "Automatización WhatsApp",
         description: "Transforma tu atención al cliente con agentes inteligentes que trabajan 24/7. Automatiza conversaciones, califica leads y aumenta tus ventas con tecnología de punta."
@@ -519,13 +521,13 @@ const AgentesIA = () => {
               transition={{ duration: 0.8 }}
             >
               <motion.div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-warning/10 border border-warning/30 mb-8"
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                <Sparkles className="w-4 h-4 text-primary" />
-                <span className="text-sm text-primary font-medium">{currentContent.hero.badge}</span>
+                <Construction className="w-4 h-4 text-warning" />
+                <span className="text-sm text-warning font-medium">{currentContent.hero.badge}</span>
               </motion.div>
               
               <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
@@ -546,6 +548,20 @@ const AgentesIA = () => {
                 {currentContent.form.button}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
+
+              {/* Hero Image */}
+              <motion.div
+                className="mt-12 rounded-2xl overflow-hidden shadow-2xl shadow-primary/20"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+              >
+                <img 
+                  src={aiAgentsHero} 
+                  alt="AI Agents WhatsApp Automation" 
+                  className="w-full h-auto object-cover"
+                />
+              </motion.div>
             </motion.div>
           </div>
         </section>
@@ -574,14 +590,36 @@ const AgentesIA = () => {
         {/* Features Section */}
         <section className="py-24">
           <div className="container mx-auto px-6">
-            <motion.h2 
-              className="font-display text-3xl md:text-4xl font-bold text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              {currentContent.features.title}
-            </motion.h2>
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+                  {currentContent.features.title}
+                </h2>
+                <p className="text-muted-foreground text-lg">
+                  {language === 'pt' 
+                    ? 'Tecnologia de ponta para transformar seu atendimento e aumentar suas vendas.'
+                    : language === 'en'
+                    ? 'Cutting-edge technology to transform your service and increase your sales.'
+                    : 'Tecnología de punta para transformar tu atención y aumentar tus ventas.'}
+                </p>
+              </motion.div>
+              <motion.div
+                className="rounded-2xl overflow-hidden shadow-xl"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <img 
+                  src={aiAutomation} 
+                  alt="AI Automation Workflow" 
+                  className="w-full h-auto object-cover"
+                />
+              </motion.div>
+            </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {currentContent.features.items.map((feature, index) => (
