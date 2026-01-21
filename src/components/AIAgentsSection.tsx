@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Bot, MessageSquare, Zap, Brain, Clock, TrendingUp, Sparkles, ArrowRight } from "lucide-react";
+import { Bot, MessageSquare, Zap, Brain, Clock, TrendingUp, Sparkles, ArrowRight, Construction } from "lucide-react";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import aiAgentsHero from "@/assets/ai-agents-hero.jpg";
 
 const AIAgentsSection = () => {
   const { language } = useLanguage();
 
   const content = {
     pt: {
-      badge: "Inteligência Artificial",
+      badge: "Em Desenvolvimento",
       title: "Agentes de IA & Automação",
       subtitle: "WhatsApp",
       description: "Transforme seu atendimento com agentes inteligentes que trabalham 24/7. Automatize conversas, qualifique leads e aumente suas vendas.",
@@ -54,7 +55,7 @@ const AIAgentsSection = () => {
       ]
     },
     en: {
-      badge: "Artificial Intelligence",
+      badge: "In Development",
       title: "AI Agents & Automation",
       subtitle: "WhatsApp",
       description: "Transform your customer service with intelligent agents that work 24/7. Automate conversations, qualify leads and increase your sales.",
@@ -99,7 +100,7 @@ const AIAgentsSection = () => {
       ]
     },
     es: {
-      badge: "Inteligencia Artificial",
+      badge: "En Desarrollo",
       title: "Agentes de IA y Automatización",
       subtitle: "WhatsApp",
       description: "Transforma tu atención al cliente con agentes inteligentes que trabajan 24/7. Automatiza conversaciones, califica leads y aumenta tus ventas.",
@@ -168,13 +169,13 @@ const AIAgentsSection = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-warning/10 border border-warning/30 mb-6"
             initial={{ scale: 0.9 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
           >
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary font-medium">{currentContent.badge}</span>
+            <Construction className="w-4 h-4 text-warning" />
+            <span className="text-sm text-warning font-medium">{currentContent.badge}</span>
           </motion.div>
           
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
@@ -188,13 +189,28 @@ const AIAgentsSection = () => {
           </p>
         </motion.div>
 
+        {/* Hero Image */}
+        <motion.div
+          className="max-w-4xl mx-auto mb-16 rounded-2xl overflow-hidden shadow-2xl shadow-primary/10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <img 
+            src={aiAgentsHero} 
+            alt="AI Agents WhatsApp Automation" 
+            className="w-full h-auto object-cover"
+          />
+        </motion.div>
+
         {/* Stats */}
         <motion.div 
           className="grid grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
           {currentContent.stats.map((stat, index) => (
             <motion.div 
