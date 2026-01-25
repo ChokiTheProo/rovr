@@ -35,6 +35,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.sitesBlogs": "Sites e Blogs",
     "nav.microsaas": "Micro SaaS",
     "nav.aiAgents": "Agentes de IA",
+    "nav.internalServices": "Serviços Internos",
     "nav.contact": "Fale Conosco",
     "logo.tagline": "Criamos SaaS e MicroSaaS",
     
@@ -169,6 +170,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.sitesBlogs": "Sites & Blogs",
     "nav.microsaas": "Micro SaaS",
     "nav.aiAgents": "AI Agents",
+    "nav.internalServices": "Internal Services",
     "nav.contact": "Contact Us",
     "logo.tagline": "We build SaaS & MicroSaaS",
     
@@ -303,6 +305,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.sitesBlogs": "Sitios y Blogs",
     "nav.microsaas": "Micro SaaS",
     "nav.aiAgents": "Agentes de IA",
+    "nav.internalServices": "Servicios Internos",
     "nav.contact": "Contáctenos",
     "logo.tagline": "Creamos SaaS y MicroSaaS",
     
