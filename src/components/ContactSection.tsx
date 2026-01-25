@@ -113,15 +113,29 @@ const ContactSection = () => {
             <p className="text-sm text-muted-foreground mb-4">
               {t("contactsection.internal.description")}
             </p>
-            <motion.a
-              href="mailto:rovrbr@outlook.com"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent/10 border border-accent/30 hover:border-accent/50 transition-colors"
-            >
-              <Mail className="w-4 h-4 text-accent" />
-              <span className="text-sm text-accent font-medium">rovrbr@outlook.com</span>
-            </motion.a>
+            <div className="flex flex-wrap justify-center gap-3">
+              <motion.a
+                href="mailto:rovrbr@outlook.com"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent/10 border border-accent/30 hover:border-accent/50 transition-colors"
+              >
+                <Mail className="w-4 h-4 text-accent" />
+                <span className="text-sm text-accent font-medium">rovrbr@outlook.com</span>
+              </motion.a>
+              <Link to="/servicos-internos">
+                <motion.div
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-primary/10 border border-primary/30 hover:border-primary/50 transition-colors"
+                >
+                  <Building2 className="w-4 h-4 text-primary" />
+                  <span className="text-sm text-primary font-medium">
+                    {t("contactsection.internal.title")}
+                  </span>
+                </motion.div>
+              </Link>
+            </div>
           </motion.div>
 
           {/* CTA Button */}

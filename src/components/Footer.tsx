@@ -126,6 +126,14 @@ const Footer = () => {
               </motion.div>
               <motion.div whileHover={{ x: 4 }}>
                 <Link 
+                  to="/servicos-internos" 
+                  className="block text-muted-foreground text-sm hover:text-primary transition-colors"
+                >
+                  {language === "pt" ? "Serviços Internos" : language === "en" ? "Internal Services" : "Servicios Internos"}
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ x: 4 }}>
+                <Link 
                   to="/trabalhe-conosco" 
                   className="block text-muted-foreground text-sm hover:text-primary transition-colors"
                 >
