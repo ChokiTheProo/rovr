@@ -24,8 +24,6 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <WhatsAppButton />
-          <CookieConsent />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/contato" element={<Contato />} />
@@ -37,6 +35,8 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <WhatsAppButton />
+          <CookieConsent />
         </BrowserRouter>
       </TooltipProvider>
     </LanguageProvider>
