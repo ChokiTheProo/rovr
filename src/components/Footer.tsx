@@ -86,28 +86,12 @@ const Footer = () => {
             <h4 className="text-foreground font-semibold mb-4">{t("footer.contact")}</h4>
             <div className="space-y-3">
               <motion.a 
-                href="mailto:eurhok@gmail.com" 
+                href="mailto:rovrbr@gmail.com" 
                 className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
                 whileHover={{ x: 4 }}
               >
                 <Mail className="w-4 h-4" />
-                eurhok@gmail.com
-              </motion.a>
-              <motion.a 
-                href="mailto:roger1robson2@gmail.com" 
-                className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
-                whileHover={{ x: 4 }}
-              >
-                <Mail className="w-4 h-4" />
-                roger1robson2@gmail.com
-              </motion.a>
-              <motion.a 
-                href="mailto:rovrbr@outlook.com" 
-                className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
-                whileHover={{ x: 4 }}
-              >
-                <Mail className="w-4 h-4" />
-                rovrbr@outlook.com
+                rovrbr@gmail.com
               </motion.a>
             </div>
           </motion.div>

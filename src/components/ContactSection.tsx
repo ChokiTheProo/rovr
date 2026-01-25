@@ -16,9 +16,7 @@ const ContactSection = () => {
   ];
 
   const contacts = [
-    { icon: Mail, label: "eurhok@gmail.com", href: "mailto:eurhok@gmail.com" },
-    { icon: Mail, label: "roger1robson2@gmail.com", href: "mailto:roger1robson2@gmail.com" },
-    { icon: Mail, label: "rovrbr@outlook.com", href: "mailto:rovrbr@outlook.com" },
+    { icon: Mail, label: "rovrbr@gmail.com", href: "mailto:rovrbr@gmail.com" },
   ];
 
   return (
@@ -115,13 +113,13 @@ const ContactSection = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <motion.a
-                href="mailto:rovrbr@outlook.com"
+                href="mailto:rovrbr@gmail.com"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent/10 border border-accent/30 hover:border-accent/50 transition-colors"
               >
                 <Mail className="w-4 h-4 text-accent" />
-                <span className="text-sm text-accent font-medium">rovrbr@outlook.com</span>
+                <span className="text-sm text-accent font-medium">rovrbr@gmail.com</span>
               </motion.a>
               <Link to="/servicos-internos">
                 <motion.div
