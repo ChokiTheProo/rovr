@@ -36,7 +36,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const navItems = [
     { label: t("nav.about"), href: "sobre" },
     { label: t("nav.projects"), href: "projetos" },
-    { label: t("nav.technology"), href: "tecnologia" },
+    { label: t("nav.sitesBlogs"), href: "https://sitesrovr.lovable.app", isExternal: true },
     { label: t("nav.microsaas"), href: "microsaas" },
     { label: t("nav.aiAgents"), href: "/agentes-ia", isPage: true },
   ];
@@ -102,7 +102,23 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         {/* Navigation Links */}
         <nav className="flex flex-col items-center gap-6">
           {navItems.map((item, index) => (
-            item.isPage ? (
+            item.isExternal ? (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleClose}
+                className={`text-2xl font-semibold text-foreground hover:text-primary transition-all duration-300 transform ${
+                  isAnimating && isOpen
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                }`}
+                style={{ transitionDelay: `${(index + 1) * 100}ms` }}
+              >
+                {item.label}
+              </a>
+            ) : item.isPage ? (
               <Link
                 key={item.label}
                 to={item.href}
