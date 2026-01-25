@@ -114,6 +114,8 @@ const translations: Record<Language, Record<string, string>> = {
     "contactsection.benefit1": "Resposta em 24h",
     "contactsection.benefit2": "Consultoria gratuita",
     "contactsection.benefit3": "NDA disponível",
+    "contactsection.internal.title": "Serviços Internos",
+    "contactsection.internal.description": "Para assuntos internos e parcerias estratégicas",
     
     // Contact Page
     "contact.title": "Fale Conosco",
@@ -246,6 +248,8 @@ const translations: Record<Language, Record<string, string>> = {
     "contactsection.benefit1": "24h Response",
     "contactsection.benefit2": "Free consultation",
     "contactsection.benefit3": "NDA available",
+    "contactsection.internal.title": "Internal Services",
+    "contactsection.internal.description": "For internal matters and strategic partnerships",
     
     // Contact Page
     "contact.title": "Contact Us",
@@ -378,6 +382,8 @@ const translations: Record<Language, Record<string, string>> = {
     "contactsection.benefit1": "Respuesta en 24h",
     "contactsection.benefit2": "Consultoría gratuita",
     "contactsection.benefit3": "NDA disponible",
+    "contactsection.internal.title": "Servicios Internos",
+    "contactsection.internal.description": "Para asuntos internos y alianzas estratégicas",
     
     // Contact Page
     "contact.title": "Contáctenos",
