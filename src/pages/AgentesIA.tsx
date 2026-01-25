@@ -852,6 +852,36 @@ const AgentesIA = () => {
                     </span>
                   )}
                 </Button>
+
+                {/* Contact Emails */}
+                <div className="pt-6 border-t border-border/50 text-center">
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {language === "pt" ? "Ou entre em contato diretamente:" : language === "en" ? "Or contact us directly:" : "O contáctanos directamente:"}
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-3">
+                    <a 
+                      href="mailto:eurhok@gmail.com" 
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-card/50 border border-border/50 hover:border-primary/50 transition-colors text-sm text-muted-foreground hover:text-foreground"
+                    >
+                      <Mail className="w-4 h-4" />
+                      eurhok@gmail.com
+                    </a>
+                    <a 
+                      href="mailto:roger1robson2@gmail.com" 
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-card/50 border border-border/50 hover:border-primary/50 transition-colors text-sm text-muted-foreground hover:text-foreground"
+                    >
+                      <Mail className="w-4 h-4" />
+                      roger1robson2@gmail.com
+                    </a>
+                    <a 
+                      href="mailto:rovrbr@outlook.com" 
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-card/50 border border-border/50 hover:border-primary/50 transition-colors text-sm text-muted-foreground hover:text-foreground"
+                    >
+                      <Mail className="w-4 h-4" />
+                      rovrbr@outlook.com
+                    </a>
+                  </div>
+                </div>
               </motion.form>
             </div>
           </div>
