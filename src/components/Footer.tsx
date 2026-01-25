@@ -101,6 +101,14 @@ const Footer = () => {
                 <Mail className="w-4 h-4" />
                 roger1robson2@gmail.com
               </motion.a>
+              <motion.a 
+                href="mailto:rovrbr@outlook.com" 
+                className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
+                whileHover={{ x: 4 }}
+              >
+                <Mail className="w-4 h-4" />
+                rovrbr@outlook.com
+              </motion.a>
             </div>
           </motion.div>
 

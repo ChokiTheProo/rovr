@@ -1,4 +1,4 @@
-import { Clock, MessageCircle, FileText, Mail } from "lucide-react";
+import { Clock, MessageCircle, FileText, Mail, Building2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
@@ -18,6 +18,7 @@ const ContactSection = () => {
   const contacts = [
     { icon: Mail, label: "eurhok@gmail.com", href: "mailto:eurhok@gmail.com" },
     { icon: Mail, label: "roger1robson2@gmail.com", href: "mailto:roger1robson2@gmail.com" },
+    { icon: Mail, label: "rovrbr@outlook.com", href: "mailto:rovrbr@outlook.com" },
   ];
 
   return (
@@ -94,6 +95,33 @@ const ContactSection = () => {
                 <span className="text-sm text-muted-foreground">{contact.label}</span>
               </motion.a>
             ))}
+          </motion.div>
+
+          {/* Internal Services Section */}
+          <motion.div
+            className="mb-10 p-6 rounded-2xl bg-card/30 border border-border/50"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ delay: 0.45, duration: 0.5 }}
+          >
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <Building2 className="w-5 h-5 text-accent" />
+              <h3 className="text-lg font-semibold text-foreground">
+                {t("contactsection.internal.title")}
+              </h3>
+            </div>
+            <p className="text-sm text-muted-foreground mb-4">
+              {t("contactsection.internal.description")}
+            </p>
+            <motion.a
+              href="mailto:rovrbr@outlook.com"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent/10 border border-accent/30 hover:border-accent/50 transition-colors"
+            >
+              <Mail className="w-4 h-4 text-accent" />
+              <span className="text-sm text-accent font-medium">rovrbr@outlook.com</span>
+            </motion.a>
           </motion.div>
 
           {/* CTA Button */}
