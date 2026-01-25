@@ -867,18 +867,11 @@ const AgentesIA = () => {
                       eurhok@gmail.com
                     </a>
                     <a 
-                      href="mailto:roger1robson2@gmail.com" 
+                      href="mailto:rovrbr@gmail.com" 
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-card/50 border border-border/50 hover:border-primary/50 transition-colors text-sm text-muted-foreground hover:text-foreground"
                     >
                       <Mail className="w-4 h-4" />
-                      roger1robson2@gmail.com
-                    </a>
-                    <a 
-                      href="mailto:rovrbr@outlook.com" 
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-card/50 border border-border/50 hover:border-primary/50 transition-colors text-sm text-muted-foreground hover:text-foreground"
-                    >
-                      <Mail className="w-4 h-4" />
-                      rovrbr@outlook.com
+                      rovrbr@gmail.com
                     </a>
                   </div>
                 </div>

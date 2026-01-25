@@ -49,9 +49,7 @@ const Contato = () => {
   ];
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "eurhok@gmail.com" },
-    { icon: Mail, label: "Email", value: "roger1robson2@gmail.com" },
-    { icon: Mail, label: "Email", value: "rovrbr@outlook.com" },
+    { icon: Mail, label: "Email", value: "rovrbr@gmail.com" },
     { icon: MapPin, label: t("contact.info.location"), value: t("contact.info.locationValue") },
   ];
 
