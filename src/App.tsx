@@ -18,6 +18,7 @@ import ServicosInternos from "./pages/ServicosInternos";
 
 const queryClient = new QueryClient();
 
+// App component with proper provider hierarchy
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
