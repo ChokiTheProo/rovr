@@ -32,7 +32,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Header
     "nav.about": "Sobre",
     "nav.projects": "Projetos",
-    "nav.technology": "Tecnologia",
+    "nav.sitesBlogs": "Sites e Blogs",
     "nav.microsaas": "Micro SaaS",
     "nav.aiAgents": "Agentes de IA",
     "nav.contact": "Fale Conosco",
@@ -166,7 +166,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Header
     "nav.about": "About",
     "nav.projects": "Projects",
-    "nav.technology": "Technology",
+    "nav.sitesBlogs": "Sites & Blogs",
     "nav.microsaas": "Micro SaaS",
     "nav.aiAgents": "AI Agents",
     "nav.contact": "Contact Us",
@@ -300,7 +300,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Header
     "nav.about": "Nosotros",
     "nav.projects": "Proyectos",
-    "nav.technology": "Tecnología",
+    "nav.sitesBlogs": "Sitios y Blogs",
     "nav.microsaas": "Micro SaaS",
     "nav.aiAgents": "Agentes de IA",
     "nav.contact": "Contáctenos",
