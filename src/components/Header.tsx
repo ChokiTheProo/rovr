@@ -20,6 +20,7 @@ const Header = () => {
     { label: t("nav.sitesBlogs"), href: "https://sitesrovr.lovable.app", isExternal: true },
     { label: t("nav.microsaas"), href: "microsaas" },
     { label: t("nav.aiAgents"), href: "/agentes-ia", isPage: true },
+    { label: t("nav.internalServices"), href: "/servicos-internos", isPage: true },
   ];
 
   const handleNavClick = (sectionId: string) => {
