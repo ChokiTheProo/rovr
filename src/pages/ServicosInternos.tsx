@@ -543,11 +543,24 @@ const ServicosInternos = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="text-center p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="relative text-center p-5 sm:p-6 md:p-8 rounded-2xl bg-card/80 backdrop-blur-md border border-primary/30 shadow-lg shadow-primary/5 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 overflow-hidden group"
                 >
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient mb-1 sm:mb-2">{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <motion.div 
+                      className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-2"
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ delay: 0.4 + index * 0.15, type: "spring", stiffness: 200 }}
+                    >
+                      {stat.value}
+                    </motion.div>
+                    <div className="text-xs sm:text-sm text-muted-foreground font-medium">{stat.label}</div>
+                  </div>
                 </motion.div>
               ))}
             </div>
