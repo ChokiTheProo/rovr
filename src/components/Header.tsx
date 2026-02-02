@@ -69,36 +69,56 @@ const Header = () => {
             </Link>
 
             {/* Navigation */}
-            <nav className="hidden md:flex items-center gap-2">
-              {navItems.map((item) => (
-                item.isExternal ? (
-                  <a
+            <nav className="hidden md:flex items-center gap-1.5">
+              {navItems.map((item, index) => {
+                const buttonClasses = "relative px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border border-border/40 bg-secondary/30 text-muted-foreground hover:text-foreground hover:border-primary/60 hover:bg-primary/15 hover:shadow-lg hover:shadow-primary/10 active:scale-95";
+                
+                return item.isExternal ? (
+                  <motion.a
                     key={item.label}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                    className={buttonClasses}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.3 }}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     {item.label}
-                  </a>
+                  </motion.a>
                 ) : item.isPage ? (
-                  <Link
+                  <motion.div
                     key={item.label}
-                    to={item.href}
-                    className="relative px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.3 }}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    {item.label}
-                  </Link>
+                    <Link
+                      to={item.href}
+                      className={buttonClasses}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
                 ) : (
-                  <button
+                  <motion.button
                     key={item.label}
                     onClick={() => handleNavClick(item.href)}
-                    className="relative px-4 py-2 rounded-full border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                    className={buttonClasses}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.3 }}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     {item.label}
-                  </button>
-                )
-              ))}
+                  </motion.button>
+                );
+              })}
             </nav>
 
             {/* Theme, Language Switcher & CTA */}
