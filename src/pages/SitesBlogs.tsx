@@ -421,12 +421,12 @@ const SitesBlogs = () => {
         subtitle: "Vista previa gratuita antes de pagar",
       },
       cta: {
-        title: "Vamos a crear un sitio web que represente el",
-        titleHighlight: "verdadero valor de tu negocio.",
+        title: "Visualiza tu sitio antes de pagar.",
+        titleHighlight: "Riesgo cero, total seguridad.",
         description:
-          "Contacta a nuestro equipo y solicita una vista previa de tu proyecto. Descubre cómo un sitio web profesional puede elevar tu marca, atraer clientes y fortalecer tu presencia digital.",
-        button: "Habla con ROVR",
-        buttonContact: "Formulario de Contacto",
+          "Solicita tu vista previa gratuita hoy. Solo pagas cuando apruebes el proyecto. Contrato formal, garantía de 30 días y soporte completo.",
+        button: "Quiero Vista Previa Gratuita",
+        buttonContact: "Hablar con Especialista",
       },
       projectsSection: {
         badge: "Nuestros Proyectos",
