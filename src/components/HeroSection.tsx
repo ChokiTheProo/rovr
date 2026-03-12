@@ -141,7 +141,7 @@ const HeroSection = () => {
             >
               <Sparkles className="w-4 h-4 text-primary" />
             </motion.div>
-            <span className="text-sm text-muted-foreground">SaaS Studio • MicroSaaS</span>
+            <span className="text-sm text-muted-foreground">Sites Profissionais • Gestão Digital • SaaS</span>
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
