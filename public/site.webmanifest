@@ -1,6 +1,7 @@
 {
-  "name": "RoVR",
+  "name": "RoVR - Sites Profissionais e Gestão Digital",
   "short_name": "RoVR",
+  "description": "Criamos sites profissionais, blogs e soluções digitais com gestão completa. Pré-visualização gratuita e contrato formal.",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
