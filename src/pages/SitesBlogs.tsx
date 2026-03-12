@@ -102,13 +102,13 @@ const SitesBlogs = () => {
     pt: {
       hero: {
         badge: "Sites & Blogs Profissionais",
-        title: "Seu negócio merece um site que realmente",
-        titleHighlight: "gere resultados.",
+        title: "Seu site pronto com",
+        titleHighlight: "zero risco.",
         description:
-          "Na ROVR, criamos sites e blogs profissionais, rápidos e estratégicos, projetados para transmitir autoridade, atrair clientes e fortalecer sua presença digital.",
+          "Visualize seu site antes de pagar. Trabalhamos com contrato formal, pré-visualização gratuita e você só paga quando aprovar o projeto.",
         subdescription:
-          "Mais do que apenas um design bonito, entregamos plataformas pensadas para conversão, credibilidade e crescimento do seu negócio online.",
-        cta: "Quero Meu Site Agora",
+          "Mais de 50 sites entregues com garantia de satisfação. Sua presença digital com segurança total.",
+        cta: "Quero Pré-visualização Gratuita",
         ctaSecondary: "Ver Portfólio",
       },
       why: {
