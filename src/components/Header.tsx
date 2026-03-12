@@ -17,7 +17,7 @@ const Header = () => {
   const navItems = [
     { label: t("nav.about"), href: "sobre" },
     { label: t("nav.projects"), href: "projetos" },
-    { label: t("nav.sitesBlogs"), href: "https://sitesrovr.lovable.app", isExternal: true },
+    { label: t("nav.sitesBlogs"), href: "/sites-blogs", isPage: true },
     { label: t("nav.microsaas"), href: "microsaas" },
     { label: t("nav.aiAgents"), href: "/agentes-ia", isPage: true },
     { label: t("nav.internalServices"), href: "/servicos-internos", isPage: true },
