@@ -195,12 +195,12 @@ const SitesBlogs = () => {
         subtitle: "Pré-visualização gratuita antes de pagar",
       },
       cta: {
-        title: "Vamos criar um site que represente o",
-        titleHighlight: "verdadeiro valor do seu negócio.",
+        title: "Visualize seu site antes de pagar.",
+        titleHighlight: "Zero risco, total segurança.",
         description:
-          "Entre em contato com nossa equipe e solicite uma pré-visualização do seu projeto. Descubra como um site profissional pode elevar sua marca, atrair clientes e fortalecer sua presença digital.",
-        button: "Fale com a ROVR",
-        buttonContact: "Formulário de Contato",
+          "Solicite sua pré-visualização gratuita hoje. Você só paga quando aprovar o projeto. Contrato formal, garantia de 30 dias e suporte completo.",
+        button: "Quero Pré-visualização Gratuita",
+        buttonContact: "Falar com Especialista",
       },
       projectsSection: {
         badge: "Nossos Projetos",
