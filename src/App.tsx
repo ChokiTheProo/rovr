@@ -15,6 +15,7 @@ import TrabalheConosco from "./pages/TrabalheConosco";
 import NotFound from "./pages/NotFound";
 import AgentesIA from "./pages/AgentesIA";
 import ServicosInternos from "./pages/ServicosInternos";
+import SitesBlogs from "./pages/SitesBlogs";
 
 const queryClient = new QueryClient();
 
