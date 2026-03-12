@@ -175,21 +175,25 @@ const SitesBlogs = () => {
         },
       ],
       guarantee: {
-        badge: "Segurança & Garantia",
-        title: "Segurança, transparência e",
-        titleHighlight: "garantia.",
+        badge: "Garantia Incondicional",
+        title: "Sua segurança é nossa",
+        titleHighlight: "prioridade.",
         description:
-          "Sabemos que um projeto digital exige confiança e profissionalismo. Por isso, todos os projetos da ROVR seguem um processo estruturado e seguro.",
+          "Trabalhamos com contrato formal, pré-visualização gratuita do seu site antes de qualquer pagamento, e garantia total de satisfação. Só paga quando aprovar o projeto.",
       },
       guaranteeItems: [
-        { icon: FileText, text: "Contrato formal de prestação de serviço" },
-        { icon: Eye, text: "Processo transparente de desenvolvimento" },
-        { icon: MonitorSmartphone, text: "Pré-visualização do projeto antes da entrega" },
-        { icon: ShieldCheck, text: "Garantia de qualidade do trabalho entregue" },
-        { icon: Users, text: "Comunicação clara durante todo o processo" },
+        { icon: FileText, text: "Contrato formal de prestação de serviço com todas as cláusulas de proteção" },
+        { icon: Eye, text: "Pré-visualização gratuita do seu site antes de qualquer compromisso financeiro" },
+        { icon: ShieldCheck, text: "Garantia de 30 dias: ajustamos até você ficar 100% satisfeito" },
+        { icon: Lock, text: "Pagamento somente após aprovação da pré-visualização" },
+        { icon: Users, text: "Comunicação direta e transparente durante todo o processo" },
       ],
       guaranteeFooter:
-        "Nosso objetivo é que você tenha total segurança ao investir na presença digital do seu negócio.",
+        "Zero risco para você. Visualize seu site antes de pagar e só avançamos se você aprovar.",
+      trustBadge: {
+        title: "Risco Zero",
+        subtitle: "Pré-visualização gratuita antes de pagar",
+      },
       cta: {
         title: "Vamos criar um site que represente o",
         titleHighlight: "verdadeiro valor do seu negócio.",
