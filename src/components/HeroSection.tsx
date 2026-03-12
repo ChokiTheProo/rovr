@@ -16,25 +16,25 @@ const HeroSection = () => {
   const content = {
     pt: {
       projects: "Projetos",
-      subheading1: "Criamos SaaS e MicroSaaS que ",
-      subheading2: "escalam como negócios.",
-      description: "Desenvolvemos soluções digitais escaláveis. Inovação, automação e monetização inteligente em cada projeto.",
+      subheading1: "Criamos sites profissionais e soluções ",
+      subheading2: "que gerenciam seu negócio.",
+      description: "Desenvolvemos sites, blogs e sistemas digitais. Gestão de projetos, automação e presença online estratégica para o crescimento do seu negócio.",
       viewProjects: "Ver Projetos",
       aboutRoVR: "Conhecer a RoVR",
     },
     en: {
       projects: "Projects",
-      subheading1: "We build SaaS and MicroSaaS that ",
-      subheading2: "scale as businesses.",
-      description: "We develop scalable digital solutions. Innovation, automation and smart monetization in every project.",
+      subheading1: "We create professional websites and solutions ",
+      subheading2: "that manage your business.",
+      description: "We develop websites, blogs and digital systems. Project management, automation and strategic online presence for your business growth.",
       viewProjects: "View Projects",
       aboutRoVR: "About RoVR",
     },
     es: {
       projects: "Proyectos",
-      subheading1: "Creamos SaaS y MicroSaaS que ",
-      subheading2: "escalan como negocios.",
-      description: "Desarrollamos soluciones digitales escalables. Innovación, automatización y monetización inteligente en cada proyecto.",
+      subheading1: "Creamos sitios web profesionales y soluciones ",
+      subheading2: "que gestionan tu negocio.",
+      description: "Desarrollamos sitios web, blogs y sistemas digitales. Gestión de proyectos, automatización y presencia online estratégica para el crecimiento de tu negocio.",
       viewProjects: "Ver Proyectos",
       aboutRoVR: "Conocer RoVR",
     },
@@ -141,7 +141,7 @@ const HeroSection = () => {
             >
               <Sparkles className="w-4 h-4 text-primary" />
             </motion.div>
-            <span className="text-sm text-muted-foreground">SaaS Studio • MicroSaaS</span>
+            <span className="text-sm text-muted-foreground">Sites Profissionais • Gestão Digital • SaaS</span>
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
