@@ -23,7 +23,77 @@ import {
   Lock,
   Users,
   ArrowRight,
+  ExternalLink,
 } from "lucide-react";
+
+const projects = [
+  {
+    image: "/projects/site-minecraft.jpg",
+    category: "Landing Page",
+    title: "Minecraft Paint",
+    description: {
+      pt: "Landing page de vendas para produto digital voltado para crianças, com design vibrante e gamificado.",
+      en: "Sales landing page for a digital product for children, with vibrant and gamified design.",
+      es: "Landing page de ventas para producto digital dirigido a niños, con diseño vibrante y gamificado.",
+    },
+    url: "https://sitesrovr.lovable.app/projeto/minecraft-desenho",
+  },
+  {
+    image: "/projects/site-lassie.jpg",
+    category: "Landing Page",
+    title: "Las 7 Edades de la Iglesia",
+    description: {
+      pt: "Landing page de vendas para curso bíblico digital com design impactante e foco em conversão.",
+      en: "Sales landing page for a digital bible course with impactful design and conversion focus.",
+      es: "Landing page de ventas para curso bíblico digital con diseño impactante y enfoque en conversión.",
+    },
+    url: "https://sitesrovr.lovable.app/projeto/lassie-7-edades",
+  },
+  {
+    image: "/projects/site-cuidabem.jpg",
+    category: "Landing Page",
+    title: "Cuidabem",
+    description: {
+      pt: "Landing page para guia de cuidadores com design moderno e gradientes vibrantes.",
+      en: "Landing page for a caregiver guide with modern design and vibrant gradients.",
+      es: "Landing page para guía de cuidadores con diseño moderno y gradientes vibrantes.",
+    },
+    url: "https://sitesrovr.lovable.app/projeto/cuidabem",
+  },
+  {
+    image: "/projects/site-rogervarela.jpg",
+    category: { pt: "Portfólio", en: "Portfolio", es: "Portafolio" },
+    title: "Roger Varela",
+    description: {
+      pt: "Site portfólio pessoal com design futurista, animações elegantes e multi-idioma.",
+      en: "Personal portfolio site with futuristic design, elegant animations and multi-language.",
+      es: "Sitio portafolio personal con diseño futurista, animaciones elegantes y multi-idioma.",
+    },
+    url: "https://sitesrovr.lovable.app/projeto/roger-varela",
+  },
+  {
+    image: "/projects/site-rovr.jpg",
+    category: { pt: "Institucional", en: "Corporate", es: "Institucional" },
+    title: "RoVR - SaaS Studio",
+    description: {
+      pt: "Site institucional da RoVR com apresentação de projetos SaaS e MicroSaaS.",
+      en: "RoVR's corporate website showcasing SaaS and MicroSaaS projects.",
+      es: "Sitio institucional de RoVR con presentación de proyectos SaaS y MicroSaaS.",
+    },
+    url: "https://sitesrovr.lovable.app/projeto/rovr-site",
+  },
+  {
+    image: "/projects/site-sitesrovr.jpg",
+    category: "Landing Page",
+    title: "Sites RoVR",
+    description: {
+      pt: "Página de portfólio e vendas de sites profissionais da RoVR.",
+      en: "Portfolio and sales page for RoVR's professional websites.",
+      es: "Página de portafolio y ventas de sitios profesionales de RoVR.",
+    },
+    url: "https://sitesrovr.lovable.app/projeto/sites-rovr",
+  },
+];
 
 const SitesBlogs = () => {
   const { language } = useLanguage();
@@ -38,8 +108,8 @@ const SitesBlogs = () => {
           "Na ROVR, criamos sites e blogs profissionais, rápidos e estratégicos, projetados para transmitir autoridade, atrair clientes e fortalecer sua presença digital.",
         subdescription:
           "Mais do que apenas um design bonito, entregamos plataformas pensadas para conversão, credibilidade e crescimento do seu negócio online.",
-        cta: "Iniciar Meu Projeto",
-        ctaSecondary: "Ver Projetos",
+        cta: "Quero Meu Site Agora",
+        ctaSecondary: "Ver Portfólio",
       },
       why: {
         badge: "Por que ter um site profissional?",
@@ -126,14 +196,16 @@ const SitesBlogs = () => {
         description:
           "Entre em contato com nossa equipe e solicite uma pré-visualização do seu projeto. Descubra como um site profissional pode elevar sua marca, atrair clientes e fortalecer sua presença digital.",
         button: "Fale com a ROVR",
-        whatsapp: "WhatsApp",
+        buttonContact: "Formulário de Contato",
       },
       projectsSection: {
         badge: "Nossos Projetos",
-        title: "Sites e blogs que",
+        title: "Sites profissionais que",
         titleHighlight: "já entregamos.",
         description: "Confira alguns dos projetos que desenvolvemos para nossos clientes.",
-        viewAll: "Ver Todos os Projetos",
+        viewAll: "Ver Portfólio Completo",
+        viewProject: "Ver Projeto",
+        requestQuote: "Quero um Site Assim",
       },
     },
     en: {
@@ -145,8 +217,8 @@ const SitesBlogs = () => {
           "At ROVR, we create professional, fast and strategic websites and blogs, designed to convey authority, attract customers and strengthen your digital presence.",
         subdescription:
           "More than just a beautiful design, we deliver platforms designed for conversion, credibility and growth of your online business.",
-        cta: "Start My Project",
-        ctaSecondary: "View Projects",
+        cta: "I Want My Site Now",
+        ctaSecondary: "View Portfolio",
       },
       why: {
         badge: "Why have a professional website?",
@@ -233,14 +305,16 @@ const SitesBlogs = () => {
         description:
           "Contact our team and request a preview of your project. Discover how a professional website can elevate your brand, attract customers and strengthen your digital presence.",
         button: "Talk to ROVR",
-        whatsapp: "WhatsApp",
+        buttonContact: "Contact Form",
       },
       projectsSection: {
         badge: "Our Projects",
-        title: "Websites and blogs we've",
+        title: "Professional websites we've",
         titleHighlight: "already delivered.",
         description: "Check out some of the projects we've developed for our clients.",
-        viewAll: "View All Projects",
+        viewAll: "View Full Portfolio",
+        viewProject: "View Project",
+        requestQuote: "I Want a Site Like This",
       },
     },
     es: {
@@ -252,8 +326,8 @@ const SitesBlogs = () => {
           "En ROVR, creamos sitios web y blogs profesionales, rápidos y estratégicos, diseñados para transmitir autoridad, atraer clientes y fortalecer tu presencia digital.",
         subdescription:
           "Más que solo un diseño bonito, entregamos plataformas pensadas para conversión, credibilidad y crecimiento de tu negocio online.",
-        cta: "Iniciar Mi Proyecto",
-        ctaSecondary: "Ver Proyectos",
+        cta: "Quiero Mi Sitio Ahora",
+        ctaSecondary: "Ver Portafolio",
       },
       why: {
         badge: "¿Por qué tener un sitio web profesional?",
@@ -340,14 +414,16 @@ const SitesBlogs = () => {
         description:
           "Contacta a nuestro equipo y solicita una vista previa de tu proyecto. Descubre cómo un sitio web profesional puede elevar tu marca, atraer clientes y fortalecer tu presencia digital.",
         button: "Habla con ROVR",
-        whatsapp: "WhatsApp",
+        buttonContact: "Formulario de Contacto",
       },
       projectsSection: {
         badge: "Nuestros Proyectos",
-        title: "Sitios web y blogs que",
+        title: "Sitios web profesionales que",
         titleHighlight: "ya entregamos.",
         description: "Conoce algunos de los proyectos que desarrollamos para nuestros clientes.",
-        viewAll: "Ver Todos los Proyectos",
+        viewAll: "Ver Portafolio Completo",
+        viewProject: "Ver Proyecto",
+        requestQuote: "Quiero un Sitio Así",
       },
     },
   };
@@ -367,15 +443,18 @@ const SitesBlogs = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
+  const getCategory = (cat: string | Record<string, string>) =>
+    typeof cat === "string" ? cat : cat[language] || cat.pt;
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
+      <section className="relative pt-28 pb-20 md:pt-40 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-radial opacity-40" />
         <motion.div
-          className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/8 rounded-full blur-3xl"
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-primary/8 rounded-full blur-3xl"
           animate={{ scale: [1, 1.15, 1], opacity: [0.08, 0.18, 0.08] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -386,33 +465,42 @@ const SitesBlogs = () => {
           initial="hidden"
           animate="visible"
         >
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-8"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-10"
             >
               <Globe className="w-4 h-4 text-primary" />
-              <span className="text-sm text-muted-foreground">{c.hero.badge}</span>
+              <span className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
+                {c.hero.badge}
+              </span>
             </motion.div>
 
             <motion.h1
               variants={itemVariants}
-              className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 leading-[1.1] tracking-tight"
             >
               <span className="text-foreground">{c.hero.title} </span>
-              <span className="text-gradient">{c.hero.titleHighlight}</span>
+              <br className="hidden sm:block" />
+              <motion.span
+                className="text-gradient inline-block"
+                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                transition={{ duration: 5, repeat: Infinity }}
+              >
+                {c.hero.titleHighlight}
+              </motion.span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-4"
+              className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-5 leading-relaxed font-light"
             >
               {c.hero.description}
             </motion.p>
 
             <motion.p
               variants={itemVariants}
-              className="text-sm sm:text-base text-muted-foreground/80 max-w-2xl mx-auto mb-10"
+              className="text-base sm:text-lg text-muted-foreground/70 max-w-2xl mx-auto mb-12 leading-relaxed"
             >
               {c.hero.subdescription}
             </motion.p>
@@ -423,13 +511,13 @@ const SitesBlogs = () => {
             >
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
                 <a
-                  href="https://web.whatsapp.com/send?phone=5554991710543"
+                  href="https://wa.me/5554991710543?text=Olá! Vim pelo site RoVR e quero meu site profissional agora!"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Button
                     size="lg"
-                    className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl px-8 py-6 text-lg glow-primary"
+                    className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl px-10 py-7 text-lg glow-primary"
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />
                     {c.hero.cta}
@@ -437,15 +525,16 @@ const SitesBlogs = () => {
                 </a>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
-                <Link to="/" state={{ scrollTo: "projetos" }}>
+                <a href="#projetos">
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full sm:w-auto border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-8 py-6 text-lg"
+                    className="w-full sm:w-auto border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-10 py-7 text-lg"
                   >
                     {c.hero.ctaSecondary}
+                    <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
-                </Link>
+                </a>
               </motion.div>
             </motion.div>
           </div>
@@ -453,7 +542,7 @@ const SitesBlogs = () => {
       </section>
 
       {/* Why Section */}
-      <section className="py-16 md:py-24 relative">
+      <section className="py-20 md:py-28 relative">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="max-w-4xl mx-auto"
@@ -462,25 +551,25 @@ const SitesBlogs = () => {
             viewport={{ once: true, margin: "-80px" }}
             variants={containerVariants}
           >
-            <motion.div variants={itemVariants} className="text-center mb-12">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-6 text-sm text-muted-foreground">
+            <motion.div variants={itemVariants} className="text-center mb-14">
+              <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-8 text-sm font-medium tracking-wide text-muted-foreground uppercase">
                 <Search className="w-4 h-4 text-accent" />
                 {c.why.badge}
               </span>
-              <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
                 <span className="text-foreground">{c.why.title} </span>
                 <span className="text-gradient">{c.why.titleHighlight}</span>
               </h2>
-              <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-4">
+              <p className="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto mb-5 leading-relaxed font-light">
                 {c.why.description}
               </p>
-              <p className="text-foreground font-medium text-base sm:text-lg">
+              <p className="text-foreground font-semibold text-lg sm:text-xl">
                 {c.why.subtitle}
               </p>
             </motion.div>
 
             {/* Benefits Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mb-12">
               {c.benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
@@ -488,12 +577,12 @@ const SitesBlogs = () => {
                     key={index}
                     variants={itemVariants}
                     whileHover={{ scale: 1.02, y: -3 }}
-                    className="flex items-start gap-4 p-5 rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm hover:border-primary/40 hover:bg-card/80 transition-all duration-300 group"
+                    className="flex items-start gap-4 p-6 rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm hover:border-primary/40 hover:bg-card/80 transition-all duration-300 group"
                   >
-                    <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
-                    <p className="text-foreground text-sm sm:text-base font-medium pt-1.5">
+                    <p className="text-foreground text-base sm:text-lg font-medium leading-snug pt-2">
                       {benefit.text}
                     </p>
                   </motion.div>
@@ -503,9 +592,9 @@ const SitesBlogs = () => {
 
             <motion.div
               variants={itemVariants}
-              className="text-center p-6 rounded-2xl border border-accent/20 bg-accent/5"
+              className="text-center p-8 rounded-2xl border border-accent/20 bg-accent/5"
             >
-              <p className="text-muted-foreground text-sm sm:text-base italic">
+              <p className="text-muted-foreground text-base sm:text-lg italic leading-relaxed">
                 {c.why.footer}
               </p>
             </motion.div>
@@ -514,7 +603,7 @@ const SitesBlogs = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 md:py-24 relative bg-secondary/20">
+      <section className="py-20 md:py-28 relative bg-secondary/20">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="max-w-5xl mx-auto"
@@ -523,23 +612,22 @@ const SitesBlogs = () => {
             viewport={{ once: true, margin: "-80px" }}
             variants={containerVariants}
           >
-            <motion.div variants={itemVariants} className="text-center mb-14">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-6 text-sm text-muted-foreground">
+            <motion.div variants={itemVariants} className="text-center mb-16">
+              <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-8 text-sm font-medium tracking-wide text-muted-foreground uppercase">
                 <Code2 className="w-4 h-4 text-primary" />
                 {c.process.badge}
               </span>
-              <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
                 <span className="text-foreground">{c.process.title} </span>
                 <span className="text-gradient">{c.process.titleHighlight}</span>
               </h2>
-              <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-light">
                 {c.process.description}
               </p>
             </motion.div>
 
             {/* Steps */}
             <div className="relative">
-              {/* Vertical line connector */}
               <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/40 via-accent/40 to-primary/40" />
 
               <div className="space-y-8 md:space-y-0">
@@ -554,38 +642,39 @@ const SitesBlogs = () => {
                         isEven ? "md:flex-row" : "md:flex-row-reverse"
                       }`}
                     >
-                      {/* Content card */}
-                      <div className={`md:w-1/2 ${isEven ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
+                      <div className={`md:w-1/2 ${isEven ? "md:pr-14 md:text-right" : "md:pl-14"}`}>
                         <motion.div
                           whileHover={{ scale: 1.02, y: -3 }}
-                          className="p-6 rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm hover:border-primary/30 transition-all duration-300"
+                          className="p-7 rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm hover:border-primary/30 transition-all duration-300"
                         >
                           <div
-                            className={`flex items-center gap-3 mb-3 ${
+                            className={`flex items-center gap-4 mb-4 ${
                               isEven ? "md:justify-end" : ""
                             }`}
                           >
-                            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                            {/* Mobile number badge */}
+                            <div className="md:hidden w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/30">
+                              <span className="text-primary-foreground font-bold text-xs">{step.number}</span>
+                            </div>
+                            <div className="w-11 h-11 rounded-xl bg-primary/10 hidden md:flex items-center justify-center">
                               <Icon className="w-5 h-5 text-primary" />
                             </div>
-                            <h3 className="font-display text-lg font-bold text-foreground">
+                            <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground tracking-tight">
                               {step.title}
                             </h3>
                           </div>
-                          <p className="text-muted-foreground text-sm sm:text-base">
+                          <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
                             {step.description}
                           </p>
                         </motion.div>
                       </div>
 
-                      {/* Center number circle */}
-                      <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent items-center justify-center z-10 shadow-lg shadow-primary/30">
+                      <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent items-center justify-center z-10 shadow-lg shadow-primary/30">
                         <span className="text-primary-foreground font-bold text-sm">
                           {step.number}
                         </span>
                       </div>
 
-                      {/* Spacer for opposite side */}
                       <div className="hidden md:block md:w-1/2" />
                     </motion.div>
                   );
@@ -597,7 +686,7 @@ const SitesBlogs = () => {
       </section>
 
       {/* Guarantee Section */}
-      <section className="py-16 md:py-24 relative">
+      <section className="py-20 md:py-28 relative">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             className="max-w-4xl mx-auto"
@@ -606,21 +695,21 @@ const SitesBlogs = () => {
             viewport={{ once: true, margin: "-80px" }}
             variants={containerVariants}
           >
-            <motion.div variants={itemVariants} className="text-center mb-12">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-6 text-sm text-muted-foreground">
+            <motion.div variants={itemVariants} className="text-center mb-14">
+              <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-8 text-sm font-medium tracking-wide text-muted-foreground uppercase">
                 <Lock className="w-4 h-4 text-accent" />
                 {c.guarantee.badge}
               </span>
-              <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
                 <span className="text-foreground">{c.guarantee.title} </span>
                 <span className="text-gradient">{c.guarantee.titleHighlight}</span>
               </h2>
-              <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-light">
                 {c.guarantee.description}
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mb-12">
               {c.guaranteeItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
@@ -628,12 +717,12 @@ const SitesBlogs = () => {
                     key={index}
                     variants={itemVariants}
                     whileHover={{ scale: 1.02, y: -3 }}
-                    className="flex items-center gap-4 p-5 rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm hover:border-accent/40 transition-all duration-300 group"
+                    className="flex items-center gap-4 p-6 rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm hover:border-accent/40 transition-all duration-300 group"
                   >
-                    <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                    <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                       <Icon className="w-5 h-5 text-accent" />
                     </div>
-                    <p className="text-foreground text-sm sm:text-base font-medium">
+                    <p className="text-foreground text-base sm:text-lg font-medium leading-snug">
                       {item.text}
                     </p>
                   </motion.div>
@@ -643,7 +732,7 @@ const SitesBlogs = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-center text-muted-foreground text-sm sm:text-base"
+              className="text-center text-muted-foreground text-base sm:text-lg leading-relaxed"
             >
               {c.guaranteeFooter}
             </motion.p>
@@ -651,47 +740,111 @@ const SitesBlogs = () => {
         </div>
       </section>
 
-      {/* Projects Section Link */}
-      <section className="py-16 md:py-24 bg-secondary/20 relative">
+      {/* Projects Section */}
+      <section id="projetos" className="py-20 md:py-28 bg-secondary/20 relative">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
-            className="max-w-3xl mx-auto text-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={containerVariants}
           >
-            <motion.div variants={itemVariants}>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-6 text-sm text-muted-foreground">
+            <motion.div variants={itemVariants} className="text-center mb-16">
+              <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-8 text-sm font-medium tracking-wide text-muted-foreground uppercase">
                 <Eye className="w-4 h-4 text-primary" />
                 {c.projectsSection.badge}
               </span>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+                <span className="text-foreground">{c.projectsSection.title} </span>
+                <span className="text-gradient">{c.projectsSection.titleHighlight}</span>
+              </h2>
+              <p className="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-light">
+                {c.projectsSection.description}
+              </p>
             </motion.div>
-            <motion.h2
+
+            {/* Projects Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
+              {projects.map((project, index) => (
+                <motion.a
+                  key={index}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variants={itemVariants}
+                  whileHover={{ y: -8 }}
+                  className="group block rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
+                >
+                  {/* Image */}
+                  <div className="relative aspect-video overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm">
+                        <ExternalLink className="w-4 h-4 text-primary-foreground" />
+                      </div>
+                    </div>
+                    {/* Category badge */}
+                    <div className="absolute top-3 left-3">
+                      <span className="px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-sm text-xs font-semibold text-primary border border-border/40 uppercase tracking-wider">
+                        {getCategory(project.category)}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5 sm:p-6">
+                    <h3 className="font-display text-xl font-bold text-foreground mb-2 tracking-tight group-hover:text-primary transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed line-clamp-2">
+                      {project.description[language]}
+                    </p>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+
+            {/* View All + CTA */}
+            <motion.div
               variants={itemVariants}
-              className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mb-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <span className="text-foreground">{c.projectsSection.title} </span>
-              <span className="text-gradient">{c.projectsSection.titleHighlight}</span>
-            </motion.h2>
-            <motion.p
-              variants={itemVariants}
-              className="text-muted-foreground text-base sm:text-lg mb-10"
-            >
-              {c.projectsSection.description}
-            </motion.p>
-            <motion.div variants={itemVariants}>
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
-                <Link to="/" state={{ scrollTo: "projetos" }}>
+                <a
+                  href="https://sitesrovr.lovable.app/portfolio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-8 py-6 text-lg"
+                    className="w-full sm:w-auto border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-8 py-6 text-lg"
                   >
                     {c.projectsSection.viewAll}
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
-                </Link>
+                </a>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+                <a
+                  href="https://wa.me/5554991710543?text=Olá! Vi o portfólio de vocês e quero um site profissional!"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    size="lg"
+                    className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl px-8 py-6 text-lg glow-primary"
+                  >
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    {c.projectsSection.requestQuote}
+                  </Button>
+                </a>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -699,7 +852,7 @@ const SitesBlogs = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
+      <section className="py-24 md:py-36 relative overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"
           animate={{ opacity: [0.5, 0.8, 0.5] }}
@@ -707,7 +860,7 @@ const SitesBlogs = () => {
         />
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-4xl mx-auto text-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -715,15 +868,16 @@ const SitesBlogs = () => {
           >
             <motion.h2
               variants={itemVariants}
-              className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mb-6"
+              className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight tracking-tight"
             >
               <span className="text-foreground">{c.cta.title} </span>
+              <br className="hidden sm:block" />
               <span className="text-gradient">{c.cta.titleHighlight}</span>
             </motion.h2>
 
             <motion.p
               variants={itemVariants}
-              className="text-muted-foreground text-base sm:text-lg mb-10 max-w-2xl mx-auto"
+              className="text-muted-foreground text-lg sm:text-xl mb-12 max-w-3xl mx-auto leading-relaxed font-light"
             >
               {c.cta.description}
             </motion.p>
@@ -734,13 +888,13 @@ const SitesBlogs = () => {
             >
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
                 <a
-                  href="https://web.whatsapp.com/send?phone=5554991710543"
+                  href="https://wa.me/5554991710543?text=Olá! Vim pelo site RoVR e gostaria de iniciar meu projeto!"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Button
                     size="lg"
-                    className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl px-10 py-6 text-lg glow-primary"
+                    className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl px-10 py-7 text-lg glow-primary"
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />
                     {c.cta.button}
@@ -752,10 +906,10 @@ const SitesBlogs = () => {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full sm:w-auto border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-10 py-6 text-lg"
+                    className="w-full sm:w-auto border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-10 py-7 text-lg"
                   >
                     <CheckCircle2 className="w-5 h-5 mr-2" />
-                    {c.cta.button}
+                    {c.cta.buttonContact}
                   </Button>
                 </Link>
               </motion.div>
