@@ -73,22 +73,7 @@ const Header = () => {
               {navItems.map((item, index) => {
                 const buttonClasses = "inline-flex items-center justify-center whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-border/40 bg-secondary/30 text-muted-foreground hover:text-foreground hover:border-primary/60 hover:bg-primary/15 hover:shadow-lg hover:shadow-primary/10 active:scale-95";
                 
-                return item.isExternal ? (
-                  <motion.a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={buttonClasses}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05, duration: 0.3 }}
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {item.label}
-                  </motion.a>
-                ) : item.isPage ? (
+                return item.isPage ? (
                   <Link
                     key={item.label}
                     to={item.href}

@@ -103,23 +103,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         {/* Navigation Links */}
         <nav className="flex flex-col items-center gap-6">
           {navItems.map((item, index) => (
-            item.isExternal ? (
-              <a
-                key={item.label}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleClose}
-                className={`text-2xl font-semibold text-foreground hover:text-primary transition-all duration-300 transform ${
-                  isAnimating && isOpen
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-4 opacity-0"
-                }`}
-                style={{ transitionDelay: `${(index + 1) * 100}ms` }}
-              >
-                {item.label}
-              </a>
-            ) : item.isPage ? (
+            item.isPage ? (
               <Link
                 key={item.label}
                 to={item.href}
