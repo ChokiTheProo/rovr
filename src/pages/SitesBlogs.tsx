@@ -102,13 +102,13 @@ const SitesBlogs = () => {
     pt: {
       hero: {
         badge: "Sites & Blogs Profissionais",
-        title: "Seu negócio merece um site que realmente",
-        titleHighlight: "gere resultados.",
+        title: "Seu site pronto com",
+        titleHighlight: "zero risco.",
         description:
-          "Na ROVR, criamos sites e blogs profissionais, rápidos e estratégicos, projetados para transmitir autoridade, atrair clientes e fortalecer sua presença digital.",
+          "Visualize seu site antes de pagar. Trabalhamos com contrato formal, pré-visualização gratuita e você só paga quando aprovar o projeto.",
         subdescription:
-          "Mais do que apenas um design bonito, entregamos plataformas pensadas para conversão, credibilidade e crescimento do seu negócio online.",
-        cta: "Quero Meu Site Agora",
+          "Mais de 50 sites entregues com garantia de satisfação. Sua presença digital com segurança total.",
+        cta: "Quero Pré-visualização Gratuita",
         ctaSecondary: "Ver Portfólio",
       },
       why: {
@@ -175,28 +175,32 @@ const SitesBlogs = () => {
         },
       ],
       guarantee: {
-        badge: "Segurança & Garantia",
-        title: "Segurança, transparência e",
-        titleHighlight: "garantia.",
+        badge: "Garantia Incondicional",
+        title: "Sua segurança é nossa",
+        titleHighlight: "prioridade.",
         description:
-          "Sabemos que um projeto digital exige confiança e profissionalismo. Por isso, todos os projetos da ROVR seguem um processo estruturado e seguro.",
+          "Trabalhamos com contrato formal, pré-visualização gratuita do seu site antes de qualquer pagamento, e garantia total de satisfação. Só paga quando aprovar o projeto.",
       },
       guaranteeItems: [
-        { icon: FileText, text: "Contrato formal de prestação de serviço" },
-        { icon: Eye, text: "Processo transparente de desenvolvimento" },
-        { icon: MonitorSmartphone, text: "Pré-visualização do projeto antes da entrega" },
-        { icon: ShieldCheck, text: "Garantia de qualidade do trabalho entregue" },
-        { icon: Users, text: "Comunicação clara durante todo o processo" },
+        { icon: FileText, text: "Contrato formal de prestação de serviço com todas as cláusulas de proteção" },
+        { icon: Eye, text: "Pré-visualização gratuita do seu site antes de qualquer compromisso financeiro" },
+        { icon: ShieldCheck, text: "Garantia de 30 dias: ajustamos até você ficar 100% satisfeito" },
+        { icon: Lock, text: "Pagamento somente após aprovação da pré-visualização" },
+        { icon: Users, text: "Comunicação direta e transparente durante todo o processo" },
       ],
       guaranteeFooter:
-        "Nosso objetivo é que você tenha total segurança ao investir na presença digital do seu negócio.",
+        "Zero risco para você. Visualize seu site antes de pagar e só avançamos se você aprovar.",
+      trustBadge: {
+        title: "Risco Zero",
+        subtitle: "Pré-visualização gratuita antes de pagar",
+      },
       cta: {
-        title: "Vamos criar um site que represente o",
-        titleHighlight: "verdadeiro valor do seu negócio.",
+        title: "Visualize seu site antes de pagar.",
+        titleHighlight: "Zero risco, total segurança.",
         description:
-          "Entre em contato com nossa equipe e solicite uma pré-visualização do seu projeto. Descubra como um site profissional pode elevar sua marca, atrair clientes e fortalecer sua presença digital.",
-        button: "Fale com a ROVR",
-        buttonContact: "Formulário de Contato",
+          "Solicite sua pré-visualização gratuita hoje. Você só paga quando aprovar o projeto. Contrato formal, garantia de 30 dias e suporte completo.",
+        button: "Quero Pré-visualização Gratuita",
+        buttonContact: "Falar com Especialista",
       },
       projectsSection: {
         badge: "Nossos Projetos",
@@ -211,13 +215,13 @@ const SitesBlogs = () => {
     en: {
       hero: {
         badge: "Professional Websites & Blogs",
-        title: "Your business deserves a website that truly",
-        titleHighlight: "delivers results.",
+        title: "Your website ready with",
+        titleHighlight: "zero risk.",
         description:
-          "At ROVR, we create professional, fast and strategic websites and blogs, designed to convey authority, attract customers and strengthen your digital presence.",
+          "Preview your site before paying. We work with a formal contract, free preview, and you only pay when you approve the project.",
         subdescription:
-          "More than just a beautiful design, we deliver platforms designed for conversion, credibility and growth of your online business.",
-        cta: "I Want My Site Now",
+          "Over 50 websites delivered with satisfaction guarantee. Your digital presence with total security.",
+        cta: "Get Free Preview",
         ctaSecondary: "View Portfolio",
       },
       why: {
@@ -284,28 +288,32 @@ const SitesBlogs = () => {
         },
       ],
       guarantee: {
-        badge: "Security & Guarantee",
-        title: "Security, transparency and",
-        titleHighlight: "guarantee.",
+        badge: "Unconditional Guarantee",
+        title: "Your safety is our",
+        titleHighlight: "priority.",
         description:
-          "We know that a digital project requires trust and professionalism. That's why all ROVR projects follow a structured and secure process.",
+          "We work with a formal contract, free preview of your site before any payment, and total satisfaction guarantee. You only pay when you approve the project.",
       },
       guaranteeItems: [
-        { icon: FileText, text: "Formal service contract" },
-        { icon: Eye, text: "Transparent development process" },
-        { icon: MonitorSmartphone, text: "Project preview before delivery" },
-        { icon: ShieldCheck, text: "Quality guarantee of delivered work" },
-        { icon: Users, text: "Clear communication throughout the process" },
+        { icon: FileText, text: "Formal service contract with all protection clauses" },
+        { icon: Eye, text: "Free preview of your website before any financial commitment" },
+        { icon: ShieldCheck, text: "30-day guarantee: we adjust until you're 100% satisfied" },
+        { icon: Lock, text: "Payment only after preview approval" },
+        { icon: Users, text: "Direct and transparent communication throughout the process" },
       ],
       guaranteeFooter:
-        "Our goal is for you to have total security when investing in your business's digital presence.",
+        "Zero risk for you. Preview your site before paying and we only proceed if you approve.",
+      trustBadge: {
+        title: "Zero Risk",
+        subtitle: "Free preview before paying",
+      },
       cta: {
-        title: "Let's create a website that represents the",
-        titleHighlight: "true value of your business.",
+        title: "Preview your site before paying.",
+        titleHighlight: "Zero risk, total security.",
         description:
-          "Contact our team and request a preview of your project. Discover how a professional website can elevate your brand, attract customers and strengthen your digital presence.",
-        button: "Talk to ROVR",
-        buttonContact: "Contact Form",
+          "Request your free preview today. You only pay when you approve the project. Formal contract, 30-day guarantee and complete support.",
+        button: "Get Free Preview",
+        buttonContact: "Talk to Specialist",
       },
       projectsSection: {
         badge: "Our Projects",
@@ -320,13 +328,13 @@ const SitesBlogs = () => {
     es: {
       hero: {
         badge: "Sitios Web & Blogs Profesionales",
-        title: "Tu negocio merece un sitio web que realmente",
-        titleHighlight: "genere resultados.",
+        title: "Tu sitio web listo con",
+        titleHighlight: "riesgo cero.",
         description:
-          "En ROVR, creamos sitios web y blogs profesionales, rápidos y estratégicos, diseñados para transmitir autoridad, atraer clientes y fortalecer tu presencia digital.",
+          "Visualiza tu sitio antes de pagar. Trabajamos con contrato formal, vista previa gratuita y solo pagas cuando apruebes el proyecto.",
         subdescription:
-          "Más que solo un diseño bonito, entregamos plataformas pensadas para conversión, credibilidad y crecimiento de tu negocio online.",
-        cta: "Quiero Mi Sitio Ahora",
+          "Más de 50 sitios entregados con garantía de satisfacción. Tu presencia digital con total seguridad.",
+        cta: "Quiero Vista Previa Gratuita",
         ctaSecondary: "Ver Portafolio",
       },
       why: {
@@ -393,28 +401,32 @@ const SitesBlogs = () => {
         },
       ],
       guarantee: {
-        badge: "Seguridad & Garantía",
-        title: "Seguridad, transparencia y",
-        titleHighlight: "garantía.",
+        badge: "Garantía Incondicional",
+        title: "Tu seguridad es nuestra",
+        titleHighlight: "prioridad.",
         description:
-          "Sabemos que un proyecto digital requiere confianza y profesionalismo. Por eso, todos los proyectos de ROVR siguen un proceso estructurado y seguro.",
+          "Trabajamos con contrato formal, vista previa gratuita de tu sitio antes de cualquier pago, y garantía total de satisfacción. Solo pagas cuando apruebes el proyecto.",
       },
       guaranteeItems: [
-        { icon: FileText, text: "Contrato formal de prestación de servicio" },
-        { icon: Eye, text: "Proceso transparente de desarrollo" },
-        { icon: MonitorSmartphone, text: "Vista previa del proyecto antes de la entrega" },
-        { icon: ShieldCheck, text: "Garantía de calidad del trabajo entregado" },
-        { icon: Users, text: "Comunicación clara durante todo el proceso" },
+        { icon: FileText, text: "Contrato formal de prestación de servicio con todas las cláusulas de protección" },
+        { icon: Eye, text: "Vista previa gratuita de tu sitio web antes de cualquier compromiso financiero" },
+        { icon: ShieldCheck, text: "Garantía de 30 días: ajustamos hasta que estés 100% satisfecho" },
+        { icon: Lock, text: "Pago solo después de la aprobación de la vista previa" },
+        { icon: Users, text: "Comunicación directa y transparente durante todo el proceso" },
       ],
       guaranteeFooter:
-        "Nuestro objetivo es que tengas total seguridad al invertir en la presencia digital de tu negocio.",
+        "Cero riesgo para ti. Visualiza tu sitio antes de pagar y solo avanzamos si apruebas.",
+      trustBadge: {
+        title: "Riesgo Cero",
+        subtitle: "Vista previa gratuita antes de pagar",
+      },
       cta: {
-        title: "Vamos a crear un sitio web que represente el",
-        titleHighlight: "verdadero valor de tu negocio.",
+        title: "Visualiza tu sitio antes de pagar.",
+        titleHighlight: "Riesgo cero, total seguridad.",
         description:
-          "Contacta a nuestro equipo y solicita una vista previa de tu proyecto. Descubre cómo un sitio web profesional puede elevar tu marca, atraer clientes y fortalecer tu presencia digital.",
-        button: "Habla con ROVR",
-        buttonContact: "Formulario de Contacto",
+          "Solicita tu vista previa gratuita hoy. Solo pagas cuando apruebes el proyecto. Contrato formal, garantía de 30 días y soporte completo.",
+        button: "Quiero Vista Previa Gratuita",
+        buttonContact: "Hablar con Especialista",
       },
       projectsSection: {
         badge: "Nuestros Proyectos",
