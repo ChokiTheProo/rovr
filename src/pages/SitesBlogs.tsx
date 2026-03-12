@@ -288,21 +288,25 @@ const SitesBlogs = () => {
         },
       ],
       guarantee: {
-        badge: "Security & Guarantee",
-        title: "Security, transparency and",
-        titleHighlight: "guarantee.",
+        badge: "Unconditional Guarantee",
+        title: "Your safety is our",
+        titleHighlight: "priority.",
         description:
-          "We know that a digital project requires trust and professionalism. That's why all ROVR projects follow a structured and secure process.",
+          "We work with a formal contract, free preview of your site before any payment, and total satisfaction guarantee. You only pay when you approve the project.",
       },
       guaranteeItems: [
-        { icon: FileText, text: "Formal service contract" },
-        { icon: Eye, text: "Transparent development process" },
-        { icon: MonitorSmartphone, text: "Project preview before delivery" },
-        { icon: ShieldCheck, text: "Quality guarantee of delivered work" },
-        { icon: Users, text: "Clear communication throughout the process" },
+        { icon: FileText, text: "Formal service contract with all protection clauses" },
+        { icon: Eye, text: "Free preview of your website before any financial commitment" },
+        { icon: ShieldCheck, text: "30-day guarantee: we adjust until you're 100% satisfied" },
+        { icon: Lock, text: "Payment only after preview approval" },
+        { icon: Users, text: "Direct and transparent communication throughout the process" },
       ],
       guaranteeFooter:
-        "Our goal is for you to have total security when investing in your business's digital presence.",
+        "Zero risk for you. Preview your site before paying and we only proceed if you approve.",
+      trustBadge: {
+        title: "Zero Risk",
+        subtitle: "Free preview before paying",
+      },
       cta: {
         title: "Let's create a website that represents the",
         titleHighlight: "true value of your business.",
