@@ -401,21 +401,25 @@ const SitesBlogs = () => {
         },
       ],
       guarantee: {
-        badge: "Seguridad & Garantía",
-        title: "Seguridad, transparencia y",
-        titleHighlight: "garantía.",
+        badge: "Garantía Incondicional",
+        title: "Tu seguridad es nuestra",
+        titleHighlight: "prioridad.",
         description:
-          "Sabemos que un proyecto digital requiere confianza y profesionalismo. Por eso, todos los proyectos de ROVR siguen un proceso estructurado y seguro.",
+          "Trabajamos con contrato formal, vista previa gratuita de tu sitio antes de cualquier pago, y garantía total de satisfacción. Solo pagas cuando apruebes el proyecto.",
       },
       guaranteeItems: [
-        { icon: FileText, text: "Contrato formal de prestación de servicio" },
-        { icon: Eye, text: "Proceso transparente de desarrollo" },
-        { icon: MonitorSmartphone, text: "Vista previa del proyecto antes de la entrega" },
-        { icon: ShieldCheck, text: "Garantía de calidad del trabajo entregado" },
-        { icon: Users, text: "Comunicación clara durante todo el proceso" },
+        { icon: FileText, text: "Contrato formal de prestación de servicio con todas las cláusulas de protección" },
+        { icon: Eye, text: "Vista previa gratuita de tu sitio web antes de cualquier compromiso financiero" },
+        { icon: ShieldCheck, text: "Garantía de 30 días: ajustamos hasta que estés 100% satisfecho" },
+        { icon: Lock, text: "Pago solo después de la aprobación de la vista previa" },
+        { icon: Users, text: "Comunicación directa y transparente durante todo el proceso" },
       ],
       guaranteeFooter:
-        "Nuestro objetivo es que tengas total seguridad al invertir en la presencia digital de tu negocio.",
+        "Cero riesgo para ti. Visualiza tu sitio antes de pagar y solo avanzamos si apruebas.",
+      trustBadge: {
+        title: "Riesgo Cero",
+        subtitle: "Vista previa gratuita antes de pagar",
+      },
       cta: {
         title: "Vamos a crear un sitio web que represente el",
         titleHighlight: "verdadero valor de tu negocio.",
