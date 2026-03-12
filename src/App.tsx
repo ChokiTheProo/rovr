@@ -15,6 +15,7 @@ import TrabalheConosco from "./pages/TrabalheConosco";
 import NotFound from "./pages/NotFound";
 import AgentesIA from "./pages/AgentesIA";
 import ServicosInternos from "./pages/ServicosInternos";
+import SitesBlogs from "./pages/SitesBlogs";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
             <Route path="/agentes-ia" element={<AgentesIA />} />
             <Route path="/servicos-internos" element={<ServicosInternos />} />
+            <Route path="/sites-blogs" element={<SitesBlogs />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
