@@ -308,12 +308,12 @@ const SitesBlogs = () => {
         subtitle: "Free preview before paying",
       },
       cta: {
-        title: "Let's create a website that represents the",
-        titleHighlight: "true value of your business.",
+        title: "Preview your site before paying.",
+        titleHighlight: "Zero risk, total security.",
         description:
-          "Contact our team and request a preview of your project. Discover how a professional website can elevate your brand, attract customers and strengthen your digital presence.",
-        button: "Talk to ROVR",
-        buttonContact: "Contact Form",
+          "Request your free preview today. You only pay when you approve the project. Formal contract, 30-day guarantee and complete support.",
+        button: "Get Free Preview",
+        buttonContact: "Talk to Specialist",
       },
       projectsSection: {
         badge: "Our Projects",
