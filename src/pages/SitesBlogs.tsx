@@ -215,13 +215,13 @@ const SitesBlogs = () => {
     en: {
       hero: {
         badge: "Professional Websites & Blogs",
-        title: "Your business deserves a website that truly",
-        titleHighlight: "delivers results.",
+        title: "Your website ready with",
+        titleHighlight: "zero risk.",
         description:
-          "At ROVR, we create professional, fast and strategic websites and blogs, designed to convey authority, attract customers and strengthen your digital presence.",
+          "Preview your site before paying. We work with a formal contract, free preview, and you only pay when you approve the project.",
         subdescription:
-          "More than just a beautiful design, we deliver platforms designed for conversion, credibility and growth of your online business.",
-        cta: "I Want My Site Now",
+          "Over 50 websites delivered with satisfaction guarantee. Your digital presence with total security.",
+        cta: "Get Free Preview",
         ctaSecondary: "View Portfolio",
       },
       why: {
