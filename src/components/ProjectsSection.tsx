@@ -502,8 +502,7 @@ const ProjectsSection = () => {
               ? "Sites e blogs profissionais que desenvolvemos. Design moderno e resultados reais para cada cliente."
               : language === "es"
               ? "Sitios web y blogs profesionales que desarrollamos. Diseño moderno y resultados reales para cada cliente."
-              : "Professional websites and blogs we've developed. Modern design and real results for every client."
-              : "Ready-to-use SaaS solutions. Cutting-edge technology to transform your business management."}
+              : "Professional websites and blogs we've developed. Modern design and real results for every client."}
           </p>
         </div>
 
