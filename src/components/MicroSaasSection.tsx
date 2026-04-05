@@ -1,6 +1,7 @@
-import { TrendingUp, DollarSign, BarChart3, Settings } from "lucide-react";
+import { TrendingUp, DollarSign, BarChart3, Settings, Check, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "./ui/button";
 import useScrollAnimation, { staggerContainer, staggerItem } from "@/hooks/useScrollAnimation";
 
 const MicroSaasSection = () => {
