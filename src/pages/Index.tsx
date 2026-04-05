@@ -42,9 +42,9 @@ const Index = () => {
           <AboutSection />
           <ProjectsSection />
           <TechSection />
-          <MicroSaasSection />
           <AIAgentsSection />
           <TestimonialsSection />
+          <MicroSaasSection />
           <PricingSection />
           <WorkWithUsSection />
           <ContactSection />

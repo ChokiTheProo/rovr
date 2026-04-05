@@ -9,11 +9,11 @@ const MicroSaasSection = () => {
 
   const content = {
     pt: {
-      philosophy: "Nossa Filosofia",
-      vision: "Visão ",
+      philosophy: "Subnegócio RoVR",
+      vision: "Nossos ",
       microSaas: "Micro SaaS",
-      description: "Cada produto da RoVR é tratado como um negócio digital independente. Criamos aplicativos similares aos nossos projetos existentes, aplicando metodologias SaaS para gerar valor mensurável. Integrações TEF e notas fiscais em andamento.",
-      quote: "\"Não criamos apenas soluções. Criamos produtos digitais que crescem, evoluem e geram valor continuamente.\"",
+      description: "Além de sites e blogs, a RoVR desenvolve produtos digitais independentes usando metodologias SaaS. Cada aplicativo é tratado como um negócio próprio, gerando valor mensurável para seus usuários.",
+      quote: "\"Nossos MicroSaaS são produtos complementares que crescem, evoluem e geram valor continuamente.\"",
       team: "EQUIPE ROVR",
       features: [
         { icon: TrendingUp, title: "Crescimento Exponencial", description: "Arquitetura projetada para escalar de centenas a milhões de usuários sem refatoração.", metric: "10x", metricLabel: "Crescimento médio" },
@@ -23,11 +23,11 @@ const MicroSaasSection = () => {
       ],
     },
     en: {
-      philosophy: "Our Philosophy",
-      vision: "",
-      microSaas: "Micro SaaS Vision",
-      description: "Every RoVR product is treated as an independent digital business. We create applications similar to our existing projects, applying SaaS methodologies to generate measurable value. TEF integrations and invoices in progress.",
-      quote: "\"We don't just create solutions. We create digital products that grow, evolve and continuously generate value.\"",
+      philosophy: "RoVR Sub-Business",
+      vision: "Our ",
+      microSaas: "Micro SaaS",
+      description: "Beyond websites and blogs, RoVR develops independent digital products using SaaS methodologies. Each app is treated as its own business, generating measurable value for its users.",
+      quote: "\"Our MicroSaaS are complementary products that grow, evolve and continuously generate value.\"",
       team: "ROVR TEAM",
       features: [
         { icon: TrendingUp, title: "Exponential Growth", description: "Architecture designed to scale from hundreds to millions of users without refactoring.", metric: "10x", metricLabel: "Average growth" },
@@ -37,11 +37,11 @@ const MicroSaasSection = () => {
       ],
     },
     es: {
-      philosophy: "Nuestra Filosofía",
-      vision: "Visión ",
+      philosophy: "Subnegocio RoVR",
+      vision: "Nuestros ",
       microSaas: "Micro SaaS",
-      description: "Cada producto de RoVR se trata como un negocio digital independiente. Creamos aplicaciones similares a nuestros proyectos existentes, aplicando metodologías SaaS para generar valor medible. Integraciones TEF y facturación en desarrollo.",
-      quote: "\"No solo creamos soluciones. Creamos productos digitales que crecen, evolucionan y generan valor continuamente.\"",
+      description: "Además de sitios web y blogs, RoVR desarrolla productos digitales independientes usando metodologías SaaS. Cada aplicación se trata como un negocio propio, generando valor medible para sus usuarios.",
+      quote: "\"Nuestros MicroSaaS son productos complementarios que crecen, evolucionan y generan valor continuamente.\"",
       team: "EQUIPO ROVR",
       features: [
         { icon: TrendingUp, title: "Crecimiento Exponencial", description: "Arquitectura diseñada para escalar de cientos a millones de usuarios sin refactorización.", metric: "10x", metricLabel: "Crecimiento promedio" },
