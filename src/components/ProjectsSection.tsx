@@ -1,16 +1,10 @@
-import { Star, Heart, DollarSign, TrendingUp, Users, CheckCircle, Globe, Stethoscope, Calendar, FileCheck, Shield, Zap, Clock, Loader2, Pill, Scale, FileText } from "lucide-react";
+import { Star, Globe, TrendingUp, CheckCircle, Shield, FileText, Loader2 } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-// Import project images
-import fluxenImg from "@/assets/project-fluxen.png";
-import klyexaImg from "@/assets/project-klyexa.png";
-import cuidabemImg from "@/assets/project-cuidabem.png";
-import tratamentoImg from "@/assets/project-tratamento.png";
-import emagrioImg from "@/assets/project-emagrio.png";
 import blogsImg from "@/assets/project-blogs.png";
 
 const ProjectsSection = () => {
