@@ -643,7 +643,7 @@ const Index = () => {
                   </div>
                   {/* Green WhatsApp-style check */}
                   <div className="absolute top-6 right-6">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
                   </div>
                 </motion.div>
               ))}
