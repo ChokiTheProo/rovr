@@ -151,6 +151,93 @@ const MicroSaasSection = () => {
           ))}
         </motion.div>
 
+        {/* SaaS Projects Showcase */}
+        <motion.div 
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+        >
+          <h3 className="text-2xl font-bold text-foreground text-center mb-8">
+            {language === "pt" ? "Nossos Produtos" : language === "en" ? "Our Products" : "Nuestros Productos"}
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Fluxen",
+                category: language === "pt" ? "Gestão Financeira" : language === "en" ? "Financial Management" : "Gestión Financiera",
+                image: fluxenImg,
+                icon: DollarSign,
+                rating: "4.9",
+                link: "https://fluxenvenda.lovable.app",
+                gradient: "from-emerald-500/20 to-teal-500/20",
+              },
+              {
+                title: "Klyexa",
+                category: language === "pt" ? "Gestão de Saúde" : language === "en" ? "Health Management" : "Gestión de Salud",
+                image: klyexaImg,
+                icon: Stethoscope,
+                rating: "4.8",
+                link: "https://klyexavenda.lovable.app",
+                gradient: "from-teal-500/20 to-cyan-500/20",
+              },
+              {
+                title: "CuidaBem",
+                category: language === "pt" ? "Cuidados & Saúde" : language === "en" ? "Health & Care" : "Salud & Cuidados",
+                image: cuidabemImg,
+                icon: Heart,
+                rating: "5.0",
+                link: "https://cuidadem-facil.lovable.app",
+                gradient: "from-primary/20 to-accent/20",
+              },
+              {
+                title: language === "pt" ? "Tratamento Diário" : language === "en" ? "Daily Treatment" : "Tratamiento Diario",
+                category: language === "pt" ? "Saúde Digestiva" : language === "en" ? "Digestive Health" : "Salud Digestiva",
+                image: tratamentoImg,
+                icon: Pill,
+                rating: "4.9",
+                link: "https://tramentodiario.lovable.app",
+                gradient: "from-orange-500/20 to-amber-500/20",
+              },
+              {
+                title: "Emagrio",
+                category: language === "pt" ? "Emagrecimento" : language === "en" ? "Weight Loss" : "Adelgazamiento",
+                image: emagrioImg,
+                icon: Scale,
+                rating: "4.8",
+                link: "https://emagrio-venda.lovable.app",
+                gradient: "from-green-500/20 to-lime-500/20",
+              },
+            ].map((product, index) => (
+              <motion.a
+                key={index}
+                href={product.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -6, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className="group rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/15"
+              >
+                <div className={`aspect-video bg-gradient-to-br ${product.gradient} relative overflow-hidden`}>
+                  <img src={product.image} alt={product.title} className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                  <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded-full bg-background/70 backdrop-blur-sm">
+                    <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                    <span className="text-xs text-foreground font-medium">{product.rating}</span>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center gap-2 mb-1">
+                    <product.icon className="w-4 h-4 text-primary" />
+                    <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">{product.title}</h4>
+                  </div>
+                  <p className="text-xs text-muted-foreground">{product.category}</p>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+
         {/* Quote + Pricing */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Quote */}
@@ -194,7 +281,7 @@ const MicroSaasSection = () => {
                 <TrendingUp className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-foreground">{language === "pt" ? "MicroSaaS Starter" : language === "en" ? "MicroSaaS Starter" : "MicroSaaS Starter"}</h3>
+                <h3 className="text-xl font-bold text-foreground">MicroSaaS Starter</h3>
                 <p className="text-sm text-muted-foreground">{language === "pt" ? "Ideal para validar sua ideia" : language === "en" ? "Ideal to validate your idea" : "Ideal para validar tu idea"}</p>
               </div>
             </div>
