@@ -89,9 +89,6 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             <span className="text-foreground">Ro</span>
             <span className="text-gradient">VR</span>
           </span>
-          <p className="text-muted-foreground text-sm text-center mt-2">
-            {t("logo.tagline")}
-          </p>
         </div>
 
         {/* Theme & Language Switcher */}
