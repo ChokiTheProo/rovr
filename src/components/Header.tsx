@@ -64,7 +64,7 @@ const Header = () => {
                   <span className="text-foreground transition-colors duration-300 group-hover:text-primary">Ro</span>
                   <span className="text-gradient group-hover:animate-glow-pulse">VR</span>
                 </span>
-                <span className="text-[10px] text-muted-foreground -mt-1 transition-colors duration-300 group-hover:text-muted-foreground/80">{t("logo.tagline")}</span>
+                
               </div>
             </Link>
 
