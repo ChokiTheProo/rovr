@@ -45,7 +45,7 @@ const Index = () => {
           <AIAgentsSection />
           <TestimonialsSection />
           <MicroSaasSection />
-          <PricingSection />
+          
           <WorkWithUsSection />
           <ContactSection />
         </motion.main>
