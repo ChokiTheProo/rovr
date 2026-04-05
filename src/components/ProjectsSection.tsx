@@ -499,10 +499,10 @@ const ProjectsSection = () => {
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             {language === "pt" 
-              ? "Soluções SaaS prontas para uso. Tecnologia de ponta para transformar a gestão do seu negócio."
+              ? "Sites e blogs profissionais que desenvolvemos. Design moderno e resultados reais para cada cliente."
               : language === "es"
-              ? "Soluciones SaaS listas para usar. Tecnología de punta para transformar la gestión de tu negocio."
-              : "Ready-to-use SaaS solutions. Cutting-edge technology to transform your business management."}
+              ? "Sitios web y blogs profesionales que desarrollamos. Diseño moderno y resultados reales para cada cliente."
+              : "Professional websites and blogs we've developed. Modern design and real results for every client."}
           </p>
         </div>
 

@@ -37,7 +37,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.aiAgents": "Agentes de IA",
     "nav.internalServices": "Serviços Internos",
     "nav.contact": "Fale Conosco",
-    "logo.tagline": "Criamos SaaS e MicroSaaS",
+    "logo.tagline": "",
     
     // Hero
     "hero.tag": "Desenvolvimento SaaS & Micro SaaS",
@@ -172,7 +172,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.aiAgents": "AI Agents",
     "nav.internalServices": "Internal Services",
     "nav.contact": "Contact Us",
-    "logo.tagline": "We build SaaS & MicroSaaS",
+    "logo.tagline": "",
     
     // Hero
     "hero.tag": "SaaS & Micro SaaS Development",
@@ -307,7 +307,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.aiAgents": "Agentes de IA",
     "nav.internalServices": "Servicios Internos",
     "nav.contact": "Contáctenos",
-    "logo.tagline": "Creamos SaaS y MicroSaaS",
+    "logo.tagline": "",
     
     // Hero
     "hero.tag": "Desarrollo SaaS & Micro SaaS",
