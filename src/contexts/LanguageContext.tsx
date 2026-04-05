@@ -172,7 +172,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.aiAgents": "AI Agents",
     "nav.internalServices": "Internal Services",
     "nav.contact": "Contact Us",
-    "logo.tagline": "We build SaaS & MicroSaaS",
+    "logo.tagline": "",
     
     // Hero
     "hero.tag": "SaaS & Micro SaaS Development",
