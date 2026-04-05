@@ -10,7 +10,7 @@ import TechSection from "@/components/TechSection";
 import MicroSaasSection from "@/components/MicroSaasSection";
 import AIAgentsSection from "@/components/AIAgentsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import PricingSection from "@/components/PricingSection";
+
 import WorkWithUsSection from "@/components/WorkWithUsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -45,7 +45,7 @@ const Index = () => {
           <AIAgentsSection />
           <TestimonialsSection />
           <MicroSaasSection />
-          <PricingSection />
+          
           <WorkWithUsSection />
           <ContactSection />
         </motion.main>
