@@ -1,4 +1,4 @@
-import { TrendingUp, DollarSign, BarChart3, Settings, Check, ArrowRight, Heart, Stethoscope, Scale, Pill, Star } from "lucide-react";
+import { TrendingUp, DollarSign, BarChart3, Settings, Check, ArrowRight, Heart, Stethoscope, Scale, Pill, Star, ExternalLink, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "./ui/button";
@@ -9,9 +9,81 @@ import cuidabemImg from "@/assets/project-cuidabem.png";
 import tratamentoImg from "@/assets/project-tratamento.png";
 import emagrioImg from "@/assets/project-emagrio.png";
 
+const siteProjects = [
+  {
+    image: "/projects/site-minecraft.jpg",
+    category: "Landing Page",
+    title: "Minecraft Paint",
+    description: {
+      pt: "Landing page de vendas para produto digital voltado para crianças, com design vibrante e gamificado.",
+      en: "Sales landing page for a digital product for children, with vibrant and gamified design.",
+      es: "Landing page de ventas para producto digital dirigido a niños, con diseño vibrante y gamificado.",
+    },
+    url: "https://sitesrovr.lovable.app/projeto/minecraft-desenho",
+  },
+  {
+    image: "/projects/site-lassie.jpg",
+    category: "Landing Page",
+    title: "Las 7 Edades de la Iglesia",
+    description: {
+      pt: "Landing page de vendas para curso bíblico digital com design impactante e foco em conversão.",
+      en: "Sales landing page for a digital bible course with impactful design and conversion focus.",
+      es: "Landing page de ventas para curso bíblico digital con diseño impactante y enfoque en conversión.",
+    },
+    url: "https://sitesrovr.lovable.app/projeto/lassie-7-edades",
+  },
+  {
+    image: "/projects/site-cuidabem.jpg",
+    category: "Landing Page",
+    title: "Cuidabem",
+    description: {
+      pt: "Landing page para guia de cuidadores com design moderno e gradientes vibrantes.",
+      en: "Landing page for a caregiver guide with modern design and vibrant gradients.",
+      es: "Landing page para guía de cuidadores con diseño moderno y gradientes vibrantes.",
+    },
+    url: "https://sitesrovr.lovable.app/projeto/cuidabem",
+  },
+  {
+    image: "/projects/site-rogervarela.jpg",
+    category: { pt: "Portfólio", en: "Portfolio", es: "Portafolio" },
+    title: "Roger Varela",
+    description: {
+      pt: "Site portfólio pessoal com design futurista, animações elegantes e multi-idioma.",
+      en: "Personal portfolio site with futuristic design, elegant animations and multi-language.",
+      es: "Sitio portafolio personal con diseño futurista, animaciones elegantes y multi-idioma.",
+    },
+    url: "https://sitesrovr.lovable.app/projeto/roger-varela",
+  },
+  {
+    image: "/projects/site-rovr.jpg",
+    category: { pt: "Institucional", en: "Corporate", es: "Institucional" },
+    title: "RoVR - SaaS Studio",
+    description: {
+      pt: "Site institucional da RoVR com apresentação de projetos SaaS e MicroSaaS.",
+      en: "RoVR's corporate website showcasing SaaS and MicroSaaS projects.",
+      es: "Sitio institucional de RoVR con presentación de proyectos SaaS y MicroSaaS.",
+    },
+    url: "https://sitesrovr.lovable.app/projeto/rovr-site",
+  },
+  {
+    image: "/projects/site-sitesrovr.jpg",
+    category: "Landing Page",
+    title: "Sites RoVR",
+    description: {
+      pt: "Página de portfólio e vendas de sites profissionais da RoVR.",
+      en: "Portfolio and sales page for RoVR's professional websites.",
+      es: "Página de portafolio y ventas de sitios profesionales de RoVR.",
+    },
+    url: "https://sitesrovr.lovable.app/projeto/sites-rovr",
+  },
+];
+
 const MicroSaasSection = () => {
   const { language } = useLanguage();
   const { ref, isInView } = useScrollAnimation();
+
+  const getCategory = (cat: string | Record<string, string>) =>
+    typeof cat === "string" ? cat : cat[language] || cat.pt;
 
   const content = {
     pt: {
@@ -27,6 +99,9 @@ const MicroSaasSection = () => {
         { icon: BarChart3, title: "Métricas em Tempo Real", description: "Dashboard completo com KPIs de engajamento, retenção e monetização.", metric: "24/7", metricLabel: "Monitoramento" },
         { icon: Settings, title: "Automação Total", description: "Desde atualizações de conteúdo até campanhas de marketing, tudo automatizado.", metric: "90%", metricLabel: "Processos automáticos" },
       ],
+      saasTitle: "Nossos Aplicativos SaaS",
+      sitesTitle: "Sites & Landing Pages",
+      sitesDescription: "Projetos de sites profissionais desenvolvidos pela RoVR.",
     },
     en: {
       philosophy: "RoVR Sub-Business",
@@ -41,6 +116,9 @@ const MicroSaasSection = () => {
         { icon: BarChart3, title: "Real-Time Metrics", description: "Complete dashboard with engagement, retention and monetization KPIs.", metric: "24/7", metricLabel: "Monitoring" },
         { icon: Settings, title: "Full Automation", description: "From content updates to marketing campaigns, everything automated.", metric: "90%", metricLabel: "Automated processes" },
       ],
+      saasTitle: "Our SaaS Apps",
+      sitesTitle: "Sites & Landing Pages",
+      sitesDescription: "Professional website projects developed by RoVR.",
     },
     es: {
       philosophy: "Subnegocio RoVR",
@@ -55,10 +133,61 @@ const MicroSaasSection = () => {
         { icon: BarChart3, title: "Métricas en Tiempo Real", description: "Dashboard completo con KPIs de engagement, retención y monetización.", metric: "24/7", metricLabel: "Monitoreo" },
         { icon: Settings, title: "Automatización Total", description: "Desde actualizaciones de contenido hasta campañas de marketing, todo automatizado.", metric: "90%", metricLabel: "Procesos automáticos" },
       ],
+      saasTitle: "Nuestras Apps SaaS",
+      sitesTitle: "Sitios & Landing Pages",
+      sitesDescription: "Proyectos de sitios profesionales desarrollados por RoVR.",
     },
   };
 
   const t = content[language];
+
+  const saasProducts = [
+    {
+      title: "Fluxen",
+      category: language === "pt" ? "Gestão Financeira" : language === "en" ? "Financial Management" : "Gestión Financiera",
+      image: fluxenImg,
+      icon: DollarSign,
+      rating: "4.9",
+      link: "https://fluxenvenda.lovable.app",
+      gradient: "from-emerald-500/20 to-teal-500/20",
+    },
+    {
+      title: "Klyexa",
+      category: language === "pt" ? "Gestão de Saúde" : language === "en" ? "Health Management" : "Gestión de Salud",
+      image: klyexaImg,
+      icon: Stethoscope,
+      rating: "4.8",
+      link: "https://klyexavenda.lovable.app",
+      gradient: "from-teal-500/20 to-cyan-500/20",
+    },
+    {
+      title: "CuidaBem",
+      category: language === "pt" ? "Cuidados & Saúde" : language === "en" ? "Health & Care" : "Salud & Cuidados",
+      image: cuidabemImg,
+      icon: Heart,
+      rating: "5.0",
+      link: "https://cuidadem-facil.lovable.app",
+      gradient: "from-primary/20 to-accent/20",
+    },
+    {
+      title: language === "pt" ? "Tratamento Diário" : language === "en" ? "Daily Treatment" : "Tratamiento Diario",
+      category: language === "pt" ? "Saúde Digestiva" : language === "en" ? "Digestive Health" : "Salud Digestiva",
+      image: tratamentoImg,
+      icon: Pill,
+      rating: "4.9",
+      link: "https://tramentodiario.lovable.app",
+      gradient: "from-orange-500/20 to-amber-500/20",
+    },
+    {
+      title: "Emagrio",
+      category: language === "pt" ? "Emagrecimento" : language === "en" ? "Weight Loss" : "Adelgazamiento",
+      image: emagrioImg,
+      icon: Scale,
+      rating: "4.8",
+      link: "https://emagrio-venda.lovable.app",
+      gradient: "from-green-500/20 to-lime-500/20",
+    },
+  ];
 
   return (
     <section id="microsaas" className="py-24 relative overflow-hidden" ref={ref}>
@@ -151,7 +280,7 @@ const MicroSaasSection = () => {
           ))}
         </motion.div>
 
-        {/* SaaS Projects Showcase */}
+        {/* SaaS Products Showcase */}
         <motion.div 
           className="mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -159,56 +288,10 @@ const MicroSaasSection = () => {
           transition={{ delay: 0.5, duration: 0.6 }}
         >
           <h3 className="text-2xl font-bold text-foreground text-center mb-8">
-            {language === "pt" ? "Nossos Produtos" : language === "en" ? "Our Products" : "Nuestros Productos"}
+            {t.saasTitle}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Fluxen",
-                category: language === "pt" ? "Gestão Financeira" : language === "en" ? "Financial Management" : "Gestión Financiera",
-                image: fluxenImg,
-                icon: DollarSign,
-                rating: "4.9",
-                link: "https://fluxenvenda.lovable.app",
-                gradient: "from-emerald-500/20 to-teal-500/20",
-              },
-              {
-                title: "Klyexa",
-                category: language === "pt" ? "Gestão de Saúde" : language === "en" ? "Health Management" : "Gestión de Salud",
-                image: klyexaImg,
-                icon: Stethoscope,
-                rating: "4.8",
-                link: "https://klyexavenda.lovable.app",
-                gradient: "from-teal-500/20 to-cyan-500/20",
-              },
-              {
-                title: "CuidaBem",
-                category: language === "pt" ? "Cuidados & Saúde" : language === "en" ? "Health & Care" : "Salud & Cuidados",
-                image: cuidabemImg,
-                icon: Heart,
-                rating: "5.0",
-                link: "https://cuidadem-facil.lovable.app",
-                gradient: "from-primary/20 to-accent/20",
-              },
-              {
-                title: language === "pt" ? "Tratamento Diário" : language === "en" ? "Daily Treatment" : "Tratamiento Diario",
-                category: language === "pt" ? "Saúde Digestiva" : language === "en" ? "Digestive Health" : "Salud Digestiva",
-                image: tratamentoImg,
-                icon: Pill,
-                rating: "4.9",
-                link: "https://tramentodiario.lovable.app",
-                gradient: "from-orange-500/20 to-amber-500/20",
-              },
-              {
-                title: "Emagrio",
-                category: language === "pt" ? "Emagrecimento" : language === "en" ? "Weight Loss" : "Adelgazamiento",
-                image: emagrioImg,
-                icon: Scale,
-                rating: "4.8",
-                link: "https://emagrio-venda.lovable.app",
-                gradient: "from-green-500/20 to-lime-500/20",
-              },
-            ].map((product, index) => (
+            {saasProducts.map((product, index) => (
               <motion.a
                 key={index}
                 href={product.link}
@@ -238,85 +321,88 @@ const MicroSaasSection = () => {
           </div>
         </motion.div>
 
-        {/* Quote + Pricing */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Quote */}
-          <motion.div 
-            className="flex items-center p-8 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <div>
-              <motion.blockquote 
-                className="text-lg md:text-xl font-light text-foreground italic mb-4"
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ delay: 0.7 }}
-              >
-                {t.quote}
-              </motion.blockquote>
-              <motion.cite 
-                className="text-primary font-semibold not-italic"
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ delay: 0.8 }}
-              >
-                — {t.team}
-              </motion.cite>
-            </div>
+        {/* Sites & Landing Pages Showcase */}
+        <motion.div
+          className="mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={staggerContainer}
+        >
+          <motion.div variants={staggerItem} className="text-center mb-10">
+            <h3 className="text-2xl font-bold text-foreground mb-2">{t.sitesTitle}</h3>
+            <p className="text-muted-foreground text-sm max-w-xl mx-auto">{t.sitesDescription}</p>
           </motion.div>
 
-          {/* MicroSaaS Pricing Card */}
-          <motion.div 
-            className="p-8 rounded-2xl border border-primary/40 bg-gradient-to-b from-primary/10 via-card to-card shadow-xl"
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 rounded-xl bg-primary/20">
-                <TrendingUp className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-foreground">MicroSaaS Starter</h3>
-                <p className="text-sm text-muted-foreground">{language === "pt" ? "Ideal para validar sua ideia" : language === "en" ? "Ideal to validate your idea" : "Ideal para validar tu idea"}</p>
-              </div>
-            </div>
-            <div className="mb-6 pb-6 border-b border-border/50">
-              <div className="flex items-baseline gap-1">
-                <span className="text-base text-muted-foreground">{language === "pt" ? "R$" : "$"}</span>
-                <span className="text-4xl font-bold text-foreground">{language === "pt" ? "3.500+" : "599+"}</span>
-                <span className="text-muted-foreground text-sm ml-1">/{language === "pt" ? "único" : language === "en" ? "one-time" : "único"}</span>
-              </div>
-              <p className="text-sm text-accent font-medium mt-2">{language === "pt" ? "Entrega em 2-3 semanas" : language === "en" ? "Delivery in 2-3 weeks" : "Entrega en 2-3 semanas"}</p>
-            </div>
-            <ul className="space-y-2 mb-6">
-              {[
-                language === "pt" ? "MVP completo e funcional" : language === "en" ? "Complete functional MVP" : "MVP completo y funcional",
-                language === "pt" ? "Design responsivo" : language === "en" ? "Responsive design" : "Diseño responsivo",
-                language === "pt" ? "Integração com pagamentos" : language === "en" ? "Payment integration" : "Integración con pagos",
-                language === "pt" ? "Painel administrativo" : language === "en" ? "Admin dashboard" : "Panel administrativo",
-                language === "pt" ? "30 dias de suporte" : language === "en" ? "30 days of support" : "30 días de soporte",
-              ].map((feat, i) => (
-                <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <div className="p-0.5 rounded-full bg-primary/20">
-                    <Check className="w-3 h-3 text-primary" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {siteProjects.map((project, index) => (
+              <motion.a
+                key={index}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={staggerItem}
+                whileHover={{ y: -8 }}
+                className="group block rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
+              >
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm">
+                      <ExternalLink className="w-4 h-4 text-primary-foreground" />
+                    </div>
                   </div>
-                  {feat}
-                </li>
-              ))}
-            </ul>
-            <a href="https://web.whatsapp.com/send?phone=5554991710543" target="_blank" rel="noopener noreferrer">
-              <Button className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground" size="lg">
-                {language === "pt" ? "Começar MicroSaaS" : language === "en" ? "Start MicroSaaS" : "Comenzar MicroSaaS"}
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </a>
-          </motion.div>
-        </div>
+                  <div className="absolute top-3 left-3">
+                    <span className="px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-sm text-xs font-semibold text-primary border border-border/40 uppercase tracking-wider">
+                      {getCategory(project.category)}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h4 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
+                    {project.title}
+                  </h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+                    {project.description[language]}
+                  </p>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Quote */}
+        <motion.div 
+          className="flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+        >
+          <div className="max-w-2xl p-8 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm text-center">
+            <motion.blockquote 
+              className="text-lg md:text-xl font-light text-foreground italic mb-4"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ delay: 0.7 }}
+            >
+              {t.quote}
+            </motion.blockquote>
+            <motion.cite 
+              className="text-primary font-semibold not-italic"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ delay: 0.8 }}
+            >
+              — {t.team}
+            </motion.cite>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
