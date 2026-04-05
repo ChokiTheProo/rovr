@@ -255,12 +255,8 @@ const ProjectsSection = () => {
                   ))}
                 </div>
                 
-                {/* Price & CTA */}
-                <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                  <div>
-                    <span className="text-3xl font-bold text-gradient">{project.price}</span>
-                    <span className="text-muted-foreground text-sm">{project.priceLabel}</span>
-                  </div>
+                {/* CTA */}
+                <div className="flex items-center justify-end pt-4 border-t border-border/50">
                   <div className="flex gap-2">
                     <Button 
                       onClick={() => project.link ? window.open(project.link, '_blank') : handleSubscribe(project.title)}
