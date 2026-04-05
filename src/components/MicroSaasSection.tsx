@@ -1,8 +1,13 @@
-import { TrendingUp, DollarSign, BarChart3, Settings, Check, ArrowRight } from "lucide-react";
+import { TrendingUp, DollarSign, BarChart3, Settings, Check, ArrowRight, Heart, Stethoscope, Scale, Pill, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "./ui/button";
 import useScrollAnimation, { staggerContainer, staggerItem } from "@/hooks/useScrollAnimation";
+import fluxenImg from "@/assets/project-fluxen.png";
+import klyexaImg from "@/assets/project-klyexa.png";
+import cuidabemImg from "@/assets/project-cuidabem.png";
+import tratamentoImg from "@/assets/project-tratamento.png";
+import emagrioImg from "@/assets/project-emagrio.png";
 
 const MicroSaasSection = () => {
   const { language } = useLanguage();
