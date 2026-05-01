@@ -36,11 +36,11 @@ export const staggerItem = {
 };
 
 // Hook for scroll-triggered animations
-export const useScrollAnimation = (options = { once: true, amount: 0.05 as const, initial: true }) => {
+// Note: returns isInView=true by default to ensure content is always visible,
+// preventing mobile viewport issues where useInView fails to trigger.
+export const useScrollAnimation = (_options?: { once?: boolean; amount?: number | "some" | "all" }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, options);
-  
-  return { ref, isInView };
+  return { ref, isInView: true };
 };
 
 export default useScrollAnimation;
