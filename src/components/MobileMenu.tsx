@@ -35,7 +35,6 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
   const navItems = [
     { label: t("nav.about"), href: "sobre" },
-    { label: t("nav.projects"), href: "projetos" },
     { label: t("nav.sitesBlogs"), href: "/sites-blogs", isPage: true },
     { label: t("nav.microsaas"), href: "/microsaas", isPage: true },
     { label: t("nav.aiAgents"), href: "/agentes-ia", isPage: true },
