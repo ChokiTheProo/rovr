@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import SocialProofBar from "@/components/SocialProofBar";
 import GuaranteesSection from "@/components/GuaranteesSection";
 import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -51,6 +52,7 @@ const Index = () => {
           <MicroSaasSection />
           <FAQSection />
           <AboutSection />
+          <SocialProofBar />
           <ContactSection />
         </motion.main>
       </AnimatePresence>
