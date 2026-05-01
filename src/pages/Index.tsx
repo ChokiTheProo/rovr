@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import GuaranteesSection from "@/components/GuaranteesSection";
 import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import TechSection from "@/components/TechSection";
@@ -39,6 +40,7 @@ const Index = () => {
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <HeroSection />
+          <GuaranteesSection />
           <AboutSection />
           <ProjectsSection />
           <TechSection />
