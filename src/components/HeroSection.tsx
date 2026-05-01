@@ -144,31 +144,6 @@ const HeroSection = () => {
             <span className="text-sm text-muted-foreground">{c.badge}</span>
           </motion.div>
 
-          {/* Social proof above the fold */}
-          <motion.div
-            variants={itemVariants}
-            className="flex items-center gap-3 mb-6 px-4 py-2 rounded-full bg-card/40 border border-border/40 backdrop-blur-sm"
-          >
-            <div className="flex -space-x-2">
-              {["A", "C", "P", "R"].map((l, i) => (
-                <div
-                  key={i}
-                  className="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-[11px] font-bold text-primary-foreground border-2 border-background"
-                >
-                  {l}
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-yellow-500 text-yellow-500" />
-              ))}
-            </div>
-            <span className="text-xs text-muted-foreground hidden sm:inline">
-              +10 {language === "pt" ? "clientes confiam na RoVR" : language === "es" ? "clientes confían en RoVR" : "clients trust RoVR"}
-            </span>
-          </motion.div>
-
           {/* Brand mark */}
           <motion.h1 variants={itemVariants} className="font-display text-5xl md:text-7xl font-bold mb-4">
             <span className="text-foreground">Ro</span>
