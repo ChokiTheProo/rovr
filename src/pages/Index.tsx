@@ -4,12 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import SocialProofBar from "@/components/SocialProofBar";
-import GuaranteesSection from "@/components/GuaranteesSection";
 import AboutSection from "@/components/AboutSection";
 
-import TechSection from "@/components/TechSection";
-import MicroSaasSection from "@/components/MicroSaasSection";
 import SitesShowcaseSection from "@/components/SitesShowcaseSection";
 
 import TestimonialsSection from "@/components/TestimonialsSection";
