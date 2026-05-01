@@ -176,12 +176,12 @@ const HeroSection = () => {
           </motion.div>
 
           {/* CTAs — WhatsApp first */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-12 w-full sm:w-auto">
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-12 w-full sm:w-auto">
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
               <Button
                 size="lg"
                 asChild
-                className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground font-semibold rounded-xl px-8 py-6 text-lg glow-primary transition-all duration-300"
+                className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground font-semibold rounded-xl px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg glow-primary transition-all duration-300"
               >
                 <a
                   href="https://web.whatsapp.com/send?phone=5554991710543"
@@ -193,12 +193,12 @@ const HeroSection = () => {
                 </a>
               </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("projetos")}
-                className="w-full sm:w-auto border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
+                className="w-full sm:w-auto border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg transition-all duration-300"
               >
                 {c.ctaSecondary}
               </Button>
