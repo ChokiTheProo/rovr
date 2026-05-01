@@ -43,6 +43,7 @@ const Index = () => {
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <HeroSection />
+          <AboutSection />
           <GuaranteesSection />
           <ProjectsSection />
           <MarketingSection />
@@ -51,7 +52,6 @@ const Index = () => {
           <TestimonialsSection />
           <MicroSaasSection />
           <FAQSection />
-          <AboutSection />
           <SocialProofBar />
           <ContactSection />
         </motion.main>
