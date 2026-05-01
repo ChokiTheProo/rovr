@@ -16,7 +16,7 @@ import FAQSection from "@/components/FAQSection";
 import MarketingSection from "@/components/MarketingSection";
 
 
-import ContactSection from "@/components/ContactSection";
+
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -53,7 +53,7 @@ const Index = () => {
           <FAQSection />
           <SocialProofBar />
           <GuaranteesSection />
-          <ContactSection />
+          
         </motion.main>
       </AnimatePresence>
       <Footer />
