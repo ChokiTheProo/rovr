@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import SocialProofBar from "@/components/SocialProofBar";
 import GuaranteesSection from "@/components/GuaranteesSection";
 import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -11,6 +12,7 @@ import TechSection from "@/components/TechSection";
 import MicroSaasSection from "@/components/MicroSaasSection";
 import AIAgentsSection from "@/components/AIAgentsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQSection from "@/components/FAQSection";
 
 import WorkWithUsSection from "@/components/WorkWithUsSection";
 import ContactSection from "@/components/ContactSection";
@@ -40,6 +42,7 @@ const Index = () => {
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <HeroSection />
+          <SocialProofBar />
           <GuaranteesSection />
           <AboutSection />
           <ProjectsSection />
@@ -47,7 +50,7 @@ const Index = () => {
           <AIAgentsSection />
           <TestimonialsSection />
           <MicroSaasSection />
-          
+          <FAQSection />
           <WorkWithUsSection />
           <ContactSection />
         </motion.main>
