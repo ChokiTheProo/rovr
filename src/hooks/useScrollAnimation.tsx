@@ -36,7 +36,7 @@ export const staggerItem = {
 };
 
 // Hook for scroll-triggered animations
-export const useScrollAnimation = (options = { once: true, amount: 0.1 as const }) => {
+export const useScrollAnimation = (options = { once: true, amount: 0.05 as const, initial: true }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, options);
   
