@@ -1,7 +1,6 @@
-import { TrendingUp, DollarSign, BarChart3, Settings, Check, ArrowRight, Heart, Stethoscope, Scale, Pill, Star, ExternalLink, Eye } from "lucide-react";
+import { TrendingUp, DollarSign, BarChart3, Settings, Heart, Stethoscope, Scale, Pill, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Button } from "./ui/button";
 import useScrollAnimation, { staggerContainer, staggerItem } from "@/hooks/useScrollAnimation";
 import fluxenImg from "@/assets/project-fluxen.png";
 import klyexaImg from "@/assets/project-klyexa.png";
@@ -9,81 +8,9 @@ import cuidabemImg from "@/assets/project-cuidabem.png";
 import tratamentoImg from "@/assets/project-tratamento.png";
 import emagrioImg from "@/assets/project-emagrio.png";
 
-const siteProjects = [
-  {
-    image: "/projects/site-minecraft.jpg",
-    category: "Landing Page",
-    title: "Minecraft Paint",
-    description: {
-      pt: "Landing page de vendas para produto digital voltado para crianças, com design vibrante e gamificado.",
-      en: "Sales landing page for a digital product for children, with vibrant and gamified design.",
-      es: "Landing page de ventas para producto digital dirigido a niños, con diseño vibrante y gamificado.",
-    },
-    url: "https://sitesrovr.lovable.app/projeto/minecraft-desenho",
-  },
-  {
-    image: "/projects/site-lassie.jpg",
-    category: "Landing Page",
-    title: "Las 7 Edades de la Iglesia",
-    description: {
-      pt: "Landing page de vendas para curso bíblico digital com design impactante e foco em conversão.",
-      en: "Sales landing page for a digital bible course with impactful design and conversion focus.",
-      es: "Landing page de ventas para curso bíblico digital con diseño impactante y enfoque en conversión.",
-    },
-    url: "https://sitesrovr.lovable.app/projeto/lassie-7-edades",
-  },
-  {
-    image: "/projects/site-cuidabem.jpg",
-    category: "Landing Page",
-    title: "Cuidabem",
-    description: {
-      pt: "Landing page para guia de cuidadores com design moderno e gradientes vibrantes.",
-      en: "Landing page for a caregiver guide with modern design and vibrant gradients.",
-      es: "Landing page para guía de cuidadores con diseño moderno y gradientes vibrantes.",
-    },
-    url: "https://sitesrovr.lovable.app/projeto/cuidabem",
-  },
-  {
-    image: "/projects/site-rogervarela.jpg",
-    category: { pt: "Portfólio", en: "Portfolio", es: "Portafolio" },
-    title: "Roger Varela",
-    description: {
-      pt: "Site portfólio pessoal com design futurista, animações elegantes e multi-idioma.",
-      en: "Personal portfolio site with futuristic design, elegant animations and multi-language.",
-      es: "Sitio portafolio personal con diseño futurista, animaciones elegantes y multi-idioma.",
-    },
-    url: "https://sitesrovr.lovable.app/projeto/roger-varela",
-  },
-  {
-    image: "/projects/site-rovr.jpg",
-    category: { pt: "Institucional", en: "Corporate", es: "Institucional" },
-    title: "RoVR - SaaS Studio",
-    description: {
-      pt: "Site institucional da RoVR com apresentação de projetos SaaS e MicroSaaS.",
-      en: "RoVR's corporate website showcasing SaaS and MicroSaaS projects.",
-      es: "Sitio institucional de RoVR con presentación de proyectos SaaS y MicroSaaS.",
-    },
-    url: "https://sitesrovr.lovable.app/projeto/rovr-site",
-  },
-  {
-    image: "/projects/site-sitesrovr.jpg",
-    category: "Landing Page",
-    title: "Sites RoVR",
-    description: {
-      pt: "Página de portfólio e vendas de sites profissionais da RoVR.",
-      en: "Portfolio and sales page for RoVR's professional websites.",
-      es: "Página de portafolio y ventas de sitios profesionales de RoVR.",
-    },
-    url: "https://sitesrovr.lovable.app/projeto/sites-rovr",
-  },
-];
-
 const MicroSaasSection = () => {
   const { language } = useLanguage();
   const { ref, isInView } = useScrollAnimation();
-
-  const getCategory = (cat: string | Record<string, string>) =>
-    typeof cat === "string" ? cat : cat[language] || cat.pt;
 
   const content = {
     pt: {
