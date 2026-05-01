@@ -13,6 +13,7 @@ import MicroSaasSection from "@/components/MicroSaasSection";
 import AIAgentsSection from "@/components/AIAgentsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
+import MarketingSection from "@/components/MarketingSection";
 
 
 import ContactSection from "@/components/ContactSection";
@@ -46,6 +47,7 @@ const Index = () => {
           <GuaranteesSection />
           <AboutSection />
           <ProjectsSection />
+          <MarketingSection />
           <TechSection />
           <AIAgentsSection />
           <TestimonialsSection />
