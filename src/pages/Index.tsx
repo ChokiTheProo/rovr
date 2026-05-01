@@ -10,6 +10,7 @@ import AboutSection from "@/components/AboutSection";
 
 import TechSection from "@/components/TechSection";
 import MicroSaasSection from "@/components/MicroSaasSection";
+import SitesShowcaseSection from "@/components/SitesShowcaseSection";
 
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
