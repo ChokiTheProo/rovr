@@ -1,232 +1,212 @@
-import { Sparkles, MessageCircle } from "lucide-react";
+import { Sparkles, MessageCircle, Star, ShieldCheck, Eye, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
 
   const content = {
     pt: {
-      projects: "Projetos",
-      subheading1: "Criamos sites profissionais que ",
-      subheading2: "transformam seu negócio.",
-      description: "Desenvolvemos sites, blogs e sistemas digitais sob medida. Design moderno, SEO estratégico e pré-visualização gratuita — você só paga quando aprovar.",
-      viewProjects: "Ver Projetos",
-      aboutRoVR: "Conhecer a RoVR",
+      badge: "Sites Profissionais • Blogs • Gestão Digital",
+      headline1: "Sites que ",
+      headline2: "vendem por você",
+      headline3: ", 24 horas por dia.",
+      description:
+        "Criamos sites, blogs e landing pages que transformam visitantes em clientes. Pré-visualização gratuita — você só paga depois de aprovar o resultado.",
+      ctaPrimary: "Falar no WhatsApp agora",
+      ctaSecondary: "Ver Projetos",
+      ctaTertiary: "Conhecer a RoVR",
+      trust1: "Preview grátis",
+      trust2: "Sem risco",
+      trust3: "Entrega em até 7 dias",
+      stats: [
+        { value: "+10", label: "Projetos entregues" },
+        { value: "5.0", label: "Avaliação média" },
+        { value: "100%", label: "Clientes satisfeitos" },
+        { value: "7d", label: "Entrega média" },
+      ],
+      whatsapp: "Fale Conosco",
     },
     en: {
-      projects: "Projects",
-      subheading1: "We create professional websites that ",
-      subheading2: "transform your business.",
-      description: "We develop custom websites, blogs and digital systems. Modern design, strategic SEO and free preview — you only pay when you approve.",
-      viewProjects: "View Projects",
-      aboutRoVR: "About RoVR",
+      badge: "Professional Websites • Blogs • Digital Management",
+      headline1: "Websites that ",
+      headline2: "sell for you",
+      headline3: ", 24 hours a day.",
+      description:
+        "We build websites, blogs and landing pages that turn visitors into customers. Free preview — you only pay after approving the result.",
+      ctaPrimary: "Chat on WhatsApp now",
+      ctaSecondary: "View Projects",
+      ctaTertiary: "About RoVR",
+      trust1: "Free preview",
+      trust2: "Zero risk",
+      trust3: "Delivery in up to 7 days",
+      stats: [
+        { value: "+10", label: "Projects delivered" },
+        { value: "5.0", label: "Average rating" },
+        { value: "100%", label: "Happy clients" },
+        { value: "7d", label: "Avg. delivery" },
+      ],
+      whatsapp: "Contact Us",
     },
     es: {
-      projects: "Proyectos",
-      subheading1: "Creamos sitios profesionales que ",
-      subheading2: "transforman tu negocio.",
-      description: "Desarrollamos sitios web, blogs y sistemas digitales a medida. Diseño moderno, SEO estratégico y vista previa gratuita — solo pagas cuando apruebes.",
-      viewProjects: "Ver Proyectos",
-      aboutRoVR: "Conocer RoVR",
+      badge: "Sitios Profesionales • Blogs • Gestión Digital",
+      headline1: "Sitios que ",
+      headline2: "venden por ti",
+      headline3: ", 24 horas al día.",
+      description:
+        "Creamos sitios, blogs y landing pages que convierten visitantes en clientes. Vista previa gratuita — solo pagas después de aprobar el resultado.",
+      ctaPrimary: "Hablar por WhatsApp ahora",
+      ctaSecondary: "Ver Proyectos",
+      ctaTertiary: "Conocer RoVR",
+      trust1: "Preview gratis",
+      trust2: "Sin riesgo",
+      trust3: "Entrega en hasta 7 días",
+      stats: [
+        { value: "+10", label: "Proyectos entregados" },
+        { value: "5.0", label: "Calificación media" },
+        { value: "100%", label: "Clientes satisfechos" },
+        { value: "7d", label: "Entrega media" },
+      ],
+      whatsapp: "Contáctanos",
     },
   };
 
   const c = content[language];
 
-  const stats = [
-    { value: "10+", label: c.projects },
-    { value: "99%", label: "Uptime" },
+  const trustBadges = [
+    { icon: ShieldCheck, text: c.trust1 },
+    { icon: Eye, text: c.trust2 },
+    { icon: Zap, text: c.trust3 },
   ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
+      transition: { staggerChildren: 0.12, delayChildren: 0.15 },
+    },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.95 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1,
-      transition: { 
-        duration: 0.8
-      }
-    }
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [-15, 15, -15],
-      transition: {
-        duration: 6,
-        repeat: Infinity
-      }
-    }
+    hidden: { opacity: 0, y: 40, scale: 0.96 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7 } },
   };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Animated Background Effects */}
+      {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-radial opacity-50" />
-      <motion.div 
+      <motion.div
         className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.2, 0.1]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
+        animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
-      
+
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-primary/20 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`
-            }}
-            animate={{
-              y: [0, -100, 0],
-              opacity: [0, 1, 0],
-              scale: [0.5, 1, 0.5]
-            }}
+            style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
+            animate={{ y: [0, -100, 0], opacity: [0, 1, 0], scale: [0.5, 1, 0.5] }}
             transition={{
               duration: 4 + Math.random() * 4,
               repeat: Infinity,
               delay: Math.random() * 2,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
         ))}
       </div>
-      
-      <motion.div 
+
+      <motion.div
         className="container mx-auto px-6 py-20 relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           {/* Badge */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
-            className="flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-8"
+            className="flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-6"
             whileHover={{ scale: 1.05, borderColor: "hsl(var(--primary) / 0.5)" }}
           >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            >
+            <motion.div animate={{ rotate: 360 }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }}>
               <Sparkles className="w-4 h-4 text-primary" />
             </motion.div>
-            <span className="text-sm text-muted-foreground">Sites Profissionais • Blogs • Gestão Digital</span>
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            >
-              <Sparkles className="w-4 h-4 text-accent" />
-            </motion.div>
+            <span className="text-sm text-muted-foreground">{c.badge}</span>
           </motion.div>
 
-          {/* Main Heading */}
-          <motion.h1 
+          {/* Social proof above the fold */}
+          <motion.div
             variants={itemVariants}
-            className="font-display text-6xl md:text-8xl font-bold mb-6"
+            className="flex items-center gap-3 mb-6 px-4 py-2 rounded-full bg-card/40 border border-border/40 backdrop-blur-sm"
           >
-            <motion.span 
-              className="text-foreground inline-block"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              Ro
-            </motion.span>
-            <motion.span 
-              className="text-gradient inline-block"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              VR
-            </motion.span>
+            <div className="flex -space-x-2">
+              {["A", "C", "P", "R"].map((l, i) => (
+                <div
+                  key={i}
+                  className="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-[11px] font-bold text-primary-foreground border-2 border-background"
+                >
+                  {l}
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3.5 h-3.5 fill-yellow-500 text-yellow-500" />
+              ))}
+            </div>
+            <span className="text-xs text-muted-foreground hidden sm:inline">
+              +10 {language === "pt" ? "clientes confiam na RoVR" : language === "es" ? "clientes confían en RoVR" : "clients trust RoVR"}
+            </span>
+          </motion.div>
+
+          {/* Brand mark */}
+          <motion.h1 variants={itemVariants} className="font-display text-5xl md:text-7xl font-bold mb-4">
+            <span className="text-foreground">Ro</span>
+            <span className="text-gradient">VR</span>
           </motion.h1>
 
-          {/* Subheading */}
-          <motion.h2 
-            variants={itemVariants}
-            className="text-2xl md:text-3xl font-light mb-6"
-          >
-            <span className="text-foreground">
-              {c.subheading1}
-            </span>
-            <motion.span 
-              className="text-gradient-accent font-medium inline-block"
-              animate={{ 
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
-              }}
-              transition={{ duration: 5, repeat: Infinity }}
-            >
-              {c.subheading2}
-            </motion.span>
+          {/* Headline */}
+          <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold leading-tight mb-6 max-w-4xl">
+            <span className="text-foreground">{c.headline1}</span>
+            <span className="text-gradient-accent">{c.headline2}</span>
+            <span className="text-foreground">{c.headline3}</span>
           </motion.h2>
 
           {/* Description */}
-          <motion.p 
-            variants={itemVariants}
-            className="text-muted-foreground text-lg max-w-2xl mb-10"
-          >
+          <motion.p variants={itemVariants} className="text-muted-foreground text-lg md:text-xl max-w-2xl mb-8 leading-relaxed">
             {c.description}
           </motion.p>
 
-          {/* CTA Buttons */}
-          <motion.div 
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 mb-16"
-          >
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
-              <Button 
-                size="lg"
-                onClick={() => scrollToSection('projetos')}
-                className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold rounded-xl px-8 py-6 text-lg glow-primary transition-all duration-300"
+          {/* Trust badges */}
+          <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-3 mb-8">
+            {trustBadges.map((b, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs text-foreground"
               >
-                {c.viewProjects}
-              </Button>
-            </motion.div>
+                <b.icon className="w-3.5 h-3.5 text-primary" />
+                <span className="font-medium">{b.text}</span>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* CTAs — WhatsApp first */}
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-12 w-full sm:w-auto">
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
-              <Button 
-                size="lg"
-                variant="outline"
-                onClick={() => scrollToSection('sobre')}
-                className="border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
-              >
-                {c.aboutRoVR}
-              </Button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
-              <Button 
+              <Button
                 size="lg"
                 asChild
-                className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
+                className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground font-semibold rounded-xl px-8 py-6 text-lg glow-primary transition-all duration-300"
               >
                 <a
                   href="https://web.whatsapp.com/send?phone=5554991710543"
@@ -234,56 +214,37 @@ const HeroSection = () => {
                   rel="noopener noreferrer"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
-                  {t("nav.contact")}
+                  {c.ctaPrimary}
                 </a>
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => scrollToSection("projetos")}
+                className="w-full sm:w-auto border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-8 py-6 text-lg transition-all duration-300"
+              >
+                {c.ctaSecondary}
               </Button>
             </motion.div>
           </motion.div>
 
           {/* Stats */}
-          <motion.div 
-            variants={itemVariants}
-            className="flex flex-wrap justify-center gap-12 md:gap-20"
-          >
-            {stats.map((stat, index) => (
-              <motion.div 
-                key={index} 
+          <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 w-full max-w-3xl">
+            {c.stats.map((stat, index) => (
+              <motion.div
+                key={index}
                 className="text-center"
                 whileHover={{ scale: 1.1, y: -5 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <motion.div 
-                  className="font-display text-4xl md:text-5xl font-bold text-gradient mb-1"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.8 + index * 0.2, duration: 0.5 }}
-                >
+                <div className="font-display text-3xl md:text-4xl font-bold text-gradient mb-1">
                   {stat.value}
-                </motion.div>
-                <div className="text-muted-foreground text-sm">
-                  {stat.label}
                 </div>
+                <div className="text-muted-foreground text-xs md:text-sm">{stat.label}</div>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Scroll Indicator */}
-          <motion.div 
-            className="absolute bottom-10 left-1/2 -translate-x-1/2"
-            variants={floatingVariants}
-            animate="animate"
-          >
-            <motion.div 
-              className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2"
-              animate={{ opacity: [0.3, 1, 0.3] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <motion.div 
-                className="w-1 h-2 bg-muted-foreground/50 rounded-full"
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              />
-            </motion.div>
           </motion.div>
         </div>
       </motion.div>
