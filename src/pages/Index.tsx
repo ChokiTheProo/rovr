@@ -50,8 +50,8 @@ const Index = () => {
           <TechSection />
           
           <TestimonialsSection />
-          <MicroSaasSection />
           <SitesShowcaseSection />
+          <MicroSaasSection />
           <FAQSection />
           <SocialProofBar />
           <GuaranteesSection />
