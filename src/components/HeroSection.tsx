@@ -193,16 +193,6 @@ const HeroSection = () => {
                 </a>
               </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => scrollToSection("projetos")}
-                className="w-full sm:w-auto border-border/50 bg-secondary/30 hover:bg-secondary/50 text-foreground font-semibold rounded-xl px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg transition-all duration-300"
-              >
-                {c.ctaSecondary}
-              </Button>
-            </motion.div>
           </motion.div>
 
           {/* Stats */}
