@@ -248,62 +248,6 @@ const MicroSaasSection = () => {
           </div>
         </motion.div>
 
-        {/* Sites & Landing Pages Showcase */}
-        <motion.div
-          className="mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={staggerContainer}
-        >
-          <motion.div variants={staggerItem} className="text-center mb-10">
-            <h3 className="text-2xl font-bold text-foreground mb-2">{t.sitesTitle}</h3>
-            <p className="text-muted-foreground text-sm max-w-xl mx-auto">{t.sitesDescription}</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {siteProjects.map((project, index) => (
-              <motion.a
-                key={index}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                variants={staggerItem}
-                whileHover={{ y: -8 }}
-                className="group block rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
-              >
-                <div className="relative aspect-video overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm">
-                      <ExternalLink className="w-4 h-4 text-primary-foreground" />
-                    </div>
-                  </div>
-                  <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-sm text-xs font-semibold text-primary border border-border/40 uppercase tracking-wider">
-                      {getCategory(project.category)}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h4 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
-                    {project.title}
-                  </h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
-                    {project.description[language]}
-                  </p>
-                </div>
-              </motion.a>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Quote */}
         <motion.div 
           className="flex items-center justify-center"
