@@ -156,7 +156,7 @@ const Footer = () => {
           transition={{ delay: 0.5 }}
         >
           <p className="text-muted-foreground text-sm">
-            © 2025 RoVR. {t("footer.rights")}
+            © 2026 RoVR. {t("footer.rights")}
           </p>
           <motion.p 
             className="text-muted-foreground text-xs"
