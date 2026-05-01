@@ -51,6 +51,7 @@ const Index = () => {
           
           <TestimonialsSection />
           <MicroSaasSection />
+          <SitesShowcaseSection />
           <FAQSection />
           <SocialProofBar />
           <GuaranteesSection />
