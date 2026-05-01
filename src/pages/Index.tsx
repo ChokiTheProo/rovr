@@ -43,14 +43,10 @@ const Index = () => {
           <AboutSection />
           
           <MarketingSection />
-          <TechSection />
           
           <TestimonialsSection />
           <SitesShowcaseSection />
-          <MicroSaasSection />
           <FAQSection />
-          <SocialProofBar />
-          <GuaranteesSection />
           
         </motion.main>
       </AnimatePresence>
