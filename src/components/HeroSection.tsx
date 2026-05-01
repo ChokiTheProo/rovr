@@ -98,7 +98,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <section className="relative min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center pt-24 md:pt-20 pb-12 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-radial opacity-50" />
       <motion.div
@@ -126,7 +126,7 @@ const HeroSection = () => {
       </div>
 
       <motion.div
-        className="container mx-auto px-6 py-20 relative z-10"
+        className="container mx-auto px-4 sm:px-6 py-8 md:py-20 relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -135,30 +135,30 @@ const HeroSection = () => {
           {/* Badge */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-6"
+            className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-5 sm:mb-6 max-w-full"
             whileHover={{ scale: 1.05, borderColor: "hsl(var(--primary) / 0.5)" }}
           >
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }}>
+            <motion.div animate={{ rotate: 360 }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="flex-shrink-0">
               <Sparkles className="w-4 h-4 text-primary" />
             </motion.div>
-            <span className="text-sm text-muted-foreground">{c.badge}</span>
+            <span className="text-xs sm:text-sm text-muted-foreground">{c.badge}</span>
           </motion.div>
 
           {/* Brand mark */}
-          <motion.h1 variants={itemVariants} className="font-display text-5xl md:text-7xl font-bold mb-4">
+          <motion.h1 variants={itemVariants} className="font-display text-4xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4">
             <span className="text-foreground">Ro</span>
             <span className="text-gradient">VR</span>
           </motion.h1>
 
           {/* Headline */}
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold leading-tight mb-6 max-w-4xl">
+          <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-4 sm:mb-6 max-w-4xl">
             <span className="text-foreground">{c.headline1}</span>
             <span className="text-gradient-accent">{c.headline2}</span>
             <span className="text-foreground">{c.headline3}</span>
           </motion.h2>
 
           {/* Description */}
-          <motion.p variants={itemVariants} className="text-muted-foreground text-lg md:text-xl max-w-2xl mb-8 leading-relaxed">
+          <motion.p variants={itemVariants} className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mb-6 sm:mb-8 leading-relaxed">
             {c.description}
           </motion.p>
 
