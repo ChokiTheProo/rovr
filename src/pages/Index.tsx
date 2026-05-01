@@ -10,7 +10,7 @@ import AboutSection from "@/components/AboutSection";
 
 import TechSection from "@/components/TechSection";
 import MicroSaasSection from "@/components/MicroSaasSection";
-import AIAgentsSection from "@/components/AIAgentsSection";
+
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
 import MarketingSection from "@/components/MarketingSection";
@@ -47,7 +47,7 @@ const Index = () => {
           
           <MarketingSection />
           <TechSection />
-          <AIAgentsSection />
+          
           <TestimonialsSection />
           <MicroSaasSection />
           <FAQSection />
