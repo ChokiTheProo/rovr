@@ -51,7 +51,7 @@ const Index = () => {
           <TestimonialsSection />
           <MicroSaasSection />
           <FAQSection />
-          <WorkWithUsSection />
+          
           <ContactSection />
         </motion.main>
       </AnimatePresence>
