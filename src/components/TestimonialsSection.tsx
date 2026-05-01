@@ -138,51 +138,6 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        {/* Qualities Grid */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {t.qualities.map((quality, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="group relative p-6 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-500 overflow-hidden"
-              whileHover={{ scale: 1.02, y: -5 }}
-            >
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:glow-primary transition-all duration-500">
-                    <quality.icon className="w-7 h-7 text-primary group-hover:text-accent transition-colors duration-300" />
-                  </div>
-                  <span className="font-display text-lg font-bold text-gradient">{quality.highlight}</span>
-                </div>
-                
-                <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-                  {quality.title}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {quality.description}
-                </p>
-              </div>
-
-              {/* Animated border */}
-              <motion.div 
-                className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-primary to-accent"
-                initial={{ width: "0%" }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.5 }}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-
         {/* Testimonials */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
