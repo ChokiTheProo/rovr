@@ -49,10 +49,10 @@ const AboutSection = () => {
   const t = content[language];
 
   return (
-    <section id="sobre" className="py-24 relative" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="sobre" className="py-16 sm:py-20 md:py-24 relative" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16 max-w-3xl mx-auto"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInUp}
@@ -66,7 +66,7 @@ const AboutSection = () => {
             {t.about}
           </motion.span>
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold mt-4 mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -75,7 +75,7 @@ const AboutSection = () => {
             <span className="text-gradient">RoVR</span>
           </motion.h2>
           <motion.p 
-            className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed"
+            className="text-muted-foreground text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -83,7 +83,7 @@ const AboutSection = () => {
             {t.description1}
           </motion.p>
           <motion.p 
-            className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed mt-4"
+            className="text-muted-foreground text-base sm:text-lg max-w-3xl mx-auto leading-relaxed mt-3 sm:mt-4"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -93,7 +93,7 @@ const AboutSection = () => {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -107,7 +107,7 @@ const AboutSection = () => {
                 scale: 1.02,
                 transition: { duration: 0.3 }
               }}
-              className="group p-6 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 hover:bg-card transition-all duration-300"
+              className="group p-5 sm:p-6 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 hover:bg-card transition-all duration-300"
             >
               <motion.div 
                 className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4 group-hover:glow-primary transition-all duration-300"
@@ -116,7 +116,7 @@ const AboutSection = () => {
               >
                 <feature.icon className="w-6 h-6 text-primary" />
               </motion.div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
                 {feature.title}
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
