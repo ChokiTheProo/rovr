@@ -16,7 +16,7 @@ const containerStyle: CSSProperties = {
   bottom: 0,
   left: 0,
   width: "100%",
-  height: "200px",
+  height: "90px",
   zIndex: 999,
   pointerEvents: "none",
 };
