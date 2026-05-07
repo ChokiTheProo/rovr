@@ -15,6 +15,7 @@ import MarketingSection from "@/components/MarketingSection";
 
 
 import Footer from "@/components/Footer";
+import ProgressiveBlur from "@/components/ProgressiveBlur";
 
 const Index = () => {
   const location = useLocation();
@@ -51,6 +52,7 @@ const Index = () => {
         </motion.main>
       </AnimatePresence>
       <Footer />
+      <ProgressiveBlur />
     </div>
   );
 };
