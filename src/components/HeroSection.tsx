@@ -137,83 +137,86 @@ const HeroSection = () => {
         initial="hidden"
         animate="visible"
       >
-        <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
-          {/* Badge */}
-          <motion.div
-            variants={itemVariants}
-            className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-5 sm:mb-6 max-w-full"
-            whileHover={{ scale: 1.05, borderColor: "hsl(var(--primary) / 0.5)" }}
-          >
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="flex-shrink-0">
-              <Sparkles className="w-4 h-4 text-primary" />
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
+          {/* LEFT — content */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+            {/* Badge */}
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-5 sm:mb-6 max-w-full"
+              whileHover={{ scale: 1.05, borderColor: "hsl(var(--primary) / 0.5)" }}
+            >
+              <motion.div animate={{ rotate: 360 }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="flex-shrink-0">
+                <Sparkles className="w-4 h-4 text-primary" />
+              </motion.div>
+              <span className="text-xs sm:text-sm text-muted-foreground">{c.badge}</span>
             </motion.div>
-            <span className="text-xs sm:text-sm text-muted-foreground">{c.badge}</span>
-          </motion.div>
 
-          {/* Brand mark */}
-          <motion.h1 variants={itemVariants} className="font-display text-4xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4">
-            <span className="text-foreground">Ro</span>
-            <span className="text-gradient">VR</span>
-          </motion.h1>
+            {/* Brand mark */}
+            <motion.h1 variants={itemVariants} className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-3 sm:mb-4">
+              <span className="text-foreground">Ro</span>
+              <span className="text-gradient">VR</span>
+            </motion.h1>
 
-          {/* Headline */}
-          <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-4 sm:mb-6 max-w-4xl">
-            <span className="text-foreground">{c.headline1}</span>
-            <span className="text-gradient-accent">{c.headline2}</span>
-            <span className="text-foreground">{c.headline3}</span>
-          </motion.h2>
+            {/* Headline */}
+            <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-4 sm:mb-6">
+              <span className="text-foreground">{c.headline1}</span>
+              <span className="text-gradient-accent">{c.headline2}</span>
+              <span className="text-foreground">{c.headline3}</span>
+            </motion.h2>
 
-          {/* Description */}
-          <motion.p variants={itemVariants} className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mb-6 sm:mb-8 leading-relaxed">
-            {c.description}
-          </motion.p>
+            {/* Description */}
+            <motion.p variants={itemVariants} className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-xl mb-6 sm:mb-8 leading-relaxed">
+              {c.description}
+            </motion.p>
 
-          {/* Trust badges */}
-          <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-3 mb-8">
-            {trustBadges.map((b, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs text-foreground"
-              >
-                <b.icon className="w-3.5 h-3.5 text-primary" />
-                <span className="font-medium">{b.text}</span>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* CTAs — WhatsApp first */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-12 w-full sm:w-auto">
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
-              <Button
-                size="lg"
-                asChild
-                className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground font-semibold rounded-xl px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg glow-primary transition-all duration-300"
-              >
-                <a
-                  href="https://web.whatsapp.com/send?phone=5554991710543"
-                  target="_blank"
-                  rel="noopener noreferrer"
+            {/* Trust badges */}
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8">
+              {trustBadges.map((b, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs text-foreground"
                 >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  {c.ctaPrimary}
-                </a>
-              </Button>
+                  <b.icon className="w-3.5 h-3.5 text-primary" />
+                  <span className="font-medium">{b.text}</span>
+                </div>
+              ))}
             </motion.div>
-          </motion.div>
 
-          {/* Stats */}
-          <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 w-full max-w-3xl">
+            {/* CTA — WhatsApp */}
+            <motion.div variants={itemVariants} className="w-full sm:w-auto">
+              <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  asChild
+                  className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground font-semibold rounded-xl px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg glow-primary transition-all duration-300"
+                >
+                  <a
+                    href="https://web.whatsapp.com/send?phone=5554991710543"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    {c.ctaPrimary}
+                  </a>
+                </Button>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* RIGHT — Stats grid (Turing-style) */}
+          <motion.div variants={itemVariants} className="grid grid-cols-2 gap-6 sm:gap-8 lg:gap-10 w-full">
             {c.stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="text-center"
-                whileHover={{ scale: 1.1, y: -5 }}
-                transition={{ type: "spring", stiffness: 400 }}
+                className="relative p-6 sm:p-8 rounded-2xl border border-border/40 bg-card/30 backdrop-blur-md hover:border-primary/40 transition-colors"
+                whileHover={{ y: -6, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="font-display text-3xl md:text-4xl font-bold text-gradient mb-1">
+                <div className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-gradient mb-2 leading-none">
                   {stat.value}
                 </div>
-                <div className="text-muted-foreground text-xs md:text-sm">{stat.label}</div>
+                <div className="text-muted-foreground text-sm md:text-base">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
