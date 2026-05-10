@@ -152,18 +152,12 @@ const HeroSection = () => {
               <span className="text-xs sm:text-sm text-muted-foreground">{c.badge}</span>
             </motion.div>
 
-            {/* Brand mark */}
-            <motion.h1 variants={itemVariants} className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-3 sm:mb-4">
-              <span className="text-foreground">Ro</span>
-              <span className="text-gradient">VR</span>
-            </motion.h1>
-
-            {/* Headline */}
-            <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-4 sm:mb-6">
+            {/* Headline (h1 — main page heading) */}
+            <motion.h1 variants={itemVariants} className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-4 sm:mb-6">
               <span className="text-foreground">{c.headline1}</span>
               <span className="text-gradient-accent">{c.headline2}</span>
               <span className="text-foreground">{c.headline3}</span>
-            </motion.h2>
+            </motion.h1>
 
             {/* Description */}
             <motion.p variants={itemVariants} className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-xl mb-6 sm:mb-8 leading-relaxed">
