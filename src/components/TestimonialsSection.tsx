@@ -7,75 +7,60 @@ const TestimonialsSection = () => {
 
   const content = {
     pt: {
-      whyChoose: "Por que escolher a RoVR?",
-      resultsTitle1: "Resultados que ",
-      resultsTitle2: "falam por si",
-      description: "Clientes satisfeitos e projetos de sucesso. Veja o que nos diferencia no mercado de MicroSaaS.",
+      whyChoose: "Por que a RoVR",
+      resultsTitle1: "O que muda quando ",
+      resultsTitle2: "trabalhamos juntos",
+      description: "Sem fake metrics, sem promessa milagrosa. Aqui você sabe o que vai receber, em quanto tempo e por quanto.",
       quote: <>
-        "Não criamos apenas soluções. Criamos <span className="text-gradient font-semibold">produtos digitais</span> que crescem, 
-        evoluem e geram <span className="text-gradient font-semibold">valor continuamente</span>."
+        "A gente não entrega site bonito. Entrega <span className="text-gradient font-semibold">site que funciona</span> — e <span className="text-gradient font-semibold">cuida dele depois</span>."
       </>,
       team: "EQUIPE ROVR",
-      testimonials: [
-        { quote: "A RoVR transformou completamente nossa operação. O sistema que desenvolveram reduziu nosso tempo de processamento em 70%.", author: "Carlos Silva", role: "CEO", rating: 5 },
-        { quote: "Profissionalismo e inovação definem a equipe RoVR. Nosso MicroSaaS gerou ROI positivo já no segundo mês.", author: "Ana Martins", role: "Fundadora", rating: 5 },
-        { quote: "Entrega rápida, código limpo e suporte excepcional. Recomendo para qualquer empresa que queira escalar.", author: "Pedro Costa", role: "CTO", rating: 5 },
-      ],
+      testimonials: [],
       qualities: [
-        { icon: Rocket, title: "Entrega Rápida", description: "Do conceito ao deploy em semanas, não meses", highlight: "2-4 semanas" },
-        { icon: TrendingUp, title: "ROI Garantido", description: "Projetos focados em resultados mensuráveis", highlight: "3x retorno" },
-        { icon: Shield, title: "Código Seguro", description: "Práticas de segurança enterprise desde o dia 1", highlight: "99.9% uptime" },
-        { icon: Users, title: "Suporte Dedicado", description: "Time disponível para ajustes e evoluções", highlight: "24/7 suporte" },
-        { icon: Zap, title: "Alta Performance", description: "Sistemas otimizados para milhares de usuários", highlight: "<100ms latência" },
-        { icon: CheckCircle, title: "Escalabilidade", description: "Arquitetura preparada para crescer com você", highlight: "∞ usuários" },
+        { icon: Rocket, title: "Entrega rápida", description: "Sites em 7 dias. Projetos maiores em 2-3 semanas. Sem prazo elástico.", highlight: "7-21 dias" },
+        { icon: TrendingUp, title: "Risco zero pra você", description: "Você só paga depois de ver e aprovar o resultado. Ponto.", highlight: "Preview grátis" },
+        { icon: Shield, title: "Contrato formal", description: "Escopo, prazo e garantias por escrito. Nada combinado só no WhatsApp.", highlight: "100% formal" },
+        { icon: Users, title: "Falando com quem faz", description: "Atendimento direto comigo. Sem fila, sem ticket, sem robô.", highlight: "Direto" },
+        { icon: Zap, title: "Performance de verdade", description: "Sites rápidos, leves e prontos para o Google ranquear.", highlight: "Lighthouse 90+" },
+        { icon: CheckCircle, title: "Continua depois da entrega", description: "Suporte e ajustes mensais opcionais. Você nunca fica no escuro.", highlight: "Suporte ativo" },
       ],
     },
     en: {
-      whyChoose: "Why choose RoVR?",
-      resultsTitle1: "Results that ",
-      resultsTitle2: "speak for themselves",
-      description: "Satisfied clients and successful projects. See what sets us apart in the MicroSaaS market.",
+      whyChoose: "Why RoVR",
+      resultsTitle1: "What actually changes when ",
+      resultsTitle2: "we work together",
+      description: "No fake metrics, no miracle promises. You know exactly what you'll get, by when, and for how much.",
       quote: <>
-        "We don't just create solutions. We create <span className="text-gradient font-semibold">digital products</span> that grow, 
-        evolve and generate <span className="text-gradient font-semibold">continuous value</span>."
+        "We don't deliver pretty sites. We deliver <span className="text-gradient font-semibold">sites that work</span> — and <span className="text-gradient font-semibold">take care of them afterwards</span>."
       </>,
       team: "ROVR TEAM",
-      testimonials: [
-        { quote: "RoVR completely transformed our operation. The system they developed reduced our processing time by 70%.", author: "Carlos Silva", role: "CEO", rating: 5 },
-        { quote: "Professionalism and innovation define the RoVR team. Our MicroSaaS generated positive ROI in the second month.", author: "Ana Martins", role: "Founder", rating: 5 },
-        { quote: "Fast delivery, clean code and exceptional support. I recommend it for any company that wants to scale.", author: "Pedro Costa", role: "CTO", rating: 5 },
-      ],
+      testimonials: [],
       qualities: [
-        { icon: Rocket, title: "Fast Delivery", description: "From concept to deploy in weeks, not months", highlight: "2-4 weeks" },
-        { icon: TrendingUp, title: "Guaranteed ROI", description: "Projects focused on measurable results", highlight: "3x return" },
-        { icon: Shield, title: "Secure Code", description: "Enterprise security practices from day 1", highlight: "99.9% uptime" },
-        { icon: Users, title: "Dedicated Support", description: "Team available for adjustments and evolutions", highlight: "24/7 support" },
-        { icon: Zap, title: "High Performance", description: "Systems optimized for thousands of users", highlight: "<100ms latency" },
-        { icon: CheckCircle, title: "Scalability", description: "Architecture ready to grow with you", highlight: "∞ users" },
+        { icon: Rocket, title: "Fast delivery", description: "Websites in 7 days. Bigger projects in 2-3 weeks. No elastic deadlines.", highlight: "7-21 days" },
+        { icon: TrendingUp, title: "Zero risk for you", description: "You pay only after seeing and approving the result. That's it.", highlight: "Free preview" },
+        { icon: Shield, title: "Formal contract", description: "Scope, deadline and guarantees in writing. Nothing settled only on WhatsApp.", highlight: "100% formal" },
+        { icon: Users, title: "Talk to the maker", description: "You speak directly with me. No queue, no tickets, no bot.", highlight: "Direct" },
+        { icon: Zap, title: "Real performance", description: "Fast, lightweight sites ready to rank on Google.", highlight: "Lighthouse 90+" },
+        { icon: CheckCircle, title: "We stick around", description: "Optional monthly support and tweaks. You're never in the dark.", highlight: "Active support" },
       ],
     },
     es: {
-      whyChoose: "¿Por qué elegir RoVR?",
-      resultsTitle1: "Resultados que ",
-      resultsTitle2: "hablan por sí solos",
-      description: "Clientes satisfechos y proyectos exitosos. Vea lo que nos diferencia en el mercado de MicroSaaS.",
+      whyChoose: "Por qué RoVR",
+      resultsTitle1: "Lo que cambia cuando ",
+      resultsTitle2: "trabajamos juntos",
+      description: "Sin métricas inventadas, sin promesas milagrosas. Aquí sabes qué recibes, cuándo y por cuánto.",
       quote: <>
-        "No solo creamos soluciones. Creamos <span className="text-gradient font-semibold">productos digitales</span> que crecen, 
-        evolucionan y generan <span className="text-gradient font-semibold">valor continuamente</span>."
+        "No entregamos sitios bonitos. Entregamos <span className="text-gradient font-semibold">sitios que funcionan</span> — y <span className="text-gradient font-semibold">los cuidamos después</span>."
       </>,
       team: "EQUIPO ROVR",
-      testimonials: [
-        { quote: "RoVR transformó completamente nuestra operación. El sistema que desarrollaron redujo nuestro tiempo de procesamiento en un 70%.", author: "Carlos Silva", role: "CEO", rating: 5 },
-        { quote: "Profesionalismo e innovación definen al equipo RoVR. Nuestro MicroSaaS generó ROI positivo en el segundo mes.", author: "Ana Martins", role: "Fundadora", rating: 5 },
-        { quote: "Entrega rápida, código limpio y soporte excepcional. Lo recomiendo para cualquier empresa que quiera escalar.", author: "Pedro Costa", role: "CTO", rating: 5 },
-      ],
+      testimonials: [],
       qualities: [
-        { icon: Rocket, title: "Entrega Rápida", description: "Del concepto al deploy en semanas, no meses", highlight: "2-4 semanas" },
-        { icon: TrendingUp, title: "ROI Garantizado", description: "Proyectos enfocados en resultados medibles", highlight: "3x retorno" },
-        { icon: Shield, title: "Código Seguro", description: "Prácticas de seguridad enterprise desde el día 1", highlight: "99.9% uptime" },
-        { icon: Users, title: "Soporte Dedicado", description: "Equipo disponible para ajustes y evoluciones", highlight: "24/7 soporte" },
-        { icon: Zap, title: "Alto Rendimiento", description: "Sistemas optimizados para miles de usuarios", highlight: "<100ms latencia" },
-        { icon: CheckCircle, title: "Escalabilidad", description: "Arquitectura preparada para crecer contigo", highlight: "∞ usuarios" },
+        { icon: Rocket, title: "Entrega rápida", description: "Sitios en 7 días. Proyectos mayores en 2-3 semanas. Sin plazos elásticos.", highlight: "7-21 días" },
+        { icon: TrendingUp, title: "Riesgo cero", description: "Pagas solo después de ver y aprobar el resultado. Punto.", highlight: "Preview gratis" },
+        { icon: Shield, title: "Contrato formal", description: "Alcance, plazo y garantías por escrito. Nada cerrado solo en WhatsApp.", highlight: "100% formal" },
+        { icon: Users, title: "Hablas con quien lo hace", description: "Atención directa conmigo. Sin fila, sin tickets, sin bot.", highlight: "Directo" },
+        { icon: Zap, title: "Performance real", description: "Sitios rápidos, ligeros y listos para que Google los rankee.", highlight: "Lighthouse 90+" },
+        { icon: CheckCircle, title: "Seguimos después", description: "Soporte y ajustes mensuales opcionales. Nunca quedas a oscuras.", highlight: "Soporte activo" },
       ],
     },
   };
