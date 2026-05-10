@@ -107,16 +107,16 @@ const translations: Record<Language, Record<string, string>> = {
     "workwithus.cta": "Agendar Reunião",
     
     // Contact Section
-    "contactsection.tag": "Vamos criar algo incrível juntos",
-    "contactsection.title1": "Pronto para transformar",
-    "contactsection.title2": "sua ideia em realidade?",
-    "contactsection.description": "Seja você um empreendedor com uma visão inovadora ou uma empresa buscando expandir no mercado digital, a Revyra está pronta para tornar seu projeto realidade.",
-    "contactsection.cta": "Fale Conosco",
-    "contactsection.benefit1": "Resposta em 24h",
-    "contactsection.benefit2": "Consultoria gratuita",
-    "contactsection.benefit3": "NDA disponível",
+    "contactsection.tag": "Bora tirar do papel",
+    "contactsection.title1": "Pronto para colocar seu",
+    "contactsection.title2": "site no ar?",
+    "contactsection.description": "Conta o que você precisa. A gente desenha o preview gratuito e, se você aprovar, entrega em até 7 dias. Simples assim.",
+    "contactsection.cta": "Falar no WhatsApp",
+    "contactsection.benefit1": "Resposta no mesmo dia",
+    "contactsection.benefit2": "Diagnóstico gratuito",
+    "contactsection.benefit3": "NDA quando precisar",
     "contactsection.internal.title": "Serviços Internos",
-    "contactsection.internal.description": "Para assuntos internos e parcerias estratégicas",
+    "contactsection.internal.description": "Parcerias, consultoria e demandas B2B",
     
     // Contact Page
     "contact.title": "Fale Conosco",
@@ -160,8 +160,8 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.faq": "FAQ",
     "footer.workWithUs": "Trabalhe Conosco",
     "footer.aiAgents": "Agentes de IA",
-    "footer.description": "Transformamos ideias em soluções digitais escaláveis. Nossos produtos SaaS são desenvolvidos com tecnologia de ponta para ajudar seu negócio a crescer.",
-    "footer.madeWith": "Feito com ❤️ no Brasil",
+    "footer.description": "Sites, blogs e landing pages com preview grátis. Você só paga depois de aprovar — e a gente cuida do site depois que ele entra no ar.",
+    "footer.madeWith": "Feito no Brasil ❤️",
   },
   en: {
     // Header
@@ -242,16 +242,16 @@ const translations: Record<Language, Record<string, string>> = {
     "workwithus.cta": "Schedule Meeting",
     
     // Contact Section
-    "contactsection.tag": "Let's create something amazing together",
-    "contactsection.title1": "Ready to transform",
-    "contactsection.title2": "your idea into reality?",
-    "contactsection.description": "Whether you're an entrepreneur with an innovative vision or a company looking to expand in the digital market, Revyra is ready to make your project a reality.",
-    "contactsection.cta": "Contact Us",
-    "contactsection.benefit1": "24h Response",
-    "contactsection.benefit2": "Free consultation",
-    "contactsection.benefit3": "NDA available",
+    "contactsection.tag": "Let's get it shipped",
+    "contactsection.title1": "Ready to put your",
+    "contactsection.title2": "site live?",
+    "contactsection.description": "Tell us what you need. We design a free preview and, if you approve, ship it within 7 days. That simple.",
+    "contactsection.cta": "Chat on WhatsApp",
+    "contactsection.benefit1": "Same-day reply",
+    "contactsection.benefit2": "Free diagnosis",
+    "contactsection.benefit3": "NDA on request",
     "contactsection.internal.title": "Internal Services",
-    "contactsection.internal.description": "For internal matters and strategic partnerships",
+    "contactsection.internal.description": "Partnerships, consulting and B2B requests",
     
     // Contact Page
     "contact.title": "Contact Us",
@@ -295,8 +295,8 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.faq": "FAQ",
     "footer.workWithUs": "Work With Us",
     "footer.aiAgents": "AI Agents",
-    "footer.description": "We transform ideas into scalable digital solutions. Our SaaS products are developed with cutting-edge technology to help your business grow.",
-    "footer.madeWith": "Made with ❤️ in Brazil",
+    "footer.description": "Websites, blogs and landing pages with free preview. You only pay after you approve — and we take care of the site once it's live.",
+    "footer.madeWith": "Made in Brazil ❤️",
   },
   es: {
     // Header
@@ -377,16 +377,16 @@ const translations: Record<Language, Record<string, string>> = {
     "workwithus.cta": "Agendar Reunión",
     
     // Contact Section
-    "contactsection.tag": "Creemos algo increíble juntos",
-    "contactsection.title1": "¿Listo para transformar",
-    "contactsection.title2": "tu idea en realidad?",
-    "contactsection.description": "Ya seas un emprendedor con una visión innovadora o una empresa buscando expandirse en el mercado digital, Revyra está lista para hacer tu proyecto realidad.",
-    "contactsection.cta": "Contáctenos",
-    "contactsection.benefit1": "Respuesta en 24h",
-    "contactsection.benefit2": "Consultoría gratuita",
-    "contactsection.benefit3": "NDA disponible",
+    "contactsection.tag": "Vamos a sacarlo del papel",
+    "contactsection.title1": "¿Listo para poner tu",
+    "contactsection.title2": "sitio online?",
+    "contactsection.description": "Cuéntanos qué necesitas. Diseñamos el preview gratis y, si lo apruebas, lo entregamos en hasta 7 días. Así de simple.",
+    "contactsection.cta": "Hablar por WhatsApp",
+    "contactsection.benefit1": "Respuesta el mismo día",
+    "contactsection.benefit2": "Diagnóstico gratuito",
+    "contactsection.benefit3": "NDA cuando lo necesites",
     "contactsection.internal.title": "Servicios Internos",
-    "contactsection.internal.description": "Para asuntos internos y alianzas estratégicas",
+    "contactsection.internal.description": "Alianzas, consultoría y demandas B2B",
     
     // Contact Page
     "contact.title": "Contáctenos",
@@ -430,8 +430,8 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.faq": "FAQ",
     "footer.workWithUs": "Trabaja con Nosotros",
     "footer.aiAgents": "Agentes de IA",
-    "footer.description": "Transformamos ideas en soluciones digitales escalables. Nuestros productos SaaS están desarrollados con tecnología de punta para ayudar a tu negocio a crecer.",
-    "footer.madeWith": "Hecho con ❤️ en Brasil",
+    "footer.description": "Sitios, blogs y landing pages con preview gratis. Pagas solo después de aprobar — y cuidamos el sitio una vez que está online.",
+    "footer.madeWith": "Hecho en Brasil ❤️",
   },
 };
 
