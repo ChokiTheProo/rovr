@@ -6,6 +6,7 @@ import MobileMenu from "./MobileMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { prefetchRoute } from "@/lib/prefetch";
 import logoIcon from "@/assets/logo-icon.png";
 
 const Header = () => {
