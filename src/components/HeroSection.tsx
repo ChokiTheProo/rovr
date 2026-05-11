@@ -1,8 +1,7 @@
-import { Sparkles, MessageCircle, Star, ShieldCheck, Eye, Zap } from "lucide-react";
+import { Sparkles, MessageCircle, ShieldCheck, Eye, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import AnimatedShaderBackground from "./ui/animated-shader-background";
 
 const HeroSection = () => {
   const { language } = useLanguage();
