@@ -8,7 +8,11 @@ import cuidabemImg from "@/assets/project-cuidabem.png";
 import tratamentoImg from "@/assets/project-tratamento.png";
 import emagrioImg from "@/assets/project-emagrio.png";
 
-const MicroSaasSection = () => {
+interface MicroSaasSectionProps {
+  showHeader?: boolean;
+}
+
+const MicroSaasSection = ({ showHeader = true }: MicroSaasSectionProps) => {
   const { language } = useLanguage();
   const { ref, isInView } = useScrollAnimation();
 
