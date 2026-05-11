@@ -59,6 +59,9 @@ const Header = () => {
                     key={item.label}
                     to={item.href}
                     className={buttonClasses}
+                    onMouseEnter={() => prefetchRoute(item.href)}
+                    onFocus={() => prefetchRoute(item.href)}
+                    onTouchStart={() => prefetchRoute(item.href)}
                   >
                     <motion.span
                       initial={{ opacity: 0, y: -10 }}
