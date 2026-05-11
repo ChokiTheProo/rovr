@@ -124,38 +124,53 @@ const HeroSection = () => {
       </div>
 
       <motion.div
-        className="container mx-auto px-4 sm:px-6 py-8 md:py-20 relative z-10"
+        className="container mx-auto px-4 sm:px-6 py-8 md:py-16 relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
-          {/* LEFT — content */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-            {/* Badge */}
-            <motion.div
-              variants={itemVariants}
-              className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-5 sm:mb-6 max-w-full"
-              whileHover={{ scale: 1.05, borderColor: "hsl(var(--primary) / 0.5)" }}
-            >
-              <motion.div animate={{ rotate: 360 }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="flex-shrink-0">
-                <Sparkles className="w-4 h-4 text-primary" />
-              </motion.div>
-              <span className="text-xs sm:text-sm text-muted-foreground">{c.badge}</span>
+        {/* === MEGA HEADLINE BLOCK (Anton-style adapted to Orbitron + RoVR identity) === */}
+        <motion.div variants={itemVariants} className="max-w-[1400px] mx-auto mb-10 md:mb-14">
+          <div className="flex items-center gap-3 mb-6 sm:mb-8">
+            <motion.div animate={{ rotate: 360 }} transition={{ duration: 6, repeat: Infinity, ease: "linear" }}>
+              <Sparkles className="w-4 h-4 text-primary" />
             </motion.div>
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-muted-foreground">
+              {c.badge}
+            </span>
+          </div>
 
-            {/* Headline (h1 — main page heading) */}
-            <motion.h1 variants={itemVariants} className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-4 sm:mb-5 text-foreground">
-              <span>{c.headline1}</span>
-              <span className="text-gradient-accent">{c.headline2}</span>
-              <span>{c.headline3}</span>
-            </motion.h1>
+          <h1 className="heading-mega font-display font-black text-foreground leading-[0.9] tracking-tight">
+            <span className="block text-[14vw] sm:text-[13vw] lg:text-[12vw] xl:text-[11vw]">
+              {language === "pt" ? "Seu site" : language === "en" ? "Your site" : "Tu sitio"}
+            </span>
+            <span className="block text-outline text-[14vw] sm:text-[13vw] lg:text-[12vw] xl:text-[11vw]">
+              {language === "pt" ? "no ar em 7 dias" : language === "en" ? "live in 7 days" : "online en 7 días"}
+            </span>
+          </h1>
+        </motion.div>
 
-            {/* Description */}
-            <motion.p variants={itemVariants} className="text-foreground/80 text-sm sm:text-base md:text-lg max-w-xl mb-6 sm:mb-8 leading-relaxed">
-              {c.description}
-            </motion.p>
+        {/* === Bottom row: description (left) + arrow (right) === */}
+        <motion.div
+          variants={itemVariants}
+          className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-12"
+        >
+          <p className="text-muted-foreground text-sm sm:text-base max-w-xs uppercase tracking-wider leading-relaxed">
+            {c.description}
+          </p>
+          <button
+            onClick={() => scrollToSection("sobre")}
+            aria-label="Scroll down"
+            className="shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-primary/40 flex items-center justify-center hover:bg-primary/10 hover:border-primary transition-all duration-300 group"
+          >
+            <ArrowDown className="w-5 h-5 text-primary animate-arrow-bounce group-hover:text-accent transition-colors" strokeWidth={1.5} />
+          </button>
+        </motion.div>
 
+        {/* === CONTENT GRID (description detail + CTAs + stats) === */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
+          {/* LEFT — CTAs & trust */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             {/* Trust badges */}
             <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8">
               {trustBadges.map((b, i) => (
@@ -169,7 +184,6 @@ const HeroSection = () => {
               ))}
             </motion.div>
 
-            {/* CTA — WhatsApp */}
             <motion.div variants={itemVariants} className="w-full sm:w-auto">
               <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
                 <Button
