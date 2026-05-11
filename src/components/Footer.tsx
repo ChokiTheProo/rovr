@@ -22,13 +22,36 @@ const Footer = () => {
 
   return (
     <motion.footer 
-      className="relative z-10 py-12 border-t border-border/50 bg-card/30"
+      className="relative z-10 pt-20 md:pt-28 pb-10 border-t border-border/50 bg-card/40 overflow-hidden"
       ref={ref}
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 max-w-6xl">
+        {/* === Mega CTA: Let's Create === */}
+        <motion.div
+          className="mb-20 md:mb-28"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.7 }}
+        >
+          <h2 className="heading-mega font-display font-black text-foreground text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.85]">
+            <span className="block">
+              {language === "pt" ? "Vamos" : language === "en" ? "Let's" : "Vamos a"}
+            </span>
+            <span className="block text-gradient">
+              {language === "pt" ? "Criar." : language === "en" ? "Create." : "Crear."}
+            </span>
+          </h2>
+          <a
+            href="mailto:rovrbr@gmail.com"
+            className="inline-block mt-8 md:mt-10 font-display text-2xl sm:text-3xl md:text-4xl font-bold text-primary hover:text-accent transition-colors underline decoration-1 underline-offset-[8px] decoration-primary/50 hover:decoration-accent break-all"
+          >
+            rovrbr@gmail.com
+          </a>
+        </motion.div>
+
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8"
           variants={staggerContainer}
