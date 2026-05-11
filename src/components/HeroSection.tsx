@@ -1,4 +1,4 @@
-import { Sparkles, MessageCircle, ShieldCheck, Eye, Zap } from "lucide-react";
+import { Sparkles, MessageCircle, ShieldCheck, Eye, Zap, Briefcase, Star, CheckCircle2, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
