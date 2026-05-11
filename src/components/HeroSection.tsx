@@ -105,18 +105,18 @@ const HeroSection = () => {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
+      {/* Floating particles (reduced for performance) */}
+      <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-primary/20 rounded-full"
-            style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
-            animate={{ y: [0, -100, 0], opacity: [0, 1, 0], scale: [0.5, 1, 0.5] }}
+            className="absolute w-2 h-2 bg-primary/20 rounded-full will-change-transform"
+            style={{ left: `${(i * 17) % 100}%`, top: `${(i * 23) % 100}%` }}
+            animate={{ y: [0, -80, 0], opacity: [0, 1, 0] }}
             transition={{
-              duration: 4 + Math.random() * 4,
+              duration: 6 + i,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: i * 0.4,
               ease: "easeInOut",
             }}
           />
