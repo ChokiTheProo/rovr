@@ -12,9 +12,14 @@ const AnimatedShaderBackground = ({ className }: AnimatedShaderBackgroundProps) 
     const container = containerRef.current;
     if (!container) return;
 
+    // Skip heavy WebGL shader on small/mobile screens and when user prefers reduced motion
+    const isSmall = typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches;
+    const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (isSmall || prefersReducedMotion) return;
+
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true, powerPreference: "low-power" });
 
     const getSize = () => {
       const w = container.clientWidth || window.innerWidth;
@@ -23,7 +28,7 @@ const AnimatedShaderBackground = ({ className }: AnimatedShaderBackgroundProps) 
     };
 
     const { w, h } = getSize();
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1));
     renderer.setSize(w, h);
     container.appendChild(renderer.domElement);
 
