@@ -49,6 +49,7 @@ const App = () => (
               <Route path="/servicos-internos" element={<ServicosInternos />} />
               <Route path="/sites-blogs" element={<SitesBlogs />} />
               <Route path="/microsaas" element={<MicroSaas />} />
+              <Route path="/demo" element={<Demo />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
