@@ -92,84 +92,120 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section id="depoimentos" className="py-28 md:py-36 relative overflow-hidden">
-      {/* Decorative giant quote mark */}
-      <div
-        aria-hidden
-        className="absolute left-[5%] top-[10%] font-display font-black text-primary/[0.08] select-none pointer-events-none leading-none"
-        style={{ fontSize: "clamp(20rem, 40vw, 36rem)" }}
-      >
-        "
-      </div>
-
-      <div className="absolute inset-0 bg-gradient-radial opacity-30" />
-
-      <div className="container mx-auto px-6 max-w-6xl relative z-10">
-        {/* Label */}
-        <motion.div
-          className="mb-12 md:mb-16"
+    <section id="depoimentos" className="py-24 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-radial opacity-40" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <motion.div 
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-primary text-xs font-medium tracking-[0.3em] uppercase">
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">
             {t.whyChoose}
           </span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+            <span className="text-foreground">
+              {t.resultsTitle1}
+            </span>
+            <span className="text-gradient">
+              {t.resultsTitle2}
+            </span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            {t.description}
+          </p>
         </motion.div>
 
-        {/* === Massive uppercase quote === */}
-        <motion.blockquote
-          className="max-w-5xl"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: easeOut }}
-        >
-          <p className="heading-mega font-display font-black text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95]">
-            {t.quote}
-          </p>
-
-          {/* Bio row */}
-          <div className="flex items-center gap-4 mt-10 md:mt-14">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shrink-0 shadow-lg shadow-primary/30">
-              <span className="font-display text-2xl font-black text-primary-foreground">R</span>
-            </div>
-            <div>
-              <cite className="font-display font-bold text-lg md:text-xl not-italic text-foreground block">
-                {t.team}
-              </cite>
-              <span className="text-muted-foreground text-xs uppercase tracking-[0.25em]">
-                {t.resultsTitle2.trim()}
-              </span>
-            </div>
-          </div>
-        </motion.blockquote>
-
-        {/* Qualities grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10 mt-20 md:mt-28 pt-12 border-t border-border/40"
+        {/* Testimonials */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {t.qualities.map((q, index) => (
-            <motion.div key={index} variants={itemVariants} className="group">
-              <div className="flex items-center gap-3 mb-3">
-                <q.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
-                <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-bold">
-                  {q.highlight}
-                </span>
+          {t.testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="group relative p-8 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm hover:border-primary/50 transition-all duration-500"
+              whileHover={{ scale: 1.03 }}
+            >
+              {/* Quote marks */}
+              <div className="absolute top-4 right-4 font-display text-6xl text-primary/20 leading-none">"</div>
+              
+              {/* Stars */}
+              <div className="flex gap-1 mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 * i, duration: 0.3 }}
+                  >
+                    <Star className="w-5 h-5 fill-accent text-accent" />
+                  </motion.div>
+                ))}
               </div>
-              <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                {q.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {q.description}
+
+              {/* Quote */}
+              <p className="text-foreground text-lg leading-relaxed mb-6 relative z-10">
+                "{testimonial.quote}"
               </p>
+
+              {/* Author */}
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                  <span className="font-display text-lg font-bold text-primary-foreground">
+                    {testimonial.author.charAt(0)}
+                  </span>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">{testimonial.author}</p>
+                  <p className="text-muted-foreground text-sm">{testimonial.role}</p>
+                </div>
+              </div>
+
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* CTA Quote */}
+        <motion.div 
+          className="mt-20 max-w-4xl mx-auto text-center"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="p-10 rounded-3xl border border-primary/30 bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-sm relative overflow-hidden">
+            {/* Animated glow background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 animate-pulse" />
+            
+            <blockquote className="relative z-10">
+              <p className="text-2xl md:text-3xl font-light text-foreground italic mb-6">
+                {t.quote}
+              </p>
+              <cite className="text-primary font-display font-bold text-lg not-italic">
+                — {t.team}
+              </cite>
+            </blockquote>
+
+            {/* Floating particles */}
+            <div className="absolute top-4 left-4 w-3 h-3 rounded-full bg-primary/50 animate-float" />
+            <div className="absolute bottom-6 right-6 w-2 h-2 rounded-full bg-accent/50 animate-float" style={{ animationDelay: "1s" }} />
+            <div className="absolute top-1/2 right-10 w-1.5 h-1.5 rounded-full bg-primary/30 animate-float" style={{ animationDelay: "0.5s" }} />
+          </div>
         </motion.div>
       </div>
     </section>

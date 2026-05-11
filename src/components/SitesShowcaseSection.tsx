@@ -103,31 +103,30 @@ const SitesShowcaseSection = () => {
   const t = content[language];
 
   return (
-    <section id="sites-showcase" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
+    <section id="sites-showcase" className="py-24 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-gradient-radial opacity-20" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          className="mb-16 md:mb-20 max-w-6xl mx-auto"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-primary text-xs font-medium tracking-[0.3em] uppercase">
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">
             {t.tag}
           </span>
-          <h2 className="heading-mega font-display font-black mt-4 text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-foreground">
-            <span className="block">{t.title}</span>
-            <span className="block text-gradient">{t.titleAccent}</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+            {t.title}
+            <span className="text-gradient">{t.titleAccent}</span>
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg max-w-xl mt-6 uppercase tracking-wider">
+          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
             {t.description}
           </p>
         </motion.div>
 
-        {/* === Asymmetric 2-col masonry; even items get top offset === */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-6xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -140,40 +139,33 @@ const SitesShowcaseSection = () => {
               target="_blank"
               rel="noopener noreferrer"
               variants={staggerItem}
-              className={`group relative block overflow-hidden ${
-                index % 2 === 1 ? "md:mt-16" : ""
-              }`}
+              whileHover={{ y: -8 }}
+              className="group block rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
             >
-              {/* Image with 3:4 aspect */}
-              <div className="relative overflow-hidden rounded-2xl aspect-[4/5]">
+              <div className="relative aspect-video overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-[800ms] group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
-                {/* Hover overlay — primary 60% (adapted from Navy spec) */}
-                <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-background/95 backdrop-blur-md flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform duration-500">
-                    <span className="font-display text-xs uppercase tracking-[0.25em] font-bold text-foreground">
-                      View
-                    </span>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm">
+                    <ExternalLink className="w-4 h-4 text-primary-foreground" />
                   </div>
                 </div>
-                {/* Category tag */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-sm text-[10px] font-semibold text-primary border border-border/40 uppercase tracking-[0.2em]">
+                <div className="absolute top-3 left-3">
+                  <span className="px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-sm text-xs font-semibold text-primary border border-border/40 uppercase tracking-wider">
                     {getCategory(project.category)}
                   </span>
                 </div>
               </div>
-
-              {/* Title + description below */}
-              <div className="mt-5">
-                <h4 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+              <div className="p-5">
+                <h4 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
                   {project.title}
                 </h4>
-                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2 max-w-md">
+                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
                   {project.description[language]}
                 </p>
               </div>

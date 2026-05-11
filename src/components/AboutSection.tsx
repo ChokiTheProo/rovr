@@ -49,90 +49,81 @@ const AboutSection = () => {
   const t = content[language];
 
   return (
-    <section id="sobre" className="py-20 sm:py-24 md:py-32 relative" ref={ref}>
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-        {/* === 12-column split: label + list (4 cols) | heading + body (8 cols) === */}
-        <motion.div
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16"
+    <section id="sobre" className="py-16 sm:py-20 md:py-24 relative" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6">
+        <motion.div 
+          className="text-center mb-12 md:mb-16 max-w-3xl mx-auto"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInUp}
         >
-          {/* LEFT 1-4: Capabilities label + list with line-prefix */}
-          <div className="lg:col-span-4">
-            <span className="text-muted-foreground text-xs font-medium tracking-[0.3em] uppercase block mb-8">
-              {t.about}
-            </span>
-            <motion.ul
-              className="space-y-5"
-              variants={staggerContainer}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-            >
-              {t.features.map((feature, index) => (
-                <motion.li
-                  key={index}
-                  variants={staggerItem}
-                  className="group flex items-center gap-4 cursor-default"
-                >
-                  <span
-                    className="block h-px bg-primary/60 group-hover:bg-primary transition-all duration-500"
-                    style={{ width: "40px" }}
-                  >
-                    <span className="block h-full w-0 bg-primary group-hover:w-[24px] transition-all duration-500" />
-                  </span>
-                  <span className="flex items-center gap-2.5 text-foreground/90 group-hover:text-foreground transition-colors">
-                    <feature.icon className="w-4 h-4 text-primary shrink-0" strokeWidth={1.5} />
-                    <span className="text-sm md:text-base font-medium">{feature.title}</span>
-                  </span>
-                </motion.li>
-              ))}
-            </motion.ul>
-          </div>
+          <motion.span 
+            className="text-primary text-sm font-medium tracking-wider uppercase inline-block"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5 }}
+          >
+            {t.about}
+          </motion.span>
+          <motion.h2 
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 sm:mt-4 mb-4 sm:mb-6 leading-tight"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            {t.weAre}
+            <span className="text-gradient">RoVR</span>
+          </motion.h2>
+          <motion.p 
+            className="text-muted-foreground text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {t.description1}
+          </motion.p>
+          <motion.p 
+            className="text-muted-foreground text-base sm:text-lg max-w-3xl mx-auto leading-relaxed mt-3 sm:mt-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            {t.description2}
+          </motion.p>
+        </motion.div>
 
-          {/* RIGHT 5-12: Massive light-weight heading with italic accents */}
-          <div className="lg:col-span-8">
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light leading-[1.1] tracking-tight text-foreground">
-              {t.weAre}
-              <span className="text-gradient font-bold">RoVR</span>
-              <span className="text-muted-foreground italic font-light"> — </span>
-              <span className="text-foreground/90">
-                {language === "pt" ? "estúdio de sites e " : language === "en" ? "studio for sites and " : "estudio de sitios y "}
-                <em className="text-muted-foreground italic font-light">
-                  {language === "pt" ? "gestão digital" : language === "en" ? "digital management" : "gestión digital"}
-                </em>
-                .
-              </span>
-            </h2>
-
-            <div className="mt-8 space-y-4 max-w-2xl">
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-                {t.description1}
-              </p>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-                {t.description2}
-              </p>
-            </div>
-
-            {/* Feature descriptions revealed */}
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {t.features.map((feature, index) => (
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mt-12 pt-8 border-t border-border/40"
-              variants={staggerContainer}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
+              key={index}
+              variants={staggerItem}
+              whileHover={{ 
+                y: -10, 
+                scale: 1.02,
+                transition: { duration: 0.3 }
+              }}
+              className="group p-5 sm:p-6 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 hover:bg-card transition-all duration-300"
             >
-              {t.features.map((feature, index) => (
-                <motion.div key={index} variants={staggerItem}>
-                  <h3 className="text-foreground font-semibold text-sm uppercase tracking-wider mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {feature.description}
-                  </p>
-                </motion.div>
-              ))}
+              <motion.div 
+                className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4 group-hover:glow-primary transition-all duration-300"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
+                <feature.icon className="w-6 h-6 text-primary" />
+              </motion.div>
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {feature.description}
+              </p>
             </motion.div>
-          </div>
+          ))}
         </motion.div>
       </div>
     </section>
