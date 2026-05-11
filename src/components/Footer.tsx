@@ -178,11 +178,11 @@ const Footer = () => {
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <p className="text-muted-foreground text-sm">
-            © 2026 RoVR. {t("footer.rights")}
+          <p className="text-muted-foreground text-[11px] uppercase tracking-[0.25em]">
+            © 2026 RoVR — {t("footer.rights")}
           </p>
           <motion.p 
-            className="text-muted-foreground text-xs"
+            className="text-muted-foreground text-[11px] uppercase tracking-[0.25em]"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 3, repeat: Infinity }}
           >
