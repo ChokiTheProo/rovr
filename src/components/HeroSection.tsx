@@ -53,8 +53,8 @@ const HeroSection = () => {
   const c = content[language];
 
   const scrollToProjects = () => {
-    document.getElementById("projetos")?.scrollIntoView({ behavior: "smooth" }) ||
-      document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById("projetos") || document.getElementById("portfolio");
+    el?.scrollIntoView({ behavior: "smooth" });
   };
 
   const accents = [
