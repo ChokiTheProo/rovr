@@ -66,15 +66,15 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 px-4">
-      {/* Blurred pastel blobs */}
+      {/* Blurred brand blobs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
-          className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full blur-3xl"
-          style={{ backgroundColor: "#FFE4E1", opacity: 0.6 }}
+          className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full blur-3xl bg-primary/30"
+          style={{ opacity: 0.6 }}
         />
         <div
-          className="absolute -bottom-32 -right-32 w-[600px] h-[600px] rounded-full blur-3xl"
-          style={{ backgroundColor: "#E6E6FA", opacity: 0.6 }}
+          className="absolute -bottom-32 -right-32 w-[600px] h-[600px] rounded-full blur-3xl bg-accent/30"
+          style={{ opacity: 0.6 }}
         />
       </div>
 
@@ -124,12 +124,8 @@ const HeroSection = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold text-[#5C2A26] transition-shadow"
-            style={{
-              backgroundColor: "#FFB7B2",
-              boxShadow: "0 10px 30px -10px rgba(255, 183, 178, 0.7)",
-              fontFamily: "'Outfit', sans-serif",
-            }}
+            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold text-primary-foreground bg-gradient-to-r from-primary to-accent shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-shadow"
+            style={{ fontFamily: "'Outfit', sans-serif" }}
           >
             <MessageCircle className="w-5 h-5" />
             {c.ctaPrimary}
@@ -139,7 +135,7 @@ const HeroSection = () => {
             onClick={scrollToProjects}
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold bg-white text-stone-800 border border-stone-200 hover:border-stone-300 transition-all"
+            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold bg-background/60 backdrop-blur-sm text-foreground border border-border hover:border-primary/40 transition-all"
             style={{ fontFamily: "'Outfit', sans-serif" }}
           >
             {c.ctaSecondary}
@@ -155,7 +151,7 @@ const HeroSection = () => {
             return (
               <motion.div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl border border-white/40 bg-white/50 backdrop-blur-sm p-5 transition-all duration-500 hover:bg-white/70"
+                className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/40 backdrop-blur-md p-5 transition-all duration-500 hover:border-primary/30 hover:bg-card/60"
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
