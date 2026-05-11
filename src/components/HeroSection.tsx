@@ -1,8 +1,7 @@
-import { Sparkles, MessageCircle, Star, ShieldCheck, Eye, Zap } from "lucide-react";
+import { Sparkles, MessageCircle, ShieldCheck, Eye, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import AnimatedShaderBackground from "./ui/animated-shader-background";
 
 const HeroSection = () => {
   const { language } = useLanguage();
@@ -100,13 +99,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center pt-24 md:pt-20 pb-12 overflow-hidden">
-      {/* Animated Shader Background */}
-      <div className="absolute inset-0 opacity-60 mix-blend-screen">
-        <AnimatedShaderBackground />
-      </div>
-      {/* Soft overlay for legibility */}
-      <div className="absolute inset-0 bg-background/40" />
-      <div className="absolute inset-0 bg-gradient-radial opacity-30" />
       <motion.div
         className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl"
         animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
