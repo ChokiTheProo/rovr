@@ -1,21 +1,19 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
 
-import SitesShowcaseSection from "@/components/SitesShowcaseSection";
+const AboutSection = lazy(() => import("@/components/AboutSection"));
+const SitesShowcaseSection = lazy(() => import("@/components/SitesShowcaseSection"));
+const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
+const FAQSection = lazy(() => import("@/components/FAQSection"));
+const MarketingSection = lazy(() => import("@/components/MarketingSection"));
+const Footer = lazy(() => import("@/components/Footer"));
+const ProgressiveBlur = lazy(() => import("@/components/ProgressiveBlur"));
 
-import TestimonialsSection from "@/components/TestimonialsSection";
-import FAQSection from "@/components/FAQSection";
-import MarketingSection from "@/components/MarketingSection";
-
-
-
-import Footer from "@/components/Footer";
-import ProgressiveBlur from "@/components/ProgressiveBlur";
+const SectionFallback = () => <div className="h-32" />;
 
 const Index = () => {
   const location = useLocation();
@@ -41,18 +39,19 @@ const Index = () => {
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <HeroSection />
-          <AboutSection />
-          
-          <MarketingSection />
-          <SitesShowcaseSection />
-          
-          <TestimonialsSection />
-          <FAQSection />
-          
+          <Suspense fallback={<SectionFallback />}>
+            <AboutSection />
+            <MarketingSection />
+            <SitesShowcaseSection />
+            <TestimonialsSection />
+            <FAQSection />
+          </Suspense>
         </motion.main>
       </AnimatePresence>
-      <Footer />
-      <ProgressiveBlur />
+      <Suspense fallback={null}>
+        <Footer />
+        <ProgressiveBlur />
+      </Suspense>
     </div>
   );
 };

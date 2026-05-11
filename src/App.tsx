@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,20 +8,26 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieConsent from "@/components/CookieConsent";
 import Index from "./pages/Index";
-import Contato from "./pages/Contato";
-import Termos from "./pages/Termos";
-import Privacidade from "./pages/Privacidade";
-import FAQ from "./pages/FAQ";
-import TrabalheConosco from "./pages/TrabalheConosco";
-import NotFound from "./pages/NotFound";
-import AgentesIA from "./pages/AgentesIA";
-import ServicosInternos from "./pages/ServicosInternos";
-import SitesBlogs from "./pages/SitesBlogs";
-import MicroSaas from "./pages/MicroSaas";
+
+const Contato = lazy(() => import("./pages/Contato"));
+const Termos = lazy(() => import("./pages/Termos"));
+const Privacidade = lazy(() => import("./pages/Privacidade"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const TrabalheConosco = lazy(() => import("./pages/TrabalheConosco"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const AgentesIA = lazy(() => import("./pages/AgentesIA"));
+const ServicosInternos = lazy(() => import("./pages/ServicosInternos"));
+const SitesBlogs = lazy(() => import("./pages/SitesBlogs"));
+const MicroSaas = lazy(() => import("./pages/MicroSaas"));
 
 const queryClient = new QueryClient();
 
-// App component with proper provider hierarchy
+const PageFallback = () => (
+  <div className="min-h-screen bg-background flex items-center justify-center">
+    <div className="w-10 h-10 rounded-full border-2 border-primary/30 border-t-primary animate-spin" />
+  </div>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
@@ -28,20 +35,21 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/contato" element={<Contato />} />
-            <Route path="/termos" element={<Termos />} />
-            <Route path="/privacidade" element={<Privacidade />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
-            <Route path="/agentes-ia" element={<AgentesIA />} />
-            <Route path="/servicos-internos" element={<ServicosInternos />} />
-            <Route path="/sites-blogs" element={<SitesBlogs />} />
-            <Route path="/microsaas" element={<MicroSaas />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Suspense fallback={<PageFallback />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/contato" element={<Contato />} />
+              <Route path="/termos" element={<Termos />} />
+              <Route path="/privacidade" element={<Privacidade />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
+              <Route path="/agentes-ia" element={<AgentesIA />} />
+              <Route path="/servicos-internos" element={<ServicosInternos />} />
+              <Route path="/sites-blogs" element={<SitesBlogs />} />
+              <Route path="/microsaas" element={<MicroSaas />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
           <WhatsAppButton />
           <CookieConsent />
         </BrowserRouter>
