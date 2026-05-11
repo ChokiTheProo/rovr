@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
+import { GradientDots } from "@/components/ui/gradient-dots";
 import { sectionLoaders, prefetchAllRoutesIdle, prefetchHomeSectionsIdle } from "@/lib/prefetch";
 
 const AboutSection = lazy(sectionLoaders.AboutSection);
