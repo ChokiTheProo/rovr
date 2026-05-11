@@ -20,7 +20,6 @@ const ServicosInternos = lazy(routeLoaders["/servicos-internos"]);
 const SitesBlogs = lazy(routeLoaders["/sites-blogs"]);
 const MicroSaas = lazy(routeLoaders["/microsaas"]);
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Demo = lazy(() => import("./pages/Demo"));
 
 const queryClient = new QueryClient();
 
@@ -49,7 +48,6 @@ const App = () => (
               <Route path="/servicos-internos" element={<ServicosInternos />} />
               <Route path="/sites-blogs" element={<SitesBlogs />} />
               <Route path="/microsaas" element={<MicroSaas />} />
-              <Route path="/demo" element={<Demo />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
