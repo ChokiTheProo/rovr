@@ -36,7 +36,14 @@ const Index = () => {
   }, [location.state]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative">
+      {/* Full-page animated background */}
+      <div className="fixed inset-0 z-0 opacity-60 mix-blend-screen pointer-events-none">
+        <AnimatedShaderBackground />
+      </div>
+      {/* Legibility overlay */}
+      <div className="fixed inset-0 z-0 bg-background/40 pointer-events-none" />
+
       <Header />
       <AnimatePresence mode="wait">
         <motion.main
