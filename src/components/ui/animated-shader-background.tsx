@@ -108,12 +108,18 @@ const AnimatedShaderBackground = ({ className }: AnimatedShaderBackgroundProps) 
     scene.add(mesh);
 
     let frameId: number;
-    const animate = () => {
-      material.uniforms.iTime.value += 0.016;
-      renderer.render(scene, camera);
+    let lastTime = 0;
+    const targetInterval = 1000 / 30; // throttle to ~30fps
+    const animate = (now: number) => {
       frameId = requestAnimationFrame(animate);
+      if (document.hidden) return;
+      const delta = now - lastTime;
+      if (delta < targetInterval) return;
+      lastTime = now;
+      material.uniforms.iTime.value += 0.033;
+      renderer.render(scene, camera);
     };
-    animate();
+    frameId = requestAnimationFrame(animate);
 
     const handleResize = () => {
       const { w, h } = getSize();
