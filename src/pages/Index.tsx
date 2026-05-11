@@ -4,20 +4,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import { sectionLoaders, prefetchAllRoutesIdle, prefetchHomeSectionsIdle } from "@/lib/prefetch";
 
-const AboutSection = lazy(() => import("@/components/AboutSection"));
-const SitesShowcaseSection = lazy(() => import("@/components/SitesShowcaseSection"));
-const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
-const FAQSection = lazy(() => import("@/components/FAQSection"));
-const MarketingSection = lazy(() => import("@/components/MarketingSection"));
-const Footer = lazy(() => import("@/components/Footer"));
-const ProgressiveBlur = lazy(() => import("@/components/ProgressiveBlur"));
+const AboutSection = lazy(sectionLoaders.AboutSection);
+const SitesShowcaseSection = lazy(sectionLoaders.SitesShowcaseSection);
+const TestimonialsSection = lazy(sectionLoaders.TestimonialsSection);
+const FAQSection = lazy(sectionLoaders.FAQSection);
+const MarketingSection = lazy(sectionLoaders.MarketingSection);
+const Footer = lazy(sectionLoaders.Footer);
+const ProgressiveBlur = lazy(sectionLoaders.ProgressiveBlur);
 
 const SectionFallback = () => <div className="h-32" />;
 
 const Index = () => {
   const location = useLocation();
   const { language } = useLanguage();
+
+  useEffect(() => {
+    // Kick off prefetch of below-the-fold sections and other routes once the browser is idle.
+    prefetchHomeSectionsIdle();
+    prefetchAllRoutesIdle();
+  }, []);
 
   useEffect(() => {
     if (location.state?.scrollTo) {
