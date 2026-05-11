@@ -38,26 +38,7 @@ const Header = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group perspective-1000">
-              <div className="relative w-12 h-12 transform-style-3d transition-all duration-500 group-hover:rotate-y-12 group-hover:rotate-x-6 group-hover:scale-110">
-                {/* Glow effect behind */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary via-accent to-primary blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500" />
-                
-                {/* Main logo image */}
-                <img 
-                  src={logoIcon} 
-                  alt="RoVR Logo" 
-                  className="relative w-full h-full rounded-2xl shadow-lg shadow-primary/30 group-hover:shadow-xl group-hover:shadow-primary/50 transition-all duration-500"
-                />
-                
-                {/* Shine overlay on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                
-                {/* Floating particles effect */}
-                <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-accent opacity-0 group-hover:opacity-100 group-hover:animate-float transition-opacity duration-300" />
-                <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 group-hover:animate-float transition-opacity duration-500 delay-100" />
-              </div>
-              
+            <Link to="/" className="flex items-center group">
               <div className="flex flex-col transition-transform duration-300 group-hover:translate-x-1">
                 <span className="font-display text-xl font-bold tracking-tight">
                   <span className="text-foreground transition-colors duration-300 group-hover:text-primary">Ro</span>
