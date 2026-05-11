@@ -1,234 +1,184 @@
-import { Sparkles, MessageCircle, ShieldCheck, Eye, Zap, Briefcase, Star, CheckCircle2, Clock } from "lucide-react";
+import { MessageCircle, ArrowRight, Briefcase, Star, CheckCircle2, Clock } from "lucide-react";
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
   const { language } = useLanguage();
 
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   const content = {
     pt: {
-      badge: "Sites • Blogs • Landing Pages • Gestão Digital",
-      headline1: "Seu site no ar em ",
-      headline2: "7 dias",
-      headline3: ". Você só paga depois de aprovar.",
-      description:
-        "Criamos sites e landing pages que vendem enquanto você dorme. Veja o resultado antes de fechar — sem cartão, sem entrada, sem pegadinha.",
-      ctaPrimary: "Quero meu site no WhatsApp",
-      ctaSecondary: "Ver Projetos",
-      ctaTertiary: "Conhecer a RoVR",
-      trust1: "Preview grátis",
-      trust2: "Sem entrada",
-      trust3: "Entrega em 7 dias",
+      headlinePre: "Seu site no ar em",
+      headlineCursive: "7 dias",
+      headlinePost: "— e você só paga depois de aprovar.",
+      sub: "Criamos sites e landing pages que vendem enquanto você dorme. Veja o resultado antes de fechar.",
+      ctaPrimary: "Falar no WhatsApp",
+      ctaSecondary: "Ver projetos",
       stats: [
         { value: "+10", label: "Projetos entregues", category: "Portfolio" },
         { value: "5.0", label: "Avaliação dos clientes", category: "Feedback" },
         { value: "100%", label: "Aprovação no preview", category: "Qualidade" },
         { value: "7d", label: "Prazo médio", category: "Eficiência" },
       ],
-      whatsapp: "Fale Conosco",
     },
     en: {
-      badge: "Websites • Blogs • Landing Pages • Digital Management",
-      headline1: "Your site live in ",
-      headline2: "7 days",
-      headline3: ". Pay only after you approve.",
-      description:
-        "We build websites and landing pages that sell while you sleep. See the result before you commit — no card, no deposit, no catch.",
-      ctaPrimary: "Get my site on WhatsApp",
-      ctaSecondary: "View Projects",
-      ctaTertiary: "About RoVR",
-      trust1: "Free preview",
-      trust2: "No deposit",
-      trust3: "7-day delivery",
+      headlinePre: "Your site live in",
+      headlineCursive: "7 days",
+      headlinePost: "— pay only after you approve.",
+      sub: "We build websites and landing pages that sell while you sleep. See the result before you commit.",
+      ctaPrimary: "Chat on WhatsApp",
+      ctaSecondary: "View projects",
       stats: [
         { value: "+10", label: "Projects delivered", category: "Portfolio" },
         { value: "5.0", label: "Client rating", category: "Feedback" },
         { value: "100%", label: "Preview approval", category: "Quality" },
         { value: "7d", label: "Avg. delivery", category: "Efficiency" },
       ],
-      whatsapp: "Contact Us",
     },
     es: {
-      badge: "Sitios • Blogs • Landing Pages • Gestión Digital",
-      headline1: "Tu sitio online en ",
-      headline2: "7 días",
-      headline3: ". Pagas solo después de aprobar.",
-      description:
-        "Creamos sitios y landing pages que venden mientras duermes. Ves el resultado antes de cerrar — sin tarjeta, sin entrada, sin trampa.",
-      ctaPrimary: "Quiero mi sitio por WhatsApp",
-      ctaSecondary: "Ver Proyectos",
-      ctaTertiary: "Conocer RoVR",
-      trust1: "Preview gratis",
-      trust2: "Sin entrada",
-      trust3: "Entrega en 7 días",
+      headlinePre: "Tu sitio online en",
+      headlineCursive: "7 días",
+      headlinePost: "— pagas solo después de aprobar.",
+      sub: "Creamos sitios y landing pages que venden mientras duermes. Ves el resultado antes de cerrar.",
+      ctaPrimary: "Hablar por WhatsApp",
+      ctaSecondary: "Ver proyectos",
       stats: [
         { value: "+10", label: "Proyectos entregados", category: "Portfolio" },
-        { value: "5.0", label: "Calificación de clientes", category: "Feedback" },
+        { value: "5.0", label: "Calificación", category: "Feedback" },
         { value: "100%", label: "Aprobación en preview", category: "Calidad" },
         { value: "7d", label: "Plazo medio", category: "Eficiencia" },
       ],
-      whatsapp: "Contáctanos",
     },
   };
 
   const c = content[language];
 
-  const trustBadges = [
-    { icon: ShieldCheck, text: c.trust1 },
-    { icon: Eye, text: c.trust2 },
-    { icon: Zap, text: c.trust3 },
+  const scrollToProjects = () => {
+    const el = document.getElementById("projetos") || document.getElementById("portfolio");
+    el?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const accents = [
+    { icon: Briefcase, iconBg: "bg-purple-500/10", iconText: "text-purple-400", labelText: "text-purple-400/80" },
+    { icon: Star, iconBg: "bg-blue-500/10", iconText: "text-blue-400", labelText: "text-blue-400/80" },
+    { icon: CheckCircle2, iconBg: "bg-emerald-500/10", iconText: "text-emerald-400", labelText: "text-emerald-400/80" },
+    { icon: Clock, iconBg: "bg-indigo-500/10", iconText: "text-indigo-400", labelText: "text-indigo-400/80" },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.15 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40, scale: 0.96 },
-    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7 } },
-  };
-
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center pt-24 md:pt-20 pb-12 overflow-hidden">
-      <motion.div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* Floating particles (reduced for performance) */}
-      <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-primary/20 rounded-full will-change-transform"
-            style={{ left: `${(i * 17) % 100}%`, top: `${(i * 23) % 100}%` }}
-            animate={{ y: [0, -80, 0], opacity: [0, 1, 0] }}
-            transition={{
-              duration: 6 + i,
-              repeat: Infinity,
-              delay: i * 0.4,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 px-4">
+      {/* Blurred pastel blobs */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full blur-3xl"
+          style={{ backgroundColor: "#FFE4E1", opacity: 0.6 }}
+        />
+        <div
+          className="absolute -bottom-32 -right-32 w-[600px] h-[600px] rounded-full blur-3xl"
+          style={{ backgroundColor: "#E6E6FA", opacity: 0.6 }}
+        />
       </div>
 
       <motion.div
-        className="container mx-auto px-4 sm:px-6 py-8 md:py-20 relative z-10"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+        className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
       >
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
-          {/* LEFT — content */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-            {/* Badge */}
-            <motion.div
-              variants={itemVariants}
-              className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-border/50 bg-secondary/50 backdrop-blur-sm mb-5 sm:mb-6 max-w-full"
-              whileHover={{ scale: 1.05, borderColor: "hsl(var(--primary) / 0.5)" }}
-            >
-              <motion.div animate={{ rotate: 360 }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="flex-shrink-0">
-                <Sparkles className="w-4 h-4 text-primary" />
-              </motion.div>
-              <span className="text-xs sm:text-sm text-muted-foreground">{c.badge}</span>
-            </motion.div>
+        {/* Headline */}
+        <h1
+          className="font-bold tracking-tight text-foreground"
+          style={{
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: "clamp(2.5rem, 7vw, 72px)",
+            lineHeight: 1.05,
+          }}
+        >
+          {c.headlinePre}{" "}
+          <span
+            className="inline-block align-baseline text-gradient-accent"
+            style={{
+              fontFamily: "'Caveat', cursive",
+              fontWeight: 700,
+              fontSize: "1.15em",
+              lineHeight: 1,
+            }}
+          >
+            {c.headlineCursive}
+          </span>{" "}
+          {c.headlinePost}
+        </h1>
 
-            {/* Headline (h1 — main page heading) */}
-            <motion.h1 variants={itemVariants} className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-4 sm:mb-5 text-foreground">
-              <span>{c.headline1}</span>
-              <span className="text-gradient-accent">{c.headline2}</span>
-              <span>{c.headline3}</span>
-            </motion.h1>
+        {/* Sub-headline */}
+        <p
+          className="mt-6 text-base sm:text-lg text-foreground/75 leading-relaxed"
+          style={{ maxWidth: "500px", fontFamily: "'Outfit', sans-serif" }}
+        >
+          {c.sub}
+        </p>
 
-            {/* Description */}
-            <motion.p variants={itemVariants} className="text-foreground/80 text-sm sm:text-base md:text-lg max-w-xl mb-6 sm:mb-8 leading-relaxed">
-              {c.description}
-            </motion.p>
+        {/* Dual CTAs */}
+        <div className="mt-9 flex flex-col sm:flex-row items-center gap-3">
+          <motion.a
+            href="https://web.whatsapp.com/send?phone=5554991710543"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.03, y: -1 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold text-[#5C2A26] transition-shadow"
+            style={{
+              backgroundColor: "#FFB7B2",
+              boxShadow: "0 10px 30px -10px rgba(255, 183, 178, 0.7)",
+              fontFamily: "'Outfit', sans-serif",
+            }}
+          >
+            <MessageCircle className="w-5 h-5" />
+            {c.ctaPrimary}
+          </motion.a>
 
-            {/* Trust badges */}
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8">
-              {trustBadges.map((b, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs text-foreground"
-                >
-                  <b.icon className="w-3.5 h-3.5 text-primary" />
-                  <span className="font-medium">{b.text}</span>
-                </div>
-              ))}
-            </motion.div>
+          <motion.button
+            onClick={scrollToProjects}
+            whileHover={{ scale: 1.03, y: -1 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold bg-white text-stone-800 border border-stone-200 hover:border-stone-300 transition-all"
+            style={{ fontFamily: "'Outfit', sans-serif" }}
+          >
+            {c.ctaSecondary}
+            <ArrowRight className="w-4 h-4" />
+          </motion.button>
+        </div>
 
-            {/* CTA — WhatsApp */}
-            <motion.div variants={itemVariants} className="w-full sm:w-auto">
-              <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  asChild
-                  className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground font-semibold rounded-xl px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg glow-primary transition-all duration-300"
-                >
-                  <a
-                    href="https://web.whatsapp.com/send?phone=5554991710543"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <MessageCircle className="w-5 h-5 mr-2" />
-                    {c.ctaPrimary}
-                  </a>
-                </Button>
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* RIGHT — Stats grid (Midnight Ethereal) */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full">
-            {(() => {
-              const accents = [
-                { icon: Briefcase, ring: "hover:border-purple-500/40", shadow: "hover:shadow-[0_0_40px_-10px_rgba(168,85,247,0.35)]", glow: "bg-purple-600/10 group-hover:bg-purple-500/20", iconBg: "bg-purple-500/10", iconText: "text-purple-400", labelText: "text-purple-400/80" },
-                { icon: Star, ring: "hover:border-blue-500/40", shadow: "hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.35)]", glow: "bg-blue-600/10 group-hover:bg-blue-500/20", iconBg: "bg-blue-500/10", iconText: "text-blue-400", labelText: "text-blue-400/80" },
-                { icon: CheckCircle2, ring: "hover:border-emerald-500/40", shadow: "hover:shadow-[0_0_40px_-10px_rgba(16,185,129,0.35)]", glow: "bg-emerald-600/10 group-hover:bg-emerald-500/20", iconBg: "bg-emerald-500/10", iconText: "text-emerald-400", labelText: "text-emerald-400/80" },
-                { icon: Clock, ring: "hover:border-indigo-500/40", shadow: "hover:shadow-[0_0_40px_-10px_rgba(99,102,241,0.35)]", glow: "bg-indigo-600/10 group-hover:bg-indigo-500/20", iconBg: "bg-indigo-500/10", iconText: "text-indigo-400", labelText: "text-indigo-400/80" },
-              ];
-              return c.stats.map((stat, index) => {
-                const a = accents[index];
-                const Icon = a.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    className={`group relative overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br from-white/[0.05] to-transparent p-6 sm:p-7 transition-all duration-500 ${a.ring} ${a.shadow}`}
-                    whileHover={{ y: -4 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <div className={`absolute -right-4 -top-4 h-24 w-24 rounded-full blur-2xl transition-all ${a.glow}`} />
-                    <div className="relative flex flex-col gap-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className={`p-2 rounded-lg ${a.iconBg}`}>
-                          <Icon className={`w-4 h-4 ${a.iconText}`} strokeWidth={1.75} />
-                        </div>
-                        <span className={`text-[10px] uppercase tracking-[0.2em] font-bold ${a.labelText}`}>
-                          {stat.category}
-                        </span>
-                      </div>
-                      <div className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-foreground leading-none">
-                        {stat.value}
-                      </div>
-                      <div className="text-sm text-muted-foreground font-light mt-1">{stat.label}</div>
+        {/* Stats grid (centralizado abaixo dos CTAs) */}
+        <div className="mt-16 w-full grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl">
+          {c.stats.map((stat, index) => {
+            const a = accents[index];
+            const Icon = a.icon;
+            return (
+              <motion.div
+                key={index}
+                className="group relative overflow-hidden rounded-2xl border border-white/40 bg-white/50 backdrop-blur-sm p-5 transition-all duration-500 hover:bg-white/70"
+                whileHover={{ y: -4 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="relative flex flex-col gap-1 text-left">
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className={`p-1.5 rounded-lg ${a.iconBg}`}>
+                      <Icon className={`w-3.5 h-3.5 ${a.iconText}`} strokeWidth={1.75} />
                     </div>
-                  </motion.div>
-                );
-              });
-            })()}
-          </motion.div>
+                    <span className={`text-[10px] uppercase tracking-[0.2em] font-bold ${a.labelText}`}>
+                      {stat.category}
+                    </span>
+                  </div>
+                  <div
+                    className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground leading-none"
+                    style={{ fontFamily: "'Outfit', sans-serif" }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.div>
     </section>
