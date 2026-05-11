@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import useScrollAnimation, { staggerContainer, staggerItem } from "@/hooks/useScrollAnimation";
+
+const ctaLabel = {
+  pt: "Ver projeto",
+  en: "View project",
+  es: "Ver proyecto",
+};
 
 const siteProjects = [
   {
