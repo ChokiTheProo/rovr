@@ -1,4 +1,4 @@
-import { Sparkles, MessageCircle, ShieldCheck, Eye, Zap } from "lucide-react";
+import { Sparkles, MessageCircle, ShieldCheck, Eye, Zap, Briefcase, Star, CheckCircle2, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -25,10 +25,10 @@ const HeroSection = () => {
       trust2: "Sem entrada",
       trust3: "Entrega em 7 dias",
       stats: [
-        { value: "+10", label: "Projetos entregues" },
-        { value: "5.0", label: "Avaliação dos clientes" },
-        { value: "100%", label: "Aprovação no preview" },
-        { value: "7d", label: "Prazo médio" },
+        { value: "+10", label: "Projetos entregues", category: "Portfolio" },
+        { value: "5.0", label: "Avaliação dos clientes", category: "Feedback" },
+        { value: "100%", label: "Aprovação no preview", category: "Qualidade" },
+        { value: "7d", label: "Prazo médio", category: "Eficiência" },
       ],
       whatsapp: "Fale Conosco",
     },
@@ -46,10 +46,10 @@ const HeroSection = () => {
       trust2: "No deposit",
       trust3: "7-day delivery",
       stats: [
-        { value: "+10", label: "Projects delivered" },
-        { value: "5.0", label: "Client rating" },
-        { value: "100%", label: "Preview approval" },
-        { value: "7d", label: "Avg. delivery" },
+        { value: "+10", label: "Projects delivered", category: "Portfolio" },
+        { value: "5.0", label: "Client rating", category: "Feedback" },
+        { value: "100%", label: "Preview approval", category: "Quality" },
+        { value: "7d", label: "Avg. delivery", category: "Efficiency" },
       ],
       whatsapp: "Contact Us",
     },
@@ -67,10 +67,10 @@ const HeroSection = () => {
       trust2: "Sin entrada",
       trust3: "Entrega en 7 días",
       stats: [
-        { value: "+10", label: "Proyectos entregados" },
-        { value: "5.0", label: "Calificación de clientes" },
-        { value: "100%", label: "Aprobación en preview" },
-        { value: "7d", label: "Plazo medio" },
+        { value: "+10", label: "Proyectos entregados", category: "Portfolio" },
+        { value: "5.0", label: "Calificación de clientes", category: "Feedback" },
+        { value: "100%", label: "Aprobación en preview", category: "Calidad" },
+        { value: "7d", label: "Plazo medio", category: "Eficiencia" },
       ],
       whatsapp: "Contáctanos",
     },
@@ -190,21 +190,44 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* RIGHT — Stats grid (Turing-style) */}
-          <motion.div variants={itemVariants} className="grid grid-cols-2 gap-6 sm:gap-8 lg:gap-10 w-full">
-            {c.stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                className="relative p-6 sm:p-8 rounded-2xl border border-border/40 bg-card/30 backdrop-blur-md hover:border-primary/40 transition-colors"
-                whileHover={{ y: -6, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gradient mb-2 leading-none">
-                  {stat.value}
-                </div>
-                <div className="text-foreground/75 text-xs sm:text-sm md:text-base">{stat.label}</div>
-              </motion.div>
-            ))}
+          {/* RIGHT — Stats grid (Midnight Ethereal) */}
+          <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full">
+            {(() => {
+              const accents = [
+                { icon: Briefcase, ring: "hover:border-purple-500/40", shadow: "hover:shadow-[0_0_40px_-10px_rgba(168,85,247,0.35)]", glow: "bg-purple-600/10 group-hover:bg-purple-500/20", iconBg: "bg-purple-500/10", iconText: "text-purple-400", labelText: "text-purple-400/80" },
+                { icon: Star, ring: "hover:border-blue-500/40", shadow: "hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.35)]", glow: "bg-blue-600/10 group-hover:bg-blue-500/20", iconBg: "bg-blue-500/10", iconText: "text-blue-400", labelText: "text-blue-400/80" },
+                { icon: CheckCircle2, ring: "hover:border-emerald-500/40", shadow: "hover:shadow-[0_0_40px_-10px_rgba(16,185,129,0.35)]", glow: "bg-emerald-600/10 group-hover:bg-emerald-500/20", iconBg: "bg-emerald-500/10", iconText: "text-emerald-400", labelText: "text-emerald-400/80" },
+                { icon: Clock, ring: "hover:border-indigo-500/40", shadow: "hover:shadow-[0_0_40px_-10px_rgba(99,102,241,0.35)]", glow: "bg-indigo-600/10 group-hover:bg-indigo-500/20", iconBg: "bg-indigo-500/10", iconText: "text-indigo-400", labelText: "text-indigo-400/80" },
+              ];
+              return c.stats.map((stat, index) => {
+                const a = accents[index];
+                const Icon = a.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    className={`group relative overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br from-white/[0.05] to-transparent p-6 sm:p-7 transition-all duration-500 ${a.ring} ${a.shadow}`}
+                    whileHover={{ y: -4 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <div className={`absolute -right-4 -top-4 h-24 w-24 rounded-full blur-2xl transition-all ${a.glow}`} />
+                    <div className="relative flex flex-col gap-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className={`p-2 rounded-lg ${a.iconBg}`}>
+                          <Icon className={`w-4 h-4 ${a.iconText}`} strokeWidth={1.75} />
+                        </div>
+                        <span className={`text-[10px] uppercase tracking-[0.2em] font-bold ${a.labelText}`}>
+                          {stat.category}
+                        </span>
+                      </div>
+                      <div className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-foreground leading-none">
+                        {stat.value}
+                      </div>
+                      <div className="text-sm text-muted-foreground font-light mt-1">{stat.label}</div>
+                    </div>
+                  </motion.div>
+                );
+              });
+            })()}
           </motion.div>
         </div>
       </motion.div>
