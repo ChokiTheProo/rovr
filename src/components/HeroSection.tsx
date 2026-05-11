@@ -66,15 +66,15 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 px-4">
-      {/* Blurred pastel blobs */}
+      {/* Blurred brand blobs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
-          className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full blur-3xl"
-          style={{ backgroundColor: "#FFE4E1", opacity: 0.6 }}
+          className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full blur-3xl bg-primary/30"
+          style={{ opacity: 0.6 }}
         />
         <div
-          className="absolute -bottom-32 -right-32 w-[600px] h-[600px] rounded-full blur-3xl"
-          style={{ backgroundColor: "#E6E6FA", opacity: 0.6 }}
+          className="absolute -bottom-32 -right-32 w-[600px] h-[600px] rounded-full blur-3xl bg-accent/30"
+          style={{ opacity: 0.6 }}
         />
       </div>
 
