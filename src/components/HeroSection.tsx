@@ -151,7 +151,7 @@ const HeroSection = () => {
             return (
               <motion.div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl border border-white/40 bg-white/50 backdrop-blur-sm p-5 transition-all duration-500 hover:bg-white/70"
+                className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/40 backdrop-blur-md p-5 transition-all duration-500 hover:border-primary/30 hover:bg-card/60"
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
