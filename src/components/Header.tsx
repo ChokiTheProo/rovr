@@ -92,7 +92,12 @@ const Header = () => {
             <div className="hidden md:flex items-center gap-3">
               <ThemeSwitcher />
               <LanguageSwitcher />
-              <Link to="/contato">
+              <Link
+                to="/contato"
+                onMouseEnter={() => prefetchRoute("/contato")}
+                onFocus={() => prefetchRoute("/contato")}
+                onTouchStart={() => prefetchRoute("/contato")}
+              >
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg px-6 glow-primary">
                   {t("nav.contact")}
                 </Button>
