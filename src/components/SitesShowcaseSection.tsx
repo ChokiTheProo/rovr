@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import useScrollAnimation, { staggerContainer, staggerItem } from "@/hooks/useScrollAnimation";
+
+const ctaLabel = {
+  pt: "Ver projeto",
+  en: "View project",
+  es: "Ver proyecto",
+};
 
 const siteProjects = [
   {
@@ -140,7 +146,7 @@ const SitesShowcaseSection = () => {
               rel="noopener noreferrer"
               variants={staggerItem}
               whileHover={{ y: -8 }}
-              className="group block rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
+              className="group flex flex-col rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm overflow-hidden hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500"
             >
               <div className="relative aspect-video overflow-hidden">
                 <img
@@ -149,25 +155,28 @@ const SitesShowcaseSection = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm">
-                    <ExternalLink className="w-4 h-4 text-primary-foreground" />
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
                 <div className="absolute top-3 left-3">
-                  <span className="px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-sm text-xs font-semibold text-primary border border-border/40 uppercase tracking-wider">
+                  <span className="px-3 py-1.5 rounded-full bg-background/70 backdrop-blur-md text-[10px] font-semibold text-primary border border-primary/30 uppercase tracking-[0.15em] shadow-lg shadow-primary/10">
                     {getCategory(project.category)}
                   </span>
                 </div>
               </div>
-              <div className="p-5">
-                <h4 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
+              <div className="flex flex-col flex-1 p-5">
+                <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                   {project.title}
                 </h4>
-                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2 mb-5">
                   {project.description[language]}
                 </p>
+                <div className="mt-auto pt-4 border-t border-border/30">
+                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                    <span>{ctaLabel[language]}</span>
+                    <span className="relative inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 group-hover:scale-110 group-hover:shadow-primary/50">
+                      <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:rotate-45" />
+                    </span>
+                  </div>
+                </div>
               </div>
             </motion.a>
           ))}
