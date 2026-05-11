@@ -20,6 +20,7 @@ const ServicosInternos = lazy(routeLoaders["/servicos-internos"]);
 const SitesBlogs = lazy(routeLoaders["/sites-blogs"]);
 const MicroSaas = lazy(routeLoaders["/microsaas"]);
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Demo = lazy(() => import("./pages/Demo"));
 
 const queryClient = new QueryClient();
 
