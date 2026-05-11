@@ -207,10 +207,10 @@ const HeroSection = () => {
                 whileHover={{ y: -6, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-gradient mb-2 leading-none">
+                <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gradient mb-2 leading-none">
                   {stat.value}
                 </div>
-                <div className="text-muted-foreground text-sm md:text-base">{stat.label}</div>
+                <div className="text-foreground/75 text-xs sm:text-sm md:text-base">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
