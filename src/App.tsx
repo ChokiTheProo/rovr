@@ -8,17 +8,18 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieConsent from "@/components/CookieConsent";
 import Index from "./pages/Index";
+import { routeLoaders } from "@/lib/prefetch";
 
-const Contato = lazy(() => import("./pages/Contato"));
-const Termos = lazy(() => import("./pages/Termos"));
-const Privacidade = lazy(() => import("./pages/Privacidade"));
-const FAQ = lazy(() => import("./pages/FAQ"));
-const TrabalheConosco = lazy(() => import("./pages/TrabalheConosco"));
+const Contato = lazy(routeLoaders["/contato"]);
+const Termos = lazy(routeLoaders["/termos"]);
+const Privacidade = lazy(routeLoaders["/privacidade"]);
+const FAQ = lazy(routeLoaders["/faq"]);
+const TrabalheConosco = lazy(routeLoaders["/trabalhe-conosco"]);
+const AgentesIA = lazy(routeLoaders["/agentes-ia"]);
+const ServicosInternos = lazy(routeLoaders["/servicos-internos"]);
+const SitesBlogs = lazy(routeLoaders["/sites-blogs"]);
+const MicroSaas = lazy(routeLoaders["/microsaas"]);
 const NotFound = lazy(() => import("./pages/NotFound"));
-const AgentesIA = lazy(() => import("./pages/AgentesIA"));
-const ServicosInternos = lazy(() => import("./pages/ServicosInternos"));
-const SitesBlogs = lazy(() => import("./pages/SitesBlogs"));
-const MicroSaas = lazy(() => import("./pages/MicroSaas"));
 
 const queryClient = new QueryClient();
 

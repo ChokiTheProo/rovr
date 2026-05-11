@@ -6,6 +6,7 @@ import MobileMenu from "./MobileMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { prefetchRoute } from "@/lib/prefetch";
 import logoIcon from "@/assets/logo-icon.png";
 
 const Header = () => {
@@ -58,6 +59,9 @@ const Header = () => {
                     key={item.label}
                     to={item.href}
                     className={buttonClasses}
+                    onMouseEnter={() => prefetchRoute(item.href)}
+                    onFocus={() => prefetchRoute(item.href)}
+                    onTouchStart={() => prefetchRoute(item.href)}
                   >
                     <motion.span
                       initial={{ opacity: 0, y: -10 }}
@@ -88,7 +92,12 @@ const Header = () => {
             <div className="hidden md:flex items-center gap-3">
               <ThemeSwitcher />
               <LanguageSwitcher />
-              <Link to="/contato">
+              <Link
+                to="/contato"
+                onMouseEnter={() => prefetchRoute("/contato")}
+                onFocus={() => prefetchRoute("/contato")}
+                onTouchStart={() => prefetchRoute("/contato")}
+              >
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg px-6 glow-primary">
                   {t("nav.contact")}
                 </Button>
