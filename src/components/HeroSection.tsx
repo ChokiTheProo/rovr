@@ -124,12 +124,8 @@ const HeroSection = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold text-[#5C2A26] transition-shadow"
-            style={{
-              backgroundColor: "#FFB7B2",
-              boxShadow: "0 10px 30px -10px rgba(255, 183, 178, 0.7)",
-              fontFamily: "'Outfit', sans-serif",
-            }}
+            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold text-primary-foreground bg-gradient-to-r from-primary to-accent shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-shadow"
+            style={{ fontFamily: "'Outfit', sans-serif" }}
           >
             <MessageCircle className="w-5 h-5" />
             {c.ctaPrimary}
@@ -139,7 +135,7 @@ const HeroSection = () => {
             onClick={scrollToProjects}
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold bg-white text-stone-800 border border-stone-200 hover:border-stone-300 transition-all"
+            className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold bg-background/60 backdrop-blur-sm text-foreground border border-border hover:border-primary/40 transition-all"
             style={{ fontFamily: "'Outfit', sans-serif" }}
           >
             {c.ctaSecondary}
