@@ -81,7 +81,7 @@ const MicroSaas = () => {
             </div>
           </section>
 
-          <MicroSaasSection />
+          <MicroSaasSection showHeader={false} />
         </motion.main>
       </AnimatePresence>
       <Footer />
