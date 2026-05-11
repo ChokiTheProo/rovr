@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
+import { GradientDots } from "@/components/ui/gradient-dots";
 import { sectionLoaders, prefetchAllRoutesIdle, prefetchHomeSectionsIdle } from "@/lib/prefetch";
 
 const AboutSection = lazy(sectionLoaders.AboutSection);
@@ -37,12 +37,19 @@ const Index = () => {
 
   return (
     <div className="min-h-screen relative">
-      {/* Full-page animated background */}
-      <div className="fixed inset-0 z-0 opacity-60 mix-blend-screen pointer-events-none">
-        <AnimatedShaderBackground />
+      {/* Full-page animated gradient dots background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <GradientDots
+          backgroundColor="hsl(var(--background))"
+          dotSize={8}
+          spacing={12}
+          duration={40}
+          colorCycleDuration={10}
+          className="opacity-50"
+        />
       </div>
       {/* Legibility overlay */}
-      <div className="fixed inset-0 z-0 bg-background/40 pointer-events-none" />
+      <div className="fixed inset-0 z-0 bg-background/50 pointer-events-none" />
 
       <Header />
       <AnimatePresence mode="wait">
